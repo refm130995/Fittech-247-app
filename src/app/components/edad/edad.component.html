@@ -1,0 +1,20 @@
+<h2 class="animated fadeInLeft delay-1s">¿Cúal es tu edad?</h2>
+<ion-item lines="none" class="animated fadeInLeft delay-1s" >
+  <ion-label style="font-size: 22px;">Mi edad</ion-label>
+  <ion-select interface="action-sheet" cancel-text="salir" (ionChange)="imc($event)">
+    <ion-select-option value="0">18-25</ion-select-option>
+    <ion-select-option value="1">26-36</ion-select-option>
+    <ion-select-option value="2">36-45</ion-select-option>
+    <ion-select-option value="3">46-55</ion-select-option>
+    <ion-select-option value="4">56-65</ion-select-option>
+    <ion-select-option value="5">+65</ion-select-option>
+  </ion-select>
+</ion-item>
+
+  <ion-fab vertical="bottom"  horizontal="end" slot="fixed" class="animated fadeInUp delay-2s" >
+    <ion-fab-button color="danger" (click)="avanzar()" [disabled]="habilitar">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+

@@ -1,0 +1,12 @@
+<h2>Tu historial médico</h2>
+<ion-button (click)="abrirmodal()" color="danger">
+  <ion-icon name="analytics-outline" class="iconSize"></ion-icon>
+</ion-button>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab-button  (click)="navegar()" color="danger" [disabled]="habilitar" >
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+

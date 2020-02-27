@@ -1,0 +1,50 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <div class="cabezera">
+    <img src="assets/img/logo-app.png" class="logo">
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" slot="fixed">
+
+  <div class="contenedor animated fadeIn delay-1s">
+      <h2 class="titulo">Nivel de actividad</h2>
+      <ion-grid class="my-grid">
+      <ion-row class="parent-row">
+        <ion-col size="12">      
+        <ion-card class="color-tarjeta" (click)="nivel(0)">
+          <h2>Sedentario</h2>
+        </ion-card>
+        </ion-col>
+        <ion-col  size="12">      
+          <ion-card class="color-tarjeta" (click)="nivel(1)" >
+            <h2>Ligero</h2>  
+          </ion-card>
+        </ion-col>
+        <ion-col  size="12">      
+          <ion-card class="color-tarjeta" (click)="nivel(2)" >
+            <h2>Moderado</h2>  
+          </ion-card>
+        </ion-col>
+        <ion-col  size="12">      
+          <ion-card class="color-tarjeta" (click)="nivel(3)" >
+            <h2>Activo</h2>  
+          </ion-card>
+        </ion-col>
+        <ion-col  size="12">      
+          <ion-card class="color-tarjeta" (click)="nivel(4)" >
+            <h2>Muy Activo</h2>  
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      </ion-grid>      
+
+      <!--Pie de pagina en revision-->
+      <div>
+        <ion-icon  slot="icon-only" name="arrow-forward-circle-outline" class="ion-padding-horizontal"
+        (click)="avanzar()"></ion-icon> 
+      </div>
+  </div>
+
+</ion-content>
+
+

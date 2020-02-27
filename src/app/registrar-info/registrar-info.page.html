@@ -1,0 +1,47 @@
+<ion-header [translucent]="true" class="ion-no-border animated fadeIn delay-1s">
+  <div class="cabezera">
+    <img src="assets/img/logo-app.png" class="logo">
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" slot="fixed" class="animated fadeIn delay-1s">
+
+  <div class="contenedor">
+
+      <h2 class="titulo animated zoomIn delay-1s">¿Podemos comunicarnos contigo?</h2>
+      
+      <div class="letra animated fadeIn delay-2s">
+        Selecciona la forma en que deseas acceder a nuestro entrenamiento personalizado.
+      </div>
+
+
+      <ion-grid class="my-grid animated fadeIn delay-2s">
+      <ion-row class="parent-row">
+        <ion-col  size="12">      
+          <ion-card color="danger" (click)="googleLogin()" [disabled]="googlehabilitar">
+            <h2>Acceder con Google</h2>  
+          </ion-card>
+        </ion-col>
+        <ion-col  size="12">      
+          <ion-card color="primary" (click)="facebookLogin()" [disabled]="facebookhabilitar">
+            <h2>Acceder con Facebook</h2>  
+          </ion-card>
+        </ion-col>
+        <ion-col  size="12">      
+          <ion-card color="secundary" (click)="emailLogin()" [disabled]="facebookhabilitar">
+            <h2>Acceder con Email</h2>  
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      </ion-grid>      
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="animated fadeIn delay-2s">
+    <ion-fab-button color="danger" (click)="navegar()" [disabled]="habilitar">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+
