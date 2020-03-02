@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -10,11 +11,20 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class DashboardPage implements OnInit {
    Bienvenido:any
     
-  constructor(private usuarioservicio:UsuarioService) {
+  constructor(private usuarioservicio:UsuarioService,private ruta:NavController) {
     this.Bienvenido = this.usuarioservicio.datosPersonales.nombre
    }
 
   ngOnInit() {
+  }
+
+
+  Fuerza(){
+    this.ruta.navigateForward('test-fuerza-info')
+  }
+
+  Resistencia(){
+    console.log("clickeado en resistencia")
   }
 
 }

@@ -1,16 +1,20 @@
 
 <ion-content>
   
+<h2 class="ion-padding titulo">Bienvenido Usuario</h2>
+
   <ion-grid>
     <ion-row >
       <ion-col  size="6">   
-        <div  class="ion-padding">
-          <img src="assets/img/imagenpulso1.jpg"/>
+        <div  class="ion-padding-vertical" (click)="Fuerza()">
+          <div class="centered">Test de Fuerza</div>
+          <img src="assets/img/test-fuerza2.png"/>
         </div>   
       </ion-col>
       <ion-col  size="6">   
-        <div  class="ion-padding">
-          <img src="assets/img/imagenpulso3.jpg" />
+        <div  class="ion-padding-vertical" (click)="Resistencia()">
+          <div class="centered">Test de Resistencia</div>
+          <img src="assets/img/test-resistencia2.png" />
         </div>   
       </ion-col>
     </ion-row>
@@ -21,12 +25,14 @@
     <ion-row>
       <ion-col size="12">   
         <p class="letra">Tu rutina</p>
-          <img src="assets/img/imagenpulso3.jpg"  class="ejercicio"/>
+          <img src="assets/img/rutina2.png"  class="ejercicio"/>
+          <ion-button shape="round" color="dark" class="centered2">Ver rutina</ion-button>
       </ion-col>
 
       <ion-col size="12">   
         <p>Tu progreso</p>
-          <img src="assets/img/imagenpulso3.jpg" class="evaluacion" />
+          <ion-button shape="round" color="dark" class="centered2">Ver progreso</ion-button>
+          <img src="assets/img/rutina2.png" class="evaluacion" />
       </ion-col>
 
     </ion-row>
