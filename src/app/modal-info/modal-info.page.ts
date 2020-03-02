@@ -123,5 +123,21 @@ export class ModalInfoPage implements OnInit {
     }else{
       this.modalController.dismiss()
     }
+
   }
+
+  avanzar(){
+
+    if(this.escapar){
+      this.usuarioservicio.enfermedades(this.datoEnfermedades)
+      console.log(this.usuarioservicio.datosPersonales)
+      this.modalController.dismiss({
+        salir:true
+      });
+    }else{
+      return
+    }
+
+  }
+
 }

@@ -32,20 +32,8 @@ export class CorazonPage implements OnInit {
        await modal.present();
       const {data} = await modal.onDidDismiss()
       if(data){
-        this.habilitar = false
+        this.ruta.navigateRoot(['/antecedentefamiliar'])
       }
-    }else{
-      const modal = await this.modalController.create({
-        component: ModalCorazonInfoPage,
-        componentProps:{
-          dato:'muñeca'
-        }
-      });
-       await modal.present();
-       const {data} = await modal.onDidDismiss()
-       if(data){
-         this.habilitar = false
-       }
     }
 
   }

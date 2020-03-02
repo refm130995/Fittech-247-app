@@ -3,26 +3,22 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'objetivo',
-    loadChildren: () => import('./objetivo/objetivo.module').then( m => m.ObjetivoPageModule)
+    loadChildren: () => import('./pages/objetivo/objetivo.module').then( m => m.ObjetivoPageModule)
   },
   {
     path: 'pasoinicial',
-    loadChildren: () => import('./pasoinicial/pasoinicial.module').then( m => m.PasoinicialPageModule)
+    loadChildren: () => import('./pages/pasoinicial/pasoinicial.module').then( m => m.PasoinicialPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'terminos',
-    loadChildren: () => import('./terminos/terminos.module').then( m => m.TerminosPageModule)
-  },
-  {
-    path: 'registrar',
-    loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
+    loadChildren: () => import('./pages/terminos/terminos.module').then( m => m.TerminosPageModule)
   },
   {
     path: 'registrar-info',
@@ -30,19 +26,19 @@ const routes: Routes = [
   },
   {
     path: 'experiencia',
-    loadChildren: () => import('./experiencia/experiencia.module').then( m => m.ExperienciaPageModule)
+    loadChildren: () => import('./pages/experiencia/experiencia.module').then( m => m.ExperienciaPageModule)
   },
   {
     path: 'lugar-ejercicios',
-    loadChildren: () => import('./lugar-ejercicios/lugar-ejercicios.module').then( m => m.LugarEjerciciosPageModule)
+    loadChildren: () => import('./pages/lugar-ejercicios/lugar-ejercicios.module').then( m => m.LugarEjerciciosPageModule)
   },
   {
     path: 'actividad',
-    loadChildren: () => import('./actividad/actividad.module').then( m => m.ActividadPageModule)
+    loadChildren: () => import('./pages/actividad/actividad.module').then( m => m.ActividadPageModule)
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
     path: 'corazon',
@@ -50,7 +46,7 @@ const routes: Routes = [
   },
   {
     path: 'antecedentefamiliar',
-    loadChildren: () => import('./antecedentefamiliar/antecedentefamiliar.module').then( m => m.AntecedentefamiliarPageModule)
+    loadChildren: () => import('./pages/antecedentefamiliar/antecedentefamiliar.module').then( m => m.AntecedentefamiliarPageModule)
   },
 ];
 

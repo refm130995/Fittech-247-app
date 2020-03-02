@@ -33,4 +33,8 @@ export class PesoComponent implements OnInit {
      this.cambiarPantalla.emit(3)
    }
 
+   atras(){
+    this.cambiarPantalla.emit(1)
+  }
+
 }

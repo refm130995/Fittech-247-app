@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output,EventEmitter} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalInfoPage } from 'src/app/modal-info/modal-info.page';
 import { NavController } from '@ionic/angular';
@@ -11,6 +11,8 @@ import { NavController } from '@ionic/angular';
 })
 export class HistorialComponent implements OnInit {
   habilitar = true
+  @Output() cambiarPantalla = new EventEmitter();
+
   constructor(public modalController: ModalController , private ruta: NavController) { }
 
   ngOnInit() {}
@@ -22,7 +24,7 @@ export class HistorialComponent implements OnInit {
      await modal.present();
      const {data} = await modal.onDidDismiss()
        if(data){
-         this.habilitar = false
+        this.ruta.navigateRoot(['/registrar-info'])
        }
   }
 
@@ -30,5 +32,8 @@ export class HistorialComponent implements OnInit {
     this.ruta.navigateRoot(['/registrar-info'])
   }
 
+  atras(){
+    this.cambiarPantalla.emit(4)
+  }
 
 }

@@ -11,6 +11,13 @@
 
   <ion-list lines="none" class="itemcustom">
     <ion-item>
+      <ion-label>No presento ninguna de la siguientes</ion-label>
+      <ion-checkbox (ionChange)="historialmedico('enfermedad')"  color="medium" slot="start" name="noEnfermedad" [(ngModel)]="datoEnfermedades.noEnfermedad"></ion-checkbox>
+    </ion-item>
+
+    <ion-item-divider color="dark"></ion-item-divider>
+
+    <ion-item>
       <ion-label>Hipertension</ion-label>
       <ion-toggle (ionChange)="historialmedico(datoEnfermedades.hipertension)" slot="start" name="hipertension" [(ngModel)]="datoEnfermedades.hipertension"></ion-toggle>
     </ion-item>
@@ -57,23 +64,21 @@
         <ion-select-option [value]="1">Enfermedad pulmonar obstructiva cronica</ion-select-option>
       </ion-select>
     </ion-item>
-    <ion-item-divider color="dark"></ion-item-divider>
-    <ion-item>
-      <ion-label>No presento ninguna</ion-label>
-      <ion-checkbox (ionChange)="historialmedico('enfermedad')"  color="medium" slot="start" name="noEnfermedad" [(ngModel)]="datoEnfermedades.noEnfermedad"></ion-checkbox>
-    </ion-item>
+
   </ion-list>
 
 </ion-content>
 
 <ion-footer class="contenedor animated fadeIn delay-1s">
-  <ion-toolbar color="danger" (click)="salir()">
-    <ion-title>
-      Aceptar
-    </ion-title>
-    <ion-buttons slot="end" >
+  <ion-toolbar>
+    <ion-buttons slot="start"  (click)="salir()" color="black">
       <ion-button id="changeText" >
         <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" >
+      <ion-button id="changeText" (click)="avanzar()"  color="black">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

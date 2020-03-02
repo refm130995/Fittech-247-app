@@ -1,7 +1,7 @@
 <h2>¿Cuánto 
   <ion-text color="danger">mides</ion-text>?
   </h2>
-<ion-item lines="none" >
+<ion-item lines="none">
   <ion-input
   (ionInput)="valor($event)"
   type="tel" 
@@ -18,4 +18,10 @@
     </ion-fab-button>
   </ion-fab>
 
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" >
+    <ion-fab-button color="danger" (click)="atras()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 

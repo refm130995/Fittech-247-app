@@ -33,4 +33,8 @@ export class EstaturaComponent implements OnInit {
     this.cambiarPantalla.emit(2)
   }
 
+  atras(){
+    this.cambiarPantalla.emit(0)
+  }
+
 }
