@@ -87,7 +87,7 @@ export class LoginPage implements OnInit {
   async dashboard(valor){
     const valido = await this.ApiService.Login(valor)
     if(valido){
-      this.ruta.navigateRoot(['/dashboard'])
+      this.ruta.navigateRoot(['/tabs'])
     }else{
       this.mensajeservice.alertaInformatica('Usuario no existe')
     }

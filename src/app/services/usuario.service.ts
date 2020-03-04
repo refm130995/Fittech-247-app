@@ -39,6 +39,13 @@ export class UsuarioService {
     ninguna:null
   }
 
+  selecionTestEjercicio ={
+    squat:false,
+    pressbanca:false,
+    legcurl:false,
+    legextension:false
+  }
+
   constructor() { }
 
   genero(valor){
@@ -159,6 +166,32 @@ export class UsuarioService {
 
   }
 
-  
+  TestSelecion(valor){
+    if(valor === 1){
+      this.selecionTestEjercicio.pressbanca = true
+      this.selecionTestEjercicio.legcurl = false
+      this.selecionTestEjercicio.legextension = false
+      this.selecionTestEjercicio.squat = false
+      console.log(this.selecionTestEjercicio)
+    }
+    if(valor === 2){
+      this.selecionTestEjercicio.pressbanca = false
+      this.selecionTestEjercicio.legcurl = false
+      this.selecionTestEjercicio.legextension = false
+      this.selecionTestEjercicio.squat = true
+    }
+    if(valor === 3){
+      this.selecionTestEjercicio.legcurl = true
+      this.selecionTestEjercicio.pressbanca = false
+      this.selecionTestEjercicio.legextension = false
+      this.selecionTestEjercicio.squat = false
+    }
+    if(valor === 4){
+      this.selecionTestEjercicio.legextension = true
+      this.selecionTestEjercicio.pressbanca = false
+      this.selecionTestEjercicio.legcurl = false
+      this.selecionTestEjercicio.squat = false
+    }
+  }
 
 }

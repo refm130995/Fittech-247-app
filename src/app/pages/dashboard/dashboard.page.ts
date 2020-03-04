@@ -24,7 +24,7 @@ export class DashboardPage implements OnInit {
   }
 
   Resistencia(){
-    console.log("clickeado en resistencia")
+    this.ruta.navigateForward('test-resistencia')
   }
 
 }

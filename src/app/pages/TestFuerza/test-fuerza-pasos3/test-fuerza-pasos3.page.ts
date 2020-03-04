@@ -14,7 +14,7 @@ export class TestFuerzaPasos3Page implements OnInit {
   }
 
   siguiente(){
-    this.ruta.navigateForward('test-fuerza-menu')
+    this.ruta.navigateForward('test-fuerza-pasos4')
   }
 
 }

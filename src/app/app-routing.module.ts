@@ -69,12 +69,36 @@ const routes: Routes = [
     loadChildren: () => import('./pages/TestFuerza/test-fuerza-pasos3/test-fuerza-pasos3.module').then( m => m.TestFuerzaPasos3PageModule)
   },
   {
-    path: 'test-fuerza-pasos4/:id',
+    path: 'test-fuerza-pasos4',///:id
     loadChildren: () => import('./pages/TestFuerza/test-fuerza-pasos4/test-fuerza-pasos4.module').then( m => m.TestFuerzaPasos4PageModule)
   },
   {
     path: 'test-fuerza-menu',
     loadChildren: () => import('./pages/TestFuerza/test-fuerza-menu/test-fuerza-menu.module').then( m => m.TestFuerzaMenuPageModule)
+  },
+  {
+    path: 'calendario',
+    loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
+  },
+  {
+    path: 'rutina',
+    loadChildren: () => import('./pages/rutina/rutina.module').then( m => m.RutinaPageModule)
+  },
+  {
+    path: 'comida',
+    loadChildren: () => import('./pages/comida/comida.module').then( m => m.ComidaPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'test-resistencia',
+    loadChildren: () => import('./pages/TestResistencia/test-resistencia/test-resistencia.module').then( m => m.TestResistenciaPageModule)
   },
 ];
 

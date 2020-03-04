@@ -70,7 +70,7 @@ export class AntecedentefamiliarPage implements OnInit {
 
 
  async evaluar(){
-  this.ruta.navigateRoot(['/dashboard'])
+  this.ruta.navigateRoot(['/tabs'])
   /* 
   const valido = await this.ApiService.Antecedentefamiliar(this.usuarioservicio.condicionPersona)
   if(valido){
