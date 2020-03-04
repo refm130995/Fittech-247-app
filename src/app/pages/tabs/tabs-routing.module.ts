@@ -14,19 +14,21 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: '../dashboard/dashboard.module#DashboardPageModule'
+        loadChildren: () => import('../dashboard/dashboard.module').then( m => m.DashboardPageModule)
+
       },
       {
         path: 'eye',
-        loadChildren: '../rutina/rutina.module#RutinaPageModule'
+        loadChildren: () => import('../rutina/rutina.module').then( m => m.RutinaPageModule)
+
       },
       {
         path: 'nutrition',
-        loadChildren: '../comida/comida.module#ComidaPageModule'
+        loadChildren: () => import('../comida/comida.module').then( m => m.ComidaPageModule)
       },
       {
         path: 'about',
-        loadChildren: '../perfil/perfil.module#PerfilPageModule'
+        loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule)
       }
 
     ]
