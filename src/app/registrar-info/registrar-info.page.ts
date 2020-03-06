@@ -24,8 +24,8 @@ export class RegistrarInfoPage implements OnInit {
   habilitar = true
   facebookData = null
   googleData = null
-  googlehabilitar = false
-  facebookhabilitar = false
+  googlehabilitar = true
+  facebookhabilitar = true
 
   constructor( private ruta: NavController,
               public afAuth:AngularFireAuth,
@@ -117,10 +117,14 @@ export class RegistrarInfoPage implements OnInit {
      await modal.present();
      const {data} = await modal.onDidDismiss()
      if(data){
-      this.habilitar = false
-      this.facebookhabilitar = true
-      this.googlehabilitar = true
+      this.ruta.navigateRoot(['/terminos'])
      }
+  }
+
+
+  aceptar(){
+      this.googlehabilitar = false
+      this.facebookhabilitar = false
   }
 
 }

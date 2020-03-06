@@ -9,6 +9,18 @@ const URL  = environment.url
 })
 export class ApiFitechService {
   token:string
+  latidocorazon:any
+  ejercicios = {
+    resultado:null,
+    ejercicio:null,
+    resultado_2:null,
+    ejercicio_2:null,
+    resultado_3:null,
+    ejercicio_3:null
+  } 
+
+
+
   constructor(private http:HttpClient) { }
   
   Registrar(persona:any){
@@ -144,7 +156,7 @@ export class ApiFitechService {
 
     this.http.post(`${URL}/auth/heart_rate`,data,{headers})
         .subscribe(resp=>{
-          console.log(resp)
+          this.latidocorazon = resp['message']
           resolve(true)
         })
     })
@@ -176,6 +188,56 @@ export class ApiFitechService {
           console.log(resp)
         })
     })
+  }
+
+  TestResistencia(valor:any){
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+      
+      const data = {
+        distance : valor
+      }
+  
+      this.http.post(`${URL}/auth/cooper_test`,data,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            resolve(true)
+          })
+      })
+  }
+
+  TestFuerza(fuerza:any){
+
+
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+      
+      const data = {
+        result_75 : fuerza.resultado,
+        exercise :  fuerza.ejercicio,
+        result_75_2 : fuerza.resultado_2,
+        exercise_2 :  fuerza.ejercicio_2,
+        result_75_3 : fuerza.resultado_3,
+        exercise_3 :  fuerza.ejercicio_3,
+      }
+  
+      this.http.post(`${URL}/auth/power_test`,data,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            resolve(true)
+          })
+      })
+
+
+
   }
 
 

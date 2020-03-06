@@ -18,6 +18,8 @@ export class ModalCorazonInfoPage implements OnInit {
   ngOnInit() {
     if(this.dato == 'cuello'){
       this.mostrar = true
+    }else{
+      this.mostrar = false
     }
   }
 

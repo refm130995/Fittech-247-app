@@ -172,7 +172,6 @@ export class UsuarioService {
       this.selecionTestEjercicio.legcurl = false
       this.selecionTestEjercicio.legextension = false
       this.selecionTestEjercicio.squat = false
-      console.log(this.selecionTestEjercicio)
     }
     if(valor === 2){
       this.selecionTestEjercicio.pressbanca = false
@@ -186,11 +185,8 @@ export class UsuarioService {
       this.selecionTestEjercicio.legextension = false
       this.selecionTestEjercicio.squat = false
     }
-    if(valor === 4){
+    if(valor === 5){
       this.selecionTestEjercicio.legextension = true
-      this.selecionTestEjercicio.pressbanca = false
-      this.selecionTestEjercicio.legcurl = false
-      this.selecionTestEjercicio.squat = false
     }
   }
 

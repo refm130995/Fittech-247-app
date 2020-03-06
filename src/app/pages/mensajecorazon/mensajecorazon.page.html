@@ -1,0 +1,34 @@
+<ion-header [translucent]="true" class="ion-no-border animated fadeIn delay-1s">
+  <div class="cabezera">
+    <img src="assets/img/logo-app.png" class="logo">
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" slot="fixed" class="animated fadeIn delay-1s">
+
+  <div class="contenedor">
+
+    <h3 class="ion-text-center ion-margin-bottom ">La frecuencia de tu corazón es</h3>
+
+    <div>
+    <h2 class="titulo ion-margin-bottom">{{titulo}}</h2>
+    </div>
+    
+   <ion-card color="danger" class="ion-margin-bottom">
+    <h4>{{mensaje}}</h4>
+   </ion-card>
+
+
+  </div>
+
+
+  <ion-fab vertical="bottom"  horizontal="end" slot="fixed" class="animated fadeInUp delay-2s" >
+    <ion-fab-button color="danger" (click)="siguiente()">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>
+
+

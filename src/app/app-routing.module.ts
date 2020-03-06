@@ -100,6 +100,26 @@ const routes: Routes = [
     path: 'test-resistencia',
     loadChildren: () => import('./pages/TestResistencia/test-resistencia/test-resistencia.module').then( m => m.TestResistenciaPageModule)
   },
+  {
+    path: 'test-fuerza-categoria',
+    loadChildren: () => import('./pages/TestFuerza/test-fuerza-categoria/test-fuerza-categoria.module').then( m => m.TestFuerzaCategoriaPageModule)
+  },
+  {
+    path: 'test-fuerza-menu2',
+    loadChildren: () => import('./pages/TestFuerza/test-fuerza-menu2/test-fuerza-menu2.module').then( m => m.TestFuerzaMenu2PageModule)
+  },
+  {
+    path: 'test-fuerza-menu3',
+    loadChildren: () => import('./pages/TestFuerza/test-fuerza-menu3/test-fuerza-menu3.module').then( m => m.TestFuerzaMenu3PageModule)
+  },
+  {
+    path: 'mensajecorazon',
+    loadChildren: () => import('./pages/mensajecorazon/mensajecorazon.module').then( m => m.MensajecorazonPageModule)
+  },
+  {
+    path: 'entrenamientos',
+    loadChildren: () => import('./entrenamientos/entrenamientos.module').then( m => m.EntrenamientosPageModule)
+  },
 ];
 
 @NgModule({

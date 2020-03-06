@@ -95,3 +95,16 @@ ion-card:hover {
   transition: 0.1s;
   opacity: 0.5;
 }
+
+ion-button {
+  width: 80%;
+}
+
+.letra2 {
+  font-size: 13px !important;
+}
+
+ion-checkbox {
+  margin-right: 10px !important;
+  margin-left: 30px !important;
+}

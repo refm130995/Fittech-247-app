@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-test-fuerza-pasos3',
@@ -7,10 +8,25 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./test-fuerza-pasos3.page.scss'],
 })
 export class TestFuerzaPasos3Page implements OnInit {
-
-  constructor(private ruta:NavController) { }
+  nombre:any
+  constructor(private ruta:NavController,private usuarioservicio:UsuarioService) { }
 
   ngOnInit() {
+
+    if(this.usuarioservicio.selecionTestEjercicio.pressbanca){
+      this.nombre = 'Press banca'
+   }
+    if(this.usuarioservicio.selecionTestEjercicio.squat){
+      this.nombre = 'Squat'
+   }
+   if(this.usuarioservicio.selecionTestEjercicio.legcurl){
+    this.nombre = 'Leg curl'
+   }
+   if(this.usuarioservicio.selecionTestEjercicio.legextension){
+    this.nombre = 'Leg extension'
+   }
+
+
   }
 
   siguiente(){

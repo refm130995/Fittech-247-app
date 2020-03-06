@@ -8,8 +8,8 @@
   height: auto !important;
 }
 
-.titulo {
-  text-decoration: underline;
+.ocultar {
+  display: none;
 }
 
 .centered {

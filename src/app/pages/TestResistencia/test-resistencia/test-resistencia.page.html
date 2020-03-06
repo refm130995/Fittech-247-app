@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
     </ion-buttons>
     <ion-title class="ion-text-center" mode="ios">Test de resistencia</ion-title>
   </ion-toolbar>
@@ -20,18 +20,22 @@
   </ion-grid>   
   <div  class="ion-padding ion-text-justify">
     Realizar el test de resistencia permitira brindarte una personalización mucho más completa.
-  </div>   
-  <div class="ion-padding ion-text-justify">
     Recuerda que hacer esto te va a permitir evaluarte cada 6 semanas y medir tu progreso.
-  </div>
+  </div>   
 
+  <div class="ion-padding ion-text-justify">
+    Por favor correr por 12 minutos, mide la distancia recorrida total e introduce los datos obtenidos.
+  </div>
 
   <ion-grid class="ion-padding">
     <ion-row >
       <ion-col  size="12">   
+        <ion-input type="text" name="correr" [(ngModel)]="atleta.correr"></ion-input> 
+      </ion-col>
+      <ion-col  size="12">   
         <div>
           <ion-card color="dark" (click)="test()">
-            <h2 class="ion-text-center">Hacer el Test</h2>  
+            <h2 class="ion-text-center">Finalizar</h2>  
           </ion-card>
         </div>   
       </ion-col>

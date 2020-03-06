@@ -18,7 +18,7 @@ export class TestFuerzaInfoPage implements OnInit {
   }
 
   test(){
-    this.ruta.navigateForward('test-fuerza-menu')
+    this.ruta.navigateForward('test-fuerza-categoria')
   }
 
 }

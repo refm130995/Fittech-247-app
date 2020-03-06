@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { PickerController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
+import { ApiFitechService } from 'src/app/services/api-fitech.service';
 
 @Component({
   selector: 'app-test-fuerza-pasos4',
@@ -13,11 +14,13 @@ import { PickerOptions } from '@ionic/core';
 export class TestFuerzaPasos4Page implements OnInit {
   nombre:any
   id:any
-  constructor(private usuarioservicio:UsuarioService , private route:Router , private picker:PickerController) { }
+  power = {
+    valor:null
+  }
+  constructor(private apiService:ApiFitechService,    private usuarioservicio:UsuarioService , private route:Router , private picker:PickerController) { }
   selecion = ''
 
   ionViewWillEnter() {
-      console.log(this.usuarioservicio.selecionTestEjercicio.pressbanca)
     if(this.usuarioservicio.selecionTestEjercicio.pressbanca){
       this.nombre = 'Press banca'
       this.id = 'banca'
@@ -36,12 +39,13 @@ export class TestFuerzaPasos4Page implements OnInit {
    document.getElementById("curl").classList.add('realizado')
 
   }
+
   if(this.usuarioservicio.selecionTestEjercicio.legextension){
    this.nombre = 'Leg extension'
    this.id = 'extension'
    document.getElementById("extension").classList.add('realizado')
-
   }
+  
 }
 
   ngOnInit() {
@@ -64,7 +68,44 @@ export class TestFuerzaPasos4Page implements OnInit {
 
   }
 
+  peso(valor){
+    console.log(valor.detail.value)
+  }
+
+
  async siguiente(){
+
+  if(this.power.valor == null || this.power.valor == 0){
+    return
+  } else{
+  this.route.navigateByUrl('/test-fuerza-categoria');
+  }
+
+  
+  }
+
+
+
+  /*  
+
+    if(this.power.valor == null || this.power.valor == 0){
+      return
+    } else{
+        
+      if(this.usuarioservicio.selecionTestEjercicio.pressbanca){
+      this.apiService.ejercicios.resultado = this.power.valor
+     }
+     if(this.usuarioservicio.selecionTestEjercicio.squat){
+      this.apiService.ejercicios.resultado = this.power.valor
+    }
+    if(this.usuarioservicio.selecionTestEjercicio.legcurl){
+      this.apiService.ejercicios.resultado = this.power.valor
+    }
+  
+    if(this.usuarioservicio.selecionTestEjercicio.legextension){
+      this.apiService.ejercicios.resultado = this.power.valor
+    }
+      
 
     let opts: PickerOptions = {
       buttons: [
@@ -92,11 +133,14 @@ export class TestFuerzaPasos4Page implements OnInit {
       let col = await picker.getColumn('unidad de peso')
       console.log('columna',col)
       this.selecion = col.options[col.selectedIndex].text
-      this.route.navigateByUrl('/test-fuerza-menu');
+      this.route.navigateByUrl('/test-fuerza-categoria');
 
     })
-
+      
   }
+
+  */
+
 
 
 

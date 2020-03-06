@@ -1,0 +1,33 @@
+ion-thumbnail {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0px;
+  padding-bottom: 1px;
+}
+
+ion-thumbnail img {
+  width: auto !important;
+  height: auto !important;
+}
+
+.contenedor-padre {
+  overflow: hidden;
+}
+
+.float {
+  position: fixed;
+  width: 100px;
+  height: 30px;
+  bottom: 20px;
+  border-radius: 12px;
+  right: 35%;
+  background-color: #1cb5f1;
+  color: #FFF;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  text-decoration: none;
+}
+
+.my-float {
+  margin-top: 22px;
+}

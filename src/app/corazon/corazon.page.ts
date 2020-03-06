@@ -32,7 +32,27 @@ export class CorazonPage implements OnInit {
        await modal.present();
       const {data} = await modal.onDidDismiss()
       if(data){
-        this.ruta.navigateRoot(['/antecedentefamiliar'])
+        const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
+        if(valido){
+          this.ruta.navigateRoot(['/mensajecorazon'])
+        }
+      }
+    }
+
+    if(valor == 1) {
+      const modal = await this.modalController.create({
+        component: ModalCorazonInfoPage,
+        componentProps:{
+          dato:'pulso'
+        }
+      });
+       await modal.present();
+      const {data} = await modal.onDidDismiss()
+      if(data){
+        const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
+        if(valido){
+          this.ruta.navigateRoot(['/mensajecorazon'])
+        }
       }
     }
 

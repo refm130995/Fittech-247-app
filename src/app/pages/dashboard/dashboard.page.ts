@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { NavController } from '@ionic/angular';
+import { ApiFitechService } from 'src/app/services/api-fitech.service';
 
 
 @Component({
@@ -11,11 +12,13 @@ import { NavController } from '@ionic/angular';
 export class DashboardPage implements OnInit {
    Bienvenido:any
     
-  constructor(private usuarioservicio:UsuarioService,private ruta:NavController) {
-    this.Bienvenido = this.usuarioservicio.datosPersonales.nombre
+  constructor(public usuarioservicio:UsuarioService   ,public apiService:ApiFitechService,private ruta:NavController) {
+   
    }
 
-  ngOnInit() {
+
+ ngOnInit() {
+
   }
 
 
@@ -25,6 +28,10 @@ export class DashboardPage implements OnInit {
 
   Resistencia(){
     this.ruta.navigateForward('test-resistencia')
+  }
+  
+  rutinas(){
+    this.ruta.navigateForward('entrenamientos')
   }
 
 }

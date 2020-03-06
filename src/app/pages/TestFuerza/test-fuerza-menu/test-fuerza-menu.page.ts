@@ -41,7 +41,7 @@ export class TestFuerzaMenuPage implements OnInit {
   }
 
   termina(){
-    this.ruta.navigateByUrl('/tabs/dashboard');
+    this.ruta.navigateByUrl('/test-fuerza-categoria');
   }
 
 }

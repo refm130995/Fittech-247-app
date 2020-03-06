@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class PesoComponent implements OnInit {
   numero:any 
   habilitar = true
-  mensaje = "Cm"
+  mensaje = "Kg"
 
 
   constructor(private usuarioservicio:UsuarioService) { }
