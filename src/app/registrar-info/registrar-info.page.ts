@@ -24,8 +24,8 @@ export class RegistrarInfoPage implements OnInit {
   habilitar = true
   facebookData = null
   googleData = null
-  googlehabilitar = true
-  facebookhabilitar = true
+  googlehabilitar = false
+  facebookhabilitar = false
 
   constructor( private ruta: NavController,
               public afAuth:AngularFireAuth,
@@ -123,8 +123,7 @@ export class RegistrarInfoPage implements OnInit {
 
 
   aceptar(){
-      this.googlehabilitar = false
-      this.facebookhabilitar = false
+    return
   }
 
 }

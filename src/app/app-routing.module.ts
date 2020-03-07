@@ -120,6 +120,14 @@ const routes: Routes = [
     path: 'entrenamientos',
     loadChildren: () => import('./entrenamientos/entrenamientos.module').then( m => m.EntrenamientosPageModule)
   },
+  {
+    path: 'bateria/:id',
+    loadChildren: () => import('./bateria/bateria.module').then( m => m.BateriaPageModule)
+  },
+  {
+    path: 'test-fuerza-manual-pasos',
+    loadChildren: () => import('./pages/TestFuerza/test-fuerza-manual-pasos/test-fuerza-manual-pasos.module').then( m => m.TestFuerzaManualPasosPageModule)
+  },
 ];
 
 @NgModule({
