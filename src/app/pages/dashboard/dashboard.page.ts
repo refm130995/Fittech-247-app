@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { NavController } from '@ionic/angular';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
+import { MensajesService } from 'src/app/services/mensajes.service';
 
 
 @Component({
@@ -12,7 +13,10 @@ import { ApiFitechService } from 'src/app/services/api-fitech.service';
 export class DashboardPage implements OnInit {
    Bienvenido:any
     
-  constructor(public usuarioservicio:UsuarioService   ,public apiService:ApiFitechService,private ruta:NavController) {
+  constructor(public usuarioservicio:UsuarioService,
+     private apiService:ApiFitechService,
+     private ruta:NavController,
+     private notificacion:MensajesService) {
    
    }
 
@@ -30,8 +34,16 @@ export class DashboardPage implements OnInit {
     this.ruta.navigateForward('test-resistencia')
   }
   
-  rutinas(){
-    this.ruta.navigateForward('entrenamientos')
+  async rutinas(){
+
+    const validar = await this.apiService.obtenerRutina() 
+    if(validar){
+      this.ruta.navigateForward('entrenamientos')
+    }else{
+      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","danger")
+    }
+
+    
   }
 
 }

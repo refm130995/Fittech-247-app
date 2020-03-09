@@ -17,33 +17,38 @@ export class TestFuerzaPasos4Page implements OnInit {
   power = {
     valor:null
   }
+  identificador:any
   constructor(private apiService:ApiFitechService,    private usuarioservicio:UsuarioService , private route:Router , private picker:PickerController) { }
-  selecion = ''
+
 
   ionViewWillEnter() {
     if(this.usuarioservicio.selecionTestEjercicio.pressbanca){
       this.nombre = 'Press banca'
       this.id = 'banca'
+      this.identificador = 1
       document.getElementById("banca").classList.add('realizado')
 
    }
    if(this.usuarioservicio.selecionTestEjercicio.squat){
      this.nombre = 'Squat'
      this.id = 'squat'
+     this.identificador = 3
      document.getElementById("squat").classList.add('realizado')
-
   }
   if(this.usuarioservicio.selecionTestEjercicio.legcurl){
-   this.nombre = 'Leg curl'
-   this.id = 'curl'
-   document.getElementById("curl").classList.add('realizado')
+     this.nombre = 'Leg curl'
+     this.id = 'curl'
+     this.identificador = 2
+     document.getElementById("curl").classList.add('realizado')
 
   }
 
   if(this.usuarioservicio.selecionTestEjercicio.legextension){
    this.nombre = 'Leg extension'
    this.id = 'extension'
-   document.getElementById("extension").classList.add('realizado')
+   this.identificador = 4
+   document.getElementById("squat").classList.add('realizado')
+
   }
   
 }
@@ -78,7 +83,28 @@ export class TestFuerzaPasos4Page implements OnInit {
   if(this.power.valor == null || this.power.valor == 0){
     return
   } else{
-  this.route.navigateByUrl('/test-fuerza-categoria');
+     
+    if(this.identificador == 1){
+      this.apiService.recolectarTestFuerza(this.power.valor , this.identificador)
+      this.route.navigateByUrl('/test-fuerza-categoria')
+    }
+
+    if(this.identificador == 2){
+      this.apiService.recolectarTestFuerza(this.power.valor , this.identificador)
+      this.route.navigateByUrl('/test-fuerza-categoria')
+    }
+
+    if(this.identificador == 3){
+      this.apiService.recolectarTestFuerza(this.power.valor , this.identificador)
+      this.route.navigateByUrl('/test-fuerza-categoria')
+    }
+
+    if(this.identificador == 4){
+      this.apiService.recolectarTestFuerza(this.power.valor , this.identificador)
+      this.route.navigateByUrl('/test-fuerza-categoria')
+    }
+   
+   
   }
 
   

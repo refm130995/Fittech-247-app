@@ -2,6 +2,8 @@ import { Component, OnInit ,ChangeDetectorRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
+import { MensajesService } from 'src/app/services/mensajes.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-test-fuerza-categoria',
@@ -10,50 +12,76 @@ import { ApiFitechService } from 'src/app/services/api-fitech.service';
 })
 export class TestFuerzaCategoriaPage implements OnInit {
 
-  constructor( private apiservice:ApiFitechService,  private route:Router , private usuarioservicio:UsuarioService , private cdr: ChangeDetectorRef) { }
+  constructor( private apiservice:ApiFitechService,
+     private notificacion:MensajesService, 
+     private route:Router , 
+     private usuarioservicio:UsuarioService , 
+     public loadingController: LoadingController,
+     private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
-    console.log(this.usuarioservicio.selecionTestEjercicio)
-
-    if(this.usuarioservicio.selecionTestEjercicio.pressbanca){
-      document.getElementById("banca").classList.add('realizado')
-   }
-
-   if(this.usuarioservicio.selecionTestEjercicio.legcurl){
-    document.getElementById("curl").classList.add('realizado')
-   }
-
-   if(this.usuarioservicio.selecionTestEjercicio.squat || this.usuarioservicio.selecionTestEjercicio.legextension){
-    this.cdr.detectChanges();
-    document.getElementById("squat").classList.add('realizado')
- }
-
+    console.log(this.apiservice.bloquearexamen)
   }
 
   empuje(){
-    this.usuarioservicio.TestSelecion(1)
-    this.route.navigateByUrl('/test-fuerza-pasos1');
+    if(this.apiservice.bloquearexamen.examen1){
+      document.getElementById("banca").classList.add('realizado')
+      return
+    }else{
+      this.usuarioservicio.TestSelecion(1)
+      this.route.navigateByUrl('/test-fuerza-pasos1');
+    }
 
   }
+
   atraccion(){
-    this.usuarioservicio.TestSelecion(3)
-    this.route.navigateByUrl('/test-fuerza-pasos1');
+    if(this.apiservice.bloquearexamen.examen2){
+      document.getElementById("curl").classList.add('realizado')
+      return
+    }else{
+      this.usuarioservicio.TestSelecion(3)
+      this.route.navigateByUrl('/test-fuerza-pasos1');
+    }
   }
   
   inferior(){
-    this.route.navigateByUrl('/test-fuerza-menu3');
+    if(this.apiservice.bloquearexamen.examen3){
+      document.getElementById("squat").classList.add('realizado')
+      return
+    }else{
+      this.route.navigateByUrl('/test-fuerza-menu3');
+      this.usuarioservicio.TestSelecion(2)
+      this.usuarioservicio.TestSelecion(4)
+
+    }
+
+
   }
 
-  termina(){
+ async termina(){
 
-    if(this.usuarioservicio.selecionTestEjercicio.pressbanca && this.usuarioservicio.selecionTestEjercicio.legcurl || this.usuarioservicio.selecionTestEjercicio.squat || this.usuarioservicio.selecionTestEjercicio.legextension){
-      //document.getElementById("Fuerza").classList.add('ocultar')
-      this.route.navigateByUrl('/tabs')
-   }
+    if(this.apiservice.bloquearexamen.examen1 && this.apiservice.bloquearexamen.examen2 && this.apiservice.bloquearexamen.examen3 ){
+      this.presentLoading();
 
+      const validar = await this.apiservice.TestFuerza()
+      this.loadingController.dismiss()
 
+      if(validar){
+        this.route.navigateByUrl('/tabs')
+       this.notificacion.notificacionUsuario("Gracias por realizar el test!","primary")
+      }else{
+      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","danger")
+        }
+     }else{
+      this.notificacion.notificacionUsuario("Complete los test, antes de finalizar","warning")
+     }
   }
 
-
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Porfavor espere...',
+    });
+    await loading.present();
+  }
 
 }

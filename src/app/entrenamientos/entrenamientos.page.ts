@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiFitechService } from 'src/app/services/api-fitech.service';
 
 @Component({
   selector: 'app-entrenamientos',
@@ -7,14 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./entrenamientos.page.scss'],
 })
 export class EntrenamientosPage implements OnInit {
-
-  constructor(private ruta:Router) { }
+    serie = {}
+  constructor(private ruta:Router,private ApiService:ApiFitechService) { }
 
   ngOnInit() {
+      this.serie =  this.ApiService.rutina
+      console.log(this.serie)
   }
 
   comenzar(){
-    return
+    console.log("hola mundo")
   }
 
   bateria(){

@@ -125,7 +125,7 @@ const routes: Routes = [
     loadChildren: () => import('./bateria/bateria.module').then( m => m.BateriaPageModule)
   },
   {
-    path: 'test-fuerza-manual-pasos',
+    path: 'test-fuerza-manual-pasos/:id',
     loadChildren: () => import('./pages/TestFuerza/test-fuerza-manual-pasos/test-fuerza-manual-pasos.module').then( m => m.TestFuerzaManualPasosPageModule)
   },
 ];

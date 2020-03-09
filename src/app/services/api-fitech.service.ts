@@ -10,7 +10,7 @@ const URL  = environment.url
 export class ApiFitechService {
   token:string
   latidocorazon:any
-  ejercicios = {
+  examenFuerza = {
     resultado:null,
     ejercicio:null,
     resultado_2:null,
@@ -19,7 +19,13 @@ export class ApiFitechService {
     ejercicio_3:null
   } 
 
+  bloquearexamen = {
+    examen1:false,
+    examen2:false,
+    examen3:false
+  }
 
+  rutina = {}
 
   constructor(private http:HttpClient) { }
   
@@ -206,12 +212,14 @@ export class ApiFitechService {
           .subscribe(resp=>{
             console.log(resp)
             resolve(true)
+          },err=>{
+            resolve(false)
           })
+
       })
   }
 
-  TestFuerza(fuerza:any){
-
+  TestFuerza(){
 
     return new Promise( resolve => {
 
@@ -221,25 +229,74 @@ export class ApiFitechService {
       })
       
       const data = {
-        result_75 : fuerza.resultado,
-        exercise :  fuerza.ejercicio,
-        result_75_2 : fuerza.resultado_2,
-        exercise_2 :  fuerza.ejercicio_2,
-        result_75_3 : fuerza.resultado_3,
-        exercise_3 :  fuerza.ejercicio_3,
+        result_75 : this.examenFuerza.resultado,
+        exercise :  this.examenFuerza.ejercicio,
+        result_75_2 : this.examenFuerza.resultado_2,
+        exercise_2 :  this.examenFuerza.ejercicio_2,
+        result_75_3 : this.examenFuerza.resultado_3,
+        exercise_3 :  this.examenFuerza.ejercicio_3,
       }
   
       this.http.post(`${URL}/auth/power_test`,data,{headers})
           .subscribe(resp=>{
             console.log(resp)
             resolve(true)
+          },err=>{
+            resolve(false)
           })
       })
 
+  }
 
+  recolectarTestFuerza(fuerza:any , ejercicio:number){
+
+    if(ejercicio === 1){
+      this.examenFuerza.resultado = fuerza
+      this.examenFuerza.ejercicio = 1
+      this.bloquearexamen.examen1 = true
+    }
+
+    if(ejercicio === 2){
+      this.examenFuerza.resultado_2 = fuerza
+      this.examenFuerza.ejercicio_2 = 5
+      this.bloquearexamen.examen2 = true
+    }
+
+    if(ejercicio === 3){
+      this.examenFuerza.resultado_3 = fuerza
+      this.examenFuerza.ejercicio_3 = 2
+      this.bloquearexamen.examen3 = true
+
+    }
+
+    if(ejercicio === 4){
+      this.examenFuerza.resultado_3 = fuerza
+      this.examenFuerza.ejercicio_3 = 3
+      this.bloquearexamen.examen3 = true
+
+    }
 
   }
 
+  obtenerRutina(){
 
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+      
+      this.http.get(`${URL}/auth/routine`,{headers})
+          .subscribe(resp=>{
+            console.log( resp['message'])
+            this.rutina = resp['message']
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+      })
+
+  }
 
 }

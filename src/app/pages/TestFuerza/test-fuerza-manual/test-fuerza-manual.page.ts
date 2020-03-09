@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiFitechService } from 'src/app/services/api-fitech.service';
+import { MensajesService } from 'src/app/services/mensajes.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-test-fuerza-manual',
@@ -8,22 +11,60 @@ import { Router } from '@angular/router';
 })
 export class TestFuerzaManualPage implements OnInit {
 
-  constructor(private ruta:Router) { }
+  constructor(private ruta:Router,
+    private apiservice:ApiFitechService,
+    public loadingController: LoadingController,
+    private notificacion:MensajesService) { }
 
   ngOnInit() {
   }
 
   empuje(){
-    this.ruta.navigateByUrl("test-fuerza-manual-pasos")
+    if(this.apiservice.bloquearexamen.examen1){
+      document.getElementById("banca").classList.add('realizado')
+      return
+    }else{
+      this.ruta.navigateByUrl("test-fuerza-manual-pasos/1")
+    }
   }
 
   atraccion(){
-    this.ruta.navigateByUrl("test-fuerza-manual-pasos")
+    if(this.apiservice.bloquearexamen.examen2){
+      document.getElementById("curl").classList.add('realizado')
+      return
+    }else{
+      this.ruta.navigateByUrl("test-fuerza-manual-pasos/2")
+    }
   }
   
   inferior(){
-    this.ruta.navigateByUrl("test-fuerza-manual-pasos")
+    if(this.apiservice.bloquearexamen.examen3){
+      document.getElementById("squat").classList.add('realizado')
+      return
+    }else{
+      this.ruta.navigateByUrl("test-fuerza-manual-pasos/3")
+    }
   }
 
+
+  termina(){
+
+    if(this.apiservice.bloquearexamen.examen1 && this.apiservice.bloquearexamen.examen2 && this.apiservice.bloquearexamen.examen3 ){
+
+      console.log(this.apiservice.examenFuerza)
+      this.ruta.navigateByUrl('/tabs')
+      this.notificacion.notificacionUsuario("Gracias por realizar el test!","primary")
+      }else{
+        this.notificacion.notificacionUsuario("Complete los test, antes de finalizar","warning")
+      }
+
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Porfavor espere...',
+    });
+    await loading.present();
+  }
 
 }
