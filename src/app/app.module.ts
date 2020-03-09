@@ -8,6 +8,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
+import { IonicStorageModule } from '@ionic/storage';
+
+
 import { ComponentsModule } from './components/components.module';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -40,6 +43,7 @@ var firebaseConfig = {
     AppRoutingModule,
     HttpClientModule,
     ComponentsModule,
+    IonicStorageModule.forRoot(),
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
   ],

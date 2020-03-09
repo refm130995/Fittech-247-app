@@ -42,7 +42,11 @@ export class LoginPage implements OnInit {
   }
 
   acceder(){
-    this.dashboard(this.login)
+    if(this.login.password.length > 1 && this.login.email.length > 1){
+      this.dashboard(this.login)
+    }else{
+      return
+    }
   }
 
   googleLogin(){

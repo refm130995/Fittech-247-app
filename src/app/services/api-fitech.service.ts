@@ -107,8 +107,7 @@ export class ApiFitechService {
   }
 
   Login(persona:any){
-
-    if(persona.password.length > 1){
+    
       return new Promise( resolve => {
         const data = {
           email : persona.email,
@@ -125,26 +124,6 @@ export class ApiFitechService {
             resolve(false)
           })
       })
-    }else{
-      return new Promise( resolve => {
-        const data = {
-          email : persona.email,
-          password : persona.email
-        }
-  
-        this.http.post(`${URL}/auth/login`,data)
-        .subscribe(resp=>{
-            this.token =  resp['access_token']
-            console.log(this.token)
-            resolve(true)
-          },err =>{
-            console.log(err)
-            resolve(false)
-          })
-      })
-    }
-
-
 
   }
 
@@ -248,6 +227,7 @@ export class ApiFitechService {
 
   }
 
+  //Metodo para la recolecion del test - no interactua con el servidor. (metodo logico)
   recolectarTestFuerza(fuerza:any , ejercicio:number){
 
     if(ejercicio === 1){
