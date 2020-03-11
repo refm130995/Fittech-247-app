@@ -68,9 +68,9 @@ export class TestFuerzaCategoriaPage implements OnInit {
 
       if(validar){
         this.route.navigateByUrl('/tabs')
-       this.notificacion.notificacionUsuario("Gracias por realizar el test!","primary")
+       this.notificacion.notificacionUsuario("Gracias por realizar el test!","danger")
       }else{
-      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","danger")
+      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
         }
      }else{
       this.notificacion.notificacionUsuario("Complete los test, antes de finalizar","warning")

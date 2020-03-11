@@ -18,13 +18,23 @@ export class EstaturaComponent implements OnInit {
   
   valor(numero){
      if(!isNaN(numero.target.value) && numero.target.value.length > 2){
-        this.numero = numero.target.value
-        this.habilitar = false
-        this.mensaje = "Cm"
-     }else{
+        if( numero.target.value > 250 ){
+          this.habilitar = true
+          this.mensaje = "El valor maximo es 250 Cm"
+        }else{
+          this.numero = numero.target.value
+          this.habilitar = false
+          this.mensaje = "Cm"
+        }
+
+     }
+     
+     else{
        this.habilitar = true
        this.mensaje = "introduzca un valor correcto"
      }
+
+
     }
  
   

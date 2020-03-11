@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import {Storage} from '@ionic/storage'
 import { environment } from 'src/environments/environment';
 const URL  = environment.url
 
@@ -8,7 +9,7 @@ const URL  = environment.url
   providedIn: 'root'
 })
 export class ApiFitechService {
-  token:string
+  token:string = null
   latidocorazon:any
   examenFuerza = {
     resultado:null,
@@ -24,10 +25,11 @@ export class ApiFitechService {
     examen2:false,
     examen3:false
   }
-
+  
+  usuario = {}
   rutina = {}
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient , private storage:Storage) { }
   
   Registrar(persona:any){
     if(persona.password.length > 1) {
@@ -116,15 +118,27 @@ export class ApiFitechService {
   
         this.http.post(`${URL}/auth/login`,data)
         .subscribe(resp=>{
-            this.token =  resp['access_token']
+            //this.token =  resp['access_token']
+            this.guardarToken(resp['access_token'])
             console.log(this.token)
             resolve(true)
           },err =>{
             console.log(err)
+            this.token = null
+            this.storage.clear()
             resolve(false)
           })
       })
 
+  }
+
+  async guardarToken(token:string){
+    this.token = token;
+    await this.storage.set('token',token)
+  }
+
+  async cargarToken(){
+    this.token = await this.storage.get('token') || null
   }
 
   Latidos(persona:any){
@@ -187,7 +201,7 @@ export class ApiFitechService {
         distance : valor
       }
   
-      this.http.post(`${URL}/auth/cooper_test`,data,{headers})
+      this.http.post(`${URL}/auth/aerobic_test`,data,{headers})
           .subscribe(resp=>{
             console.log(resp)
             resolve(true)
@@ -277,6 +291,31 @@ export class ApiFitechService {
           })
       })
 
+  }
+
+  async obtenerUsuario(){
+        
+    await this.cargarToken()
+      
+
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+      
+      this.http.get(`${URL}/auth/user`,{headers})
+          .subscribe(async resp=>{
+            await this.guardarUsuario(resp['name'])
+            console.log(resp)
+          },err=>{
+            console.log(err)
+          })
+
+  }
+
+  guardarUsuario(usuario:any){
+    this.usuario = usuario
   }
 
 }

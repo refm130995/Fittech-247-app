@@ -8,6 +8,7 @@ import {PesoComponent} from './peso/peso.component'
 import {HistorialComponent} from './historial/historial.component'
 import { ModalInfoPage } from '../modal-info/modal-info.page';
 import { ModalInfoPageModule } from '../modal-info/modal-info.module';
+import {PopinfoComponent} from './popinfo/popinfo.component'
 
 
 @NgModule({
@@ -18,13 +19,15 @@ import { ModalInfoPageModule } from '../modal-info/modal-info.module';
     EdadComponent,
     EstaturaComponent,
     PesoComponent,
-    HistorialComponent
+    HistorialComponent,
+    PopinfoComponent
   ],
   exports:[
     EdadComponent,
     EstaturaComponent,
     PesoComponent,
-    HistorialComponent
+    HistorialComponent,
+    PopinfoComponent
   ],
   imports: [
     CommonModule,

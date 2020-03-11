@@ -2,28 +2,30 @@ ion-thumbnail {
     width: 100px;
     height: 100px;
     margin-bottom: 0px;
-    padding-bottom: 1px;
+    margin-top: 0px;
+    margin-right: 5px;
   }
   
   ion-thumbnail img {
     width: auto !important;
     height: auto !important;
-
   }
+
+
   
   .contenedor-padre{
     overflow: hidden;
-
   }
 
   .float{
+    padding: 6px;
 	position:fixed;
 	width:100px;
-	height:25px;
+	height:29px;
     bottom:20px;
     border-radius: 12px;
     right: 35%;
-	background-color:rgb(28, 181, 241);
+	background-color:rgb(243, 36, 21);
 	color:#FFF;
 	text-align:center;
     box-shadow: 2px 2px 3px #999;
@@ -32,4 +34,14 @@ ion-thumbnail {
 
 .my-float{
 	margin-top:22px;
+}
+
+ion-item{
+  --padding-end:0px !important;
+  --padding-start:0px !important;
+}
+
+ion-buttons{
+  padding: 0px !important;
+  margin: 0px !important;
 }

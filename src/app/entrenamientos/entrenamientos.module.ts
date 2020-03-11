@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { EntrenamientosPageRoutingModule } from './entrenamientos-routing.module';
 
 import { EntrenamientosPage } from './entrenamientos.page';
+import { PopinfoComponent } from '../components/popinfo/popinfo.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
+  entryComponents:[
+   PopinfoComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EntrenamientosPageRoutingModule
+    EntrenamientosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [EntrenamientosPage]
 })

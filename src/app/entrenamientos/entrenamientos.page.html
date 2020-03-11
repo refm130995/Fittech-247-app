@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Vista previa de los entrenamientos</ion-title>
+    <ion-title class="ion-text-center" mode="ios">Tu entrenamientos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
   <ion-list>
       <p class="ion-text-center"> Complete 3 series de la siguiente rutina </p>
-    <ion-item (click)="bateria()">
+    <ion-item (click)="bateria()" >
       <ion-thumbnail slot="start">
         <img src="assets/img/press-banca-1.png">
       </ion-thumbnail>
@@ -19,7 +19,28 @@
       </ion-label>
     </ion-item>
 
- 
+    <ion-item >
+
+      <ion-thumbnail slot="start">
+        <img src="assets/img/press-banca-1.png">
+      </ion-thumbnail>
+
+      <ion-label>
+        10 x Remo mancuerna
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="mostrarpop($event)">
+          <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-item>
+
+
+
+
+ <!--
     <ion-item *ngFor="let ejercicio of serie">
       <ion-thumbnail slot="start">
         <img src="assets/img/press-banca-1.png">
@@ -28,7 +49,7 @@
         <h2> {{ejercicio.name}}</h2>
       </ion-label>
     </ion-item>
- 
+  -->
 
   </ion-list>
 

@@ -93,7 +93,7 @@ export class LoginPage implements OnInit {
     if(valido){
       this.ruta.navigateRoot(['/tabs'])
     }else{
-      this.mensajeservice.alertaInformatica('Usuario no existe')
+      this.mensajeservice.alertaInformatica('Correo o contraseña no son correctas')
     }
   }
 

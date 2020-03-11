@@ -37,9 +37,10 @@ export class TestResistenciaPage implements OnInit {
        this.loadingController.dismiss()
        
        if(validar){
-        this.notificacion.notificacionUsuario("Gracias por realizar el test!","primary")
+        this.route.navigateByUrl('/tabs')
+        this.notificacion.notificacionUsuario("Gracias por realizar el test!","danger")
        }else{
-       this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","danger")
+       this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
        }
 
       //this.route.navigateByUrl('/tabs')

@@ -9,10 +9,11 @@
 
 <ion-content fullscreen>
 
-  <h4 class="ion-padding-horizontal ion-text-center">Complete uno de estos ejercicios.</h4>
+  <h4 class="ion-padding-horizontal ion-text-center">Complete un solo ejercicio.</h4>
 
   <ion-list>
-    <p style="font-size: medium; text-align: center;">Vista previa de los entrenamientos</p>
+    <!-- 
+    <p style="font-size: medium; text-align: center;">Vista previa de los entrenamientos</p>-->
     <ion-item (click)="squat()">
       <ion-thumbnail slot="start">
         <img src="assets/img/squat-3.png">
@@ -33,6 +34,7 @@
       <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
     </ion-item>
 
+    <p style="font-size: medium; text-align: center;" class="ion-padding"> <b>Si no puedes realizar squat , por favor realizar leg extension</b></p>
 
   </ion-list>
 

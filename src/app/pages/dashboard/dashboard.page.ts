@@ -12,7 +12,7 @@ import { MensajesService } from 'src/app/services/mensajes.service';
 })
 export class DashboardPage implements OnInit {
    Bienvenido:any
-    
+
   constructor(public usuarioservicio:UsuarioService,
      private apiService:ApiFitechService,
      private ruta:NavController,
@@ -20,9 +20,13 @@ export class DashboardPage implements OnInit {
    
    }
 
+  ionViewWillEnter(){
+    this.apiService.obtenerUsuario()
+    
+  }
 
  ngOnInit() {
-
+    console.log(this.apiService.usuario)
   }
 
 
@@ -35,7 +39,9 @@ export class DashboardPage implements OnInit {
   }
   
   async rutinas(){
+    this.ruta.navigateForward('entrenamientos')
 
+    /*
     const validar = await this.apiService.obtenerRutina() 
     if(validar){
       this.ruta.navigateForward('entrenamientos')
@@ -43,7 +49,7 @@ export class DashboardPage implements OnInit {
       this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","danger")
     }
 
-    
+    */
   }
 
 }

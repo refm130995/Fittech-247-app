@@ -19,9 +19,14 @@ export class PesoComponent implements OnInit {
 
   valor(numero){
     if(!isNaN(numero.target.value) && numero.target.value.length > 1){
-      this.numero = numero.target.value
-      this.habilitar = false
-      this.mensaje = "Kg"
+      if( numero.target.value > 200 ){
+        this.habilitar = true
+        this.mensaje = "El valor maximo es 200 kg"
+      }else{
+        this.numero = numero.target.value
+        this.habilitar = false
+        this.mensaje = "Kg"
+      }
    }else{
      this.habilitar = true
      this.mensaje = "introduzca un valor correcto"
