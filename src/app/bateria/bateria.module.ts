@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BateriaPageRoutingModule } from './bateria-routing.module';
 
 import { BateriaPage } from './bateria.page';
+import { PipesModule } from '../pipes/pipe.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BateriaPageRoutingModule
+    BateriaPageRoutingModule,
+    PipesModule
   ],
   declarations: [BateriaPage]
 })

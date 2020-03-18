@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">Lista de ejercicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+      <p class="ion-text-center"> Selecione un ejercicio que le guste  </p>
+
+
+    <ion-item *ngFor="let ejercicio of serie">
+      <ion-thumbnail slot="start">
+        <img src="assets/img/press-banca-1.png">
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">
+        <h2> {{ejercicio.name}} </h2>
+        <p> {{ejercicio.repetitions}} </p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="mostrarpop($event,ejercicio.id)">
+          <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+
+
+  </ion-list>
+
+</ion-content>

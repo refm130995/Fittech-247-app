@@ -128,6 +128,26 @@ const routes: Routes = [
     path: 'test-fuerza-manual-pasos/:id',
     loadChildren: () => import('./pages/TestFuerza/test-fuerza-manual-pasos/test-fuerza-manual-pasos.module').then( m => m.TestFuerzaManualPasosPageModule)
   },
+  {
+    path: 'calentamiento',
+    loadChildren: () => import('./pages/calentamiento/calentamiento.module').then( m => m.CalentamientoPageModule)
+  },
+  {
+    path: 'cambiarejercicio',
+    loadChildren: () => import('./cambiarejercicio/cambiarejercicio.module').then( m => m.CambiarejercicioPageModule)
+  },
+  {
+    path: 'listaejercicioremplazar',
+    loadChildren: () => import('./listaejercicioremplazar/listaejercicioremplazar.module').then( m => m.ListaejercicioremplazarPageModule)
+  },
+  {
+    path: 'calentamientodos',
+    loadChildren: () => import('./pages/calentamientodos/calentamientodos.module').then( m => m.CalentamientodosPageModule)
+  },
+  {
+    path: 'bateriarutina',
+    loadChildren: () => import('./bateriarutina/bateriarutina.module').then( m => m.BateriarutinaPageModule)
+  },
 ];
 
 @NgModule({

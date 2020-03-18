@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { MensajesService } from 'src/app/services/mensajes.service';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -37,6 +37,15 @@ export class TestResistenciaPage implements OnInit {
        this.loadingController.dismiss()
        
        if(validar){
+        console.log(this.ApiService.evaluarTest)
+
+         if(this.ApiService.evaluarTest){
+          document.getElementById("tablaexamen").classList.add('ocultar')
+         }else{
+           this.ApiService.pruebaRealizada(true)
+         }
+
+        document.getElementById("resistencia").classList.add('ocultar')
         this.route.navigateByUrl('/tabs')
         this.notificacion.notificacionUsuario("Gracias por realizar el test!","danger")
        }else{

@@ -1,18 +1,18 @@
 
 <ion-content>
   
-<h1 class="ion-padding"><b>Bienvenido Usuario</b> </h1>
+<h1 class="ion-padding"><b>Bienvenido</b> {{Bienvenido}} </h1>
 
-  <ion-grid>
+  <ion-grid id="tablaexamen">
     <ion-row >
       <h4 class="ion-padding-horizontal">Completa los <b>test ahora!</b> </h4>
-      <ion-col  size="6">   
-        <div  class="ion-padding-vertical" (click)="Fuerza()" id="Fuerza">
+      <ion-col  size="6" id="fuerza">   
+        <div  class="ion-padding-vertical" (click)="Fuerza()" >
           <div class="centered">Test de Fuerza</div>
           <img src="assets/img/test-fuerza2.png"/>
         </div>   
       </ion-col>
-      <ion-col  size="6">   
+      <ion-col  size="6"  id="resistencia">   
         <div  class="ion-padding-vertical" (click)="Resistencia()">
           <div class="centered">Test de Resistencia</div>
           <img src="assets/img/test-resistencia2.png" />
@@ -28,6 +28,12 @@
         <h4 class="ion-padding-horizontal">Tu <b>rutina</b> de hoy</h4>
           <img src="assets/img/rutina2.png"  class="ejercicio"/>
           <ion-button shape="round" color="dark" class="centered2" (click)="rutinas()">Ver rutina</ion-button>
+      </ion-col>
+
+      <ion-col size="12">   
+        <h4 class="ion-padding-horizontal"><b>Alimentación</b></h4>
+          <ion-button shape="round" color="dark" class="centered2">Ver Alimentos</ion-button>
+          <img src="assets/img/graficas.png" class="evaluacion" />
       </ion-col>
 
       <ion-col size="12">   

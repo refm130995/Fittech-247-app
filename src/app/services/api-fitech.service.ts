@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {Storage} from '@ionic/storage'
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
+
 const URL  = environment.url
 
 
@@ -26,8 +28,21 @@ export class ApiFitechService {
     examen3:false
   }
   
-  usuario = {}
   rutina = {}
+  Nuevarutina = {}
+  rutinaListadoRemplazar = {}
+  usuario:any
+  IDusuario:any
+  IDRutinaUsuario:any
+  evaluarTest:boolean 
+  contador:number = 0 
+  idListadoRemplazar:number
+
+  demostracionEjercicio = {
+    nombre: null,
+    repeticion:null,
+    id:null
+  }
 
   constructor(private http:HttpClient , private storage:Storage) { }
   
@@ -120,7 +135,10 @@ export class ApiFitechService {
         .subscribe(resp=>{
             //this.token =  resp['access_token']
             this.guardarToken(resp['access_token'])
-            console.log(this.token)
+            this.guardarUsuario(resp['user'])
+            this.guardarexamenFuerza(resp['power_test'])
+            this.guardarexamenResistencia(resp['aerobic_test'])
+
             resolve(true)
           },err =>{
             console.log(err)
@@ -132,15 +150,51 @@ export class ApiFitechService {
 
   }
 
+  /* MEMORIA CACHE ALMECENADO */
   async guardarToken(token:string){
     this.token = token;
     await this.storage.set('token',token)
   }
 
+  async guardarUsuario(usuario:string){
+    this.usuario = usuario['name']
+    this.IDusuario = usuario['id']
+    await this.storage.set('usuario',usuario)
+  }
+
+  async guardarexamenFuerza(fuerza:string){
+    await this.storage.set('examenfuerza',fuerza)
+  }
+
+  async guardarexamenResistencia(resistencia:string){
+    await this.storage.set('examenresistencia',resistencia)
+  }
+
+  async ActualizarexamenResistencia(){
+    await this.storage.set('examenresistencia',"activado")
+  }
+
+  async ActualizarexamenFuerza(){
+    await this.storage.set('examenfuerza',"activado")
+  }
+
+  /*Extraer de la memoria Cache */
   async cargarToken(){
     this.token = await this.storage.get('token') || null
   }
 
+  cargarNombreUsuario(){
+    return this.storage.get('usuario')
+  }
+
+  cargarExamenResistencia(){
+    return this.storage.get('examenresistencia')
+  }
+
+  cargarExamenFuerza(){
+    return this.storage.get('examenfuerza')
+  }
+  
   Latidos(persona:any){
     return new Promise( resolve => {
 
@@ -168,7 +222,6 @@ export class ApiFitechService {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + this.token,
       'Content-Type':'application/json',
-      'Access-Control-Allow-Origin':'*',
     })
     
     const data = {
@@ -184,7 +237,10 @@ export class ApiFitechService {
 
     this.http.post(`${URL}/auth/family_medical_record`,data,{headers})
         .subscribe(resp=>{
+          resolve(true)
           console.log(resp)
+        },err=>{
+          resolve(false)
         })
     })
   }
@@ -204,6 +260,7 @@ export class ApiFitechService {
       this.http.post(`${URL}/auth/aerobic_test`,data,{headers})
           .subscribe(resp=>{
             console.log(resp)
+            this.ActualizarexamenResistencia()
             resolve(true)
           },err=>{
             resolve(false)
@@ -233,6 +290,7 @@ export class ApiFitechService {
       this.http.post(`${URL}/auth/power_test`,data,{headers})
           .subscribe(resp=>{
             console.log(resp)
+            this.ActualizarexamenFuerza()
             resolve(true)
           },err=>{
             resolve(false)
@@ -280,11 +338,15 @@ export class ApiFitechService {
         'Authorization': 'Bearer ' + this.token,
         'Content-Type':'application/json',
       })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
       
       this.http.get(`${URL}/auth/routine`,{headers})
           .subscribe(resp=>{
-            console.log( resp['message'])
-            this.rutina = resp['message']
+            this.IDRutinaUsuario = resp['routine']
+            this.rutina = resp['exercises']
+            console.log(resp)
+            this._refrescarDatos.next()
             resolve(true)
           },err=>{
             resolve(false)
@@ -293,29 +355,124 @@ export class ApiFitechService {
 
   }
 
-  async obtenerUsuario(){
-        
-    await this.cargarToken()
-      
+  private _refrescarDatos = new Subject<void>()
 
+  get refrescarDatos(){
+    return this._refrescarDatos
+  }
+
+
+  pruebaRealizada(valor){
+    this.evaluarTest = valor
+  }
+
+
+  validarEmail(persona:any){
+    return new Promise( resolve => {
+
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json',
+    })
+    
+    const data = {
+      email : persona
+    }
+
+    this.http.post(`${URL}/auth/email-verify`,data,{headers})
+        .subscribe(resp=>{
+          if(resp["email"]== 1){
+            resolve(true)
+          }else{
+            resolve(false)
+          }
+        },err=>{
+          console.log(err)
+        })
+    })
+  }
+
+  ejerciciodemostrado(nombre,repeticion,id){
+
+    this.demostracionEjercicio.nombre = nombre
+    this.demostracionEjercicio.repeticion = repeticion
+    this.demostracionEjercicio.id = id
+  }  
+
+  asignarNuevoEjercicio(id){
+    this.idListadoRemplazar = id
+  }
+
+
+  cambiarEjercicio(){
+
+    return new Promise( resolve => {
 
       const headers = new HttpHeaders({
         'Authorization': 'Bearer ' + this.token,
         'Content-Type':'application/json',
       })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
       
-      this.http.get(`${URL}/auth/user`,{headers})
-          .subscribe(async resp=>{
-            await this.guardarUsuario(resp['name'])
+      this.http.get(`${URL}/auth/routine-random/${this.IDusuario}/${this.IDRutinaUsuario}/${this.demostracionEjercicio.id}/1`,{headers})
+          .subscribe(resp=>{
             console.log(resp)
+            this.Nuevarutina = resp
+            resolve(true)
           },err=>{
-            console.log(err)
+            resolve(false)
           })
+      })
 
   }
 
-  guardarUsuario(usuario:any){
-    this.usuario = usuario
+  contadorEjercicio(valor:number){
+    this.contador +=valor
   }
+
+  listadoEjercicioRemplazar(){
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
+      
+      this.http.get(`${URL}/auth/exercise-available/${this.IDusuario}/${this.IDRutinaUsuario}/1`,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            this.rutinaListadoRemplazar = resp
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+      })
+  }
+
+  cambiarListadoEjercicio(){
+
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
+      
+      this.http.get(`${URL}/auth/update-exercise/${this.IDRutinaUsuario}/${this.demostracionEjercicio.id}/${this.idListadoRemplazar}`,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            this.Nuevarutina = resp
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+      })
+
+  }
+
 
 }

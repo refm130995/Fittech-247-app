@@ -67,6 +67,14 @@ export class TestFuerzaCategoriaPage implements OnInit {
       this.loadingController.dismiss()
 
       if(validar){
+        console.log(this.apiservice.evaluarTest)
+        if(this.apiservice.evaluarTest){
+          document.getElementById("tablaexamen").classList.add('ocultar')
+         }else{
+           this.apiservice.pruebaRealizada(true)
+         }
+
+        document.getElementById("fuerza").classList.add('ocultar')
         this.route.navigateByUrl('/tabs')
        this.notificacion.notificacionUsuario("Gracias por realizar el test!","danger")
       }else{

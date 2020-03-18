@@ -47,13 +47,30 @@ export class TestFuerzaManualPage implements OnInit {
   }
 
 
-  termina(){
+  async termina(){
 
     if(this.apiservice.bloquearexamen.examen1 && this.apiservice.bloquearexamen.examen2 && this.apiservice.bloquearexamen.examen3 ){
+      this.presentLoading();
 
-      console.log(this.apiservice.examenFuerza)
-      this.ruta.navigateByUrl('/tabs')
-      this.notificacion.notificacionUsuario("Gracias por realizar el test!","primary")
+      const validar = await this.apiservice.TestFuerza()
+      this.loadingController.dismiss()
+      
+      if(validar){
+        console.log(this.apiservice.evaluarTest)
+
+        if(this.apiservice.evaluarTest){
+          document.getElementById("tablaexamen").classList.add('ocultar')
+         }else{
+           this.apiservice.pruebaRealizada(true)
+         }
+
+        document.getElementById("fuerza").classList.add('ocultar')
+        this.ruta.navigateByUrl('/tabs')
+       this.notificacion.notificacionUsuario("Gracias por realizar el test!","danger")
+       
+      }else{
+      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+        }
       }else{
         this.notificacion.notificacionUsuario("Complete los test, antes de finalizar","warning")
       }

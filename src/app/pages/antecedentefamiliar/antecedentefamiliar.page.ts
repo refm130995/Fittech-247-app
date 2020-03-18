@@ -70,14 +70,16 @@ export class AntecedentefamiliarPage implements OnInit {
 
 
  async evaluar(){
-  
+  this.ruta.navigateRoot(['/tabs'])
+
+  /*
   const valido = await this.ApiService.Antecedentefamiliar(this.usuarioservicio.condicionPersona)
   if(valido){
     this.ruta.navigateRoot(['/tabs'])
   }else{
     return
   }
-  
+  */
 }
 
 }

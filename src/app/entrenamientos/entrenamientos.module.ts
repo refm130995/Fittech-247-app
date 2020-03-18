@@ -9,6 +9,8 @@ import { EntrenamientosPageRoutingModule } from './entrenamientos-routing.module
 import { EntrenamientosPage } from './entrenamientos.page';
 import { PopinfoComponent } from '../components/popinfo/popinfo.component';
 import { ComponentsModule } from '../components/components.module';
+import { PipesModule } from '../pipes/pipe.module';
+
 
 @NgModule({
   entryComponents:[
@@ -19,7 +21,8 @@ import { ComponentsModule } from '../components/components.module';
     FormsModule,
     IonicModule,
     EntrenamientosPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule
   ],
   declarations: [EntrenamientosPage]
 })

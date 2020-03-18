@@ -7,8 +7,7 @@
 
   <ion-row>
     <ion-col size="12">
-       <p class="ion-text-center titulo">Nombre del Ejercicio</p>
-       <p class="ion-text-center titulopeque">movimiento del ejericio</p>
+       <p class="ion-text-center titulo">{{nombre | capitalizado}}</p>
     </ion-col>
   </ion-row>
 </ion-grid>
@@ -17,7 +16,7 @@
 
   <ion-row class="ion-row2">
     <ion-col size="12">
-      <h2 class="ion-text-center">cantidad de repeticiones</h2>
+      <h2 class="ion-text-center"> repeticiones x {{repeticion}}</h2>
     </ion-col>
   </ion-row>
 
@@ -30,9 +29,10 @@
 </ion-fab>
 
 
+<!--
 <ion-fab vertical="bottom"  horizontal="end" slot="fixed">
   <ion-fab-button color="primary" (click)="siguiente()">
     <ion-icon name="arrow-forward-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>
-
+-->

@@ -10,31 +10,42 @@ import { PopinfoComponent } from '../components/popinfo/popinfo.component';
   styleUrls: ['./entrenamientos.page.scss'],
 })
 export class EntrenamientosPage implements OnInit {
-   // serie = {}
-  constructor(private ruta:Router,private ApiService:ApiFitechService,public popoverController: PopoverController) { }
+   serie = {}
+  constructor(private ruta:Router,private ApiService:ApiFitechService,
+    public popoverController: PopoverController) { }
 
   ngOnInit() {
-      //this.serie =  this.ApiService.rutina
-     //console.log(this.serie)
+    
+    this.ApiService.refrescarDatos.subscribe(()=>{
+      this.serie =  this.ApiService.rutina
+    })
+
+    this.serie =  this.ApiService.rutina
+    console.log(this.serie)
   }
 
   comenzar(){
-    console.log("hola mundo")
+    this.ruta.navigateByUrl("calentamiento")
   }
 
-  bateria(){
-    this.ruta.navigateByUrl("bateria/1")
-  }
 
-  async mostrarpop(evento){
+  async mostrarpop(evento,nombre,repeticion,id){
  
     const popover = await this.popoverController.create({
       component: PopinfoComponent,
       showBackdrop:false,
       event:evento,
     });
+    
+    console.log("ID VIEJO",id)
+    this.ApiService.ejerciciodemostrado(nombre,repeticion,id)
 
     await popover.present()
   }
+
+  customTB(index, item){
+    return item.id
+  }
+
 
 }

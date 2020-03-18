@@ -12,11 +12,12 @@
 
       <ion-grid class="my-grid">
       <ion-row class="parent-row">
-        <ion-col size="12">      
-          <ion-input type="text" placeholder="Nombre*" name="nombre" [(ngModel)]="registrar.nombre"></ion-input>
-        </ion-col>
         <ion-col  size="12">      
-          <ion-input type="text" placeholder="Email*" name="email" [(ngModel)]="registrar.email"></ion-input>
+          <ion-input (ionBlur)="Email($event)" type="text" placeholder="Email*" name="email" [(ngModel)]="registrar.email"></ion-input>
+        </ion-col>
+        <ion-col size="12">      
+          <ion-input type="text" placeholder="Nombre*" 
+           name="nombre" [(ngModel)]="registrar.nombre"></ion-input>
         </ion-col>
         <ion-col  size="12">      
           <ion-input type="Password" placeholder="Password*" name="contra" [(ngModel)]="registrar.contra"></ion-input>
