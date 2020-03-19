@@ -12,10 +12,10 @@
 ion-content {
   --background: #fcfcfc;
   /*
-    background-image: url('/assets/img/imagen-objetivos.jpg');    
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    background-size: 90%;*/
+  background-image: url('/assets/img/imagen-objetivos.jpg');    
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 90%;*/
 }
 
 .logo {
@@ -53,6 +53,10 @@ ion-content {
 
 .color-tarjeta {
   background-color: #E5141A;
+}
+
+.color-tarjeta2 {
+  background-color: #5f5253;
 }
 
 ion-card {
