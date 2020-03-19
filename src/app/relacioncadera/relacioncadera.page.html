@@ -1,0 +1,145 @@
+<ion-header [translucent]="true" class="ion-no-border animated fadeIn delay-1s">
+  <div class="cabezera">
+    <img src="assets/img/logo-app.png" class="logo">
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" slot="fixed" class="animated fadeIn delay-1s">
+
+  <div class="contenedor">
+     
+      <div class="letra">
+        Para finalizar, vamos a necesitar una medidas para generar las rutinas de la forma mas exacta posible. 
+      </div>
+
+
+      <ion-grid class="my-grid animated fadeIn delay-2s">
+      <ion-row class="parent-row">
+        <ion-col  size="12">   
+          <ion-list>
+            <ion-list-header>(Porfavor, medir con un centimetro)</ion-list-header>
+
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="./assets/img/cintura.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida minima de cintura?</ion-label>
+              <ion-input (ionChange)="validar($event,1)" type="number" name="min_cintura" [(ngModel)]="medidasCorporales.min_cintura"></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="./assets/img/cintura.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida maxima de cintura?</ion-label>
+              <ion-input type="number" name="max_cintura" 
+              (ionChange)="validar($event,2)" [(ngModel)]="medidasCorporales.max_cintura"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="./assets/img/cadera.png">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida de cadera?</ion-label>
+              <ion-input  type="number" name="cadera" 
+              (ionChange)="validar($event,3)"[(ngModel)]="medidasCorporales.cadera"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="./assets/img/cuello.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida de cuello?</ion-label>
+              <ion-input type="number"  name="cuello"
+              (ionChange)="validar($event,4)" [(ngModel)]="medidasCorporales.cuello"></ion-input>
+            </ion-item>
+
+            
+            <ion-item>
+              <ion-thumbnail slot="end">
+                <img src="./assets/img/muslo.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida del muslo derecho?</ion-label>
+              <ion-input type="number" name="muslo_derecho" 
+              (ionChange)="validar($event,5)" [(ngModel)]="medidasCorporales.muslo_derecho"></ion-input>
+            </ion-item>
+
+            
+            <ion-item>
+              <ion-thumbnail slot="end">
+                <img src="./assets/img/muslo.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida del muslo izquierdo?</ion-label>
+              <ion-input  type="number" name="muslo_izquierdo" 
+              (ionChange)="validar($event,6)" [(ngModel)]="medidasCorporales.muslo_izquierdo"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-thumbnail slot="end">
+                <img src="./assets/img/brazo.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida del brazo derecho?</ion-label>
+              <ion-input  type="number" name="brazo_derecho"
+              (ionChange)="validar($event,7)" [(ngModel)]="medidasCorporales.brazo_derecho"></ion-input>
+            </ion-item>
+
+            
+            <ion-item>
+              <ion-thumbnail slot="end">
+                <img src="./assets/img/brazo.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida del brazo izquierdo?</ion-label>
+              <ion-input  type="number" name="brazo_izquierdo" 
+              (ionChange)="validar($event,8)" [(ngModel)]="medidasCorporales.brazo_izquierdo"></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="./assets/img/pantorrilla.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida de pantorrilla derecho?</ion-label>
+              <ion-input type="number" name="pantorrilla_derecho"
+              (ionChange)="validar($event,9)" [(ngModel)]="medidasCorporales.pantorrilla_derecho"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="./assets/img/pantorrilla.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida de pantorrilla izquierda?</ion-label>
+              <ion-input  type="number" name="pantorrilla_izquierda" 
+              (ionChange)="validar($event,10)" [(ngModel)]="medidasCorporales.pantorrilla_izquierda"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img src="./assets/img/pecho.jpg">
+              </ion-thumbnail>
+              <ion-label position="floating" style="font-size: 12px;">¿Cual es su medida de su tórax?</ion-label>
+              <ion-input  type="number" name="pecho"
+              (ionChange)="validar($event,11)" [(ngModel)]="medidasCorporales.pecho"></ion-input>
+            </ion-item>
+
+          </ion-list>
+            
+          
+        </ion-col>
+ 
+        <ion-col size="12">      
+          <ion-card class="color-tarjeta" (click)="finalizar()" [disabled]="habilitar">
+            <h2>Finalizar</h2>
+          </ion-card>
+        </ion-col>
+       
+      </ion-row>
+      </ion-grid>      
+  </div>
+
+
+  
+
+</ion-content>
+
+

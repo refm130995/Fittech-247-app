@@ -148,6 +148,14 @@ const routes: Routes = [
     path: 'bateriarutina',
     loadChildren: () => import('./bateriarutina/bateriarutina.module').then( m => m.BateriarutinaPageModule)
   },
+  {
+    path: 'relacioncadera',
+    loadChildren: () => import('./relacioncadera/relacioncadera.module').then( m => m.RelacioncaderaPageModule)
+  },
+  {
+    path: 'test-capacidad-info',
+    loadChildren: () => import('./pages/TestCapacidad/test-capacidad-info/test-capacidad-info.module').then( m => m.TestCapacidadInfoPageModule)
+  },
 ];
 
 @NgModule({

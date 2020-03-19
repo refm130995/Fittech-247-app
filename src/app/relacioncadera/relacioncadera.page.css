@@ -10,14 +10,12 @@
 }
 
 ion-content {
-  --ion-background-color: #fcfcfc;
-}
-
-ion-input {
-  text-align: start;
-  margin: 0 auto;
-  width: 80%;
-  box-shadow: 3px 7px 10px -5px rgba(0, 0, 0, 0.2);
+  --background: #fcfcfc;
+  /*
+    background-image: url('/assets/img/imagen-datos.jpg');    
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 80%;*/
 }
 
 .logo {
@@ -48,23 +46,15 @@ ion-input {
   margin-bottom: 20px;
 }
 
-ion-card {
-  padding: 0px !important;
-  margin: 0px !important;
-  margin-bottom: 10px !important;
-  width: 88%;
-  margin: 0 auto !important;
-  word-wrap: break-word;
+.imagen {
+  width: 130px;
+  height: 130px;
+  border-radius: 5px;
 }
 
-ion-card h2 {
-  font-size: 17px !important;
-  opacity: 0.9;
-}
-
-ion-card:hover {
-  transition: 0.1s;
-  opacity: 0.5;
+.tarjeta {
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 ion-col {
@@ -81,6 +71,31 @@ ion-col {
   justify-content: center !important;
 }
 
-ion-button {
+.letra {
+  padding-left: 35px;
+  padding-right: 35px;
+  font-size: 18px;
+  text-align: justify;
+  opacity: 0.7;
+}
+
+ion-card {
+  margin: 0 auto;
   width: 80%;
+}
+
+ion-card:hover {
+  transition: 0.1s;
+  opacity: 0.5;
+}
+
+.mensaje {
+  font-size: 11px;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.color-tarjeta {
+  color: white;
+  background-color: #000000;
 }

@@ -12,7 +12,8 @@ import { MensajesService } from 'src/app/services/mensajes.service';
 })
 export class DashboardPage implements OnInit {
    Bienvenido:any
-
+    casa = false
+    gimnacio = false
 
   constructor(public usuarioservicio:UsuarioService,
      private apiService:ApiFitechService,
@@ -26,6 +27,8 @@ export class DashboardPage implements OnInit {
     const valor = await this.apiService.cargarNombreUsuario()
     this.Bienvenido = this.apiService.usuario  
     this.Bienvenido = valor['name']
+      this.asignarTest(valor['training_place'])
+
 
     const resistencia = await this.apiService.cargarExamenResistencia()
 
@@ -46,6 +49,8 @@ export class DashboardPage implements OnInit {
       this.apiService.pruebaRealizada(true)
        console.log("se ejecuta 2")
      }
+
+
     
      if(document.getElementById("fuerza").classList.contains("ocultar") && document.getElementById("resistencia").classList.contains("ocultar")){
       document.getElementById("tablaexamen").classList.add('ocultar')
@@ -60,6 +65,10 @@ export class DashboardPage implements OnInit {
 
   Resistencia(){
     this.ruta.navigateForward('test-resistencia')
+  }
+
+  Capacidad(){
+    this.ruta.navigateForward('test-capacidad-info')
   }
   
   async rutinas(){
@@ -76,5 +85,16 @@ export class DashboardPage implements OnInit {
 
   }
 
+  asignarTest(valor){
+    if( valor == 0){
+      this.gimnacio = true
+    }
+
+    if( valor == 2){
+      this.casa = true
+    }
+
+
+  }
 
 }

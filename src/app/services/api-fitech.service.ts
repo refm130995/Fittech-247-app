@@ -245,6 +245,39 @@ export class ApiFitechService {
     })
   }
 
+  cinturacadera(persona:any){
+    
+    return new Promise( resolve => {
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+      const data = {
+        min_waist : persona.min_cintura,
+        max_waist : persona.max_cintura,
+        hip : persona.cadera,
+        neck : persona.cuello,
+        right_thigh : persona.muslo_derecho,
+        left_thigh : persona.muslo_izquierdo,
+        right_arm : persona.brazo_derecho,
+        left_arm : persona.brazo_izquierdo,
+        right_calf : persona.pantorrilla_derecho,
+        left_calf : persona.pantorrilla_izquierda,
+        torax : persona.pecho,
+      }
+
+      this.http.post(`${URL}/auth/measurement_record`,data,{headers})
+      .subscribe(resp=>{ 
+          console.log(resp)
+          resolve(true)
+        },err =>{
+          console.log(err)
+        })
+    })
+
+}
+
   TestResistencia(valor:any){
     return new Promise( resolve => {
 
@@ -473,6 +506,8 @@ export class ApiFitechService {
       })
 
   }
+
+
 
 
 }

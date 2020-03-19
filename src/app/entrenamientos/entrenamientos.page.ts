@@ -11,6 +11,7 @@ import { PopinfoComponent } from '../components/popinfo/popinfo.component';
 })
 export class EntrenamientosPage implements OnInit {
    serie = {}
+   ocultar = false
   constructor(private ruta:Router,private ApiService:ApiFitechService,
     public popoverController: PopoverController) { }
 
@@ -21,6 +22,12 @@ export class EntrenamientosPage implements OnInit {
     })
 
     this.serie =  this.ApiService.rutina
+      if(Object.keys(this.serie).length === 0){
+        this.ocultar = false
+      }else{
+        this.ocultar = true
+      }
+
     console.log(this.serie)
   }
 

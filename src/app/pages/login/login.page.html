@@ -9,8 +9,8 @@
   <div class="contenedor">
 
       <h2 class="titulo">¿Listo para comenzar?</h2>
-
-      <ion-grid class="my-grid">
+    
+      <ion-grid class="my-grid  animated fadeIn delay-2s">
       <ion-row class="parent-row">
         <ion-col size="12">      
           <ion-input type="text" placeholder="Email*" name="email" [(ngModel)]="login.email"></ion-input>
@@ -19,26 +19,31 @@
           <ion-input type="password" placeholder="Password*" name="password" [(ngModel)]="login.password"></ion-input>
         </ion-col>
         <ion-col  size="12">      
-          <ion-card color="dark" (click)="acceder()">
-            <h2>Acceder</h2>  
-          </ion-card>
-        </ion-col>
-        <ion-col  size="12" class="ion-margin-top">      
-          <ion-card color="danger" style="margin-top:5%;" (click)="googleLogin()">
-            <h2>Acceder con Google</h2>  
-          </ion-card>
+          <ion-button shape="round"  color="medium"
+          (click)="acceder()" [disabled]="facebookhabilitar" >
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            Acceder con Email
+          </ion-button>
         </ion-col>
         <ion-col  size="12">      
-          <ion-card color="primary" (click)="facebookLogin()">
-            <h2>Acceder con Facebook</h2>  
-          </ion-card>
+          <ion-button shape="round"  color="danger" 
+            (click)="googleLogin()" [disabled]="googlehabilitar" >
+            <ion-icon name="logo-google" slot="start"></ion-icon>
+            Acceder con Google
+          </ion-button>
+        </ion-col>
+        <ion-col  size="12">      
+         <ion-button shape="round"  color="primary" 
+          (click)="facebookLogin()" [disabled]="facebookhabilitar" >
+            <ion-icon name="logo-facebook" slot="start"></ion-icon>
+            Acceder con Facebook
+          </ion-button>
         </ion-col>
         <ion-col  size="12">      
           <a href="#">Recuperar Contraseña</a>
         </ion-col>
       </ion-row>
       </ion-grid>      
-
   </div>
 </ion-content>
 

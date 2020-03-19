@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class TerminosPage implements OnInit {
   datosCargados
 
   constructor(private usuarioService:UsuarioService , private ApiService:ApiFitechService,
-    private ruta: NavController) {
+    private ruta: NavController,public loadingController: LoadingController) {
     this.datosCargados = this.usuarioService.datosPersonales
    }
 
@@ -22,12 +22,21 @@ export class TerminosPage implements OnInit {
 
   
   async registrar(){
+    this.presentLoading();
     const valido = await this.ApiService.Registrar(this.usuarioService.datosPersonales)
     if(valido){
+      this.loadingController.dismiss()
       this.ruta.navigateRoot(['/corazon'])
     }else{
       console.log("fail en el Registrado")
     }
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Porfavor espere...',
+    });
+    await loading.present();
   }
 
 }
