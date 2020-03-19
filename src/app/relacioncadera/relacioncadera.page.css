@@ -12,10 +12,10 @@
 ion-content {
   --background: #fcfcfc;
   /*
-    background-image: url('/assets/img/imagen-datos.jpg');    
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    background-size: 80%;*/
+  background-image: url('/assets/img/imagen-datos.jpg');    
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 80%;*/
 }
 
 .logo {
@@ -53,8 +53,8 @@ ion-content {
 }
 
 .tarjeta {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 0%;
+  padding-right: 0%;
 }
 
 ion-col {
@@ -90,7 +90,7 @@ ion-card:hover {
 }
 
 .mensaje {
-  font-size: 11px;
+  font-size: 14px;
   opacity: 0.5;
   text-align: center;
 }
@@ -98,4 +98,23 @@ ion-card:hover {
 .color-tarjeta {
   color: white;
   background-color: #000000;
+}
+
+ion-input {
+  opacity: 0.7;
+  text-align: center;
+}
+
+.sa {
+  border-bottom: 1px solid red;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
