@@ -32,6 +32,7 @@ export class ApiFitechService {
   Nuevarutina = {}
   rutinaListadoRemplazar = {}
   usuario:any
+  training:any
   IDusuario:any
   IDRutinaUsuario:any
   evaluarTest:boolean 
@@ -157,6 +158,7 @@ export class ApiFitechService {
   }
 
   async guardarUsuario(usuario:string){
+    this.training = usuario['training_place']
     this.usuario = usuario['name']
     this.IDusuario = usuario['id']
     await this.storage.set('usuario',usuario)

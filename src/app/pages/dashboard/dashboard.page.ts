@@ -12,8 +12,7 @@ import { MensajesService } from 'src/app/services/mensajes.service';
 })
 export class DashboardPage implements OnInit {
    Bienvenido:any
-    casa = false
-    gimnacio = false
+   ExamenCliente:any
 
   constructor(public usuarioservicio:UsuarioService,
      private apiService:ApiFitechService,
@@ -25,10 +24,11 @@ export class DashboardPage implements OnInit {
    async ngOnInit() {
       
     const valor = await this.apiService.cargarNombreUsuario()
-    this.Bienvenido = this.apiService.usuario  
-    this.Bienvenido = valor['name']
-      this.asignarTest(valor['training_place'])
-
+    const comprobar = this.apiService.usuario 
+    this.Bienvenido = comprobar ? this.apiService.usuario : valor['name']
+    const comprobardos = this.apiService.usuario 
+    this.ExamenCliente = comprobardos ? this.apiService.training : valor['training_place']
+    
 
     const resistencia = await this.apiService.cargarExamenResistencia()
 
@@ -51,7 +51,6 @@ export class DashboardPage implements OnInit {
      }
 
 
-    
      if(document.getElementById("fuerza").classList.contains("ocultar") && document.getElementById("resistencia").classList.contains("ocultar")){
       document.getElementById("tablaexamen").classList.add('ocultar')
      }
@@ -85,16 +84,5 @@ export class DashboardPage implements OnInit {
 
   }
 
-  asignarTest(valor){
-    if( valor == 0){
-      this.gimnacio = true
-    }
-
-    if( valor == 2){
-      this.casa = true
-    }
-
-
-  }
 
 }

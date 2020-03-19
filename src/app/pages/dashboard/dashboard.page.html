@@ -3,7 +3,7 @@
   
 <h1 class="ion-padding"><b>Bienvenido</b> {{Bienvenido}} </h1>
 
-  <div *ngIf="gimnacio">
+  <div *ngIf="ExamenCliente === 0">
     <ion-grid id="tablaexamen">
       <ion-row >
         <h4 class="ion-padding-horizontal">Completa los <b>test ahora!</b> </h4>
@@ -23,7 +23,7 @@
     </ion-grid>   
   </div>
 
-  <div *ngIf="casa">
+  <div *ngIf="ExamenCliente === 2">
   <ion-grid id="tablaexamen">
 
     <ion-row class="ion-justify-content-center">
