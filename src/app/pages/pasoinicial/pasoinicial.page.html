@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border animated fadeIn delay-1s">
   <ion-toolbar>
-    <ion-title class="ion-text-center">Paso {{contador}} de 4</ion-title>
+    <ion-title class="ion-text-center">Paso {{contador}} de 3</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -23,19 +23,14 @@
         </ion-row>
       </ion-grid>
     </ion-slide>
+
     <ion-slide id="slide3">
-      <ion-grid class="my-grid">
-        <ion-row class="parent-row">
-          <app-peso (cambiarPantalla)="cambiar($event)"></app-peso>
-        </ion-row>
-      </ion-grid>
-    </ion-slide>
-    <ion-slide id="slide4">
       <ion-grid class="my-grid">
         <ion-row class="parent-row">
           <app-historial (cambiarPantalla)="cambiar($event)"></app-historial>
         </ion-row>
       </ion-grid>
     </ion-slide>
+
   </ion-slides>
 </ion-content>

@@ -33,7 +33,7 @@ export class HistorialComponent implements OnInit {
   }
 
   atras(){
-    this.cambiarPantalla.emit(4)
+    this.cambiarPantalla.emit(1)
   }
 
 }
