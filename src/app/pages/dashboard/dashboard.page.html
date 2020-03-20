@@ -25,11 +25,10 @@
 
   <div *ngIf="ExamenCliente === 2">
   <ion-grid id="tablaexamen">
-
-    <ion-row class="ion-justify-content-center">
+    <ion-row class="ion-justify-content-center" id="capacidad">
       <h4 class="ion-padding-horizontal">Completa el <b>test ahora!</b> </h4>
 
-      <ion-col  size="10" id="fuerza">   
+      <ion-col  size="10">   
         <div  class="ion-padding-vertical" (click)="Capacidad()" >
           <div class="centered">Test de Capacidad</div>
           <img src="assets/img/test-casa.png"/>

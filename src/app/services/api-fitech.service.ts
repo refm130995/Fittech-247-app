@@ -181,6 +181,7 @@ export class ApiFitechService {
             this.guardarUsuario(resp['user'])
             this.guardarexamenFuerza(resp['power_test'])
             this.guardarexamenResistencia(resp['aerobic_test'])
+            this.guardarexamenCapacidad(resp['home_test'])
 
             resolve(true)
           },err =>{
@@ -214,6 +215,16 @@ export class ApiFitechService {
     await this.storage.set('examenresistencia',resistencia)
   }
 
+
+  async guardarexamenCapacidad(capacidad:string){
+    await this.storage.set('examencapacidad',capacidad)
+  }
+
+  /*Actualziar storgae */
+  async ActualizarexamenCapacidad(){
+    await this.storage.set('examencapacidad',"activado")
+  }
+
   async ActualizarexamenResistencia(){
     await this.storage.set('examenresistencia',"activado")
   }
@@ -223,8 +234,8 @@ export class ApiFitechService {
   }
 
   /*Extraer de la memoria Cache */
-  async cargarToken(){
-    this.token = await this.storage.get('token') || null
+  cargarToken(){
+     return this.storage.get('token') 
   }
 
   cargarNombreUsuario(){
@@ -238,6 +249,12 @@ export class ApiFitechService {
   cargarExamenFuerza(){
     return this.storage.get('examenfuerza')
   }
+
+  cargarExamenCapacidad(){
+    return this.storage.get('examencapacidad')
+
+  }
+
   
   Latidos(persona:any){
     return new Promise( resolve => {
@@ -555,6 +572,11 @@ export class ApiFitechService {
     this.genero = valor
   }
 
+  asignarToken(valor){
+    this.token = valor
+  }
+
+
   TestHome(valor:number){
     return new Promise( resolve => {
 
@@ -592,11 +614,14 @@ export class ApiFitechService {
       
       this.http.get(`${URL}/auth/routine-home`,{headers})
           .subscribe(resp=>{
-            this.IDRutinaUsuario = resp['routine']
-            this.rutina = resp['exercises']
-            console.log(resp)
-            this._refrescarDatos.next()
-            resolve(true)
+              if(resp['routine']){
+                this.IDRutinaUsuario = resp['routine']
+                this.rutina = resp['exercises']
+                this._refrescarDatos.next()
+                resolve(true)
+              }else{
+                resolve("examen")
+              }
           },err=>{
             resolve(false)
           })
@@ -608,7 +633,7 @@ export class ApiFitechService {
    this.verificarEntrenamiento = valor
   }
 
-  
+
   finalizarRutinaHome(valor:number){
     return new Promise( resolve => {
 
@@ -631,6 +656,7 @@ export class ApiFitechService {
 
       })
   }
+
 
 
 }

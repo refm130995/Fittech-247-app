@@ -13,7 +13,9 @@ export class TestCapacidadInfoPage implements OnInit {
 
   async ngOnInit() {
     const valor = await this.apiService.cargarNombreUsuario()
+    
     this.apiService.asignarGenero(valor['gender'])
+
     console.log(this.apiService.genero)
   }
 

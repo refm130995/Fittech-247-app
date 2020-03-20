@@ -26,6 +26,7 @@ export class MensajecapacidadPage implements OnInit {
 
     const validar = await this.apiService.TestHome(this.contador)
     if(validar){
+      document.getElementById("capacidad").classList.add('ocultar')
       this.ruta.navigateByUrl("tabs")
     }else{
       this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")

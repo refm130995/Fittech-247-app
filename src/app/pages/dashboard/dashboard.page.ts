@@ -13,6 +13,10 @@ import { MensajesService } from 'src/app/services/mensajes.service';
 export class DashboardPage implements OnInit {
    Bienvenido:any
    ExamenCliente:any
+   resistencia
+   fuerza
+   capacidad
+   puerta
 
   constructor(public usuarioservicio:UsuarioService,
      private apiService:ApiFitechService,
@@ -24,37 +28,59 @@ export class DashboardPage implements OnInit {
    async ngOnInit() {
     
     const valor = await this.apiService.cargarNombreUsuario()
-    
+
+
+    /* Este paso sere restructurado mas adelante */
+    const token = await this.apiService.cargarToken()
+    this.apiService.asignarToken(token)
+   /* Este paso sere restructurado mas adelante */
+
+
+
     const comprobar = this.apiService.usuario 
     this.Bienvenido = comprobar ? this.apiService.usuario : valor['name']
     const comprobados = this.apiService.usuario 
     this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
     
 
-    const resistencia = await this.apiService.cargarExamenResistencia()
+    this.resistencia = await this.apiService.cargarExamenResistencia()
 
-     if( resistencia == null || undefined){
-      console.log("se ejecuta 1")
+     if( this.resistencia == null || undefined){
+      console.log("resistencia")
      }else{
       document.getElementById("resistencia").classList.add('ocultar')
         this.apiService.pruebaRealizada(true)
        console.log("se ejecuta 2")
      }
 
-     const fuerza = await this.apiService.cargarExamenFuerza()
+     this.fuerza = await this.apiService.cargarExamenFuerza()
 
-     if( fuerza == null || undefined){
-      console.log("se ejecuta 1")
+     if( this.fuerza == null || undefined){
+      console.log("fuerza")
      }else{
       document.getElementById("fuerza").classList.add('ocultar')
       this.apiService.pruebaRealizada(true)
        console.log("se ejecuta 2")
      }
 
+     this.capacidad = await this.apiService.cargarExamenCapacidad()
 
-     if(document.getElementById("fuerza").classList.contains("ocultar") && document.getElementById("resistencia").classList.contains("ocultar")){
-      document.getElementById("tablaexamen").classList.add('ocultar')
+     if( this.capacidad == null || undefined){
+      console.log("capacidad")
+     }else{
+      document.getElementById("capacidad").classList.add('ocultar')
+       console.log("se ejecuta 2")
      }
+
+
+     if(this.fuerza !== null && this.resistencia !== null){
+
+      if(document.getElementById("fuerza").classList.contains("ocultar") && document.getElementById("resistencia").classList.contains("ocultar")){
+        document.getElementById("tablaexamen").classList.add('ocultar')
+        }
+
+    }
+
     
   }
 
@@ -73,35 +99,40 @@ export class DashboardPage implements OnInit {
   
   async rutinas(){
 
-    const valor = await this.apiService.cargarNombreUsuario()
-    const comprobados = this.apiService.usuario 
-    this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
-
-      if(this.ExamenCliente === 0){
-        const validar = await this.apiService.obtenerRutina() 
-        if(validar){
-          this.apiService.verificarLugar(this.ExamenCliente)
-          this.ruta.navigateForward('entrenamientos')
-        }else{
-          this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+      const valor = await this.apiService.cargarNombreUsuario()
+      const comprobados = this.apiService.usuario 
+      this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
+        /*arreglar como la de home*/
+        if(this.ExamenCliente === 0){
+          const validar = await this.apiService.obtenerRutina() 
+          if(validar){
+            this.apiService.verificarLugar(this.ExamenCliente)
+            this.ruta.navigateForward('entrenamientos')
+          }else{
+            this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+          }
         }
-      }
+  
+        if(this.ExamenCliente === 2){
+          const validar = await this.apiService.obtenerRutinaHome()
 
-      if(this.ExamenCliente === 2){
-        const validar = await this.apiService.obtenerRutinaHome()
-        if(validar){
-          this.apiService.verificarLugar(this.ExamenCliente)
-          this.ruta.navigateForward('entrenamientos')
-        }else{
-          this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+          if(validar == true){
+            this.apiService.verificarLugar(this.ExamenCliente)
+            this.ruta.navigateForward('entrenamientos')
+          }
+          
+          if(validar == false){
+            this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+          }
+
+          if(validar === "examen"){
+            this.notificacion.notificacionUsuario("Porfavor realize  primero el test","warning")
+          }
+
         }
-      }
+
+    }
 
     
-    
-    
-
-  }
-
 
 }
