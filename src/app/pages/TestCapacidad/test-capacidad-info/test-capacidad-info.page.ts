@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-test-capacidad-info',
@@ -7,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestCapacidadInfoPage implements OnInit {
 
-  constructor() { }
+  constructor(private ruta:NavController) { }
 
   ngOnInit() {
   }
 
   test(){
-    console.log("hola mundo")
+    this.ruta.navigateForward('bateriahome/0')
   }
 
 }

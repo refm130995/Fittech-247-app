@@ -56,4 +56,5 @@ export class BateriarutinaPage implements OnInit {
   }
 
 
+
 }

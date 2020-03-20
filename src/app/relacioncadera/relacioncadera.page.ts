@@ -11,13 +11,31 @@ import { NavController } from '@ionic/angular';
 export class RelacioncaderaPage implements OnInit {
 
   medidasCorporales = {
+    min_cintura:null,
     max_cintura:null,
     cadera:null,
+    cuello:null,
+    muslo_derecho:null,
+    muslo_izquierdo:null,
+    brazo_derecho:null,
+    brazo_izquierdo:null,
+    pantorrilla_derecho:null,
+    pantorrilla_izquierda:null,
+    pecho:null
   }
 
   elementoValidar = {
     elemenUno:false,
     elemenDos:false,
+    elemenTre:false,
+    elemenCua:false,
+    elemenCin:false,
+    elemenSei:false,
+    elemenSie:false,
+    elemenOch:false,
+    elemenNue:false,
+    elemenDie:false,
+    elemenOnc:false,
   }
 
   constructor(private mensajeservice:MensajesService,private ApiService:ApiFitechService,private ruta: NavController) { }
@@ -26,17 +44,20 @@ export class RelacioncaderaPage implements OnInit {
   }
 
   async finalizar(){
-    if(this.elementoValidar.elemenUno && this.elementoValidar.elemenDos){
-       console.log(this.elementoValidar)
+    if(this.elementoValidar.elemenUno && this.elementoValidar.elemenDos  && this.elementoValidar.elemenTre
+      && this.elementoValidar.elemenCua&& this.elementoValidar.elemenCin&& this.elementoValidar.elemenSei
+      && this.elementoValidar.elemenSie && this.elementoValidar.elemenOch && this.elementoValidar.elemenNue
+      && this.elementoValidar.elemenDie && this.elementoValidar.elemenOnc){
 
-      /* 
+
       const valido = await this.ApiService.cinturacadera(this.medidasCorporales)
       if(valido){
        this.ruta.navigateRoot(['/tabs'])
       }else{
         return
       }
-      */
+
+
 
       }else{
         this.mensajeservice.alertaInformatica('Todo los campos deben ser obligatorio, y su valor mayor a 0 y menor a 4 digitos')
@@ -63,6 +84,33 @@ export class RelacioncaderaPage implements OnInit {
     if(asignacion == 2){
       this.elementoValidar.elemenDos  = true
     }
+    if(asignacion == 3){
+      this.elementoValidar.elemenTre  = true
+    }
+    if(asignacion == 4){
+      this.elementoValidar.elemenCua  = true
+    }
+    if(asignacion == 5){
+      this.elementoValidar.elemenCin  = true
+    }
+    if(asignacion == 6){
+      this.elementoValidar.elemenSei  = true
+    }
+    if(asignacion == 7){
+      this.elementoValidar.elemenSie  = true
+    }
+    if(asignacion == 8){
+      this.elementoValidar.elemenOch  = true
+    }
+    if(asignacion == 9){
+      this.elementoValidar.elemenNue  = true
+    }
+    if(asignacion == 10){
+      this.elementoValidar.elemenDie  = true
+    }
+    if(asignacion == 11){
+      this.elementoValidar.elemenOnc  = true
+    }
 
   }
 
@@ -72,6 +120,33 @@ export class RelacioncaderaPage implements OnInit {
     }
     if(asignacion == 2){
       this.elementoValidar.elemenDos  = false
+    }
+    if(asignacion == 3){
+      this.elementoValidar.elemenTre  = false
+    }
+    if(asignacion == 4){
+      this.elementoValidar.elemenCua  = false
+    }
+    if(asignacion == 5){
+      this.elementoValidar.elemenCin  = false
+    }
+    if(asignacion == 6){
+      this.elementoValidar.elemenSei  = false
+    }
+    if(asignacion == 7){
+      this.elementoValidar.elemenSie  = false
+    }
+    if(asignacion == 8){
+      this.elementoValidar.elemenOch  = false
+    }
+    if(asignacion == 9){
+      this.elementoValidar.elemenNue  = false
+    }
+    if(asignacion == 10){
+      this.elementoValidar.elemenDie  = false
+    }
+    if(asignacion == 11){
+      this.elementoValidar.elemenOnc  = false
     }
 
   }

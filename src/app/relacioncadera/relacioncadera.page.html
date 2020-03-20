@@ -24,7 +24,7 @@
               
             <img src="./assets/img/cintura.jpg" class="imagen"/>
             <ion-input type="number" class="sa" name="max_cintura" placeholder="cm"
-              (ionChange)="validar($event,2)"  [(ngModel)]="medidasCorporales.max_cintura"></ion-input>  
+              (ionChange)="validar($event)"  [(ngModel)]="medidasCorporales.max_cintura"></ion-input>  
 
           </div> 
          
@@ -35,7 +35,7 @@
           <div class="tarjeta" >
             <img src="./assets/img/cadera.png" class="imagen"/>
              <ion-input  size="8" type="number" class="sa" name="cadera" placeholder="cm"
-              (ionChange)="validar($event,3)"   [(ngModel)]="medidasCorporales.cadera"></ion-input> 
+              (ionChange)="validar2($event)"   [(ngModel)]="medidasCorporales.cadera"></ion-input> 
 
           </div>   
            

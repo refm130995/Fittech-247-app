@@ -1,0 +1,28 @@
+<ion-grid style="background-color:#F4F3F1; padding: 0px;" >
+  <ion-row >
+    <ion-col size="12" style="padding: 0px;" >
+      <img src="assets/img/pressbanca.jpg"/>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+       <p class="ion-text-center titulo">{{nombre}}</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid class="ion-grid2">
+  <p>(esto lo eliminare solo es para guia de dev) Ejercicio numero {{dataRecibida}}</p>
+
+</ion-grid>
+
+
+
+<ion-fab vertical="bottom"  horizontal="center" slot="fixed">
+  <ion-fab-button color="dark" (click)="finalizar()">
+    <ion-icon name="alarm-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+

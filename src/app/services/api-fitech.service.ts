@@ -31,6 +31,45 @@ export class ApiFitechService {
   rutina = {}
   Nuevarutina = {}
   rutinaListadoRemplazar = {}
+  rutinaTestCasaHombre = [
+    {'name': 'jumping jacks'}, 
+    {'name': 'sentadillas'}, 
+    {'name': 'push up en rodillas'}, 
+    {'name': 'superman'}, 
+    {'name': 'skipping alto'}, 
+    {'name': 'sentadillas con salto y brazos extendidos'}, 
+    {'name': 'pushups'}, 
+    {'name': 'plancha palanca larga'}, 
+    {'name': 'burpee mas flexion y saltos'}, 
+    {'name': 'zancada pliometrica alternada'}, 
+    {'name': 'pushups mas flexion de cadera lateral'}, 
+    {'name': 'hollows'}, 
+    {'name': 'burpees avanzados rodillas al pechos'}, 
+    {'name': 'pistols alternados'}, 
+    {'name': 'pushups explosivos'}, 
+    {'name': 'plancha palanca larga en manos'}
+  ]
+
+  rutinaTestCasaMujer = [
+    {'name': 'jumping jacks'}, 
+    {'name': 'sentadillas'}, 
+    {'name': 'push up en rodillas'}, 
+    {'name': 'superman'}, 
+    {'name': 'skipping alto'}, 
+    {'name': 'sentadillas con salto y brazos extendidos'}, 
+    {'name': 'pushups apoyo en rodillas'}, 
+    {'name': 'plancha palanca larga'}, 
+    {'name': 'burpee mas flexion y salto'}, 
+    {'name': 'zancada pliometrica alternada'}, 
+    {'name': 'pushups'}, 
+    {'name': 'hollows'}, 
+    {'name': 'burpee avanzados rodillas al pecho'}, 
+    {'name': 'pistols con apoyo alternado'}, 
+    {'name': 'pushups mas flexion de cadera lateral'}, 
+    {'name': 'plancha palanca larga en manos'}
+  ]
+
+
   usuario:any
   training:any
   IDusuario:any
@@ -508,8 +547,6 @@ export class ApiFitechService {
       })
 
   }
-
-
 
 
 }

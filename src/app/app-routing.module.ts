@@ -156,6 +156,14 @@ const routes: Routes = [
     path: 'test-capacidad-info',
     loadChildren: () => import('./pages/TestCapacidad/test-capacidad-info/test-capacidad-info.module').then( m => m.TestCapacidadInfoPageModule)
   },
+  {
+    path: 'bateriahome/:id',
+    loadChildren: () => import('./pages/TestCapacidad/bateriahome/bateriahome.module').then( m => m.BateriahomePageModule)
+  },
+  {
+    path: 'bateriaesperahome/:id',
+    loadChildren: () => import('./pages/TestCapacidad/bateriaesperahome/bateriaesperahome.module').then( m => m.BateriaesperahomePageModule)
+  },
 ];
 
 @NgModule({

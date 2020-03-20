@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 * {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .ejercicio {
@@ -13,7 +14,7 @@
 }
 
 .ocultar {
-  display: none;
+  display: block;
 }
 
 .centered {
@@ -35,4 +36,27 @@
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.ion-padding-horizontal {
+  margin-top: 0px;
+}
+
+.ion-padding {
+  padding-bottom: 0px;
+}
+
+.ion-padding-vertical {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+img.bor {
+  border-radius: 20px;
+}
+
+hr {
+  border-bottom: 1px solid #c2c2c2;
+  margin-top: 0px;
+  margin-bottom: 13px;
 }
