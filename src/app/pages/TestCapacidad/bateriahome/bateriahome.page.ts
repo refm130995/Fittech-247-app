@@ -10,21 +10,25 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class BateriahomePage implements OnInit {
    nombre
    dataRecibida:any
-
+    tiempo:any
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) { }
 
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
 
-    console.log(this.dataRecibida)
+    if(this.ApiService.genero == 1){
+     this.Hombre()
+    }
 
-    this.Hombre()
+    if(this.ApiService.genero == 0){
+      this.Mujer()
+     }
 
     if(this.dataRecibida == '15'){
       return
     }
 
-    setTimeout(()=>{
+    this.tiempo = setTimeout(()=>{
       this.ruta.navigateByUrl(`bateriaesperahome/${this.dataRecibida}`)
     },2000)
     
@@ -35,8 +39,13 @@ export class BateriahomePage implements OnInit {
     this.nombre = this.ApiService.rutinaTestCasaHombre[this.dataRecibida]['name']
   }
 
+  Mujer(){
+    this.nombre = this.ApiService.rutinaTestCasaMujer[this.dataRecibida]['name']
+  }
+
 
   finalizar(){
+    clearTimeout(this.tiempo)
     this.ruta.navigateByUrl("tabs")
   }
 

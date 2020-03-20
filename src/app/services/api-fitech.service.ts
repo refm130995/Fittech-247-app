@@ -77,6 +77,7 @@ export class ApiFitechService {
   evaluarTest:boolean 
   contador:number = 0 
   idListadoRemplazar:number
+  genero:number
 
   demostracionEjercicio = {
     nombre: null,
@@ -198,6 +199,7 @@ export class ApiFitechService {
 
   async guardarUsuario(usuario:string){
     this.training = usuario['training_place']
+    this.genero = usuario['gender']
     this.usuario = usuario['name']
     this.IDusuario = usuario['id']
     await this.storage.set('usuario',usuario)
