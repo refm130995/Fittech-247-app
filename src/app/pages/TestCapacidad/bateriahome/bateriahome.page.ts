@@ -15,6 +15,7 @@ export class BateriahomePage implements OnInit {
 
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
+    
 
     if(this.ApiService.genero == 1){
      this.Hombre()
@@ -30,7 +31,7 @@ export class BateriahomePage implements OnInit {
 
     this.tiempo = setTimeout(()=>{
       this.ruta.navigateByUrl(`bateriaesperahome/${this.dataRecibida}`)
-    },2000)
+    },40000)
     
   }
 
@@ -46,7 +47,7 @@ export class BateriahomePage implements OnInit {
 
   finalizar(){
     clearTimeout(this.tiempo)
-    this.ruta.navigateByUrl("tabs")
+    this.ruta.navigateByUrl("mensajecapacidad")
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { ApiFitechService } from 'src/app/services/api-fitech.service';
 
 @Component({
   selector: 'app-test-capacidad-info',
@@ -8,9 +9,12 @@ import { NavController } from '@ionic/angular';
 })
 export class TestCapacidadInfoPage implements OnInit {
 
-  constructor(private ruta:NavController) { }
+  constructor(private ruta:NavController , private apiService:ApiFitechService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const valor = await this.apiService.cargarNombreUsuario()
+    this.apiService.asignarGenero(valor['gender'])
+    console.log(this.apiService.genero)
   }
 
   test(){

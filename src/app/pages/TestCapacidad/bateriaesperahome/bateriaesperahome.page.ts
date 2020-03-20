@@ -23,7 +23,7 @@ export class BateriaesperahomePage implements OnInit {
     setTimeout(()=>{
       console.log("guardando energia - redirigir")
       this.ruta.navigateByUrl(`bateriahome/${this.contador}`)
-    },2000)
+    },5000)
 
   }
 

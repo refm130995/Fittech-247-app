@@ -199,7 +199,6 @@ export class ApiFitechService {
 
   async guardarUsuario(usuario:string){
     this.training = usuario['training_place']
-    this.genero = usuario['gender']
     this.usuario = usuario['name']
     this.IDusuario = usuario['id']
     await this.storage.set('usuario',usuario)
@@ -550,5 +549,8 @@ export class ApiFitechService {
 
   }
 
+  asignarGenero(valor){
+    this.genero = valor
+  }
 
 }

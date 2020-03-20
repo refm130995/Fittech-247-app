@@ -164,6 +164,10 @@ const routes: Routes = [
     path: 'bateriaesperahome/:id',
     loadChildren: () => import('./pages/TestCapacidad/bateriaesperahome/bateriaesperahome.module').then( m => m.BateriaesperahomePageModule)
   },
+  {
+    path: 'mensajecapacidad',
+    loadChildren: () => import('./pages/TestCapacidad/mensajecapacidad/mensajecapacidad.module').then( m => m.MensajecapacidadPageModule)
+  },
 ];
 
 @NgModule({
