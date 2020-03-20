@@ -8,11 +8,12 @@
 </ion-header>
 
 <ion-content fullscreen>
+  
   <div *ngIf="ocultar">
 
   
   <ion-list>
-      <p class="ion-text-center"> Complete 3 series de la siguiente rutina </p>
+    <p class="ion-text-center opc"><b> Completa la serie (3 veces)</b></p>
 
     <ion-item *ngFor="let ejercicio of serie; trackBy: customTB">
       <ion-thumbnail slot="start">
@@ -28,7 +29,42 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
+  </ion-list>
+    <ion-list>
+    <p class="ion-text-center opc"><b> Completa la serie (3 veces)</b></p>
 
+    <ion-item *ngFor="let ejercicio of serie; trackBy: customTB">
+      <ion-thumbnail slot="start">
+        <img src="assets/img/press-banca-1.png">
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">
+        <h2>{{ejercicio.name  | capitalizado }}</h2>
+        <p>{{ejercicio.repetitions}}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="mostrarpop($event, ejercicio.name , ejercicio.repetitions , ejercicio.id)">
+          <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <p class="ion-text-center opc"><b> Completa la serie (3 veces)</b></p>
+
+    <ion-item *ngFor="let ejercicio of serie; trackBy: customTB">
+      <ion-thumbnail slot="start">
+        <img src="assets/img/press-banca-1.png">
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">
+        <h2>{{ejercicio.name  | capitalizado }}</h2>
+        <p>{{ejercicio.repetitions}}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="mostrarpop($event, ejercicio.name , ejercicio.repetitions , ejercicio.id)">
+          <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
   </ion-list>
 
     <a (click)="comenzar()" class="float">
