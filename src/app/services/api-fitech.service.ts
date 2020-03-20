@@ -69,7 +69,7 @@ export class ApiFitechService {
     {'name': 'plancha palanca larga en manos'}
   ]
 
-
+  verificarEntrenamiento:any
   usuario:any
   training:any
   IDusuario:any
@@ -175,6 +175,8 @@ export class ApiFitechService {
         this.http.post(`${URL}/auth/login`,data)
         .subscribe(resp=>{
             //this.token =  resp['access_token']
+            console.log(resp)
+
             this.guardarToken(resp['access_token'])
             this.guardarUsuario(resp['user'])
             this.guardarexamenFuerza(resp['power_test'])
@@ -552,5 +554,83 @@ export class ApiFitechService {
   asignarGenero(valor){
     this.genero = valor
   }
+
+  TestHome(valor:number){
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+      
+      const data = {
+        result : valor
+      }
+  
+      this.http.post(`${URL}/auth/home-test`,data,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+
+      })
+  }
+
+
+  obtenerRutinaHome(){
+
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
+      
+      this.http.get(`${URL}/auth/routine-home`,{headers})
+          .subscribe(resp=>{
+            this.IDRutinaUsuario = resp['routine']
+            this.rutina = resp['exercises']
+            console.log(resp)
+            this._refrescarDatos.next()
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+      })
+
+  }
+
+  verificarLugar(valor){
+   this.verificarEntrenamiento = valor
+  }
+
+  
+  finalizarRutinaHome(valor:number){
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+      
+      const data = {
+        calf : valor
+      }
+  
+      this.http.post(`${URL}/auth/update-routine-home`,data,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+
+      })
+  }
+
 
 }

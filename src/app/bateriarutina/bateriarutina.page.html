@@ -15,10 +15,20 @@
 <ion-grid class="ion-grid2">
 
   <ion-row class="ion-row2">
-    <ion-col size="12">
-      <h2 class="ion-text-center"> Repeticiones x {{repeticion}}</h2>
-      <h2 class="ion-text-center"> Peso : {{peso}}</h2>
-    </ion-col>
+
+    <div *ngIf="evaluar === 0">
+      <ion-col size="12">
+        <h2 class="ion-text-center"> Repeticiones x {{repeticion}}</h2>
+        <h2 class="ion-text-center"> Peso : {{peso}}</h2>
+      </ion-col>
+    </div>
+
+    <div *ngIf="evaluar === 2">
+      <ion-col size="12">
+        <h2 class="ion-text-center"> Repeticiones x {{repeticion}}</h2>
+      </ion-col>
+    </div>
+
   </ion-row>
 
 </ion-grid>

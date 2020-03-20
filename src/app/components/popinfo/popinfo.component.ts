@@ -9,10 +9,15 @@ import { ApiFitechService } from 'src/app/services/api-fitech.service';
   styleUrls: ['./popinfo.component.scss'],
 })
 export class PopinfoComponent implements OnInit {
+      evaluar
 
   constructor(private ruta:Router , public popoverController: PopoverController,private ApiService:ApiFitechService) { }
 
-  ngOnInit() {}
+   ngOnInit() {
+   this.evaluar = this.ApiService.verificarEntrenamiento
+  }
+
+
 
   bateria(){
     this.popoverController.dismiss()

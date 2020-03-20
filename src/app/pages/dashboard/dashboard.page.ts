@@ -22,12 +22,13 @@ export class DashboardPage implements OnInit {
 
 
    async ngOnInit() {
-      
+    
     const valor = await this.apiService.cargarNombreUsuario()
+    
     const comprobar = this.apiService.usuario 
     this.Bienvenido = comprobar ? this.apiService.usuario : valor['name']
-    const comprobardos = this.apiService.usuario 
-    this.ExamenCliente = comprobardos ? this.apiService.training : valor['training_place']
+    const comprobados = this.apiService.usuario 
+    this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
     
 
     const resistencia = await this.apiService.cargarExamenResistencia()
@@ -71,15 +72,33 @@ export class DashboardPage implements OnInit {
   }
   
   async rutinas(){
-    //this.ruta.navigateForward('entrenamientos')
+
+    const valor = await this.apiService.cargarNombreUsuario()
+    const comprobados = this.apiService.usuario 
+    this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
+
+      if(this.ExamenCliente === 0){
+        const validar = await this.apiService.obtenerRutina() 
+        if(validar){
+          this.apiService.verificarLugar(this.ExamenCliente)
+          this.ruta.navigateForward('entrenamientos')
+        }else{
+          this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+        }
+      }
+
+      if(this.ExamenCliente === 2){
+        const validar = await this.apiService.obtenerRutinaHome()
+        if(validar){
+          this.apiService.verificarLugar(this.ExamenCliente)
+          this.ruta.navigateForward('entrenamientos')
+        }else{
+          this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+        }
+      }
 
     
-    const validar = await this.apiService.obtenerRutina() 
-    if(validar){
-      this.ruta.navigateForward('entrenamientos')
-    }else{
-      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
-    }
+    
     
 
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiFitechService } from 'src/app/services/api-fitech.service';
+import { MensajesService } from 'src/app/services/mensajes.service';
 
 @Component({
   selector: 'app-mensajecapacidad',
@@ -7,14 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./mensajecapacidad.page.scss'],
 })
 export class MensajecapacidadPage implements OnInit {
+  dataRecibida:any
+  contador:number
 
-  constructor(private ruta:Router) { }
+  constructor(private capturar:ActivatedRoute, private ruta:Router, private apiService:ApiFitechService, private notificacion:MensajesService) { }
 
   ngOnInit() {
+    this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
+
+    this.contador = parseInt(this.dataRecibida) + 1
+      console.log(this.contador)
+
   }
 
-  finalizar(){
-    this.ruta.navigateByUrl("tabs")
+  async finalizar(){
+
+    const validar = await this.apiService.TestHome(this.contador)
+    if(validar){
+      this.ruta.navigateByUrl("tabs")
+    }else{
+      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+    }
+
   }
 
 }

@@ -165,8 +165,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/TestCapacidad/bateriaesperahome/bateriaesperahome.module').then( m => m.BateriaesperahomePageModule)
   },
   {
-    path: 'mensajecapacidad',
+    path: 'mensajecapacidad/:id',
     loadChildren: () => import('./pages/TestCapacidad/mensajecapacidad/mensajecapacidad.module').then( m => m.MensajecapacidadPageModule)
+  },
+  {
+    path: 'percepcionentrenamiento',
+    loadChildren: () => import('./pages/percepcionentrenamiento/percepcionentrenamiento.module').then( m => m.PercepcionentrenamientoPageModule)
   },
 ];
 

@@ -14,15 +14,19 @@ export class BateriarutinaPage implements OnInit {
   repeticion
   peso
   mostrar = false
-
+  evaluar
+  
   constructor(private ApiService:ApiFitechService,private ruta:Router) { }
 
   ngOnInit() {
+    this.evaluar = this.ApiService.verificarEntrenamiento
+
     this.serie =  this.ApiService.rutina
     this.nombre = this.serie[0]['name']
     this.repeticion = this.serie[0]['repetitions']
     this.peso = this.serie[0]['weight']
 
+    console.log(this.peso)
 
     console.log(this.serie)
   }
@@ -52,7 +56,7 @@ export class BateriarutinaPage implements OnInit {
   }
 
   finalizar(){
-    this.ruta.navigateByUrl("tabs")
+    this.ruta.navigateByUrl("percepcionentrenamiento")
   }
 
 
