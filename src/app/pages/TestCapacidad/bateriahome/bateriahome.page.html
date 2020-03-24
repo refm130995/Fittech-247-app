@@ -14,18 +14,17 @@
 
 <ion-grid class="ion-grid2">
   
-  <p> Cronometro {{timeLeft}} </p>
-  <p> siguiente ejercicio ( {{nombre2}} ) </p>
+  <p class="center">00:{{timeLeft}}</p>
+
 
 
 </ion-grid>
 
 
 
-<ion-fab vertical="bottom"  horizontal="center" slot="fixed">
-  <ion-fab-button color="dark" (click)="finalizar()">
-    <ion-icon name="alarm-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
+  <ion-card color="dark" (click)="finalizar()" slot="fixed">
+          <h2>hasta aquí llegué</h2>
+  </ion-card>
+
 
 

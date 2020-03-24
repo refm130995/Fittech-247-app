@@ -172,6 +172,14 @@ const routes: Routes = [
     path: 'percepcionentrenamiento',
     loadChildren: () => import('./pages/percepcionentrenamiento/percepcionentrenamiento.module').then( m => m.PercepcionentrenamientoPageModule)
   },
+  {
+    path: 'bateriarutinahome/:id',
+    loadChildren: () => import('./bateriarutinahome/bateriarutinahome.module').then( m => m.BateriarutinahomePageModule)
+  },
+  {
+    path: 'bateriarutinaesperahome/:id',
+    loadChildren: () => import('./bateriarutinaesperahome/bateriarutinaesperahome.module').then( m => m.BateriarutinaesperahomePageModule)
+  },
 ];
 
 @NgModule({

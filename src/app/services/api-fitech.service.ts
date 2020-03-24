@@ -32,41 +32,41 @@ export class ApiFitechService {
   Nuevarutina = {}
   rutinaListadoRemplazar = {}
   rutinaTestCasaHombre = [
-    {'name': 'jumping jacks'}, 
-    {'name': 'sentadillas'}, 
-    {'name': 'push up en rodillas'}, 
-    {'name': 'superman'}, 
-    {'name': 'skipping alto'}, 
-    {'name': 'sentadillas con salto y brazos extendidos'}, 
-    {'name': 'pushups'}, 
-    {'name': 'plancha palanca larga'}, 
-    {'name': 'burpee mas flexion y saltos'}, 
-    {'name': 'zancada pliometrica alternada'}, 
-    {'name': 'pushups mas flexion de cadera lateral'}, 
-    {'name': 'hollows'}, 
-    {'name': 'burpees avanzados rodillas al pechos'}, 
-    {'name': 'pistols alternados'}, 
-    {'name': 'pushups explosivos'}, 
-    {'name': 'plancha palanca larga en manos'}
+    {'name': 'Jumping jacks'}, 
+    {'name': 'Sentadillas'}, 
+    {'name': 'Push up en rodillas'}, 
+    {'name': 'Superman'}, 
+    {'name': 'Skipping alto'}, 
+    {'name': 'Sentadillas con salto y brazos extendidos'}, 
+    {'name': 'Pushups'}, 
+    {'name': 'Plancha palanca larga'}, 
+    {'name': 'Burpee mas flexion y saltos'}, 
+    {'name': 'Zancada pliometrica alternada'}, 
+    {'name': 'Pushups mas flexion de cadera lateral'}, 
+    {'name': 'Hollows'}, 
+    {'name': 'Burpees avanzados rodillas al pechos'}, 
+    {'name': 'Pistols alternados'}, 
+    {'name': 'Pushups explosivos'}, 
+    {'name': 'Plancha palanca larga en manos'}
   ]
 
   rutinaTestCasaMujer = [
-    {'name': 'jumping jacks'}, 
-    {'name': 'sentadillas'}, 
-    {'name': 'push up en rodillas'}, 
-    {'name': 'superman'}, 
-    {'name': 'skipping alto'}, 
-    {'name': 'sentadillas con salto y brazos extendidos'}, 
-    {'name': 'pushups apoyo en rodillas'}, 
-    {'name': 'plancha palanca larga'}, 
-    {'name': 'burpee mas flexion y salto'}, 
-    {'name': 'zancada pliometrica alternada'}, 
-    {'name': 'pushups'}, 
-    {'name': 'hollows'}, 
-    {'name': 'burpee avanzados rodillas al pecho'}, 
-    {'name': 'pistols con apoyo alternado'}, 
-    {'name': 'pushups mas flexion de cadera lateral'}, 
-    {'name': 'plancha palanca larga en manos'}
+    {'name': 'Jumping jacks'}, 
+    {'name': 'Sentadillas'}, 
+    {'name': 'Push up en rodillas'}, 
+    {'name': 'Superman'}, 
+    {'name': 'Skipping alto'}, 
+    {'name': 'Sentadillas con salto y brazos extendidos'}, 
+    {'name': 'Pushups apoyo en rodillas'}, 
+    {'name': 'Plancha palanca larga'}, 
+    {'name': 'Burpee mas flexion y salto'}, 
+    {'name': 'Zancada pliometrica alternada'}, 
+    {'name': 'Pushups'}, 
+    {'name': 'Hollows'}, 
+    {'name': 'Burpee avanzados rodillas al pecho'}, 
+    {'name': 'Pistols con apoyo alternado'}, 
+    {'name': 'Pushups mas flexion de cadera lateral'}, 
+    {'name': 'Lancha palanca larga en manos'}
   ]
 
   verificarEntrenamiento:any

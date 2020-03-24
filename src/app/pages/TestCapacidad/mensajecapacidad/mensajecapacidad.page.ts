@@ -28,6 +28,7 @@ export class MensajecapacidadPage implements OnInit {
     if(validar){
       document.getElementById("capacidad").classList.add('ocultar')
       this.ruta.navigateByUrl("tabs")
+      this.notificacion.notificacionUsuario("Gracias por realizar el test","danger")
     }else{
       this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
     }
