@@ -76,6 +76,9 @@ export class BateriahomePage implements OnInit {
 
   }
 
+  videoEnd(){
+   console.log("finalizar")
+  }
 
 
 

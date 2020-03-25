@@ -18,3 +18,16 @@
   justify-content: center;
   height: 100%;
 }
+
+.ion-text-center.titulo {
+  text-transform: capitalize;
+}
+
+.ion-text-center.sui {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+video {
+  max-width: 100%;
+}

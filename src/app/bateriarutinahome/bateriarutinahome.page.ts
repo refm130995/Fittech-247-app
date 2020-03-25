@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiFitechService } from '../services/api-fitech.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,11 +8,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./bateriarutinahome.page.scss'],
 })
 export class BateriarutinahomePage implements OnInit {
+  @ViewChild('myVideo',{static:false}) txtVideo:ElementRef
   nombre:any
   dataRecibida:any
   tiempo:any
   tiemposegundo:any
-  timeLeft: number = 50;
+  timeLeft: number = 10;
   mostrar:boolean = true
   numero:any
   final:any
@@ -27,9 +28,10 @@ export class BateriarutinahomePage implements OnInit {
 
     this.nombre =  this.ApiService.rutina[this.dataRecibida]
 
-    this.startTimer()
+      this.startTimer()
 
-    this.redirigir()
+      this.redirigir()
+
 
   }
 
@@ -46,7 +48,7 @@ export class BateriarutinahomePage implements OnInit {
     }else{
       this.tiempo = setTimeout(()=>{
         this.ruta.navigateByUrl(`bateriarutinaesperahome/${this.dataRecibida}`)
-      },1000)
+      },10000)
     }
 
   }
@@ -65,12 +67,14 @@ export class BateriarutinahomePage implements OnInit {
      clearInterval(this.tiempo)  ;
      clearInterval(this.tiemposegundo)  ;
      this.mostrar = false
+     this.txtVideo.nativeElement.pause()
    }
 
   playTimer(){
     this.startTimer()
     this.redirigir()
     this.mostrar = true
+    this.txtVideo.nativeElement.play()
   }
 
 }

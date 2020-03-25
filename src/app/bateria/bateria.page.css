@@ -18,3 +18,26 @@
   justify-content: center;
   height: 100%;
 }
+
+.ion-text-center {
+  font-weight: 800;
+  font-size: 32px;
+}
+
+.button-inner {
+  background-color: red;
+}
+
+.ion-grid1 {
+  height: 15%;
+  width: 100%;
+}
+
+/*Cambio de pantalla*/
+.fullscrean {
+  position: absolute;
+  font-size: 40px;
+  color: #fcfcfc;
+  left: 310px;
+  top: 150px;
+}
