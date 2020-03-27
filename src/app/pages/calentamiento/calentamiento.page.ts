@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-calentamiento',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CalentamientoPage implements OnInit {
 
-  constructor(private ruta:Router) { }
+  constructor(private ruta:Router , private avanzar:NavController) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,7 @@ export class CalentamientoPage implements OnInit {
   }
 
   siguiente(){
-    this.ruta.navigateByUrl("bateriarutinahome/0")
+    this.avanzar.navigateRoot("bateriarutinahome/0")
   }
 
 

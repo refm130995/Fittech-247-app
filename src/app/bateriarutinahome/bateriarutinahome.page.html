@@ -1,12 +1,18 @@
-<video #myVideo autoplay  playsinline  width="100%">
+<video #myVideo autoplay playsinline 
+(ended)="videoEnd()"
+(loadedmetadata)="onMetadata($event, video)"
+width="100%"
+poster="https://s3.eu-central-1.amazonaws.com/pipe.public.content/poster.png">
   <source src="https://www.w3schools.com/html/mov_bbb.mp4" />
 </video>
+
+
 
 <div class="ion-grid1" style="background-color:#F4F3F1;" >
 
   <ion-row>
     <ion-col size="12">
-       <p class="ion-text-center titulo">Nombre {{nombre.name}}</p>
+       <p class="ion-text-center titulo">{{nombre.name}}</p>
        <p class="ion-text-center">Ejercicio {{numero}} de {{final}}</p>
     </ion-col>
   </ion-row>
@@ -14,11 +20,7 @@
 </div>
 
 <ion-grid class="ion-grid2">
-  
   <p class="center">tiempo {{timeLeft}}</p>
-
-
-
 </ion-grid>
 
 

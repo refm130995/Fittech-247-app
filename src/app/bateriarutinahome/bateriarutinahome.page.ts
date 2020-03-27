@@ -13,10 +13,11 @@ export class BateriarutinahomePage implements OnInit {
   dataRecibida:any
   tiempo:any
   tiemposegundo:any
-  timeLeft: number = 10;
+  timeLeft: number;
   mostrar:boolean = true
   numero:any
   final:any
+  // URL:any
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:Router) { }
 
@@ -27,32 +28,38 @@ export class BateriarutinahomePage implements OnInit {
     this.final = this.final.length
 
     this.nombre =  this.ApiService.rutina[this.dataRecibida]
-
+    // this.URL = `http://fittech247.com/videos/home/${this.nombre.cod}/${URL}.mp4`
+    
       this.startTimer()
-
-      this.redirigir()
-
 
   }
 
 
+  //SE OBTIENE LA DURACION DEL VIDEO
+  onMetadata(e, video) {
+    console.log('metadata: ', e);
+    console.log('duration: ', e.target.duration);
+    console.log("Valor obtenido" , parseInt(e.target.duration))
+    this.timeLeft = parseInt(e.target.duration)
+  }
 
-
+  // SE LANZA ALA PANTALLA CORRESPONDIENTE 
   redirigir(){
 
     if(this.numero >= this.final){
       this.tiempo = setTimeout(()=>{
         this.ruta.navigateByUrl("percepcionentrenamiento")
-      },50000)
+      },1000)
 
     }else{
       this.tiempo = setTimeout(()=>{
         this.ruta.navigateByUrl(`bateriarutinaesperahome/${this.dataRecibida}`)
-      },10000)
+      },1000)
     }
 
   }
-
+  
+  //CONOMETRO
   startTimer() {
     this.tiemposegundo = setInterval(() => {
        if(this.timeLeft > 0) {
@@ -62,9 +69,15 @@ export class BateriarutinahomePage implements OnInit {
        }
      },1000)
    }
- 
+   
+   //SE FINALIZA EL VIDEO LLAMA A REDIRIGIR
+   videoEnd(){
+    this.redirigir()
+  }
+
+
+
    pauseTimer() {
-     clearInterval(this.tiempo)  ;
      clearInterval(this.tiemposegundo)  ;
      this.mostrar = false
      this.txtVideo.nativeElement.pause()
@@ -72,7 +85,6 @@ export class BateriarutinahomePage implements OnInit {
 
   playTimer(){
     this.startTimer()
-    this.redirigir()
     this.mostrar = true
     this.txtVideo.nativeElement.play()
   }

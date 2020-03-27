@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>descargar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<video controls width="100%">
+  <source [src]="video" />
+</video>
+
+
+<ion-content>
+  <p> Aqui comienza la descarga </p>
+
+
+    <ion-button (click)="descarga()" expand="block" fill="clear" shape="round">
+      Click para descargar archivo 
+    </ion-button>
+
+    <ion-button (click)="testear()" expand="block" fill="clear" shape="round">
+      Click para iterar
+    </ion-button>
+
+    <div class="ion-text-center">
+      <progress [value]="contador" [max]="maximo"></progress>
+    </div>
+
+
+
+
+</ion-content>

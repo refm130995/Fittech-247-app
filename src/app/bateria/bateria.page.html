@@ -1,7 +1,7 @@
-<video #myVideo  playsinline  width="100%" (ended)="videoEnd()">
+<video #myVideo  playsinline  width="100%" (ended)="videoEnd()"
+poster="https://s3.eu-central-1.amazonaws.com/pipe.public.content/poster.png">
   <source src="https://www.w3schools.com/html/mov_bbb.mp4" />
 </video>
-
 
 <div class="fullscrean"  (click)="fullscreen()"> 
   <ion-icon name="scan-outline"></ion-icon>
@@ -10,21 +10,19 @@
 <div class="ion-grid1" style="background-color:#F4F3F1;" >
   <ion-row>
     <ion-col size="12">
-       <p class="ion-text-center titulo">{{nombre | capitalizado}}</p>
+       <p class="ion-text-center titulo">{{nombre}}</p>
     </ion-col>
   </ion-row>
 </div>
 
 
 <ion-grid class="ion-grid2">
-
-  <ion-row class="ion-row2">
-    <ion-col size="12">
-      <h2 class="ion-text-center"> 00:30</h2>
-    </ion-col>
-  </ion-row>
-
+      <p class="center"> 00:30</p>
 </ion-grid>
+
+
+
+
 
 <ion-fab vertical="bottom"  horizontal="start" slot="fixed">
   <ion-fab-button color="light" (click)="atras()">

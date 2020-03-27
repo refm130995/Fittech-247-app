@@ -19,6 +19,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 
 
@@ -49,6 +51,8 @@ var firebaseConfig = {
   ],
   providers: [
     GooglePlus,
+    FileTransfer,
+    File,
     Facebook,
     StatusBar,
     SplashScreen,

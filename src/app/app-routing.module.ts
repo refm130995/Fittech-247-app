@@ -180,6 +180,10 @@ const routes: Routes = [
     path: 'bateriarutinaesperahome/:id',
     loadChildren: () => import('./bateriarutinaesperahome/bateriarutinaesperahome.module').then( m => m.BateriarutinaesperahomePageModule)
   },
+  {
+    path: 'descargar',
+    loadChildren: () => import('./descargar/descargar.module').then( m => m.DescargarPageModule)
+  },
 ];
 
 @NgModule({

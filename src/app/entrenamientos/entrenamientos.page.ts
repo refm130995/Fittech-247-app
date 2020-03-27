@@ -32,7 +32,7 @@ export class EntrenamientosPage implements OnInit {
   }
 
   comenzar(){
-    this.ruta.navigateByUrl("calentamiento")
+    this.ruta.navigateByUrl("descargar")
   }
 
 
