@@ -17,7 +17,12 @@ export class BateriarutinahomePage implements OnInit {
   mostrar:boolean = true
   numero:any
   final:any
+  video
+  private win: any = window;
   // URL:any
+  path:any
+
+ 
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:Router) { }
 
@@ -26,8 +31,13 @@ export class BateriarutinahomePage implements OnInit {
     this.numero = parseInt(this.dataRecibida) + 1
     this.final =  this.ApiService.rutina
     this.final = this.final.length
-
     this.nombre =  this.ApiService.rutina[this.dataRecibida]
+    this.path = 'file:///storage/emulated/0/fittech_downloads/'+ this.nombre.name +'.mp4'
+    console.log("Reproducir",this.path)
+    this.video = this.win.Ionic.WebView.convertFileSrc(this.path)
+
+
+
     // this.URL = `http://fittech247.com/videos/home/${this.nombre.cod}/${URL}.mp4`
     
       this.startTimer()

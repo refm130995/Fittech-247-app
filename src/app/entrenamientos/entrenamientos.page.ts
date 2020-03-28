@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { PopoverController } from '@ionic/angular';
 import { PopinfoComponent } from '../components/popinfo/popinfo.component';
+import { MensajesService } from '../services/mensajes.service';
 
 @Component({
   selector: 'app-entrenamientos',
@@ -10,18 +11,36 @@ import { PopinfoComponent } from '../components/popinfo/popinfo.component';
   styleUrls: ['./entrenamientos.page.scss'],
 })
 export class EntrenamientosPage implements OnInit {
-   serie = {}
+   serie:any = {}
+   stage1 = {}
+   stage2 = {}
+   stage3 = {}
+
    ocultar = false
   constructor(private ruta:Router,private ApiService:ApiFitechService,
-    public popoverController: PopoverController) { }
+    public popoverController: PopoverController,private notificacion:MensajesService) { }
 
   ngOnInit() {
     
     this.ApiService.refrescarDatos.subscribe(()=>{
       this.serie =  this.ApiService.rutina
+
     })
 
     this.serie =  this.ApiService.rutina
+
+    this.stage1 = this.serie.filter(function(value){
+      return value.stage === 1
+    })
+    this.stage2 = this.serie.filter(function(value){
+      return value.stage === 2
+    })
+    this.stage3 = this.serie.filter(function(value){
+      return value.stage === 3
+    })
+
+
+
       if(Object.keys(this.serie).length === 0){
         this.ocultar = false
       }else{
@@ -31,8 +50,15 @@ export class EntrenamientosPage implements OnInit {
     console.log(this.serie)
   }
 
-  comenzar(){
-    this.ruta.navigateByUrl("descargar")
+  async comenzar(){
+    const validar = await this.ApiService.descargarRutinaHome()
+
+    if(validar == true){
+      this.ruta.navigateByUrl("descargar")
+    }else{
+      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+    }
+
   }
 
 

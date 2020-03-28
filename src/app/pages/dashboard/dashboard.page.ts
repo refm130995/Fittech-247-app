@@ -103,15 +103,15 @@ export class DashboardPage implements OnInit {
       const comprobados = this.apiService.usuario 
       this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
         /*arreglar como la de home*/
-        if(this.ExamenCliente === 0){
-          const validar = await this.apiService.obtenerRutina() 
-          if(validar){
-            this.apiService.verificarLugar(this.ExamenCliente)
-            this.ruta.navigateForward('entrenamientos')
-          }else{
-            this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
-          }
-        }
+        // if(this.ExamenCliente === 0){
+        //   const validar = await this.apiService.obtenerRutina() 
+        //   if(validar){
+        //     this.apiService.verificarLugar(this.ExamenCliente)
+        //     this.ruta.navigateForward('entrenamientos')
+        //   }else{
+        //     this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+        //   }
+        // }
   
         if(this.ExamenCliente === 2){
           const validar = await this.apiService.obtenerRutinaHome()

@@ -28,46 +28,58 @@ export class ApiFitechService {
     examen3:false
   }
   
+
+  rutinaDescarga={}
   rutina = {}
   Nuevarutina = {}
   rutinaListadoRemplazar = {}
   rutinaTestCasaHombre = [
-    {'name': 'Jumping jacks'}, 
-    {'name': 'Sentadillas'}, 
-    {'name': 'Push up en rodillas'}, 
-    {'name': 'Superman'}, 
-    {'name': 'Skipping alto'}, 
-    {'name': 'Sentadillas con salto y brazos extendidos'}, 
-    {'name': 'Pushups'}, 
-    {'name': 'Plancha palanca larga'}, 
-    {'name': 'Burpee mas flexion y saltos'}, 
-    {'name': 'Zancada pliometrica alternada'}, 
-    {'name': 'Pushups mas flexion de cadera lateral'}, 
-    {'name': 'Hollows'}, 
-    {'name': 'Burpees avanzados rodillas al pechos'}, 
-    {'name': 'Pistols alternados'}, 
-    {'name': 'Pushups explosivos'}, 
-    {'name': 'Plancha palanca larga en manos'}
+    {'name': 'jumping jacks' , 'url':'http://fittech247.com/videos/home/CR/jumping%20jacks.mp4'}, 
+    {'name': 'sentadillas'   , 'url': 'http://fittech247.com/videos/home/TI/sentadilla.mp4'}, 
+    {'name': 'Push up en rodillas' , 'url': '' }, 
+    {'name': 'Superman' , 'url': ''}, 
+    {'name': 'Skipping alto' , 'url' : 'http://fittech247.com/videos/home/CR/skipping%20alto.mp4'}, 
+    {'name': 'Sentadillas con salto y brazos extendidos' , 'url': ''}, 
+    {'name': 'Pushups' , 'url': ''}, 
+    {'name': 'Plancha palanca larga' , 'url': ''}, 
+    {'name': 'Burpee mas flexion y saltos' , 'url': ''}, 
+    {'name': 'Zancada pliometrica alternada' , 'url': ''}, 
+    {'name': 'Pushups mas flexion de cadera lateral' , 'url': ''}, 
+    {'name': 'Hollows' , 'url': ''}, 
+    {'name': 'Burpees avanzados rodillas al pechos' , 'url': ''}, 
+    {'name': 'Pistols alternados' , 'url': ''}, 
+    {'name': 'Pushups explosivos' , 'url': ''}, 
+    {'name': 'Plancha palanca larga en manos' , 'url': ''}
   ]
 
   rutinaTestCasaMujer = [
-    {'name': 'Jumping jacks'}, 
-    {'name': 'Sentadillas'}, 
-    {'name': 'Push up en rodillas'}, 
-    {'name': 'Superman'}, 
-    {'name': 'Skipping alto'}, 
-    {'name': 'Sentadillas con salto y brazos extendidos'}, 
-    {'name': 'Pushups apoyo en rodillas'}, 
-    {'name': 'Plancha palanca larga'}, 
-    {'name': 'Burpee mas flexion y salto'}, 
-    {'name': 'Zancada pliometrica alternada'}, 
-    {'name': 'Pushups'}, 
-    {'name': 'Hollows'}, 
-    {'name': 'Burpee avanzados rodillas al pecho'}, 
-    {'name': 'Pistols con apoyo alternado'}, 
-    {'name': 'Pushups mas flexion de cadera lateral'}, 
-    {'name': 'Lancha palanca larga en manos'}
+    {'name': 'jumping jacks' , 'url':'http://fittech247.com/videos/home/CR/jumping%20jacks.mp4'}, 
+    {'name': 'Sentadillas' , 'url': 'http://fittech247.com/videos/home/TI/sentadilla.mp4'}, 
+    {'name': 'Push up en rodillas' , 'url': ''}, 
+    {'name': 'Superman' , 'url': ''}, 
+    {'name': 'Skipping alto' , 'url':'http://fittech247.com/videos/home/CR/skipping%20alto.mp4'}, 
+    {'name': 'Sentadillas con salto y brazos extendidos' , 'url': ''}, 
+    {'name': 'Pushups apoyo en rodillas' , 'url': ''}, 
+    {'name': 'Plancha palanca larga' , 'url': ''}, 
+    {'name': 'Burpee mas flexion y salto' , 'url': ''}, 
+    {'name': 'Zancada pliometrica alternada' , 'url': ''}, 
+    {'name': 'Pushups' , 'url': ''}, 
+    {'name': 'Hollows' , 'url': ''}, 
+    {'name': 'Burpee avanzados rodillas al pecho' , 'url': ''}, 
+    {'name': 'Pistols con apoyo alternado' , 'url': '' }, 
+    {'name': 'Pushups mas flexion de cadera lateral' , 'url': ''}, 
+    {'name': 'Lancha palanca larga en manos' , 'url': ''}
   ]
+
+
+  // http://fittech247.com/videos/home/CR/jumping%20jacks.mp4
+  // http://fittech247.com/videos/home/TI/sentadilla.mp4
+  // http://fittech247.com/videos/home/CR/skipping%20alto.mp4
+
+
+
+
+
 
   verificarEntrenamiento:any
   usuario:any
@@ -657,6 +669,31 @@ export class ApiFitechService {
       })
   }
 
+  descargarRutinaHome(){
+
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+      
+      const data = {
+        id : this.IDusuario
+      }
+  
+      this.http.post(`${URL}/auth/exercise-routine`,data,{headers})
+          .subscribe(resp=>{
+            console.log("ejericio de 9", resp)
+            this.rutinaDescarga = resp['Ejercicios']
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+
+      })
+
+  }
 
 
 }

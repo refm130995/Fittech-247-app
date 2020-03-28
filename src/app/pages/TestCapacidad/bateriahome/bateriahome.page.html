@@ -1,5 +1,5 @@
 <video #myVideo autoplay  playsinline  width="100%" (ended)="videoEnd()">
-  <source src="https://www.w3schools.com/html/mov_bbb.mp4" />
+  <source [src]="video" />
 </video>
 
 <div class="ion-grid1" style="background-color:#F4F3F1; padding: 0px;" >

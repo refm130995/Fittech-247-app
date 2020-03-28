@@ -14,7 +14,7 @@ export class BateriahomePage implements OnInit {
     tiempo:any
     timeLeft: number = 40;
   contador
-
+  video
 
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) { }
 
@@ -46,6 +46,7 @@ export class BateriahomePage implements OnInit {
 
   Hombre(){
     this.nombre = this.ApiService.rutinaTestCasaHombre[this.dataRecibida]['name']
+    this.video = this.ApiService.rutinaTestCasaHombre[this.dataRecibida]['url']
     this.nombre2 = this.ApiService.rutinaTestCasaHombre[this.contador]['name']
 
   }
