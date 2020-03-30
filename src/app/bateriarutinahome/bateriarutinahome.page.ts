@@ -32,11 +32,9 @@ export class BateriarutinahomePage implements OnInit {
     this.final =  this.ApiService.rutina
     this.final = this.final.length
     this.nombre =  this.ApiService.rutina[this.dataRecibida]
-    this.path = 'file:///storage/emulated/0/fittech_downloads/'+ this.nombre.name +'.mp4'
+    this.path = 'file:///storage/emulated/0/fittech_downloads/videobajadoIonic'+this.dataRecibida+'.mp4'
     console.log("Reproducir",this.path)
     this.video = this.win.Ionic.WebView.convertFileSrc(this.path)
-
-
 
     // this.URL = `http://fittech247.com/videos/home/${this.nombre.cod}/${URL}.mp4`
     

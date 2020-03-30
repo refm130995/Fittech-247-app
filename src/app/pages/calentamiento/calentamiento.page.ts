@@ -19,7 +19,7 @@ export class CalentamientoPage implements OnInit {
   }
 
   siguiente(){
-    this.avanzar.navigateRoot("bateriarutinahome/0")
+    this.avanzar.navigateRoot("bateriarutinahome/1")
   }
 
 

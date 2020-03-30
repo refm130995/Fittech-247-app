@@ -1,4 +1,6 @@
-<video #myVideo autoplay  playsinline  width="100%" (ended)="videoEnd()">
+<video #myVideo autoplay  playsinline  
+poster="https://s3.eu-central-1.amazonaws.com/pipe.public.content/poster.png"
+width="100%" (ended)="videoEnd()">
   <source [src]="video" />
 </video>
 
