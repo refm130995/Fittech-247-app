@@ -29,7 +29,8 @@ export class ApiFitechService {
   }
   
 
-  rutinaDescarga={}
+  ratio
+  rest
   rutina = {}
   Nuevarutina = {}
   rutinaListadoRemplazar = {}
@@ -70,15 +71,6 @@ export class ApiFitechService {
     {'name': 'Pushups mas flexion de cadera lateral' , 'url': ''}, 
     {'name': 'Lancha palanca larga en manos' , 'url': ''}
   ]
-
-
-  // http://fittech247.com/videos/home/CR/jumping%20jacks.mp4
-  // http://fittech247.com/videos/home/TI/sentadilla.mp4
-  // http://fittech247.com/videos/home/CR/skipping%20alto.mp4
-
-
-
-
 
 
   verificarEntrenamiento:any
@@ -629,6 +621,9 @@ export class ApiFitechService {
               if(resp['routine']){
                 this.IDRutinaUsuario = resp['routine']
                 this.rutina = resp['exercises']
+                this.rest =   resp['ratio_r']
+                this.ratio =  resp['ratio_w']
+                console.log(resp)
                 this._refrescarDatos.next()
                 resolve(true)
               }else{
@@ -669,31 +664,7 @@ export class ApiFitechService {
       })
   }
 
-  descargarRutinaHome(){
 
-    return new Promise( resolve => {
-
-      const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.token,
-        'Content-Type':'application/json',
-      })
-      
-      const data = {
-        id : this.IDusuario
-      }
-  
-      this.http.post(`${URL}/auth/exercise-routine`,data,{headers})
-          .subscribe(resp=>{
-            console.log("ejericio de 9", resp)
-            this.rutinaDescarga = resp['Ejercicios']
-            resolve(true)
-          },err=>{
-            resolve(false)
-          })
-
-      })
-
-  }
 
 
 }

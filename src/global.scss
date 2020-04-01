@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+/* Aca van los cambios del framework en css*/
+.sc-ion-popover-ios-h{
+   --background: #222428 !important ;
+   color: #f5f6f9 !important;
+   // --width:50%!important;
+   // --height:9% !important;
+    }

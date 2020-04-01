@@ -10,23 +10,28 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./historial.component.scss'],
 })
 export class HistorialComponent implements OnInit {
-  habilitar = true
+
+  mostrar = false
   @Output() cambiarPantalla = new EventEmitter();
 
-  constructor(public modalController: ModalController , private ruta: NavController) { }
-
-  ngOnInit() {}
-
-  async abrirmodal(){
-    const modal = await this.modalController.create({
-      component: ModalInfoPage,
-    })
-     await modal.present();
-     const {data} = await modal.onDidDismiss()
-       if(data){
-        this.ruta.navigateRoot(['/registrar-info'])
-       }
+  constructor(public modalController: ModalController , private ruta: NavController) {
+    console.log("SE HA INICIADO ESTE COMPONENTEss") 
   }
+
+  ngOnInit() {
+
+  }
+
+  // async abrirmodal(){
+  //   const modal = await this.modalController.create({
+  //     component: ModalInfoPage,
+  //   })
+  //    await modal.present();
+  //    const {data} = await modal.onDidDismiss()
+  //      if(data){
+  //       this.ruta.navigateRoot(['/registrar-info'])
+  //      }
+  // }
 
   navegar(){
     this.ruta.navigateRoot(['/registrar-info'])
@@ -35,5 +40,9 @@ export class HistorialComponent implements OnInit {
   atras(){
     this.cambiarPantalla.emit(1)
   }
+
+
+
+
 
 }

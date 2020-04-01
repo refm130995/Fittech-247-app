@@ -4,23 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ActividadPageRoutingModule } from './actividad-routing.module';
+import { RangodeedadPageRoutingModule } from './rangodeedad-routing.module';
 
-import { ActividadPage } from './actividad.page';
-import { PopmensajeComponent } from 'src/app/components/popmensaje/popmensaje.component';
+import { RangodeedadPage } from './rangodeedad.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
+
 @NgModule({
-  entryComponents:[
-    PopmensajeComponent
-  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ActividadPageRoutingModule,
+    RangodeedadPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [ActividadPage]
+  declarations: [RangodeedadPage]
 })
-export class ActividadPageModule {}
+export class RangodeedadPageModule {}

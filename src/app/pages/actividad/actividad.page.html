@@ -8,35 +8,73 @@
 
   <div class="contenedor animated fadeInLeft delay-1s">
       <h2 class="titulo">Nivel de actividad</h2>
-      <ion-grid class="my-grid">
-      <ion-row class="parent-row">
-        <ion-col size="12">      
-        <ion-card class="color-tarjeta" (click)="nivel(0)">
-          <h2>Sedentario</h2>
-        </ion-card>
+
+      
+  <ion-card-content>
+    <ion-card>
+      <ion-row>
+        <ion-col size="8" (click)="nivel(0)">
+          <p class="sizeTitle">Sedentario</p>
         </ion-col>
-        <ion-col  size="12">      
-          <ion-card class="color-tarjeta" (click)="nivel(1)" >
-            <h2>Ligero</h2>  
-          </ion-card>
-        </ion-col>
-        <ion-col  size="12">      
-          <ion-card class="color-tarjeta" (click)="nivel(2)" >
-            <h2>Moderado</h2>  
-          </ion-card>
-        </ion-col>
-        <ion-col  size="12">      
-          <ion-card class="color-tarjeta" (click)="nivel(3)" >
-            <h2>Activo</h2>  
-          </ion-card>
-        </ion-col>
-        <ion-col  size="12">      
-          <ion-card class="color-tarjeta" (click)="nivel(4)" >
-            <h2>Muy Activo</h2>  
-          </ion-card>
+        <ion-col size="4">
+          <img src="assets/img/alertacircular.svg" class="exclamacion" (click)="mostrarPop($event , 'sedentario')">
         </ion-col>
       </ion-row>
-      </ion-grid>      
+    </ion-card>
+  </ion-card-content>
+
+  <ion-card-content>
+    <ion-card>
+      <ion-row>
+        <ion-col size="8" (click)="nivel(1)">
+          <p class="sizeTitle">Ligero</p>
+        </ion-col>
+        <ion-col size="4">
+          <img src="assets/img/alertacircular.svg" class="exclamacion" (click)="mostrarPop($event , 'ligero')">
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-card-content>
+
+  <ion-card-content>
+    <ion-card>
+      <ion-row>
+        <ion-col size="8" (click)="nivel(2)">
+          <p class="sizeTitle">Moderado</p>
+        </ion-col>
+        <ion-col size="4">
+          <img src="assets/img/alertacircular.svg" class="exclamacion" (click)="mostrarPop($event , 'moderado')">
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-card-content>
+
+  <ion-card-content>
+    <ion-card>
+      <ion-row>
+        <ion-col size="8" (click)="nivel(3)">
+          <p class="sizeTitle">Activo</p>
+        </ion-col>
+        <ion-col size="4">
+          <img src="assets/img/alertacircular.svg" class="exclamacion" (click)="mostrarPop($event , 'activo')">
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-card-content>
+
+  <ion-card-content>
+    <ion-card>
+      <ion-row>
+        <ion-col size="8" (click)="nivel(4)">
+          <p class="sizeTitle">Muy Activo</p>
+        </ion-col>
+        <ion-col size="4">
+          <img src="assets/img/alertacircular.svg" class="exclamacion" (click)="mostrarPop($event , 'muyactivo')">
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-card-content>
+
   </div>
 
   <ion-fab vertical="bottom"  horizontal="center" slot="fixed" class="animated fadeInUp delay-2s" >
@@ -47,3 +85,28 @@
 </ion-content>
 
 
+<!-- <ion-col  size="12">      
+  <ion-card class="color-tarjeta" (click)="nivel(0)" >
+    <h2>Sedentario</h2>  
+  </ion-card>
+</ion-col>
+<ion-col  size="12">      
+  <ion-card class="color-tarjeta" (click)="nivel(1)" >
+    <h2>Ligero</h2>  
+  </ion-card>
+</ion-col>
+<ion-col  size="12">      
+  <ion-card class="color-tarjeta" (click)="nivel(2)" >
+    <h2>Moderado</h2>  
+  </ion-card>
+</ion-col>
+<ion-col  size="12">      
+  <ion-card class="color-tarjeta" (click)="nivel(3)" >
+    <h2>Activo</h2>  
+  </ion-card>
+</ion-col>
+<ion-col  size="12">      
+  <ion-card class="color-tarjeta" (click)="nivel(4)" >
+    <h2>Muy Activo</h2>  
+  </ion-card>
+</ion-col> -->

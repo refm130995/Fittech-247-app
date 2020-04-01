@@ -1,9 +1,9 @@
-<video #myVideo autoplay playsinline 
-(ended)="videoEnd()"
+<video #myVideo  playsinline 
 (loadedmetadata)="onMetadata($event, video)"
 width="100%"
-poster="https://s3.eu-central-1.amazonaws.com/pipe.public.content/poster.png">
-  <source [src]="video" />
+loop
+poster="assets/img/videogif.gif">
+  <source src= "https://www.w3schools.com/html/mov_bbb.mp4" />
 </video>
 
 

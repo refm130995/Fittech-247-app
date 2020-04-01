@@ -184,6 +184,18 @@ const routes: Routes = [
     path: 'descargar',
     loadChildren: () => import('./descargar/descargar.module').then( m => m.DescargarPageModule)
   },
+  {
+    path: 'rangodeedad',
+    loadChildren: () => import('./seriedepreguntas/rangodeedad/rangodeedad.module').then( m => m.RangodeedadPageModule)
+  },
+  {
+    path: 'pesoyestatura',
+    loadChildren: () => import('./seriedepreguntas/pesoyestatura/pesoyestatura.module').then( m => m.PesoyestaturaPageModule)
+  },
+  {
+    path: 'form-medico',
+    loadChildren: () => import('./seriedepreguntas/form-medico/form-medico.module').then( m => m.FormMedicoPageModule)
+  },
 ];
 
 @NgModule({

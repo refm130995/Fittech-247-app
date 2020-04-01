@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, NavController } from '@ionic/angular';
 import { PopinfoComponent } from '../components/popinfo/popinfo.component';
 import { MensajesService } from '../services/mensajes.service';
 
@@ -17,7 +17,7 @@ export class EntrenamientosPage implements OnInit {
    stage3 = {}
 
    ocultar = false
-  constructor(private ruta:Router,private ApiService:ApiFitechService,
+  constructor(private ruta:NavController,private ApiService:ApiFitechService,
     public popoverController: PopoverController,private notificacion:MensajesService) { }
 
   ngOnInit() {
@@ -50,15 +50,8 @@ export class EntrenamientosPage implements OnInit {
     console.log(this.serie)
   }
 
-  async comenzar(){
-    const validar = await this.ApiService.descargarRutinaHome()
-
-    if(validar == true){
-      this.ruta.navigateByUrl("descargar")
-    }else{
-      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
-    }
-
+  comenzar(){
+    this.ruta.navigateForward("calentamiento")
   }
 
 

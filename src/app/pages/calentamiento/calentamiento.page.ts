@@ -19,7 +19,9 @@ export class CalentamientoPage implements OnInit {
   }
 
   siguiente(){
-    this.avanzar.navigateRoot("bateriarutinahome/1")
+
+    this.ruta.navigateByUrl("bateriarutinahome/0")
+
   }
 
 

@@ -10,10 +10,11 @@ import { ApiFitechService } from '../services/api-fitech.service';
 export class BateriarutinaesperahomePage implements OnInit {
   dataRecibida:any
   tiempo:any
-  timeLeft: number = 5;
+  timeLeft: number;
   contador
   ejercipro
-
+  descanso
+  tiemposegundo
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) { }
 
   ngOnInit() {
@@ -21,29 +22,32 @@ export class BateriarutinaesperahomePage implements OnInit {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     this.contador = parseInt(this.dataRecibida) + 1
     this.ejercipro =  this.ApiService.rutina[this.contador]
-
+    this.timeLeft = this.ApiService.rest
 
       this.startTimer()
 
-      this.tiempo = setTimeout(()=>{
+      
         console.log("guardando energia - redirigir")
-        this.ruta.navigateByUrl(`bateriarutinahome/${this.contador}`)
-      },5000)
-
   }
 
 
 
   startTimer() {
 
-    setInterval(() => {
+    this.tiemposegundo = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
         this.timeLeft = 0;
+        this.redirigir()
       }
     },1000)
 
+  }
+
+  redirigir(){
+    clearInterval(this.tiemposegundo)
+    this.ruta.navigateByUrl(`bateriarutinahome/${this.contador}`)
   }
 
 

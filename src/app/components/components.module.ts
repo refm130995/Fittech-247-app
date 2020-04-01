@@ -10,6 +10,7 @@ import { ModalInfoPage } from '../modal-info/modal-info.page';
 import { ModalInfoPageModule } from '../modal-info/modal-info.module';
 import {PopinfoComponent} from './popinfo/popinfo.component'
 import { PopremplazarComponent } from './popremplazar/popremplazar.component';
+import { PopmensajeComponent } from './popmensaje/popmensaje.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PopremplazarComponent } from './popremplazar/popremplazar.component';
     PesoComponent,
     HistorialComponent,
     PopinfoComponent,
-    PopremplazarComponent
+    PopremplazarComponent,
+    PopmensajeComponent
   ],
   exports:[
     EdadComponent,
@@ -30,7 +32,8 @@ import { PopremplazarComponent } from './popremplazar/popremplazar.component';
     PesoComponent,
     HistorialComponent,
     PopinfoComponent,
-    PopremplazarComponent
+    PopremplazarComponent,
+    PopmensajeComponent
   ],
   imports: [
     CommonModule,

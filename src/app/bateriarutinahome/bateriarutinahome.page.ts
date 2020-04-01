@@ -24,31 +24,59 @@ export class BateriarutinahomePage implements OnInit {
 
  
 
-  constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:Router) { }
+  constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:Router) {
+   }
+
+
 
   ngOnInit() {
+
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
+    console.log("valor recibido", this.dataRecibida)
+
+    //cantidad de ejericio faltante
     this.numero = parseInt(this.dataRecibida) + 1
+
+    //comprobar longitud de la serie de ejercicio
     this.final =  this.ApiService.rutina
     this.final = this.final.length
+    //pasar a mostrar los datos 
     this.nombre =  this.ApiService.rutina[this.dataRecibida]
-    this.path = 'file:///storage/emulated/0/fittech_downloads/videobajadoIonic'+this.dataRecibida+'.mp4'
-    console.log("Reproducir",this.path)
-    this.video = this.win.Ionic.WebView.convertFileSrc(this.path)
+    // los videos
+    // this.video = `http://fittech247.com/videos/home/${this.nombre.cod}/${this.nombre.name}.mp4`
 
-    // this.URL = `http://fittech247.com/videos/home/${this.nombre.cod}/${URL}.mp4`
-    
-      this.startTimer()
+    var b = setInterval(()=>{
+          console.log(this.txtVideo.nativeElement.readyState)
+      if(this.txtVideo.nativeElement.readyState === 4){
+          console.log(this.txtVideo.nativeElement.readyState)
+          //This block of code is triggered when the video is loaded
+
+          //your code goes here
+          this.txtVideo.nativeElement.play()
+          //cronometro
+          this.startTimer()
+          //stop checking every half second
+          clearInterval(b);
+
+      }    
+
+      },500);
+
 
   }
+
+
 
 
   //SE OBTIENE LA DURACION DEL VIDEO
   onMetadata(e, video) {
     console.log('metadata: ', e);
-    console.log('duration: ', e.target.duration);
-    console.log("Valor obtenido" , parseInt(e.target.duration))
-    this.timeLeft = parseInt(e.target.duration)
+    console.log('cargado: ', e.target.readyState);
+
+
+    // this.timeLeft = parseInt(e.target.duration)
+    //tiempo del ejercicio
+    this.timeLeft = this.ApiService.ratio
   }
 
   // SE LANZA ALA PANTALLA CORRESPONDIENTE 
@@ -60,9 +88,8 @@ export class BateriarutinahomePage implements OnInit {
       },1000)
 
     }else{
-      this.tiempo = setTimeout(()=>{
-        this.ruta.navigateByUrl(`bateriarutinaesperahome/${this.dataRecibida}`)
-      },1000)
+      clearInterval(this.tiemposegundo) 
+      this.ruta.navigateByUrl(`bateriarutinaesperahome/${this.dataRecibida}`)
     }
 
   }
@@ -74,25 +101,20 @@ export class BateriarutinahomePage implements OnInit {
          this.timeLeft--;
        } else {
          this.timeLeft = 0;
+         this.redirigir()
+         this.txtVideo.nativeElement.pause()
        }
      },1000)
    }
    
-   //SE FINALIZA EL VIDEO LLAMA A REDIRIGIR
-   videoEnd(){
-    this.redirigir()
+  pauseTimer() {
+    clearInterval(this.tiemposegundo)  ;
+    this.mostrar = false
+    this.txtVideo.nativeElement.pause()
   }
 
-
-
-   pauseTimer() {
-     clearInterval(this.tiemposegundo)  ;
-     this.mostrar = false
-     this.txtVideo.nativeElement.pause()
-   }
-
   playTimer(){
-    this.startTimer()
+    // this.startTimer()
     this.mostrar = true
     this.txtVideo.nativeElement.play()
   }
