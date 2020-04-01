@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { NavController, PopoverController } from '@ionic/angular';
-import { PopmensajeComponent } from 'src/app/components/popmensaje/popmensaje.component';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -11,10 +10,12 @@ import { PopmensajeComponent } from 'src/app/components/popmensaje/popmensaje.co
 })
 export class ActividadPage implements OnInit {
 
-  constructor(private usuarioservicio:UsuarioService,private ruta:NavController,
-              private popoverController: PopoverController) { }
+  constructor(private usuarioservicio:UsuarioService,private ruta:NavController) { }
+  info: boolean;
+ 
 
   ngOnInit() {
+    this.info = false;
   }
 
   nivel(valor){
@@ -22,23 +23,15 @@ export class ActividadPage implements OnInit {
     this.ruta.navigateRoot(['/pasoinicial'])
   }
 
-
   atras(){
     this.ruta.navigateRoot(['/lugar-ejercicios'])
   }
 
-  async mostrarPop(evento: any , dato:any) {
-    const popover = await this.popoverController.create({
-      component: PopmensajeComponent,
-      event: evento,
-      mode:'ios',
-      showBackdrop:false,
-      componentProps: { value: dato},
-      cssClass: 'myPopoverStyle'
-    });
-    console.log(dato)
-    return await popover.present();
+  mostrar(valor){
+      this.info = !valor;
   }
+   
+  
 
 
 }

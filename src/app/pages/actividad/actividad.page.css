@@ -34,21 +34,20 @@ ion-content {
   overflow: hidden;
 }
 
+.piepagina {
+  text-align: left;
+  margin-left: 30px !important;
+  margin-bottom: 10%;
+  font-size: 15px;
+}
+
 .titulo {
   text-align: center;
   font-size: 25px;
 }
 
-.exclamacion {
-  width: 30px;
-}
-
-.sizeTitle {
-  font-size: 17px;
-}
-
-ion-card-content {
-  padding-bottom: 7px;
+.color-tarjeta {
+  background-color: #E5141A;
 }
 
 ion-card {
@@ -56,12 +55,40 @@ ion-card {
   padding: 0px !important;
   margin: 0px !important;
   border-radius: 12px !important;
-  margin-bottom: auto !important;
+  margin-bottom: 20px !important;
   width: 88%;
   margin: 0 auto !important;
-  background-color: #E5141A;
+  word-wrap: break-word;
 }
 
-.myPopoverStyle .popover-content {
-  top: 60px !important;
+ion-card h2 {
+  font-size: 17px !important;
+  padding: 2px !important;
+}
+
+ion-card:hover {
+  transition: 0.1s;
+  opacity: 0.5;
+}
+
+ion-col {
+  margin-bottom: 8px !important;
+}
+
+.my-grid {
+  height: 100% !important;
+}
+
+.parent-row {
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+ion-icon {
+  font-size: 23px !important;
+}
+
+ion-icon:hover {
+  opacity: 0.7;
 }
