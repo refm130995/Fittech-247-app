@@ -15,13 +15,17 @@ export class BateriaPage implements OnInit {
    dataRecibida:any
    nombre
    repeticion
+   timeLeft: number;
+   tiemposegundo
+
    
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     console.log(this.dataRecibida)
       
     this.nombre = this.ApiService.demostracionEjercicio.nombre
-    this.repeticion   = this.ApiService.demostracionEjercicio.repeticion
+    //tiempo del ejericio
+    this.timeLeft = this.ApiService.ratio
 
   }
 
@@ -32,11 +36,13 @@ export class BateriaPage implements OnInit {
   pauseVideo(){
     this.mostrar = true
     this.txtVideo.nativeElement.pause()
-    
+    clearInterval(this.tiemposegundo) 
+
   }
   playVideo(){
     this.mostrar = false
     this.txtVideo.nativeElement.play()
+    this.startTimer()
   }
 
   fullscreen(){
@@ -55,8 +61,27 @@ export class BateriaPage implements OnInit {
     this.mostrar = true
   }
 
+    //CONOMETRO
+  startTimer() {
+    this.tiemposegundo =  setInterval(() => {
+         if(this.timeLeft > 0) {
+           this.timeLeft--;
+         } else {
+           this.timeLeft = 0;
+           this.pauseVideo()
+            this.timeLeft = this.repeticion
+         }
+       },1000)
+     }
 
 
+  //SE OBTIENE LA DURACION DEL VIDEO
+  onMetadata(e, video) {
+    console.log('metadata: ', e);
+    console.log('cargado: ', e.target.readyState);
+    this.repeticion = parseInt(e.target.duration)
+    this.timeLeft = parseInt(e.target.duration)
+  }
 
 
 }

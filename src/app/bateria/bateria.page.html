@@ -1,4 +1,5 @@
 <video #myVideo  playsinline  width="100%" (ended)="videoEnd()"
+(loadedmetadata)="onMetadata($event, video)"
 poster="https://s3.eu-central-1.amazonaws.com/pipe.public.content/poster.png">
   <source src="https://www.w3schools.com/html/mov_bbb.mp4" />
 </video>
@@ -17,7 +18,7 @@ poster="https://s3.eu-central-1.amazonaws.com/pipe.public.content/poster.png">
 
 
 <ion-grid class="ion-grid2">
-      <p class="center"> 00:30</p>
+  <p class="centrartiempo">{{timeLeft}}</p>
 </ion-grid>
 
 

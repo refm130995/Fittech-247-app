@@ -11,6 +11,7 @@ import { ModalInfoPageModule } from '../modal-info/modal-info.module';
 import {PopinfoComponent} from './popinfo/popinfo.component'
 import { PopremplazarComponent } from './popremplazar/popremplazar.component';
 import { PopmensajeComponent } from './popmensaje/popmensaje.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { PopmensajeComponent } from './popmensaje/popmensaje.component';
     PopmensajeComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     IonicModule,
     ModalInfoPageModule

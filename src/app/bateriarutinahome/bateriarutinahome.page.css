@@ -2,13 +2,6 @@
   font-weight: 800;
 }
 
-.center {
-  text-align: center;
-  font-size: 42px;
-  font-weight: 800;
-  padding-top: 20px;
-}
-
 h2 {
   text-align: center;
   text-transform: capitalize;
@@ -22,4 +15,15 @@ h2 {
 .ion-grid1 {
   height: 15%;
   width: 100%;
+}
+
+.centrartiempo {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 800;
+  padding-top: 30px;
+}
+
+.titulo {
+  font-size: 15px;
 }
