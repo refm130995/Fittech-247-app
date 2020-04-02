@@ -67,9 +67,16 @@ export class ModalEmailPage implements OnInit {
   }
 
   Email2(){
-
+    let valor
     if(this.registrar.email === this.registrar.reemail){
-      console.log("es igual")
+       valor = this.validateEmail(this.registrar.email)
+         if(valor){
+           console.log("todo bien")
+         }else{
+          this.mensajeservice.alertaInformatica('formato no valido ')
+          this.registrar.email = null
+          this.registrar.reemail = null
+         }
     }else{
       this.mensajeservice.alertaInformatica('el email no coinciden ')
       this.registrar.email = null
@@ -78,6 +85,15 @@ export class ModalEmailPage implements OnInit {
 
   }
 
+  
+  //funcion para validar desde el js vainilla
+  validateEmail(email) 
+  {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
+  }
+  
+  
 
 
 }

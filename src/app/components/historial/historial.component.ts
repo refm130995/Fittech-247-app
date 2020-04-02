@@ -135,9 +135,14 @@ export class HistorialComponent implements OnInit {
 
     if(this.datoEnfermedades.patologiaCardiaca !=null){
       this.datoEnfermedades.patologiaCardiaca = 1
+    }else{
+      this.datoEnfermedades.patologiaCardiaca = 0
     }
+    
     if(this.datoEnfermedades.enfermedadPulmonar !=null){
       this.datoEnfermedades.enfermedadPulmonar = 1
+    }else{
+      this.datoEnfermedades.patologiaCardiaca = 0
     }
 
     this.usuarioservicio.enfermedades(this.datoEnfermedades)

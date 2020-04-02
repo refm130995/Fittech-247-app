@@ -12,7 +12,7 @@
   <div *ngIf="ocultar">
 
   
-  <ion-list>
+  <ion-list *ngIf="stage1.length > 0">
     <p class="ion-text-center opci"><b> Serie 1 </b></p>
 
     <ion-item *ngFor="let ejercicio of stage1; trackBy: customTB">
@@ -32,7 +32,7 @@
     </ion-item>
   </ion-list>
 
-    <ion-list>
+  <ion-list *ngIf="stage2.length > 0">
     <p class="ion-text-center opci"><b> Serie 2 </b></p>
 
     <ion-item *ngFor="let ejercicio of stage2; trackBy: customTB">
@@ -50,7 +50,8 @@
       </ion-buttons>
     </ion-item>
   </ion-list>
-  <ion-list>
+
+  <ion-list *ngIf="stage3.length > 0">
     <p class="ion-text-center opci"><b> Serie 3 </b></p>
 
     <ion-item *ngFor="let ejercicio of stage3; trackBy: customTB">

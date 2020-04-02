@@ -43,7 +43,8 @@ export class BateriarutinahomePage implements OnInit {
     //pasar a mostrar los datos 
     this.nombre =  this.ApiService.rutina[this.dataRecibida]
     // los videos
-    // this.video = `http://fittech247.com/videos/home/${this.nombre.cod}/${this.nombre.name}.mp4`
+    this.video = `http://fittech247.com/fittech/videos/${this.nombre.cod}/${this.nombre.url}`
+
 
     var b = setInterval(()=>{
           console.log(this.txtVideo.nativeElement.readyState)
@@ -84,6 +85,7 @@ export class BateriarutinahomePage implements OnInit {
 
     if(this.numero >= this.final){
       this.tiempo = setTimeout(()=>{
+        clearInterval(this.tiemposegundo)
         this.ruta.navigateByUrl("percepcionentrenamiento")
       },1000)
 
@@ -114,7 +116,7 @@ export class BateriarutinahomePage implements OnInit {
   }
 
   playTimer(){
-    // this.startTimer()
+    this.startTimer()
     this.mostrar = true
     this.txtVideo.nativeElement.play()
   }

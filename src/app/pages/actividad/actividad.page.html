@@ -1,64 +1,68 @@
 <ion-header [translucent]="true" class="ion-no-border">
-  <div class="cabezera">
-    <img src="assets/img/logo-app.png" class="logo">
-  </div>
+    <div class="cabezera">
+        <img src="assets/img/logo-app.png" class="logo">
+    </div>
 </ion-header>
 
 <ion-content [fullscreen]="true" slot="fixed">
 
-  <div class="contenedor animated fadeInLeft delay-1s">
-      <h2 class="titulo" *ngIf="!info">Nivel de actividad</h2>
-      <ion-grid class="my-grid" *ngIf="!info">
-          <ion-row class="parent-row">
-              <ion-col size="12">
-                  <ion-card class="color-tarjeta" (click)="nivel(0)">
-                      <h2>Sedentario</h2>
-                  </ion-card>
-              </ion-col>
-              <ion-col size="12">
-                  <ion-card class="color-tarjeta" (click)="nivel(1)">
-                      <h2>Ligero</h2>
-                  </ion-card>
-              </ion-col>
-              <ion-col size="12">
-                  <ion-card class="color-tarjeta" (click)="nivel(2)">
-                      <h2>Moderado</h2>
-                  </ion-card>
-              </ion-col>
-              <ion-col size="12">
-                  <ion-card class="color-tarjeta" (click)="nivel(3)">
-                      <h2>Activo</h2>
-                  </ion-card>
-              </ion-col>
-              <ion-col size="12">
-                  <ion-card class="color-tarjeta" (click)="nivel(4)">
-                      <h2>Muy Activo</h2>
-                  </ion-card>
-              </ion-col>
-          </ion-row>
-      </ion-grid>
-      <ion-grid class="my-grid">
-          <ion-row class="parent-row animated fadeInLeft" *ngIf="info">
-              <div class="container">
-                  <h5 class="titulo">Ayuda</h5>
-                  <p class=".ion-text-justify"><b> Sedentario: </b> No hago ejercicio, a veces 1 vez a la semana salgo a caminar.</p>
-                  <p class=".ion-text-justify"><b> Ligero: </b> no hago ejercicio a veces en casa hago algunos oficios y paseo a la mascota con frecuencia.</p>
-                  <p class=".ion-text-justify"><b> Moderado: </b> Hago ejercicio sin mucha intensidad 1 - 3 veces por semana.</p>
-                  <p class=".ion-text-justify"><b> Activo: </b> Hago ejercicio muy activo 3 - 5 veces por semana, a veces hago algún deporte, camino mucho.</p>
-                  <p class=".ion-text-justify"><b> Muy Activo: </b>Trabajo intensamente al menos 5 veces a la semana, incluso a veces puedo ejercitarme dos veces al dia. solo tengo un día o menos de descanso total.</p>
-              </div>
+    <div class="animated fadeInLeft delay-1s">
+        <div class="animated fadeInLeft contenedor" *ngIf="!info">
+            <h2 class="titulo" *ngIf="!info">Nivel de actividad</h2>
+            <ion-grid class="my-grid">
+                <ion-row class="parent-row">
+                    <ion-col size="12">
+                        <ion-card class="color-tarjeta" (click)="nivel(0)">
+                            <h2>Sedentario</h2>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col size="12">
+                        <ion-card class="color-tarjeta" (click)="nivel(1)">
+                            <h2>Ligero</h2>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col size="12">
+                        <ion-card class="color-tarjeta" (click)="nivel(2)">
+                            <h2>Moderado</h2>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col size="12">
+                        <ion-card class="color-tarjeta" (click)="nivel(3)">
+                            <h2>Activo</h2>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col size="12">
+                        <ion-card class="color-tarjeta" (click)="nivel(4)">
+                            <h2>Muy Activo</h2>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <div class="animated fadeInLeft" *ngIf="info">
+            <ion-grid class="my-grid">
+                <ion-row class="parent-row animated fadeInLeft">
+                    <div class="container">
+                        <h5 class="titulo">Ayuda</h5>
+                        <p class=".ion-text-justify"><b> Sedentario: </b> No hago ejercicio, a veces 1 vez a la semana salgo a caminar.</p>
+                        <p class=".ion-text-justify"><b> Ligero: </b> no hago ejercicio a veces en casa hago algunos oficios y paseo a la mascota con frecuencia.</p>
+                        <p class=".ion-text-justify"><b> Moderado: </b> Hago ejercicio sin mucha intensidad 1 - 3 veces por semana.</p>
+                        <p class=".ion-text-justify"><b> Activo: </b> Hago ejercicio muy activo 3 - 5 veces por semana, a veces hago algún deporte, camino mucho.</p>
+                        <p class=".ion-text-justify"><b> Muy Activo: </b>Trabajo intensamente al menos 5 veces a la semana, incluso a veces puedo ejercitarme dos veces al dia. solo tengo un día o menos de descanso total.</p>
+                    </div>
 
-          </ion-row>
-      </ion-grid>
-  </div>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
 
-  <ion-fab vertical="bottom" horizontal="end" class="animated fadeInUp delay-2s">
-      <ion-icon name="help-circle" (click)="mostrar(info)"></ion-icon>
-  </ion-fab>
+    <ion-fab vertical="bottom" horizontal="end" class="animated fadeInUp delay-2s">
+        <ion-icon name="help-circle" (click)="mostrar(info)"></ion-icon>
+    </ion-fab>
 
-  <ion-fab vertical="bottom" horizontal="begin" slot="fixed" class="animated fadeInUp delay-2s">
-      <ion-fab-button color="danger" (click)="atras()">
-          <ion-icon name="arrow-back-outline"></ion-icon>
-      </ion-fab-button>
-  </ion-fab>
+    <ion-fab vertical="bottom" horizontal="begin" slot="fixed" class="animated fadeInUp delay-2s">
+        <ion-fab-button color="danger" (click)="atras()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

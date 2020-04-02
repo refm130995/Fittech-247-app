@@ -18,12 +18,12 @@
         </ion-col>
 
         <ion-col  size="12">      
-          <ion-input (ionBlur)="Email($event)" type="text" placeholder="Email*" name="email" 
-          [(ngModel)]="registrar.email" required></ion-input>
+          <ion-input (ionBlur)="Email($event)" type="email" placeholder="Email*" name="email" 
+          [(ngModel)]="registrar.email"  ></ion-input>
         </ion-col>
         <ion-col  size="12">      
-          <ion-input type="text" placeholder="Confirmar Email*"  name="reemail" 
-          [(ngModel)]="registrar.reemail" required></ion-input >
+          <ion-input type="email" placeholder="Confirmar Email*"  name="reemail" 
+          [(ngModel)]="registrar.reemail" ></ion-input >
         </ion-col>
         
         <ion-col  size="12">      

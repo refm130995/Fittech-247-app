@@ -1,5 +1,7 @@
-<video #myVideo autoplay  playsinline  
-poster="https://s3.eu-central-1.amazonaws.com/pipe.public.content/poster.png"
+<video #myVideo playsinline  
+(loadedmetadata)="onMetadata($event, video)"
+poster="assets/img/videogif.gif"
+muted 
 width="100%" (ended)="videoEnd()">
   <source [src]="video" />
 </video>
@@ -8,7 +10,8 @@ width="100%" (ended)="videoEnd()">
 
   <ion-row>
     <ion-col size="12">
-       <p class="ion-text-center titulo">{{nombre}}</p>
+       <p class="ion-text-center titulo">Test de capacidad</p>
+       <p class="ion-text-center">Recuerda parar hasta donde puedas</p>
     </ion-col>
   </ion-row>
 
@@ -16,12 +19,12 @@ width="100%" (ended)="videoEnd()">
 
 <ion-grid class="ion-grid2">
   
-  <p class="center">00:{{timeLeft}}</p>
+  <p class="center">{{minuto}}:{{timeLeft}}</p>
 
 </ion-grid>
 
 
-  <ion-card color="dark" (click)="finalizar()" slot="fixed">
+  <ion-card color="danger" class="redondear" (click)="finalizar()">
           <h2>hasta aquí llegué</h2>
   </ion-card>
 

@@ -39,6 +39,8 @@ export class EntrenamientosPage implements OnInit {
       return value.stage === 3
     })
 
+    //comprobar si el stage 3 es vacia
+    console.log(this.stage3)
 
 
       if(Object.keys(this.serie).length === 0){
