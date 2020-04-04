@@ -18,7 +18,7 @@
     <ion-item *ngFor="let ejercicio of stage1; trackBy: customTB">
 
       <ion-thumbnail slot="start">
-        <img src="assets/img/avatarEntrenamiento.jpg">
+        <img src="http://fittech247.com/fittech/imagenes/{{ejercicio.cod}}/{{ejercicio.id}}.jpg">
       </ion-thumbnail>
       <ion-label class="ion-text-wrap">
         <h2>{{ejercicio.name  | capitalizado }}</h2>
@@ -37,7 +37,7 @@
 
     <ion-item *ngFor="let ejercicio of stage2; trackBy: customTB">
       <ion-thumbnail slot="start">
-        <img src="assets/img/press-banca-1.png">
+        <img src="http://fittech247.com/fittech/imagenes/{{ejercicio.cod}}/{{ejercicio.id}}.jpg">
       </ion-thumbnail>
       <ion-label class="ion-text-wrap">
         <h2>{{ejercicio.name  | capitalizado }}</h2>
@@ -56,7 +56,7 @@
 
     <ion-item *ngFor="let ejercicio of stage3; trackBy: customTB">
       <ion-thumbnail slot="start">
-        <img src="assets/img/press-banca-1.png">
+        <img src="http://fittech247.com/fittech/imagenes/{{ejercicio.cod}}/{{ejercicio.id}}.jpg">
       </ion-thumbnail>
       <ion-label class="ion-text-wrap">
         <h2>{{ejercicio.name  | capitalizado }}</h2>

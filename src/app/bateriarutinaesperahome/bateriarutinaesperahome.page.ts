@@ -15,6 +15,10 @@ export class BateriarutinaesperahomePage implements OnInit {
   ejercipro
   descanso
   tiemposegundo
+  //sonido
+  sonido = "../../../assets/sonido/reloj.mp3"
+  sonido2 = "../../../assets/sonido/final.mp3"
+  audio:any
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) { }
 
   ngOnInit() {
@@ -27,7 +31,7 @@ export class BateriarutinaesperahomePage implements OnInit {
       this.startTimer()
 
       
-        console.log("guardando energia - redirigir")
+
   }
 
 
@@ -35,6 +39,16 @@ export class BateriarutinaesperahomePage implements OnInit {
   startTimer() {
 
     this.tiemposegundo = setInterval(() => {
+
+      if(this.timeLeft >= 1 && this.timeLeft < 10) {
+          this.playSonido()
+      }
+
+      // if(this.timeLeft === 1) {
+      //     this.playSonidoFinal()
+      // }
+
+
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
@@ -48,6 +62,26 @@ export class BateriarutinaesperahomePage implements OnInit {
   redirigir(){
     clearInterval(this.tiemposegundo)
     this.ruta.navigateByUrl(`bateriarutinahome/${this.contador}`)
+    this.pauseSonido()
+  }
+
+
+   playSonido(){
+  this.audio = new Audio();
+  this.audio.src = this.sonido;
+  this.audio.load();
+  this.audio.play();
+  }
+
+  // playSonidoFinal(){
+  // this.audio = new Audio();
+  // this.audio.src = this.sonido2;
+  // this.audio.load();
+  // this.audio.play();
+  // }
+  
+  pauseSonido(){
+   this.audio.pause()
   }
 
 

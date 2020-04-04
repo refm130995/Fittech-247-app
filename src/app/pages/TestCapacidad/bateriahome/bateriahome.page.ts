@@ -18,7 +18,17 @@ export class BateriahomePage implements OnInit {
   @ViewChild('myVideo',{static:false}) txtVideo:ElementRef
 
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) {
+
+    //codigo para videos
+   if(this.ApiService.genero == 1){
     this.video =  `http://fittech247.com/fittech/videos/testhome/hombre.mp4`
+    }
+
+    if(this.ApiService.genero == 0){
+    this.video =  `http://fittech247.com/fittech/videos/testhome/mujer.mp4`
+     }
+
+
    }
 
   ngOnInit() {
@@ -172,15 +182,10 @@ export class BateriahomePage implements OnInit {
     
   }
 
-
-
-
-
-
-    //SE OBTIENE LA DURACION DEL VIDEO
-    onMetadata(e, video) {
-      console.log('metadata: ', e);
-      console.log('cargado: ', e.target.readyState);
-    }
+  //SE OBTIENE LA DURACION DEL VIDEO
+  onMetadata(e, video) {
+    console.log('metadata: ', e);
+    console.log('cargado: ', e.target.readyState);
+  }
 
 }

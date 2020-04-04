@@ -20,7 +20,7 @@ export class BateriaPage implements OnInit {
    buscador:any
    encontrar:any
    video:any
-   
+   poster:any
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
       
@@ -33,9 +33,13 @@ export class BateriaPage implements OnInit {
       return value.name == this.nombre
     })
 
+    //el poster
+    this.poster = `http://fittech247.com/fittech/videos/${this.encontrar.cod}/${this.encontrar.url}#t=0.4`
+
     // los videos
     this.video = `http://fittech247.com/fittech/videos/${this.encontrar.cod}/${this.encontrar.url}`
     
+ 
     //tiempo del ejericio
     this.timeLeft = this.ApiService.ratio
 

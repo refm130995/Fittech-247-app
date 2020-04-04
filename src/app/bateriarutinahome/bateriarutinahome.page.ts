@@ -21,10 +21,12 @@ export class BateriarutinahomePage implements OnInit {
   private win: any = window;
   // URL:any
   path:any
-
- 
+  sonido = "../../../assets/sonido/reloj.mp3"
+  sonido2 = "../../../assets/sonido/final.mp3"
+  audio:any
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:Router) {
+
    }
 
 
@@ -86,12 +88,15 @@ export class BateriarutinahomePage implements OnInit {
     if(this.numero >= this.final){
       this.tiempo = setTimeout(()=>{
         clearInterval(this.tiemposegundo)
+        this.pauseSonido()
         this.ruta.navigateByUrl("percepcionentrenamiento")
       },1000)
 
     }else{
       clearInterval(this.tiemposegundo) 
+      this.pauseSonido()
       this.ruta.navigateByUrl(`bateriarutinaesperahome/${this.dataRecibida}`)
+      
     }
 
   }
@@ -99,6 +104,16 @@ export class BateriarutinahomePage implements OnInit {
   //CONOMETRO
   startTimer() {
     this.tiemposegundo = setInterval(() => {
+
+      if(this.timeLeft >= 1 && this.timeLeft < 10) {
+          this.playSonido()
+      }
+
+      // if(this.timeLeft === 1) {
+      //     this.playSonidoFinal()
+      // }
+
+
        if(this.timeLeft > 0) {
          this.timeLeft--;
        } else {
@@ -119,6 +134,24 @@ export class BateriarutinahomePage implements OnInit {
     this.startTimer()
     this.mostrar = true
     this.txtVideo.nativeElement.play()
+  }
+
+  playSonido(){
+  this.audio = new Audio();
+  this.audio.src = this.sonido;
+  this.audio.load();
+  this.audio.play();
+  }
+
+  // playSonidoFinal(){
+  // this.audio = new Audio();
+  // this.audio.src = this.sonido2;
+  // this.audio.load();
+  // this.audio.play();
+  // }
+  
+  pauseSonido(){
+   this.audio.pause()
   }
 
 }

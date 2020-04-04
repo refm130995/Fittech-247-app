@@ -1,7 +1,6 @@
 <video #myVideo playsinline  
 (loadedmetadata)="onMetadata($event, video)"
 poster="assets/img/videogif.gif"
-muted 
 width="100%" (ended)="videoEnd()">
   <source [src]="video" />
 </video>
