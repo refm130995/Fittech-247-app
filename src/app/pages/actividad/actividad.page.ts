@@ -31,7 +31,9 @@ export class ActividadPage implements OnInit {
       this.info = !valor;
   }
    
-  
+  cerrar(){
+    this.info = false;
+  }
 
 
 }

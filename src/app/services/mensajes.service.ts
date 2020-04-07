@@ -21,12 +21,15 @@ export class MensajesService {
 
   async notificacionUsuario(message:string,color:string) {
     const toast = await this.toastController.create({
-      position: 'bottom',
+      position: 'middle',
       color:color,
       message: message,
+      cssClass:'customToast',
       duration: 2000
     });
     toast.present();
   }
+
+  
 
 }

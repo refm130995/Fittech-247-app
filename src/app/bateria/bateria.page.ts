@@ -21,6 +21,7 @@ export class BateriaPage implements OnInit {
    encontrar:any
    video:any
    poster:any
+   zero:any
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
       
@@ -33,8 +34,6 @@ export class BateriaPage implements OnInit {
       return value.name == this.nombre
     })
 
-    //el poster
-    this.poster = `http://fittech247.com/fittech/videos/${this.encontrar.cod}/${this.encontrar.url}#t=0.4`
 
     // los videos
     this.video = `http://fittech247.com/fittech/videos/${this.encontrar.cod}/${this.encontrar.url}`
@@ -43,6 +42,8 @@ export class BateriaPage implements OnInit {
     //tiempo del ejericio
     this.timeLeft = this.ApiService.ratio
 
+    this.startTimer()
+
   }
 
   atras(){
@@ -50,13 +51,12 @@ export class BateriaPage implements OnInit {
   }
 
   pauseVideo(){
-    this.mostrar = true
+    this.mostrar = false
     this.txtVideo.nativeElement.pause()
     clearInterval(this.tiemposegundo) 
-
   }
   playVideo(){
-    this.mostrar = false
+    this.mostrar = true
     this.txtVideo.nativeElement.play()
     this.startTimer()
   }
@@ -74,23 +74,40 @@ export class BateriaPage implements OnInit {
   }
 
   videoEnd(){
-    this.mostrar = true
+    this.mostrar = false
     // this.txtVideo.nativeElement.currentTime = 1;
     clearInterval(this.tiemposegundo) 
     this.timeLeft = this.repeticion
+    this.zero = null
   }
 
     //CONOMETRO
-  startTimer() {
-    this.tiemposegundo =  setInterval(() => {
-         if(this.timeLeft > 0) {
-           this.timeLeft--;
-         } else {
-           this.timeLeft = 0;
+    startTimer() {
 
-         }
-       },1000)
-     }
+      // if(this.timeLeft = 0){
+      //   this.minuto--
+      //   this.timeLeft = 60
+      // }
+  
+      this.tiemposegundo = setInterval(() => {
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+         
+  
+          if(this.timeLeft < 10){
+            console.log("activate")
+            this.zero = 0
+          } 
+        } 
+  
+        else{
+          this.zero = null
+          this.timeLeft = 0
+          this.timeLeft = this.repeticion
+        }
+      },1000)
+    
+    }
 
 
   //SE OBTIENE LA DURACION DEL VIDEO

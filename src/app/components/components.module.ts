@@ -40,7 +40,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     CommonModule,
     IonicModule,
-    ModalInfoPageModule
+    ModalInfoPageModule,
   ]
 })
 export class ComponentsModule { }

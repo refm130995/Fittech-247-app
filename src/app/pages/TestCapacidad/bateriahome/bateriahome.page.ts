@@ -11,8 +11,9 @@ export class BateriahomePage implements OnInit {
    nivel:number
    dataRecibida:any
     tiempo:any
-    timeLeft: number = 60;
+    timeLeft: any = 60;
     minuto:number = 12;
+    zero:any
   contador
   video:any
   @ViewChild('myVideo',{static:false}) txtVideo:ElementRef
@@ -35,22 +36,22 @@ export class BateriahomePage implements OnInit {
     
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     
-
+  
 
     var b = setInterval(()=>{
       console.log(this.txtVideo.nativeElement.readyState)
-  if(this.txtVideo.nativeElement.readyState === 4){
-      console.log(this.txtVideo.nativeElement.readyState)
-      //This block of code is triggered when the video is loaded
-
-      //your code goes here
-      this.txtVideo.nativeElement.play()
-      //cronometro
-      this.startTimer()
-      //stop checking every half second
-      clearInterval(b);
-
-  }    
+      if(this.txtVideo.nativeElement.readyState === 4){
+          console.log(this.txtVideo.nativeElement.readyState)
+          //This block of code is triggered when the video is loaded
+    
+          //your code goes here
+          this.txtVideo.nativeElement.play()
+          //cronometro
+          this.startTimer()
+          //stop checking every half second
+          clearInterval(b);
+    
+      }    
 
     },500);
 
@@ -82,8 +83,17 @@ export class BateriahomePage implements OnInit {
     this.tiempo = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
-      } else {
-        this.timeLeft = 0;
+       
+
+        if(this.timeLeft < 10){
+          console.log("activate")
+          this.zero = 0
+        } 
+      } 
+
+      else{
+        this.zero = null
+        this.timeLeft = 0
         this.minuto--
         this.timeLeft = 60
       }

@@ -92,3 +92,14 @@ ion-icon {
 ion-icon:hover {
   opacity: 0.7;
 }
+
+.ayudad {
+  fill: #E5141A;
+  font-size: 29px !important;
+}
+
+.ayudad2 {
+  color: #E5141A;
+  font-size: 29px !important;
+  float: right;
+}

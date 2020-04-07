@@ -76,7 +76,7 @@ export class AntecedentefamiliarPage implements OnInit {
   const valido = await this.ApiService.Antecedentefamiliar(this.usuarioservicio.condicionPersona)
   if(valido){
     this.loadingController.dismiss()
-     this.ruta.navigateByUrl('login')
+     this.ruta.navigateByUrl('tabs/dashboard')
   }else{
     return
   }

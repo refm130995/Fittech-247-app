@@ -39,5 +39,10 @@ export class TerminosPage implements OnInit {
     await loading.present();
   }
 
+  validar(valor:any){
+    console.log(valor.target.value)
+  }
+
+
 }
   

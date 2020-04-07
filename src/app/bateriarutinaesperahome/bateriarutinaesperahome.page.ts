@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiFitechService } from '../services/api-fitech.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-bateriarutinaesperahome',
@@ -19,7 +20,7 @@ export class BateriarutinaesperahomePage implements OnInit {
   sonido = "../../../assets/sonido/reloj.mp3"
   sonido2 = "../../../assets/sonido/final.mp3"
   audio:any
-  constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) { }
+  constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:NavController) { }
 
   ngOnInit() {
 
@@ -61,7 +62,7 @@ export class BateriarutinaesperahomePage implements OnInit {
 
   redirigir(){
     clearInterval(this.tiemposegundo)
-    this.ruta.navigateByUrl(`bateriarutinahome/${this.contador}`)
+    this.ruta.navigateRoot(`bateriarutinahome/${this.contador}`)
     this.pauseSonido()
   }
 

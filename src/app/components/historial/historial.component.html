@@ -6,65 +6,112 @@
     </ion-button>
   </div>
 
-  <div class="ion-text-center">
-    <p style="opacity: 0.7px;" class="margin-parrafo"> Presentas alguna de estas patologias</p>
+
+  <div *ngFor="let number of numbers">
+      {{number}}
   </div>
 
-  <ion-list lines="none">
 
-    <ion-item>
-      <ion-label>No presento ninguna</ion-label>
-      <ion-checkbox (ionChange)="historialmedico('enfermedad')"  color="medium" slot="start" name="noEnfermedad" [(ngModel)]="datoEnfermedades.noEnfermedad"></ion-checkbox>
-    </ion-item>
+  <!-- <ion-grid class="my-grid animated fadeIn delay-2s">
+    <ion-row class="parent-row">
+      <ion-col  size="12">   
+        <ion-list>
+          <ion-list-header>Presentas alguna de estas patologias</ion-list-header>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="ninguna" 
+            (ionChange)="historialcorazon('none')" ></ion-toggle>
+            <ion-label>Ninguna de las siguientes</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Hipertension</ion-label>
+            <ion-toggle color="dark"  slot="start" name="arritmia_corazon" 
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark"  slot="start" name="ataque_corazon"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label>Hipotension</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="operacion_corazon"
+            (ionChange)="historialcorazon('option')"></ion-toggle>
+            <ion-label>Desvanecimiento</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="enfermedad_corazon"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label>Diabetes insulinodependiente</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="presion_corazon"
+            (ionChange)="historialcorazon('option')"></ion-toggle>
+            <ion-label>Dolores en el pecho</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="diabete_corazon"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label>Fatiga insual en actividades</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Aritmias</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Taquicardia</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Insuficiencia cardiaca</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Infartos</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Soplo en el corazon</ion-label>
+          </ion-item>
 
-    <ion-item>
-      <ion-label>Hipertension</ion-label>
-      <ion-toggle (ionChange)="historialmedico(datoEnfermedades.hipertension)" slot="start" name="hipertension" [(ngModel)]="datoEnfermedades.hipertension"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Hipotension</ion-label>
-      <ion-toggle (ionChange)="historialmedico(datoEnfermedades.hipotension)" slot="start" name="hipotension" [(ngModel)]="datoEnfermedades.hipotension"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Desvanecimiento</ion-label>
-      <ion-toggle (ionChange)="historialmedico(datoEnfermedades.desvanecimiento)" slot="start" name="desvanecimiento" [(ngModel)]="datoEnfermedades.desvanecimiento"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Diabetes insulinodependiente</ion-label>
-      <ion-toggle (ionChange)="historialmedico(datoEnfermedades.diabete)" slot="start" name="diabete" [(ngModel)]="datoEnfermedades.diabete"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Dolores en el pecho</ion-label>
-      <ion-toggle (ionChange)="historialmedico(datoEnfermedades.dolorPecho)" slot="start" name="dolorPecho" [(ngModel)]="datoEnfermedades.dolorPecho"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Fatiga insual en actividades</ion-label>
-      <ion-toggle (ionChange)="historialmedico(datoEnfermedades.fatiga)" slot="start" name="fatiga" [(ngModel)]="datoEnfermedades.fatiga"></ion-toggle>
-    </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Influenza</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Asma</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Bronquiti</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Hipertension pulmonar</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-toggle color="dark" slot="start" name="muerte_prematura"
+            (ionChange)="historialcorazon('option')" ></ion-toggle>
+            <ion-label style="font-size: 14px;">Enfermedad pulmonar obstructiva cronica</ion-label>
+          </ion-item>
 
-    <ion-item>
-      <ion-label>Patologia cardiacas</ion-label>
-      <ion-select interface="action-sheet" cancel-text="salir"  (ionChange)="historialmedico(datoEnfermedades.patologiaCardiaca)"  name="patologiaCardiaca" [(ngModel)]="datoEnfermedades.patologiaCardiaca">
-        <ion-select-option value="1">Aritmias</ion-select-option>
-        <ion-select-option value="2">Taquicardia</ion-select-option>
-        <ion-select-option value="3">Insuficiencia cardiaca</ion-select-option>
-        <ion-select-option value="4">Infartos</ion-select-option>
-        <ion-select-option value="5">Soplo en el corazon</ion-select-option>
-      </ion-select>
-    </ion-item>
+        </ion-list>
+          
+        
+      </ion-col>
 
-    <ion-item class="margen-inferior">
-      <ion-label>Enfermedades pulmonares</ion-label>
-      <ion-select interface="action-sheet" name="enfermedadPulmonar" (ionChange)="historialmedico(datoEnfermedades.enfermedadPulmonar)" [(ngModel)]="datoEnfermedades.enfermedadPulmonar" cancel-text="salir">
-        <ion-select-option value="1">Influenza</ion-select-option>
-        <ion-select-option value="2">Asma</ion-select-option>
-        <ion-select-option value="3">Bronquiti</ion-select-option>
-        <ion-select-option value="4">Hipertension pulmonar</ion-select-option>
-        <ion-select-option value="5">Enfermedad pulmonar obstructiva cronica</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-  </ion-list>
+     
+    </ion-row>
+    </ion-grid>     -->
 
   <ion-fab vertical="bottom" horizontal="start" slot="fixed"    >
     <ion-fab-button color="danger" (click)="atras()">

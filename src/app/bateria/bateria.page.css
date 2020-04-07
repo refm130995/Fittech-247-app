@@ -40,8 +40,9 @@
 /*Cambio de pantalla*/
 .fullscrean {
   position: absolute;
+  right: 0;
   font-size: 40px;
   color: #f53d3d;
-  left: 310px;
-  top: 150px;
+  margin-right: 4%;
+  top: 9.375rem;
 }

@@ -1,12 +1,13 @@
 <video #myVideo  playsinline  width="100%" (ended)="videoEnd()"
-(loadedmetadata)="onMetadata($event, video)"
-poster="assets/img/videogif.gif">
-  <source [src]="video" />
+  autoplay
+  (loadedmetadata)="onMetadata($event, video)"
+  poster="assets/img/videogif.gif">
+    <source [src]="video" />
 </video>
-
-<div class="fullscrean"  (click)="fullscreen()"> 
-  <ion-icon name="scan-outline"></ion-icon>
-</div>
+  
+  <div class="fullscrean"  (click)="fullscreen()"> 
+    <ion-icon name="scan-outline"></ion-icon>
+  </div>
 
 <div class="ion-grid1" style="background-color:#F4F3F1;" >
   <ion-row>
@@ -18,7 +19,7 @@ poster="assets/img/videogif.gif">
 
 
 <ion-grid class="ion-grid2">
-  <p class="centrartiempo">00:{{timeLeft}}</p>
+  <p class="centrartiempo">00:{{zero}}{{timeLeft}}</p>
 </ion-grid>
 
 
@@ -32,13 +33,13 @@ poster="assets/img/videogif.gif">
 </ion-fab>
 
 
-<ion-fab vertical="bottom"  horizontal="center" slot="fixed" *ngIf="!mostrar">
+<ion-fab vertical="bottom"  horizontal="center" slot="fixed" *ngIf="mostrar">
   <ion-fab-button color="danger" (click)="pauseVideo()">
     <ion-icon name="pause-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>
 
-<ion-fab vertical="bottom"  horizontal="center" slot="fixed"*ngIf="mostrar">
+<ion-fab vertical="bottom"  horizontal="center" slot="fixed"*ngIf="!mostrar">
   <ion-fab-button color="danger" (click)="playVideo()">
     <ion-icon name="play-outline"></ion-icon>
   </ion-fab-button>

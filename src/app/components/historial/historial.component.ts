@@ -1,5 +1,5 @@
-import { Component, OnInit, Output,EventEmitter} from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit, Output,EventEmitter, HostListener, ViewChild, ElementRef} from '@angular/core';
+import { ModalController, IonContent } from '@ionic/angular';
 import { ModalInfoPage } from 'src/app/modal-info/modal-info.page';
 import { NavController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -13,8 +13,10 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class HistorialComponent implements OnInit {
 
   habilitar = true
+  numbers = []
 
   @Output() cambiarPantalla = new EventEmitter();
+
 
   datoEnfermedades = {
     patologiaCardiaca:null,
@@ -28,9 +30,11 @@ export class HistorialComponent implements OnInit {
     noEnfermedad:false
   }
 
-
+   
   constructor(public modalController: ModalController , private ruta: NavController,private usuarioservicio:UsuarioService) {
-  
+    for(let i=0; i<200 ; i++){
+      this.numbers.push(i)
+    }
   }
 
   ngOnInit() {
