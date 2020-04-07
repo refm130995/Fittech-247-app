@@ -248,8 +248,8 @@ export class HistorialComponent implements OnInit {
 
     console.log(this.datoEnfermedades)
 
-    // this.usuarioservicio.enfermedades(this.datoEnfermedades)
-    // this.ruta.navigateRoot(['/registrar-info'])
+    this.usuarioservicio.enfermedades(this.datoEnfermedades)
+    this.ruta.navigateRoot(['/registrar-info'])
   }
 
   atras(){
