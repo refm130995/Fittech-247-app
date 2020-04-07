@@ -44,8 +44,8 @@ export class HistorialComponent implements OnInit {
   
     if(datos == 'enfermedad'){
       if(this.datoEnfermedades.noEnfermedad){
-        this.datoEnfermedades.patologiaCardiaca = null
-        this.datoEnfermedades.enfermedadPulmonar = null
+        this.datoEnfermedades.patologiaCardiaca = 0
+        this.datoEnfermedades.enfermedadPulmonar = 0
         this.datoEnfermedades.hipertension = 0
         this.datoEnfermedades.hipotension = 0
         this.datoEnfermedades.desvanecimiento = 0
@@ -248,8 +248,8 @@ export class HistorialComponent implements OnInit {
 
     console.log(this.datoEnfermedades)
 
-    this.usuarioservicio.enfermedades(this.datoEnfermedades)
-    this.ruta.navigateRoot(['/registrar-info'])
+    // this.usuarioservicio.enfermedades(this.datoEnfermedades)
+    // this.ruta.navigateRoot(['/registrar-info'])
   }
 
   atras(){
