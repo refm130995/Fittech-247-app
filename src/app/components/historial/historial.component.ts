@@ -13,35 +13,33 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class HistorialComponent implements OnInit {
 
   habilitar = true
-  numbers = []
 
   @Output() cambiarPantalla = new EventEmitter();
 
-
   datoEnfermedades = {
-    patologiaCardiaca:null,
-    enfermedadPulmonar:null,
+    patologiaCardiaca:0,
+    enfermedadPulmonar:0,
+
+    hipertensionPulmonar:0,
+    pulmonarcronica:0,
+    taquicardia:0,
+    asma:0,
+    bronquiti:0,
+    aritmias:0,
     hipertension:0,
     hipotension:0,
     desvanecimiento:0,
     diabete:0,
+    infartos:0,
+    soplo:0,
+    influenza:0,
     dolorPecho:0,
     fatiga:0,
-    noEnfermedad:false
+    insuficiencia:0,
+    noEnfermedad: false
   }
 
-   
-  constructor(public modalController: ModalController , private ruta: NavController,private usuarioservicio:UsuarioService) {
-    for(let i=0; i<200 ; i++){
-      this.numbers.push(i)
-    }
-  }
 
-  ngOnInit() {
-
-  }
-
-  
   historialmedico(datos){
   
     if(datos == 'enfermedad'){
@@ -56,20 +54,9 @@ export class HistorialComponent implements OnInit {
         this.datoEnfermedades.fatiga = 0
         //habilitar boton
         this.habilitar = false
+
       }
       
-    }
-
-
-    if(this.datoEnfermedades.patologiaCardiaca !=null){
-      this.datoEnfermedades.noEnfermedad = false
-      this.habilitar = false
-    }
-
-    if(this.datoEnfermedades.enfermedadPulmonar !=null){
-      this.datoEnfermedades.noEnfermedad = false
-              //habilitar boton
-              this.habilitar = false
     }
 
     if(this.datoEnfermedades.hipertension){
@@ -132,25 +119,136 @@ export class HistorialComponent implements OnInit {
       this.datoEnfermedades.fatiga = 0
     }
 
+    if(this.datoEnfermedades.asma){
+      this.datoEnfermedades.asma = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.enfermedadPulmonar = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.asma = 0
+    }
+
+    if(this.datoEnfermedades.bronquiti){
+      this.datoEnfermedades.bronquiti = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.enfermedadPulmonar = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.bronquiti = 0
+    }
+
+    if(this.datoEnfermedades.aritmias){
+      this.datoEnfermedades.aritmias = 1
+      this.datoEnfermedades.noEnfermedad = false
+
+      this.datoEnfermedades.patologiaCardiaca = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.aritmias = 0
+    }
+
+    if(this.datoEnfermedades.soplo){
+      this.datoEnfermedades.soplo = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.patologiaCardiaca = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.soplo = 0
+    }
+
+    if(this.datoEnfermedades.influenza){
+      this.datoEnfermedades.influenza = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.enfermedadPulmonar = 1
+        //habilitar boton
+        this.habilitar = false
+    }else{
+      this.datoEnfermedades.influenza = 0
+    }
+
+    if(this.datoEnfermedades.infartos){
+      this.datoEnfermedades.infartos = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.patologiaCardiaca = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.infartos = 0
+    }
+
+    if(this.datoEnfermedades.insuficiencia){
+      this.datoEnfermedades.insuficiencia = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.patologiaCardiaca = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.insuficiencia = 0
+    }
+
+    if(this.datoEnfermedades.taquicardia){
+      this.datoEnfermedades.taquicardia = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.patologiaCardiaca = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.taquicardia = 0
+    }
+
+    if(this.datoEnfermedades.pulmonarcronica){
+      this.datoEnfermedades.pulmonarcronica = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.enfermedadPulmonar = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.pulmonarcronica = 0
+    }
+
+    if(this.datoEnfermedades.hipertensionPulmonar){
+      this.datoEnfermedades.hipertensionPulmonar = 1
+      this.datoEnfermedades.noEnfermedad = false
+      this.datoEnfermedades.enfermedadPulmonar = 1
+        //habilitar boton
+        this.habilitar = false
+
+    }else{
+      this.datoEnfermedades.hipertensionPulmonar = 0
+    }
+
 }
+
+   
+  constructor(public modalController: ModalController , private ruta: NavController,private usuarioservicio:UsuarioService) {
+
+  }
+
+  ngOnInit() {
+
+  }
+
+  
+
  
 
   avanzar(){
 
-    if(this.datoEnfermedades.patologiaCardiaca !=null){
-      this.datoEnfermedades.patologiaCardiaca = 1
-    }else{
-      this.datoEnfermedades.patologiaCardiaca = 0
-    }
-    
-    if(this.datoEnfermedades.enfermedadPulmonar !=null){
-      this.datoEnfermedades.enfermedadPulmonar = 1
-    }else{
-      this.datoEnfermedades.patologiaCardiaca = 0
-    }
+    console.log(this.datoEnfermedades)
 
     this.usuarioservicio.enfermedades(this.datoEnfermedades)
-    //  console.log(this.datoEnfermedades)
     this.ruta.navigateRoot(['/registrar-info'])
   }
 

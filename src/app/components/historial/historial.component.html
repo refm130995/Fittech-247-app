@@ -1,15 +1,124 @@
-
-  <h2>Tu historial médico</h2>
-  <div class="ion-text-center">
+ <h2>Tu historial médico</h2>
     <ion-button color="danger" class="tamanobtn">
       <ion-icon name="analytics-outline" class="iconSize" ></ion-icon>
     </ion-button>
-  </div>
 
 
-  <div *ngFor="let number of numbers">
-      {{number}}
-  </div>
+  <ion-list>
+    <ion-list-header>Padece de algunas de estas dolencias</ion-list-header>
+
+  <ion-item>
+  <ion-toggle color="dark" slot="start" 
+  (ionChange)="historialmedico('enfermedad')"
+  (ionChange)="historialmedico('none')" 
+   name="noEnfermedad" [(ngModel)]="datoEnfermedades.noEnfermedad"
+  ></ion-toggle>
+  <ion-label>Ninguna de las siguientes</ion-label>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Hipertension</ion-label>
+  <ion-toggle color="dark"  slot="start" (ionChange)="historialmedico(datoEnfermedades.hipertension)"
+  name="hipertension" [(ngModel)]="datoEnfermedades.hipertension"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-toggle color="dark" slot="start" (ionChange)="historialmedico(datoEnfermedades.hipotension)"
+   name="hipotension" [(ngModel)]="datoEnfermedades.hipotension"
+  ></ion-toggle>
+  <ion-label>Hipotension</ion-label>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Desvanecimiento</ion-label>
+  <ion-toggle color="dark"  slot="start"   (ionChange)="historialmedico(datoEnfermedades.desvanecimiento)"
+  name="desvanecimiento" [(ngModel)]="datoEnfermedades.desvanecimiento"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Diabetes insulinodependiente</ion-label>
+  <ion-toggle color="dark"  slot="start" name="diabete" 
+  (ionChange)="historialmedico(datoEnfermedades.diabete)" [(ngModel)]="datoEnfermedades.diabete"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-toggle color="dark" slot="start" name="dolorPecho"
+  (ionChange)="historialmedico(datoEnfermedades.dolorPecho)"   [(ngModel)]="datoEnfermedades.dolorPecho"
+  ></ion-toggle>
+  <ion-label>Dolores en el pecho</ion-label>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Fatiga insual en actividades</ion-label>
+  <ion-toggle color="dark"  slot="start" name="fatiga"
+  (ionChange)="historialmedico(datoEnfermedades.fatiga)"   [(ngModel)]="datoEnfermedades.fatiga"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Aritmias</ion-label>
+  <ion-toggle color="dark"  slot="start" 
+  (ionChange)="historialmedico(datoEnfermedades.aritmias)" name="aritmias" [(ngModel)]="datoEnfermedades.aritmias"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-toggle color="dark" slot="start" name="taquicardia"
+  (ionChange)="historialmedico(datoEnfermedades.taquicardia)" [(ngModel)]="datoEnfermedades.taquicardia"
+  ></ion-toggle>
+  <ion-label>Taquicardia</ion-label>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Insuficiencia cardiaca</ion-label>
+  <ion-toggle color="dark"  slot="start" name="insuficiencia"
+  (ionChange)="historialmedico(datoEnfermedades.insuficiencia)"  [(ngModel)]="datoEnfermedades.insuficiencia"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Infartos</ion-label>
+  <ion-toggle color="dark"  slot="start" 
+  (ionChange)="historialmedico(datoEnfermedades.infartos)"  name="infartos" [(ngModel)]="datoEnfermedades.infartos"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-toggle color="dark" slot="start"
+  (ionChange)="historialmedico(datoEnfermedades.soplo)"  name="soplo" [(ngModel)]="datoEnfermedades.soplo" 
+  ></ion-toggle>
+  <ion-label>Soplo en el corazon</ion-label>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Influenza</ion-label>
+  <ion-toggle color="dark"  slot="start" 
+  (ionChange)="historialmedico(datoEnfermedades.influenza)" name="influenza" [(ngModel)]="datoEnfermedades.influenza"></ion-toggle>
+  </ion-item>
+  
+  <ion-item>
+  <ion-label>Asma</ion-label>
+  <ion-toggle color="dark"  slot="start" name="asma" 
+  (ionChange)="historialmedico(datoEnfermedades.asma)" [(ngModel)]="datoEnfermedades.asma"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Bronquiti</ion-label>
+  <ion-toggle color="dark"  slot="start" 
+  (ionChange)="historialmedico(datoEnfermedades.bronquiti)" name="bronquiti" [(ngModel)]="datoEnfermedades.bronquiti"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Hipertension pulmonar</ion-label>
+    <ion-toggle color="dark"  slot="start" 
+    (ionChange)="historialmedico(datoEnfermedades.hipertensionPulmonar)" name="hipertensionPulmonar" [(ngModel)]="datoEnfermedades.hipertensionPulmonar"></ion-toggle>
+  </ion-item>
+  
+  <ion-item class="margin-last">
+    <ion-label>Enfermedad pulmonar obstructiva cronica</ion-label>
+    <ion-toggle color="dark"  slot="start" name="pulmonarcronica"
+    (ionChange)="historialmedico(datoEnfermedades.pulmonarcronica)"  [(ngModel)]="datoEnfermedades.pulmonarcronica"></ion-toggle>
+  </ion-item>
+      
+  
+  </ion-list>
+
 
 
   <!-- <ion-grid class="my-grid animated fadeIn delay-2s">

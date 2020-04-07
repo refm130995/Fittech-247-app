@@ -12,17 +12,23 @@ export class PasoinicialPage implements OnInit {
   progreso:number = 1
   progresoReversa:number
   contadordos:number
-  constructor() { }
+  condicionalCss:boolean = true
+  constructor() {}
 
   ngOnInit() {
     this.slides.lockSwipes(true)
+    console.log(this.condicionalCss)
   }
 
   cambiar(valor){
       
       if(valor==0){
+        //condicional para el diseño css
+        this.condicionalCss = true
+        //condicional para el cambio de pantallas
         this.slides.lockSwipes(false)
         this.slides.slideTo(0)
+         //logica de la barra superior
         this.contador = 1
         if(valor < 2){
           this.restarprogreso(3)
@@ -30,11 +36,17 @@ export class PasoinicialPage implements OnInit {
           this.progresar(3)
           this.progresoReversa = this.contador
         }
+        //condicional para bloquear pantalla
+        this.slides.lockSwipes(true)
       }
       if(valor==1){
+         //condicional para el diseño css
+        this.condicionalCss = true
+        //condicional para el cambio de pantallas
         document.getElementById("slide2").classList.add('animacion','fadeInRight')
         this.slides.lockSwipes(false)
         this.slides.slideTo(1)
+        //logica de la barra superior
         this.contador = 2
         if(this.progresoReversa >= 3){
           this.restarprogreso(3)
@@ -42,11 +54,18 @@ export class PasoinicialPage implements OnInit {
           this.progresar(3)
         }
         this.progresoReversa = this.contador
+        //condicional para bloquear pantalla
+        this.slides.lockSwipes(true)
+
       }
       if(valor==2){
+        //condicional del diseño css
+        this.condicionalCss = false
+        //condicional para el cambio de pantallas
         document.getElementById("slide3").classList.add('animacion','fadeInRight')
         this.slides.lockSwipes(false)
         this.slides.slideTo(2)
+        //logica para barra superior
         this.contador = 3
         this.progresoReversa = this.contador
         if(this.progresoReversa == 4){
@@ -54,9 +73,11 @@ export class PasoinicialPage implements OnInit {
         }else{
           this.progresar(3)
         }
-        
+        //condicional para bloquear pantalla
+        this.slides.lockSwipes(true) 
       }
       if(valor==3){
+
         document.getElementById("slide4").classList.add('animacion','fadeInRight')
         this.slides.lockSwipes(false)
         this.slides.slideTo(3)

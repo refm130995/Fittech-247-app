@@ -60,7 +60,10 @@
             <div class="ion-text-wrap letra">
               *Acepto los <b>Terminos y las condiciones</b> y la <b>politica de privacidad</b> de fittech
             </div>
-            <ion-checkbox color="medium" slot="start" (ionChange)="registrar()"></ion-checkbox>
+            <ion-checkbox  
+            name="selected" [(ngModel)]="check.selected"
+            color="medium" slot="start"
+             (click)="registrar()" ></ion-checkbox>
           </ion-item>
         </ion-col>
         
@@ -69,7 +72,10 @@
             <div class="ion-text-wrap letra">
               *Podemos comunicarnos contigo.
             </div>
-            <ion-checkbox color="medium" slot="start" (ionChange)="validar($event)" value="true"></ion-checkbox>
+            <ion-checkbox color="medium" slot="start"
+            name="selected2" [(ngModel)]="check.selected2"
+            (click)="registrar2()"
+            ></ion-checkbox>
           </ion-item>
         </ion-col>
 

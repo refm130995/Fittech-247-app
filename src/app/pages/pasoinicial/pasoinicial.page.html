@@ -7,7 +7,7 @@
 <ion-content>
   <ion-progress-bar value="0.{{progreso}}" color="danger" class="animated slideInLeft delay-1s"></ion-progress-bar>
 
-  <ion-slides  #slide>
+  <ion-slides  [ngClass]="condicionalCss ? 'ion-slides' : 'ion-noslides' "  #slide>
     <ion-slide>
       <ion-grid class="my-grid">
         <ion-row class="parent-row">
@@ -25,11 +25,14 @@
     </ion-slide>
 
     <ion-slide id="slide3">
-
+      <ion-grid>
+        <ion-row size="12" class="ion-justify-content-center">
           <app-historial (cambiarPantalla)="cambiar($event)"></app-historial>
-
-          
+        </ion-row>
+      </ion-grid>
     </ion-slide>
 
   </ion-slides>
 </ion-content>
+
+

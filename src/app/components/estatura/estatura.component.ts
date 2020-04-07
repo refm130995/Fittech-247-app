@@ -19,7 +19,9 @@ export class EstaturaComponent implements OnInit {
   constructor(private usuarioservicio:UsuarioService) { }
   @Output() cambiarPantalla = new EventEmitter();
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
   
     valor(numero){
      if(!isNaN(numero.target.value) && numero.target.value.length > 2){
