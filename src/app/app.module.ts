@@ -41,7 +41,7 @@ var firebaseConfig = {
   entryComponents: [],
   imports: [
     BrowserModule, 
-    IonicModule.forRoot(), 
+    IonicModule.forRoot({hardwareBackButton: false}), 
     AppRoutingModule,
     HttpClientModule,
     ComponentsModule,

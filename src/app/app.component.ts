@@ -21,6 +21,12 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      
+      //este codigo es para desabiitar el back button en toda la app
+      document.addEventListener("backbutton",function(e){
+         console.log("disabled") 
+      },false)
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

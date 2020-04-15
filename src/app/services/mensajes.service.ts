@@ -30,6 +30,17 @@ export class MensajesService {
     toast.present();
   }
 
+  async notificacionUsuarioFinalizar(message:string,color:string) {
+    const toast = await this.toastController.create({
+      position: 'middle',
+      color:color,
+      message: message,
+      cssClass:'customToast1',
+      duration: 2000
+    });
+    toast.present();
+  }
+
   
 
 }

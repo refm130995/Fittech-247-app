@@ -3,6 +3,30 @@
     --ion-safe-area-bottom: 22px;
   }
 
+  .logo{
+    margin: 0 auto;
+    max-height: 150px;
+  }
+  
+  .cabezera{
+    max-height: 150px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: black;
+      width: 100%;
+      overflow: hidden;
+  }
+
+
+
+
+
+
+
+
+
+
   .ion-slides {
     height: 100%;
   }

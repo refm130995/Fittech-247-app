@@ -43,7 +43,7 @@ export class MensajecapacidadPage implements OnInit {
       this.ruta.navigateByUrl("tabs")
       this.notificacion.notificacionUsuario("Gracias por realizar el test","danger")
     }else{
-      this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+      this.notificacion.notificacionUsuarioFinalizar("Ocurrio un error, revise su conexión","primary")
     }
 
   }

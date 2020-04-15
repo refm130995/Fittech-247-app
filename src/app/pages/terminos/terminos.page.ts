@@ -15,10 +15,6 @@ export class TerminosPage implements OnInit {
 
   datosCargados
 
-  check = {
-    selected:false,
-    selected2:false
-  }
 
   constructor(private usuarioService:UsuarioService , private ApiService:ApiFitechService,
     private ruta: NavController,public loadingController: LoadingController,
@@ -31,8 +27,7 @@ export class TerminosPage implements OnInit {
   }
 
   
-  async registrar(valor){
-    if(this.check.selected2){
+  async registrar(){
       this.presentLoading();
       const valido = await this.ApiService.Registrar(this.usuarioService.datosPersonales)
       if(valido){
@@ -41,10 +36,8 @@ export class TerminosPage implements OnInit {
       }else{
         console.log("fail en el Registrado")
       }
-    }else{ 
-      this.mensajeservice.alertaInformatica('Usted debe aceptar los dos terminos')
-    }
   }
+
 
   async presentLoading() {
     const loading = await this.loadingController.create({
@@ -53,9 +46,6 @@ export class TerminosPage implements OnInit {
     await loading.present();
   }
 
-  registrar2(){
-    this.check.selected = false
-  }
 
 }
   

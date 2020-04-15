@@ -96,7 +96,7 @@ export class BateriarutinahomePage implements OnInit {
     }else{
       clearInterval(this.tiemposegundo) 
       this.pauseSonido()
-      this.ruta.navigateRoot(`bateriarutinaesperahome/${this.dataRecibida}`)
+      this.ruta.navigateRoot([`/bateriarutinaesperahome/${this.dataRecibida}`])
       
     }
 

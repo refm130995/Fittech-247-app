@@ -62,7 +62,7 @@ export class BateriarutinaesperahomePage implements OnInit {
 
   redirigir(){
     clearInterval(this.tiemposegundo)
-    this.ruta.navigateRoot(`bateriarutinahome/${this.contador}`)
+    this.ruta.navigateRoot([`/bateriarutinahome/${this.contador}`])
     this.pauseSonido()
   }
 

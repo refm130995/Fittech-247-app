@@ -31,11 +31,14 @@ export class CorazonPage implements OnInit {
       });
        await modal.present();
       const {data} = await modal.onDidDismiss()
-      if(data){
+
+      if(data.salir){
         const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
         if(valido){
           this.ruta.navigateRoot(['/mensajecorazon'])
         }
+      }else{
+        return
       }
     }
 
@@ -48,18 +51,20 @@ export class CorazonPage implements OnInit {
       });
        await modal.present();
       const {data} = await modal.onDidDismiss()
-      if(data){
+      if(data.salir){
         const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
         if(valido){
           this.ruta.navigateRoot(['/mensajecorazon'])
         }
+      }else{
+        return
       }
     }
 
   }
 
   async avanzar(){
-    this.ruta.navigateRoot(['/antecedentefamiliar'])
+    // this.ruta.navigateRoot(['/antecedentefamiliar'])
 
     /* 
     const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)

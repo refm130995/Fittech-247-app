@@ -18,11 +18,11 @@ export class LugarEjerciciosPage implements OnInit {
   entrenar(valor){
     console.log(valor)
     this.usuarioservicio.entrenar(valor)
-    this.ruta.navigateRoot(['/actividad'])
+    this.ruta.navigateRoot(['/pasoinicial'])
   }
 
   atras(){
-    this.ruta.navigateRoot(['/experiencia'])
+    this.ruta.navigateRoot(['/objetivo'])
   }
 
 }

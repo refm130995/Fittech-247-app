@@ -3,7 +3,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-antecedentefamiliar',
@@ -24,7 +24,7 @@ export class AntecedentefamiliarPage implements OnInit {
   habilitar:boolean=true
 
 
-  constructor(private ruta:Router,private cdRef:ChangeDetectorRef,private usuarioservicio:UsuarioService,
+  constructor(private ruta:NavController,private cdRef:ChangeDetectorRef,private usuarioservicio:UsuarioService,
               private ApiService:ApiFitechService,public loadingController: LoadingController) { }
 
   ngOnInit() {
@@ -76,7 +76,7 @@ export class AntecedentefamiliarPage implements OnInit {
   const valido = await this.ApiService.Antecedentefamiliar(this.usuarioservicio.condicionPersona)
   if(valido){
     this.loadingController.dismiss()
-     this.ruta.navigateByUrl('tabs/dashboard')
+     this.ruta.navigateRoot('tabs/dashboard')
   }else{
     return
   }

@@ -1,3 +1,10 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+  </div>
+</ion-header>
+
+<!-- Logo incluido ante no estaba -->
 
 <ion-content class="animated fadeIn delay-1s">
   
@@ -53,8 +60,8 @@
       <ion-col size="12"> 
       <hr>  
         <h4 class="ion-padding-horizontal"><b>Comidas</b></h4>
-          <ion-button shape="round" color="dark" class="centered2">Ver Alimentos</ion-button>
-          <img  src="assets/img/comidas.png" class="ejercicio bor" />
+          <ion-button shape="round" color="dark" class="centered2" (click)="nutricion()">Ver Alimentos</ion-button>
+          <img  src="assets/img/comidas.png" class="ejercicio bor"/>
       </ion-col>
 
       <ion-col size="12"> 

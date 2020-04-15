@@ -42,10 +42,16 @@
 
 
 <ion-footer class="contenedor">
-  <ion-toolbar  (click)="salir()">
-    <ion-buttons slot="end" >
+  <ion-toolbar >
+    <ion-buttons slot="end"  (click)="salir()">
       <ion-button id="changeText" >
         <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start" (click)="atras()" >
+      <ion-button id="changeText" >
+        <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

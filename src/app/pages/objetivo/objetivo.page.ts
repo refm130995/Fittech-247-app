@@ -11,17 +11,26 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class ObjetivoPage implements OnInit {
 
   constructor(private ruta:NavController , private usuarioservicio:UsuarioService) { }
+  info: boolean;
 
   ngOnInit() {
   }
 
   objetivo(valor){
     this.usuarioservicio.objetivo(valor)
-    this.ruta.navigateRoot(['/experiencia'])
+    this.ruta.navigateRoot(['/lugar-ejercicios'])
   }
 
   login(){
     this.ruta.navigateForward(['/login'])
   }
+
+  mostrar(valor){
+    this.info = !valor;
+}
+ 
+cerrar(){
+  this.info = false;
+}
 
 }

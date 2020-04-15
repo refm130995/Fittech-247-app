@@ -18,37 +18,37 @@ export class MensajecorazonPage implements OnInit {
     
     if(this.ApiService.latidocorazon === 6){
       this.titulo = "Exelente",
-      this.mensaje ="¡Felicitaciones!,tu frecuencia cardiaca está entre las mejores  de acuerdo a tu edad y genero."
+      this.mensaje ="¡Felicitaciones!,tu frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."
     }
 
     if(this.ApiService.latidocorazon === 5){
       this.titulo = "Buena",
-      this.mensaje ="¡Estupendo! tu frecuencia cardiaca está entre las buenas de acuerdo a tu edad y genero."
+      this.mensaje ="¡Estupendo! tu frecuencia cardiaca está entre las buenas de acuerdo a tu edad y género."
     }
 
     if(this.ApiService.latidocorazon === 4){
       this.titulo = "Por encima de la media",
-      this.mensaje ="¡Muy bien!,tu frecuencia cardiaca está por encima del promedio de acuerdo a tu edad y genero."
+      this.mensaje ="¡Muy bien!, tú frecuencia cardiaca está por encima del promedio de acuerdo a tu edad y género."
     }
 
     if(this.ApiService.latidocorazon === 3){
-      this.titulo = "media",
-      this.mensaje ="¡Muy bien!,tu frecuencia cardiaca está en promedio de acuerdo a tu edad y genero."
+      this.titulo = "Media",
+      this.mensaje ="¡Muy bien!, tú frecuencia cardiaca está en promedio de acuerdo a tu edad y género."
     }
 
     if(this.ApiService.latidocorazon === 2){
       this.titulo = "Por de bajo de la media",
-      this.mensaje ="¡No hay problema!,¡Vamos a mejorar! tu frecuencia cardiaca está por debajo del promedio de acuerdo a tu edad y genero."
+      this.mensaje ="¡No hay problema!, Vamos a mejorar! tu frecuencia cardiaca está por debajo del promedio de acuerdo a tu edad y género."
     }
 
     if(this.ApiService.latidocorazon === 1){
       this.titulo = "Mala",
-      this.mensaje = "Con esfuerzo todo se puede, ¡A trabajar!, tu frecuencia cardiaca es malo de acuerdo a tu edad y genero."
+      this.mensaje = "Con esfuerzo todo se puede, ¡A trabajar!, tu frecuencia cardiaca es malo de acuerdo a tu edad y género."
     }
 
     if(this.ApiService.latidocorazon === 0){
       this.titulo = "Muy mala",
-      this.mensaje = "Deberias ir al medico, tu frecuencia cardiaca es muy malo de acuerdo a tu edad y genero."
+      this.mensaje = "Deberías ir al médico, tu frecuencia cardiaca es muy malo de acuerdo a tu edad y género."
     }
 
 

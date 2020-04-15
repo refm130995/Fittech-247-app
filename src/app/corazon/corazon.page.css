@@ -54,14 +54,16 @@ ion-input {
 }
 
 .imagen {
-  width: 130px;
+  max-width: 100%;
+  width: 90%;
   height: 130px;
   border-radius: 5px;
+  margin: 0 auto;
 }
 
 .tarjeta {
-  padding-left: 10%;
-  padding-right: 10%;
+  width: 100%;
+  height: 130px;
 }
 
 ion-col {

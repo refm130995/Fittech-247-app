@@ -19,12 +19,13 @@ export class ActividadPage implements OnInit {
   }
 
   nivel(valor){
-    this.usuarioservicio.nivel(valor)
-    this.ruta.navigateRoot(['/pasoinicial'])
+    // this.usuarioservicio.nivel(valor)
+    console.log(valor)
+    // this.ruta.navigateRoot(['/pasoinicial'])
   }
 
   atras(){
-    this.ruta.navigateRoot(['/lugar-ejercicios'])
+    this.ruta.navigateRoot(['/tabs/dashboard'])
   }
 
   mostrar(valor){

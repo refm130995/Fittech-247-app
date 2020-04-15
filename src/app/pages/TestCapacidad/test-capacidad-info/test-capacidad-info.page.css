@@ -11,3 +11,8 @@ ion-card h2 {
   font-size: 17px !important;
   opacity: 0.9;
 }
+
+.aumentartitulo {
+  font-size: 18px;
+  font-weight: bold;
+}

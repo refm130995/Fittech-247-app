@@ -120,8 +120,16 @@ export class ApiFitechService {
   
         this.http.post(`${URL}/auth/register`,data)
         .subscribe(resp=>{
-            this.token =  resp['access_token']
-            console.log(this.token)
+            // this.token =  resp['access_token']
+             console.log(resp)
+            
+            this.guardarToken(resp['access_token'])
+            this.guardarUsuario(resp['user'])
+            this.guardarexamenFuerza(resp['power_test'])
+            this.guardarexamenResistencia(resp['aerobic_test'])
+            this.guardarexamenCapacidad(resp['home_test'])
+
+
             resolve(true)
           },err =>{
             console.log(err)

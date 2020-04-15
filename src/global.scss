@@ -43,4 +43,20 @@
    left: 10%;
 }
 
+.customToast1{
+   /*el toast maneja flex*/
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   font-size: 18px;
+   color: white;
+   --max-height:70px;
+   --height:70px;
+   --border-radius:25px;
+}
 
+
+*{
+   font-family: 'Oswald', sans-serif;
+}

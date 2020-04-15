@@ -1,10 +1,19 @@
-<ion-header class="ion-no-border animated fadeIn delay-1s">
-  <ion-toolbar>
+<ion-header [translucent]="true" class="ion-no-border">
+  <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+  </div>
+  <ion-toolbar class="ion-no-border animated fadeIn delay-1s">
     <ion-title class="ion-text-center">Paso {{contador}} de 3</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<!-- <ion-header class="ion-no-border animated fadeIn delay-1s">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Paso {{contador}} de 3</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
   <ion-progress-bar value="0.{{progreso}}" color="danger" class="animated slideInLeft delay-1s"></ion-progress-bar>
 
   <ion-slides  [ngClass]="condicionalCss ? 'ion-slides' : 'ion-noslides' "  #slide>
@@ -25,11 +34,9 @@
     </ion-slide>
 
     <ion-slide id="slide3">
-      <ion-grid>
-        <ion-row size="12" class="ion-justify-content-center">
-          <app-historial (cambiarPantalla)="cambiar($event)"></app-historial>
-        </ion-row>
-      </ion-grid>
+
+            <app-historial (cambiarPantalla)="cambiar($event)"></app-historial>
+
     </ion-slide>
 
   </ion-slides>

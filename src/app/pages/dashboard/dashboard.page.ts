@@ -35,9 +35,11 @@ export class DashboardPage implements OnInit {
     this.apiService.asignarToken(token)
    /* Este paso sere restructurado mas adelante */
 
-
-
     const comprobar = this.apiService.usuario 
+
+
+
+
     this.Bienvenido = comprobar ? this.apiService.usuario : valor['name']
     const comprobados = this.apiService.usuario 
     this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
@@ -133,6 +135,9 @@ export class DashboardPage implements OnInit {
 
     }
 
+  nutricion(){
+    this.ruta.navigateForward('actividad')
+  }
     
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController} from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -43,6 +43,12 @@ export class ModalCorazonInfoPage implements OnInit {
     }else{
       return
     }
+  }
+
+  atras(){
+    this.modalController.dismiss({
+      salir:false
+    });
   }
 
 

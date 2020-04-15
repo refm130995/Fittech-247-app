@@ -1,8 +1,25 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
-* {
-  font-family: 'Roboto', sans-serif;
+/*
+{
+font-family: 'Roboto', sans-serif;  
+}
+*/
+/*logo*/
+.logo {
+  margin: 0 auto;
+  max-height: 150px;
 }
 
+.cabezera {
+  max-height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*fin logo*/
 .ejercicio {
   max-width: 100%;
   height: auto;
