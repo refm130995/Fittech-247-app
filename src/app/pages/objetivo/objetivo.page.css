@@ -88,3 +88,14 @@ ion-col {
   align-items: center !important;
   justify-content: center !important;
 }
+
+.ayudad {
+  fill: black;
+  font-size: 29px !important;
+}
+
+.ayudad2 {
+  color: black;
+  font-size: 29px !important;
+  float: right;
+}

@@ -16,12 +16,29 @@ export class EntrenamientosPage implements OnInit {
    stage2 = {}
    stage3 = {}
 
+   a :number
+   b:number
+   resultado:number
+   minutos:number
+
    ocultar = false
   constructor(private ruta:NavController,private ApiService:ApiFitechService,
     public popoverController: PopoverController,private notificacion:MensajesService) { }
 
   ngOnInit() {
-    
+
+    //ratio es la duracion de cada ejercicio ratio w
+     this.a = this.ApiService.rest
+    //  obtener longitud de un objecto
+      this.b = Object.keys(this.ApiService.rutina).length
+    //  total de duracion
+     this.resultado = (this.a * this.b)   
+   // conversio de segundo a minutos
+     this.minutos = Math.round(this.resultado/60) 
+
+
+
+
     this.ApiService.refrescarDatos.subscribe(()=>{
       this.serie =  this.ApiService.rutina
 
