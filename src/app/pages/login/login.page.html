@@ -19,23 +19,23 @@
           <ion-input type="password" placeholder="Password*" name="password" [(ngModel)]="login.password"></ion-input>
         </ion-col>
         <ion-col  size="12">      
-          <ion-button shape="round"  color="medium"
+          <ion-button style="--border-radius:5px;"  color="medium"
           (click)="acceder()" [disabled]="facebookhabilitar" >
             <ion-icon name="mail-outline" slot="start"></ion-icon>
             Acceder con Email
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
-          <ion-button shape="round"  color="danger" 
+          <ion-button style="--border-radius:5px;"  color="danger" 
             (click)="googleLogin()" [disabled]="googlehabilitar" >
             <ion-icon name="logo-google" slot="start"></ion-icon>
             Acceder con Google
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
-         <ion-button shape="round"  color="primary" 
+         <ion-button style="--border-radius:5px;"  color="primary" 
           (click)="facebookLogin()" [disabled]="facebookhabilitar" >
-            <ion-icon name="logo-facebook" slot="start"></ion-icon>
+           <!--  <ion-icon name="logo-facebook" slot="start"></ion-icon> -->
             Acceder con Facebook
           </ion-button>
         </ion-col>
@@ -48,3 +48,11 @@
 </ion-content>
 
 
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <div class="piepagina ion-text-center">
+      <p class="animated fadeIn delay-1s">¿Aun no posee una cuenta?</p>
+      <p class="animated fadeInUp delay-2s" style="font-weight: bold;" (click)="goto('/home')">Registrarse</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

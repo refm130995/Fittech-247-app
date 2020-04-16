@@ -6,7 +6,7 @@ h2 {
 }
 
 div {
-    margin-bottom: 80px;
+    margin-bottom: 48px;
 }
 
 ion-input {
@@ -18,3 +18,17 @@ ion-input {
 .titulopeque {
     opacity: 0.4;
 }
+
+h2{
+    opacity: 0.7;
+    //30
+    font-size: 22px;
+    font-weight: bold;
+}
+
+ion-select{
+ width: 100%;
+ font-size: 23px;
+ font-weight:200;
+}
+

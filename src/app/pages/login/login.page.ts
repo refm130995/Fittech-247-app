@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { NavController } from '@ionic/angular';
 import { MensajesService } from 'src/app/services/mensajes.service';
+import * as moment from 'moment';
 //google
 import * as firebase from 'firebase/app'
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
               }
 
   ngOnInit() {
+    
   }
 
   acceder(){
@@ -95,6 +97,10 @@ export class LoginPage implements OnInit {
     }else{
       this.mensajeservice.alertaInformatica('Correo o contraseña no son correctas')
     }
+  }
+
+  goto(url:string){
+    this.ruta.navigateForward([url])
   }
 
 

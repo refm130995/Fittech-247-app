@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pasoinicial',
@@ -13,7 +13,9 @@ export class PasoinicialPage implements OnInit {
   progresoReversa:number
   contadordos:number
   condicionalCss:boolean = true
-  constructor() {}
+  slideshow: number = 2;
+  progressbar: number = 0.5;
+  constructor( private navctrl: NavController) {}
 
   ngOnInit() {
     this.slides.lockSwipes(true)
@@ -43,11 +45,13 @@ export class PasoinicialPage implements OnInit {
          //condicional para el diseño css
         this.condicionalCss = true
         //condicional para el cambio de pantallas
-        document.getElementById("slide2").classList.add('animacion','fadeInRight')
+       /*  document.getElementById("slide2").classList.add('animacion','fadeInRight') */
+       this.slideshow = 2;
+       this.progressbar = 0.5;
         this.slides.lockSwipes(false)
         this.slides.slideTo(1)
         //logica de la barra superior
-        this.contador = 2
+        this.contador = 1
         if(this.progresoReversa >= 3){
           this.restarprogreso(3)
         }else{
@@ -62,11 +66,13 @@ export class PasoinicialPage implements OnInit {
         //condicional del diseño css
         this.condicionalCss = false
         //condicional para el cambio de pantallas
-        document.getElementById("slide3").classList.add('animacion','fadeInRight')
+       /*  document.getElementById("slide3").classList.add('animacion','fadeInRight') */
+       this.slideshow = 3;
+       this.progressbar = 1;
         this.slides.lockSwipes(false)
         this.slides.slideTo(2)
         //logica para barra superior
-        this.contador = 3
+        this.contador = 2
         this.progresoReversa = this.contador
         if(this.progresoReversa == 4){
           this.restarprogreso(3)
@@ -102,6 +108,10 @@ export class PasoinicialPage implements OnInit {
 
   restarprogreso(valor){
     this.progreso -=valor
+  }
+
+  back(event){
+    this.navctrl.back();
   }
  
 }

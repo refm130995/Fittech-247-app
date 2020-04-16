@@ -3,7 +3,7 @@
       <img src="assets/img/logo-app.png" class="logo">
   </div>
   <ion-toolbar class="ion-no-border animated fadeIn delay-1s">
-    <ion-title class="ion-text-center">Paso {{contador}} de 3</ion-title>
+    <ion-title class="ion-text-center">Paso {{contador}} de 2</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,29 +14,27 @@
 </ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-progress-bar value="0.{{progreso}}" color="danger" class="animated slideInLeft delay-1s"></ion-progress-bar>
+  <ion-progress-bar value="{{progressbar}}" color="danger" class="animated slideInLeft delay-1s"></ion-progress-bar>
 
   <ion-slides  [ngClass]="condicionalCss ? 'ion-slides' : 'ion-noslides' "  #slide>
-    <ion-slide>
+  <!--   <ion-slide>
       <ion-grid class="my-grid">
         <ion-row class="parent-row">
           <app-edad (cambiarPantalla)="cambiar($event)"></app-edad>
         </ion-row>
       </ion-grid>
-    </ion-slide>
+    </ion-slide> -->
 
-    <ion-slide id="slide2">
+    <ion-slide *ngIf="slideshow == 2" >
       <ion-grid class="my-grid">
         <ion-row class="parent-row">
-          <app-estatura (cambiarPantalla)="cambiar($event)"></app-estatura>
+          <app-estatura (cambiarPantalla)="cambiar($event)" (progressbar)="progressbar = $event" (back)="back($event)"></app-estatura>
         </ion-row>
       </ion-grid>
     </ion-slide>
 
-    <ion-slide id="slide3">
-
+    <ion-slide *ngIf="slideshow == 3" class="animated slideInLeft delay-1s">
             <app-historial (cambiarPantalla)="cambiar($event)"></app-historial>
-
     </ion-slide>
 
   </ion-slides>

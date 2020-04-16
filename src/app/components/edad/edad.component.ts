@@ -17,11 +17,14 @@ export class EdadComponent implements OnInit {
 
   imc(valor){
     console.log(valor.target.value)
-    if(valor.target.value == null){
+  /*   if(valor.target.value == null){
       return
+    } */
+    if(valor.target.value){
+      this.usuarioservicio.edad(valor.target.value)
+      this.cambiarPantalla.emit(valor.target.value  )
+        this.habilitar = false
     }
-    this.usuarioservicio.edad(valor.target.value)
-      this.habilitar = false
   }
   
   avanzar(){

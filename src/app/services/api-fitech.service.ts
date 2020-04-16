@@ -92,6 +92,8 @@ export class ApiFitechService {
   constructor(private http:HttpClient , private storage:Storage) { }
   
   Registrar(persona:any){
+    console.log(persona);
+    
     if(persona.password.length > 1) {
       return new Promise( resolve => {
         const data = {
