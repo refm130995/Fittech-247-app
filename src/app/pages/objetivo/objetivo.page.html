@@ -4,10 +4,12 @@
   </div>
 </ion-header>
 
-<ion-content [fullscreen]="true" slot="fixed" class="animated fadeIn delay-1s">
-
-  <div class="contenedor">
-      <h2 class="titulo">Enfoquémos en tus objetivos</h2>
+<ion-content [fullscreen]="true" slot="fixed" >
+  <div class="animated fadeIn delay-1s">
+    <div class="animated fadeInLeft contenedor" *ngIf="!info">
+      <h2 class="titulo" *ngIf="!info">Enfoquémos en tus objetivos
+        <ion-icon class="ayudad" name="help-circle" (click)="mostrar(info)"></ion-icon>
+      </h2>
       <ion-grid class="my-grid">
       <ion-row class="parent-row">
         <ion-col size="12">      
@@ -27,7 +29,25 @@
         </ion-col>
       </ion-row>
       </ion-grid>      
+    </div>
+    <div class="animated fadeInLeft" *ngIf="info">
+      <ion-grid class="my-grid">
+          <ion-row class="parent-row animated fadeInLeft">
+              <div class="container">
+                  <h5 class="titulo">Ayuda
+                      <ion-icon class="ayudad2" name="close-outline" (click)="cerrar()"></ion-icon>
+                  </h5>
+                  <p class=".ion-text-justify"><b> Estar en forma : </b> El equilibrio perfecto entre verte bien y estar saludable.</p>
+                  <p class=".ion-text-justify"><b> Ganar musculatura:</b> la mejor opción para construir músculos magros y fuertes</p>
+                  <p class=".ion-text-justify"><b> Adelgazar: </b> Reduce medidas, disminuye tu porcentaje graso mientras mejoras tu composición corporal</p>
+              </div>
+
+          </ion-row>
+      </ion-grid>
+    </div>
   </div>
+
+
 </ion-content>
 
 <ion-footer class="ion-no-border">
