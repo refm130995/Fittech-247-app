@@ -1,3 +1,11 @@
+<ion-header class="ion-no-border">
+  <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+  </div>
+</ion-header>
+
+<!-- Logo incluido ante no estaba -->
+
 <video #myVideo  playsinline 
 (loadedmetadata)="onMetadata($event, video)"
 width="100%"
@@ -6,23 +14,40 @@ poster="assets/img/videogif.gif">
   <source [src]= "video" />
 </video>
 
+<!-- #F4F3F1 -->
 
+<ion-content>
 
-<div class="ion-grid1" style="background-color:#F4F3F1;" >
+  <div class="contenedor">
 
+    <div class="contenedor-cabezera">
+      <!-- <div class="controlar-texto"> -->
+        <p class="titulo">Test de capacidad</p>
+      <!-- </div> -->
+    </div>
+
+    <div class="contenedor-cuerpo">
+      <p class="reloj">00:{{timeLeft}}</p>
+    </div>
+  </div>
+  
+
+</ion-content>
+
+<!--
+<div class="ion-grid1" style="background-color:rgb(6, 72, 255);" >
   <ion-row>
     <ion-col size="12">
-       <p class="ion-text-center titulo">{{nombre.name}}</p>
+      <p class="ion-text-center titulo">Test de capacidad</p>
+      <p class="ion-text-center titulo">{{nombre.name}}</p>
        <p class="ion-text-center titulo">Ejercicio {{numero}} de {{final}}</p>
     </ion-col>
   </ion-row>
-
 </div>
 
-<ion-grid class="ion-grid2">
+ <div class="ion-grid2" style="background-color:rgb(255, 14, 6);" >
   <p class="centrartiempo">00:{{timeLeft}}</p>
-
-</ion-grid>
+</div> -->
 
 
 
