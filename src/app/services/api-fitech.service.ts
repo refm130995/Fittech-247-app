@@ -193,10 +193,6 @@ export class ApiFitechService {
             //this.token =  resp['access_token']
             console.log(resp)
     
-            // ACA EXTRAIGO LA RUTINA WEEK
-            this.rutina_week =  resp['routine_ready_week']
-
-
 
             // ACA LOS ENVIO A GUARDAR AL STORAGE
             this.guardarToken(resp['access_token'])
@@ -682,7 +678,27 @@ export class ApiFitechService {
       })
   }
 
+  obtenerUsuario(){
 
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
+      
+      this.http.get(`${URL}/auth/user`,{headers})
+          .subscribe(resp=>{
+            // console.log(resp)
+            resolve(resp)
+          },err=>{
+            resolve(false)
+          })
+      })
+
+  }
 
 
 }

@@ -17,6 +17,7 @@ export class DashboardPage implements OnInit {
    fuerza
    capacidad
    puerta
+   week
 
   constructor(public usuarioservicio:UsuarioService,
      private apiService:ApiFitechService,
@@ -26,25 +27,20 @@ export class DashboardPage implements OnInit {
 
 
    async ngOnInit() {
-    
-    // ACA EXTRAIGO LA RUTINA WEEK
-    console.log(this.apiService.rutina_week )
-
-
-
+ 
     const valor = await this.apiService.cargarNombreUsuario()
-
 
     /* Este paso sere restructurado mas adelante */
     const token = await this.apiService.cargarToken()
     this.apiService.asignarToken(token)
    /* Este paso sere restructurado mas adelante */
 
+    // ACA LLAMAS AL METODO DESPUES QUE SE CARGA EL TOKEN
+    this.week = await this.apiService.obtenerUsuario()
+    console.log("valor de la semana del usuario ",this.week['routine_ready_week'])
+
+   
     const comprobar = this.apiService.usuario 
-
-
-
-
     this.Bienvenido = comprobar ? this.apiService.usuario : valor['name']
     const comprobados = this.apiService.usuario 
     this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
