@@ -21,6 +21,12 @@ ion-input{
   box-shadow: 3px 7px 10px -5px rgba(0,0,0,0.2);
 }
 
+.fb-btn  {
+  button{
+    --border-radius:5px;    --ion-color-base: #3b5998 !important;
+  }
+}
+
 
 .logo{
   margin: 0 auto;

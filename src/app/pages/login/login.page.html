@@ -28,14 +28,15 @@
         <ion-col  size="12">      
           <ion-button style="--border-radius:5px;"  color="danger" 
             (click)="googleLogin()" [disabled]="googlehabilitar" >
-            <ion-icon name="logo-google" slot="start"></ion-icon>
+            <ion-icon src="./assets/icon/buscar.svg" slot="start"></ion-icon>
+
             Acceder con Google
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
          <ion-button style="--border-radius:5px;"  color="primary" 
-          (click)="facebookLogin()" [disabled]="facebookhabilitar" >
-           <!--  <ion-icon name="logo-facebook" slot="start"></ion-icon> -->
+          (click)="facebookLogin()" [disabled]="facebookhabilitar">
+            <ion-icon name="logo-facebook" slot="start"></ion-icon>
             Acceder con Facebook
           </ion-button>
         </ion-col>
