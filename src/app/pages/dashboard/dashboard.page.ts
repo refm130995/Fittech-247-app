@@ -27,6 +27,11 @@ export class DashboardPage implements OnInit {
 
    async ngOnInit() {
     
+    // ACA EXTRAIGO LA RUTINA WEEK
+    console.log(this.apiService.rutina_week )
+
+
+
     const valor = await this.apiService.cargarNombreUsuario()
 
 
@@ -128,7 +133,7 @@ export class DashboardPage implements OnInit {
           }
 
           if(validar === "examen"){
-            this.notificacion.notificacionUsuario("Porfavor realize  primero el test","warning")
+            this.notificacion.notificacionUsuario("Debes realizar el test para poder empezar tu entrenamiento","warning")
           }
 
         }

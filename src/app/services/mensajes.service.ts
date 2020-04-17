@@ -24,7 +24,7 @@ export class MensajesService {
       position: 'middle',
       color:color,
       message: message,
-      cssClass:'customToast',
+      // cssClass:'customToast',
       duration: 2000
     });
     toast.present();

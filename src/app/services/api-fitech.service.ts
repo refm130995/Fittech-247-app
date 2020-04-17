@@ -72,7 +72,9 @@ export class ApiFitechService {
     {'name': 'Lancha palanca larga en manos' , 'url': ''}
   ]
 
+  
 
+  rutina_week:any
   verificarEntrenamiento:any
   usuario:any
   training:any
@@ -190,7 +192,13 @@ export class ApiFitechService {
         .subscribe(resp=>{
             //this.token =  resp['access_token']
             console.log(resp)
+    
+            // ACA EXTRAIGO LA RUTINA WEEK
+            this.rutina_week =  resp['routine_ready_week']
 
+
+
+            // ACA LOS ENVIO A GUARDAR AL STORAGE
             this.guardarToken(resp['access_token'])
             this.guardarUsuario(resp['user'])
             this.guardarexamenFuerza(resp['power_test'])
