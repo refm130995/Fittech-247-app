@@ -17,7 +17,7 @@ export class DashboardPage implements OnInit {
    fuerza
    capacidad
    puerta
-   week
+   week:any = [];
 
   constructor(public usuarioservicio:UsuarioService,
      private apiService:ApiFitechService,
@@ -26,6 +26,10 @@ export class DashboardPage implements OnInit {
    }
 
 
+   async ionViewDidEnter(){
+    this.week = await this.apiService.obtenerUsuario()
+    console.log("valor de la semana del usuario ",this.week.routine_ready_week)
+   }
    async ngOnInit() {
  
     const valor = await this.apiService.cargarNombreUsuario()
@@ -36,8 +40,7 @@ export class DashboardPage implements OnInit {
    /* Este paso sere restructurado mas adelante */
 
     // ACA LLAMAS AL METODO DESPUES QUE SE CARGA EL TOKEN
-    this.week = await this.apiService.obtenerUsuario()
-    console.log("valor de la semana del usuario ",this.week['routine_ready_week'])
+    
 
    
     const comprobar = this.apiService.usuario 

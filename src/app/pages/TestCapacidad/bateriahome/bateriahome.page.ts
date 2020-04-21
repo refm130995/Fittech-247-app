@@ -17,6 +17,9 @@ export class BateriahomePage implements OnInit {
   contador
   video:any
   @ViewChild('myVideo',{static:false}) txtVideo:ElementRef
+  inittimeLeft: number = 10;
+  interTime: number = 40;
+  fiveSecond: number;
 
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) {
 
@@ -32,14 +35,18 @@ export class BateriahomePage implements OnInit {
 
    }
 
-  ngOnInit() {
+  async ngOnInit() {
     
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     
-  
+   this.initialization();
 
+  setTimeout(()=>{
+
+ 
     var b = setInterval(()=>{
       console.log(this.txtVideo.nativeElement.readyState)
+   
       if(this.txtVideo.nativeElement.readyState === 4){
           console.log(this.txtVideo.nativeElement.readyState)
           //This block of code is triggered when the video is loaded
@@ -53,8 +60,8 @@ export class BateriahomePage implements OnInit {
     
       }    
 
-    },500);
-
+    },10000);
+  })
   }
 
 
@@ -72,7 +79,22 @@ export class BateriahomePage implements OnInit {
     this.ruta.navigateByUrl(`mensajecapacidad/${this.nivel}`)
   }
 
-  
+  initialization(){
+    this.tiempo = setInterval(() => {
+      if(this.inittimeLeft > 0) {
+        this.inittimeLeft--;
+        console.log(this.inittimeLeft);
+        
+      }
+      else{
+        this.zero = null
+        clearInterval(this.tiempo)
+        this.inittimeLeft = 0
+      
+      }
+    },1000)
+  }
+
   startTimer() {
 
     // if(this.timeLeft = 0){
@@ -96,6 +118,24 @@ export class BateriahomePage implements OnInit {
         this.timeLeft = 0
         this.minuto--
         this.timeLeft = 60
+      }
+    },1000)
+    
+   let interTime =  setInterval(() => {
+      if(this.interTime > 0) {
+        this.interTime--;
+       
+      } else{
+        this.fiveSecond = 5;
+       let second = setInterval(() => {
+          if(this.fiveSecond > 0) {
+            this.fiveSecond--;
+        console.log( 'fiveSecond',this.fiveSecond);
+          }else{
+            clearInterval(second);
+            this.interTime = 40;
+          }
+        },1000)
       }
     },1000)
   

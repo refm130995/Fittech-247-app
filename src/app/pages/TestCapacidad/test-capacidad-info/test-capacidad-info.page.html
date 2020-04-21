@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar  color="dark">
+  <ion-toolbar  >
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
     </ion-buttons>
@@ -17,7 +17,8 @@
         </div>   
       </ion-col>
     </ion-row>
-  </ion-grid>   
+  </ion-grid>  
+ 
   <div  class="ion-padding ion-text-center aumentartitulo">
     Déjanos conocer en qué nivel estás.
   </div> 
@@ -33,11 +34,24 @@
     <ion-row >
       <ion-col  size="12">   
         <div>
-          <ion-card color="dark" (click)="test()">
-            <h2 class="ion-text-center">Hacer el Test</h2>  
+          <ion-card style="    background: black;color: white;" (click)="test()">
+            <h2 class="ion-text-center">
+             <b> Hacer el test </b> </h2>  
           </ion-card>
         </div>   
       </ion-col>
+      
+    </ion-row>
+    <ion-row >
+      <ion-col  size="12">   
+        <div>
+          <ion-card style="    background: black;color: white;" (click)="goTo('/test-capacidad-manual')">
+            <h2 class="ion-text-center">
+             <b> ¿SABES EN QUÉ CONDICIÓN ESTAS? </b></h2>  
+          </ion-card>
+        </div>   
+      </ion-col>
+      
     </ion-row>
   </ion-grid>   
 

@@ -17,3 +17,12 @@ ion-card{
  font-size: 18px;
  font-weight: bold;
 }
+ion-content{
+    --color: black;
+    --background: white;
+}
+
+.toolbar-background{
+    --background:black;
+    --color:white;
+}

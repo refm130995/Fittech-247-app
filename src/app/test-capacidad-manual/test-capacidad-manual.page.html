@@ -1,0 +1,74 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar  >
+    <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+    </div>
+    <ion-buttons slot="start" style="position: absolute;">
+      <ion-back-button defaultHref="/test-capacidad-info"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+ 
+  <div  class="ion-padding ion-text-start aumentartitulo">
+    Test de Capacidad.
+  </div> 
+  <div  class="ion-padding ion-text-justify">
+   <h1> <b> copy </b> </h1>
+
+  </div>   
+  <div class="ion-padding ion-text-justify">
+   Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nisi reprehenderit ipsa, atque voluptates suscipit itaque, sapiente aspernatur perspiciatis quasi enim sed quibusdam. Cum, soluta rerum nisi saepe fugit impedit.
+  </div>
+
+  <ion-grid class="ion-padding">
+    <ion-row >
+      <ion-col  size="12">   
+        <div>
+          <ion-card  style="background:grey; color: white;" (click)="test()">
+            <h2 class="ion-text-center">
+             <b> BASICO </b> </h2>  
+          </ion-card>
+        </div>   
+      </ion-col>
+      
+    </ion-row>
+    <ion-row >
+      <ion-col  size="12">   
+        <div>
+          <ion-card  style="background:grey; color: white;" (click)="goTo('/test-capacidad-manual')">
+            <h2 class="ion-text-center">
+             <b> INTERMEDIO </b></h2>  
+          </ion-card>
+        </div>   
+      </ion-col>
+      
+    </ion-row>
+    <ion-row >
+      <ion-col  size="12">   
+        <div>
+          <ion-card  style="background:grey; color: white;" (click)="test()">
+            <h2 class="ion-text-center">
+             <b> AVANZADO </b> </h2>  
+          </ion-card>
+        </div>   
+      </ion-col>
+      
+    </ion-row>
+    <ion-row >
+      <ion-col  size="12">   
+        <div>
+          <ion-card  style="background:grey; color: white;" (click)="goTo('/test-capacidad-manual')">
+            <h2 class="ion-text-center">
+             <b> PRO </b></h2>  
+          </ion-card>
+        </div>   
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>   
+
+
+</ion-content>

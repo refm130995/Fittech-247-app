@@ -18,18 +18,15 @@ ion-thumbnail img {
 }
 
 .float{
-  padding: 6px;
-position:fixed;
-width:100px;
-height:29px;
-  bottom:20px;
-  border-radius: 12px;
-  right: 35%;
-background-color:rgb(243, 36, 21);
-color:#FFF;
-text-align:center;
-  box-shadow: 2px 2px 3px #999;
+  --background: rgb(243, 36, 21);
+ 
+  font-size: 1.5rem;
   text-decoration: none;
+  display: block;
+  text-align: center;
+  width: 400px;
+  height: 3rem;
+  padding: 0 7rem;
 }
 
 .my-float{
@@ -54,5 +51,5 @@ p.ion-text-center.opc {
     padding-left: 10px;
 }
 .ion-text-wrap h2 {
-  text-transform: capitalize;
+ /*  text-transform: capitalize; */
 }

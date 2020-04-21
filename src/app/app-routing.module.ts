@@ -196,7 +196,11 @@ const routes: Routes = [
   {
     path: 'form-medico',
     loadChildren: () => import('./seriedepreguntas/form-medico/form-medico.module').then( m => m.FormMedicoPageModule)
+  },  {
+    path: 'test-capacidad-manual',
+    loadChildren: () => import('./test-capacidad-manual/test-capacidad-manual.module').then( m => m.TestCapacidadManualPageModule)
   },
+
 ];
 
 @NgModule({

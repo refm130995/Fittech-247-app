@@ -25,11 +25,14 @@ width="100%" (ended)="videoEnd()">
       <!-- </div> -->
     </div>
 
-    <div class="contenedor-cuerpo">
-      <p class="reloj">{{minuto}}:{{zero}}{{timeLeft}}</p>
+    <div class="contenedor-cuerpo" *ngIf="inittimeLeft <= 0">
+      <p class="reloj">{{interTime}}</p>
+    </div>
+    <div class="contenedor-cuerpo" *ngIf="inittimeLeft > 0">
+      <p class="reloj">{{inittimeLeft}}</p>
     </div>
 
-    <div class="contenedor-piepagina">
+    <div class="contenedor-piepagina" *ngIf="inittimeLeft <= 0">
        <ion-card color="danger" class="redondear" (click)="finalizar()">
         <h2>hasta aquí llegué</h2>
       </ion-card>
