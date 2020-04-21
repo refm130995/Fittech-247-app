@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {UsuarioGuard} from './guards/usuario.guard'
-
+import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'objetivo',
@@ -14,8 +12,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/pasoinicial/pasoinicial.module').then( m => m.PasoinicialPageModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    path: '',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    canActivate:[LoginGuard]
   },
   {
     path: 'terminos',
@@ -196,7 +195,8 @@ const routes: Routes = [
   {
     path: 'form-medico',
     loadChildren: () => import('./seriedepreguntas/form-medico/form-medico.module').then( m => m.FormMedicoPageModule)
-  },  {
+  },
+  {
     path: 'test-capacidad-manual',
     loadChildren: () => import('./test-capacidad-manual/test-capacidad-manual.module').then( m => m.TestCapacidadManualPageModule)
   },
