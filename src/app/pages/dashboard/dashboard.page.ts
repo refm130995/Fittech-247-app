@@ -132,7 +132,7 @@ export class DashboardPage implements OnInit {
           }
 
           if(validar === "examen"){
-            this.notificacion.notificacionUsuario("Debes realizar el test para poder empezar tu entrenamiento","warning")
+            this.notificacion.notificacionUsuario("Debes realizar el test para poder empezar tu entrenamiento","danger")
           }
 
         }

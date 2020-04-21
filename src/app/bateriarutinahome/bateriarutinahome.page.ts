@@ -25,6 +25,7 @@ export class BateriarutinahomePage implements OnInit {
   sonido = "../../../assets/sonido/reloj.mp3"
   sonido2 = "../../../assets/sonido/final.mp3"
   audio:any
+  zero:any
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:NavController) {
 
@@ -106,6 +107,11 @@ export class BateriarutinahomePage implements OnInit {
   startTimer() {
     this.tiemposegundo = setInterval(() => {
 
+      if(this.timeLeft <= 10){
+        console.log("activate")
+        this.zero = 0
+      } 
+
       if(this.timeLeft >= 1 && this.timeLeft < 10) {
           this.playSonido()
       }
@@ -118,6 +124,7 @@ export class BateriarutinahomePage implements OnInit {
        if(this.timeLeft > 0) {
          this.timeLeft--;
        } else {
+         
          this.timeLeft = 0;
          this.redirigir()
          this.txtVideo.nativeElement.pause()

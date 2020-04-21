@@ -691,7 +691,7 @@ export class ApiFitechService {
       
       this.http.get(`${URL}/auth/user`,{headers})
           .subscribe(resp=>{
-            // console.log(resp)
+            console.log(resp)
             resolve(resp)
           },err=>{
             resolve(false)

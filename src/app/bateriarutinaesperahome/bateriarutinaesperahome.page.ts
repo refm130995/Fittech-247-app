@@ -20,6 +20,7 @@ export class BateriarutinaesperahomePage implements OnInit {
   sonido = "../../../assets/sonido/reloj.mp3"
   sonido2 = "../../../assets/sonido/final.mp3"
   audio:any
+  zero:any
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:NavController) { }
 
   ngOnInit() {
@@ -41,6 +42,12 @@ export class BateriarutinaesperahomePage implements OnInit {
 
     this.tiemposegundo = setInterval(() => {
 
+      if(this.timeLeft <= 10){
+        console.log("activate")
+        this.zero = 0
+      } 
+
+      
       if(this.timeLeft >= 1 && this.timeLeft < 10) {
           this.playSonido()
       }
