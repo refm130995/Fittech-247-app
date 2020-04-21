@@ -23,4 +23,8 @@ export class TestCapacidadInfoPage implements OnInit {
     this.ruta.navigateForward('bateriahome/0')
   }
 
+  goTo(url:string){
+    this.ruta.navigateForward(url);
+  }
+
 }
