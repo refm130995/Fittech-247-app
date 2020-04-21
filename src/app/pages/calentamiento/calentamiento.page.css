@@ -1,6 +1,7 @@
 .titulo {
   font-size: 25px;
   font-weight: 600;
+  margin: 10px;
 }
 
 .titulopeque {
@@ -17,4 +18,8 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.button-inner {
+  background-color: red;
 }

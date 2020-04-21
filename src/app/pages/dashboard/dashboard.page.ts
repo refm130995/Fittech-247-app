@@ -27,6 +27,12 @@ export class DashboardPage implements OnInit {
 
 
    async ionViewDidEnter(){
+    /* Este paso sere restructurado mas adelante */
+    const token = await this.apiService.cargarToken()
+    this.apiService.asignarToken(token)
+   /* Este paso sere restructurado mas adelante */
+
+
     this.week = await this.apiService.obtenerUsuario()
     console.log("valor de la semana del usuario ",this.week.routine_ready_week)
    }
@@ -34,10 +40,7 @@ export class DashboardPage implements OnInit {
  
     const valor = await this.apiService.cargarNombreUsuario()
 
-    /* Este paso sere restructurado mas adelante */
-    const token = await this.apiService.cargarToken()
-    this.apiService.asignarToken(token)
-   /* Este paso sere restructurado mas adelante */
+
 
     // ACA LLAMAS AL METODO DESPUES QUE SE CARGA EL TOKEN
     

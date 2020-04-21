@@ -109,9 +109,9 @@ export class ApiFitechService {
           stature : persona.estatura,
           objective : persona.objetivo,
           // persona.nivelActividad
-          act_physical : persona.nivelActividad,
+          act_physical : 2,
           // persona.experiencia
-          training_experience : persona.experiencia,
+          training_experience : 2,
           training_place : persona.lugarEntrenar,
           hypertension : persona.hipertension,
           hypotension : persona.hipotension,
