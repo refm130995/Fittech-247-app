@@ -199,7 +199,11 @@ const routes: Routes = [
   {
     path: 'test-capacidad-manual',
     loadChildren: () => import('./test-capacidad-manual/test-capacidad-manual.module').then( m => m.TestCapacidadManualPageModule)
+  },  {
+    path: 'estiramientos',
+    loadChildren: () => import('./estiramientos/estiramientos.module').then( m => m.EstiramientosPageModule)
   },
+
 
 ];
 

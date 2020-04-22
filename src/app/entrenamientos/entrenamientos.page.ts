@@ -155,6 +155,11 @@ export class EntrenamientosPage implements OnInit {
       component: PopinfoComponent,
       showBackdrop: false,
       event: evento,
+      componentProps: {
+        'name': nombre,
+        'repeticion': repeticion,
+        'id': id
+      }
     });
 
     console.log("ID VIEJO", id)

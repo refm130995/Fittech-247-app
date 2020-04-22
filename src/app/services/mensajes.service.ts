@@ -19,9 +19,9 @@ export class MensajesService {
     await alert.present();
   }
 
-  async notificacionUsuario(message:string,color:string) {
+  async notificacionUsuario(message:string,color:string, position:any = 'middle') {
     const toast = await this.toastController.create({
-      position: 'middle',
+      position: position,
       color:color,
       message: message,
       // cssClass:'customToast',

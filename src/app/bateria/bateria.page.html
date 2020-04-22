@@ -7,10 +7,15 @@
 <video #myVideo  playsinline  width="100%" (ended)="videoEnd()"
   autoplay
   (loadedmetadata)="onMetadata($event, video)"
-  poster="assets/img/videogif.gif">
+  poster="assets/img/videogif.gif" *ngIf="!video">
     <source [src]="video" />
 </video>
-  
+<video #myVideo  playsinline  width="100%" (ended)="videoEnd()"
+autoplay
+(loadedmetadata)="onMetadata($event, video)"
+ *ngIf="video">
+  <source [src]="video" />
+</video>
 <ion-content>
 
   <div class="contenedor-cabezera">
