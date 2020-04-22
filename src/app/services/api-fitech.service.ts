@@ -702,5 +702,9 @@ export class ApiFitechService {
 
   }
 
+  desconectarUsuario(){
+    this.storage.clear()
+  }
+
 
 }
