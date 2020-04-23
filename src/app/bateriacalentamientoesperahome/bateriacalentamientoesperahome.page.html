@@ -8,14 +8,14 @@
     <ion-col class="centerdo" size="8" style="padding: 0px;" >
       <!-- https://via.placeholder.com/150 -->
       <!-- http://fittech247.com/fittech/imagenes/{{ejercipro.cod}}/{{ejercipro.id}}.jpg -->
-      <img  src = "https://via.placeholder.com/250" >
+      <img [src]= "imagen" *ngIf="imagen" >
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col size="12">
       <!-- {{ejercipro.name}} -->
-       <p class="ion-text-center titulo"  *ngIf="nombre">Nombre del ejercicio</p>   
+       <!-- <p class="ion-text-center titulo"  *ngIf="nombre"> {{nombre.name}}</p>    -->
     </ion-col>
   </ion-row>
   </ion-grid>
