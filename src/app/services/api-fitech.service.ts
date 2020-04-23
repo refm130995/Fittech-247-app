@@ -255,7 +255,7 @@ export class ApiFitechService {
 
   /*Extraer de la memoria Cache */
   cargarToken(){
-     return this.storage.get('token') 
+     return this.storage.get('token')
   }
 
   cargarNombreUsuario(){
@@ -639,7 +639,7 @@ export class ApiFitechService {
                 this.rutina = resp['exercises']
                 this.rest =   resp['ratio_r']
                 this.ratio =  resp['ratio_w']
-                console.log(resp)
+                console.log(resp['exercises'])
                 this._refrescarDatos.next()
                 resolve(true)
               }else{
@@ -651,15 +651,37 @@ export class ApiFitechService {
       })
 
   }
-
   getRutine(){
 
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.token,
+      'Content-Type':'application/json',
+    })
+
+  return  this.http.get(`${URL}/auth/routine-home`,{headers})
+  }
+
+  recuperarRutinaHome(token){
+
+    return new Promise( resolve => {
+
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.token,
+        'Authorization': 'Bearer ' + token,
         'Content-Type':'application/json',
       })
 
-    return  this.http.get(`${URL}/auth/routine-home`,{headers})
+      this.http.get(`${URL}/auth/routine-home`,{headers})
+          .subscribe(resp=>{
+              if(resp['routine']){
+                // this.rutina = resp['exercises']
+                // console.log(resp)
+                resolve(resp)
+              }
+          },err=>{
+            resolve(false)
+          })
+      })
+
   }
 
   verificarLugar(valor){
@@ -714,6 +736,25 @@ export class ApiFitechService {
 
   desconectarUsuario(){
     this.storage.clear()
+  }
+
+  obtenerCalentamiento(token){
+
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + token,
+        'Content-Type':'application/json',
+      })
+
+      this.http.get(`${URL}/auth/exercise-heating`,{headers})
+          .subscribe(resp=>{
+                resolve(resp)
+          },err=>{
+                resolve(false)
+          })
+      })
+
   }
 
 

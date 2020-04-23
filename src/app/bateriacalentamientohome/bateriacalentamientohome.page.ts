@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiFitechService } from '../services/api-fitech.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-bateriarutinahome',
-  templateUrl: './bateriarutinahome.page.html',
-  styleUrls: ['./bateriarutinahome.page.scss'],
+  selector: 'app-bateriacalentamientohome',
+  templateUrl: './bateriacalentamientohome.page.html',
+  styleUrls: ['./bateriacalentamientohome.page.scss'],
 })
-export class BateriarutinahomePage implements OnInit {
+export class BateriacalentamientohomePage implements OnInit {
+
   @ViewChild('myVideo',{static:false}) txtVideo:ElementRef
   nombre:any
   dataRecibida:any
@@ -26,7 +27,7 @@ export class BateriarutinahomePage implements OnInit {
   sonido2 = "../../../assets/sonido/final.mp3"
   audio:any
   zero:any
-  recuperarRutina:any
+  calentamiento:any
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:NavController) {
 
@@ -38,8 +39,8 @@ export class BateriarutinahomePage implements OnInit {
 
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
     const token = await this.ApiService.cargarToken();
-    this.recuperarRutina = await this.ApiService.recuperarRutinaHome(token)
-    console.log(this.recuperarRutina['exercises'])
+    this.calentamiento = await this.ApiService.obtenerCalentamiento(token)
+ 
  
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     console.log("valor recibido del parametro", this.dataRecibida)
@@ -48,11 +49,12 @@ export class BateriarutinahomePage implements OnInit {
     this.numero = parseInt(this.dataRecibida) + 1
 
     //comprobar longitud de la serie de ejercicio
-    this.final = this.recuperarRutina['exercises'].length
+    this.final = this.calentamiento['ejercicios Calentamiento'].length
+
 
     //pasar a mostrar los datos
-    this.nombre =  this.recuperarRutina['exercises'][this.dataRecibida]
-    console.log(this.nombre)
+    this.nombre = this.calentamiento['ejercicios Calentamiento'][this.dataRecibida]
+    // console.log(this.nombre)
 
     // los videos
     this.video = `http://fittech247.com/fittech/videos/${this.nombre.cod}/${this.nombre.url}`
@@ -89,7 +91,7 @@ export class BateriarutinahomePage implements OnInit {
 
     // this.timeLeft = parseInt(e.target.duration)
     //tiempo del ejercicio
-    this.timeLeft =  this.recuperarRutina['ratio_r']
+    this.timeLeft =  30
     // this.timeLeft = this.ApiService.ratio
   }
 
@@ -100,13 +102,13 @@ export class BateriarutinahomePage implements OnInit {
       this.tiempo = setTimeout(()=>{
         clearInterval(this.tiemposegundo)
         this.pauseSonido()
-        this.ruta.navigateRoot("percepcionentrenamiento")
+        this.ruta.navigateRoot(["/bateriacalentamientofinalizar"])
       },1000)
 
     }else{
       clearInterval(this.tiemposegundo) 
       this.pauseSonido()
-      this.ruta.navigateRoot([`/bateriarutinaesperahome/${this.dataRecibida}`])
+      this.ruta.navigateRoot([`/bateriacalentamientoesperahome/${this.dataRecibida}`])
       
     }
 

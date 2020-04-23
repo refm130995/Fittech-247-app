@@ -199,10 +199,28 @@ const routes: Routes = [
   {
     path: 'test-capacidad-manual',
     loadChildren: () => import('./test-capacidad-manual/test-capacidad-manual.module').then( m => m.TestCapacidadManualPageModule)
-  },  {
+  },
+  {
+    path: 'calentamiento-info',
+    loadChildren: () => import('./calentamiento-info/calentamiento-info.module').then( m => m.CalentamientoInfoPageModule)
+  },
+  {
+    path: 'bateriacalentamientohome/:id',
+    loadChildren: () => import('./bateriacalentamientohome/bateriacalentamientohome.module').then( m => m.BateriacalentamientohomePageModule)
+  },
+  {
+    path: 'bateriacalentamientoesperahome/:id',
+    loadChildren: () => import('./bateriacalentamientoesperahome/bateriacalentamientoesperahome.module').then( m => m.BateriacalentamientoesperahomePageModule)
+  },
+  {
+    path: 'bateriacalentamientofinalizar',
+    loadChildren: () => import('./bateriacalentamientofinalizar/bateriacalentamientofinalizar.module').then( m => m.BateriacalentamientofinalizarPageModule)
+  },
+  {
     path: 'estiramientos',
     loadChildren: () => import('./estiramientos/estiramientos.module').then( m => m.EstiramientosPageModule)
   },
+
 
 
 ];
