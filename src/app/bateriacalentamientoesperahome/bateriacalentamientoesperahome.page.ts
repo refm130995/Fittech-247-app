@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ApiFitechService } from '../services/api-fitech.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-bateriarutinaesperahome',
-  templateUrl: './bateriarutinaesperahome.page.html',
-  styleUrls: ['./bateriarutinaesperahome.page.scss'],
+  selector: 'app-bateriacalentamientoesperahome',
+  templateUrl: './bateriacalentamientoesperahome.page.html',
+  styleUrls: ['./bateriacalentamientoesperahome.page.scss'],
 })
-export class BateriarutinaesperahomePage implements OnInit {
+export class BateriacalentamientoesperahomePage implements OnInit {
+
   dataRecibida:any
   tiempo:any
   timeLeft: number;
@@ -29,25 +30,23 @@ export class BateriarutinaesperahomePage implements OnInit {
   async ngOnInit() {
 
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
-    const token = await this.ApiService.cargarToken();
-    this.recuperarRutina = await this.ApiService.recuperarRutinaHome(token)
-    console.log(this.recuperarRutina['exercises'])
 
     //  parametros del id
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
+    console.log("parametro recibido", this.dataRecibida)
     this.contador = parseInt(this.dataRecibida) + 1
 
     // 
-    this.ejercipro =  this.recuperarRutina['exercises'][this.contador]
-    this.nombre = this.ejercipro.name
+    // this.ejercipro =  this.recuperarRutina['exercises'][this.contador]
+    // this.nombre = this.ejercipro.name
 
-    this.imagen = `http://fittech247.com/fittech/imagenes/${this.ejercipro.cod}/${this.ejercipro.id}.jpg`
-    console.log(this.imagen)
+    // this.imagen = `http://fittech247.com/fittech/imagenes/${this.ejercipro.cod}/${this.ejercipro.id}.jpg`
+    // console.log(this.imagen)
 
 
-    this.timeLeft =  this.recuperarRutina['ratio_r']
+    this.timeLeft =  5
 
-      this.startTimer()
+    this.startTimer()
 
       
 
@@ -59,10 +58,10 @@ export class BateriarutinaesperahomePage implements OnInit {
 
     this.tiemposegundo = setInterval(() => {
 
-      if(this.timeLeft <= 10){
-        console.log("activate")
-        this.zero = 0
-      } 
+      // if(this.timeLeft <= 10){
+      //   console.log("activate")
+      //   this.zero = 0
+      // } 
 
       
       if(this.timeLeft >= 1 && this.timeLeft < 10) {
@@ -86,7 +85,7 @@ export class BateriarutinaesperahomePage implements OnInit {
 
   redirigir(){
     clearInterval(this.tiemposegundo)
-    this.ruta.navigateRoot([`/bateriarutinahome/${this.contador}`])
+    this.ruta.navigateRoot([`/bateriacalentamientohome/${this.contador}`])
     this.pauseSonido()
   }
 
@@ -108,6 +107,5 @@ export class BateriarutinaesperahomePage implements OnInit {
   pauseSonido(){
    this.audio.pause()
   }
-
 
 }
