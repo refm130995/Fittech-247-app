@@ -45,7 +45,7 @@ export class BateriaPage implements OnInit {
     this.startTimer()
 
   }
-  ///////////////////// Solucion al problema
+  /////////////////////
  /*  ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     //Carga el nombre del ejercicio 
@@ -82,6 +82,7 @@ export class BateriaPage implements OnInit {
     this.startTimer()
   })
   } */
+
   //////////////////////
   atras(){
     this.ruta.navigateByUrl("entrenamientos")

@@ -7,7 +7,7 @@
 <!-- Logo incluido ante no estaba -->
 
 
-<video #myVideo playsinline  
+<video id="video" #myVideo playsinline  
 (loadedmetadata)="onMetadata($event, video)"
 poster="assets/img/videogif.gif"
 width="100%" (ended)="videoEnd()">
