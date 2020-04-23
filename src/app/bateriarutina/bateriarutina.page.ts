@@ -56,7 +56,7 @@ export class BateriarutinaPage implements OnInit {
   }
 
   finalizar(){
-    this.ruta.navigateByUrl("percepcionentrenamiento")
+    this.ruta.navigateByUrl("/estiramientos")
   }
 
 

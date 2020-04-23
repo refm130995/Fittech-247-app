@@ -672,7 +672,16 @@ export class ApiFitechService {
             resolve(false)
           })
       })
+  }
 
+  getRutine(){
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+    return  this.http.get(`${URL}/auth/routine-home`,{headers})
   }
 
   verificarLugar(valor){

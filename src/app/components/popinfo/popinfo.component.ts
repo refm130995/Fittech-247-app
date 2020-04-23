@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { PopoverController } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
+import { PopoverController, NavController, NavParams } from '@ionic/angular';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 
 @Component({
@@ -11,7 +11,10 @@ import { ApiFitechService } from 'src/app/services/api-fitech.service';
 export class PopinfoComponent implements OnInit {
       evaluar
 
-  constructor(private ruta:Router , public popoverController: PopoverController,private ApiService:ApiFitechService) { }
+  constructor(private ruta:NavController , 
+              public popoverController: PopoverController,
+              private ApiService:ApiFitechService,
+              public navParams: NavParams) { }
 
    ngOnInit() {
    this.evaluar = this.ApiService.verificarEntrenamiento
@@ -21,7 +24,17 @@ export class PopinfoComponent implements OnInit {
 
   bateria(){
     this.popoverController.dismiss()
-    this.ruta.navigateByUrl("bateria/1")
+    let demostracionEjercicio = {
+      name: this.navParams.get('name'),
+      repeticion:this.navParams.get('repeticion'),
+      id:this.navParams.get('id')
+    }
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          data: JSON.stringify(demostracionEjercicio)
+      }
+    }
+    this.ruta.navigateForward("bateria/1", navigationExtras)
   }
 
   async remplazar(){
@@ -31,7 +44,7 @@ export class PopinfoComponent implements OnInit {
 
        const valor = await this.ApiService.listadoEjercicioRemplazar()
        if(valor){
-        this.ruta.navigateByUrl("listaejercicioremplazar")
+        this.ruta.navigateForward("listaejercicioremplazar")
        }else{
          console.log("error de conexion")
        }
@@ -39,7 +52,7 @@ export class PopinfoComponent implements OnInit {
     }else{
      const valor = await this.ApiService.cambiarEjercicio()
        if(valor){
-        this.ruta.navigateByUrl("cambiarejercicio")
+        this.ruta.navigateForward("cambiarejercicio")
        }else{
          console.log("error de conexion")
        }

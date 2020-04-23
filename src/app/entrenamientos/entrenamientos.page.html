@@ -13,11 +13,11 @@
 
   <!-- titulo -->
   <div class="ion-text-center" style="padding: 1rem;">
-    Esta rutina tiene una duración de 00:{{minutos}}:00
+    Esta rutina tiene una duración de {{minutos}}:00
   </div>
 
   <ion-list *ngIf="stage1.length > 0" style="padding-top: 0px;">
-    <p class="ion-text-center opci"><b> Serie 1 </b></p>
+    <p class="ion-text-center opci"><b> Serie 1 </b> <b style="color: red;"> X </b>  <b>{{stage1.totalRepeat}}</b> </p>
 
     <ion-item *ngFor="let ejercicio of stage1; trackBy: customTB">
 
@@ -27,7 +27,7 @@
       <ion-label class="ion-text-wrap">
         <h2>{{ucFirst(ejercicio.name) }}</h2>
       </ion-label>
-      <ion-badge color="danger" style="position: absolute;top: 0;">1 x {{ejercicio.repeat}}</ion-badge>
+     <!--  <ion-badge color="danger" style="position: absolute;top: 0;">1 x {{ejercicio.repeat}}</ion-badge> -->
       <ion-buttons slot="end">
         <ion-button (click)="mostrarpop($event, ejercicio.name , ejercicio.repetitions , ejercicio.id)">
           <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>
@@ -38,7 +38,7 @@
   </ion-list>
 
   <ion-list *ngIf="stage2.length > 0">
-    <p class="ion-text-center opci"><b> Serie 2 </b></p>
+    <p class="ion-text-center opci"><b> Serie 2 </b> <b style="color: red;"> X </b>  <b>{{stage2.totalRepeat}}</b></p>
 
     <ion-item *ngFor="let ejercicio of stage2; trackBy: customTB">
       <ion-thumbnail slot="start">
@@ -47,7 +47,7 @@
       <ion-label class="ion-text-wrap">
         <h2>{{ucFirst(ejercicio.name) }}</h2>
       </ion-label>
-      <ion-badge color="danger" style="position: absolute;top: 0;">1 x {{ejercicio.repeat}}</ion-badge>
+     <!--  <ion-badge color="danger" style="position: absolute;top: 0;">1 x {{ejercicio.repeat}}</ion-badge> -->
       <ion-buttons slot="end">
         <ion-button (click)="mostrarpop($event, ejercicio.name , ejercicio.repetitions , ejercicio.id)">
           <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>
@@ -57,7 +57,7 @@
   </ion-list>
 
   <ion-list *ngIf="stage3.length > 0">
-    <p class="ion-text-center opci"><b> Serie 3 </b></p>
+    <p class="ion-text-center opci"><b> Serie 3 </b><b style="color: red;"> X </b>  <b>{{stage3.totalRepeat}}</b> </p>
 
     <ion-item *ngFor="let ejercicio of stage3; trackBy: customTB">
       <ion-thumbnail slot="start">
@@ -66,7 +66,7 @@
       <ion-label class="ion-text-wrap">
         <h2>{{ucFirst(ejercicio.name) }}</h2>
       </ion-label>
-      <ion-badge color="danger" style="position: absolute;top: 0;">1 x {{ejercicio.repeat}}</ion-badge>
+     <!--  <ion-badge color="danger" style="position: absolute;top: 0;">1 x {{ejercicio.repeat}}</ion-badge> -->
       <ion-buttons slot="end">
         <ion-button (click)="mostrarpop($event, ejercicio.name , ejercicio.repetitions , ejercicio.id)">
           <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>

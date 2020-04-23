@@ -211,11 +211,15 @@ const routes: Routes = [
   {
     path: 'bateriacalentamientoesperahome/:id',
     loadChildren: () => import('./bateriacalentamientoesperahome/bateriacalentamientoesperahome.module').then( m => m.BateriacalentamientoesperahomePageModule)
-  },  {
+  },
+  {
     path: 'bateriacalentamientofinalizar',
     loadChildren: () => import('./bateriacalentamientofinalizar/bateriacalentamientofinalizar.module').then( m => m.BateriacalentamientofinalizarPageModule)
   },
-
+  {
+    path: 'estiramientos',
+    loadChildren: () => import('./estiramientos/estiramientos.module').then( m => m.EstiramientosPageModule)
+  },
 
 
 ];

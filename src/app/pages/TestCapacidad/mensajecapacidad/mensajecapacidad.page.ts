@@ -12,6 +12,7 @@ export class MensajecapacidadPage implements OnInit {
   dataRecibida:any
   contador:number
   mensaje:string
+  nivel: string;
 
   constructor(private capturar:ActivatedRoute, private ruta:Router, private apiService:ApiFitechService, private notificacion:MensajesService) { }
 
@@ -20,16 +21,20 @@ export class MensajecapacidadPage implements OnInit {
     this.contador = parseInt(this.dataRecibida)
     console.log("LO QUE HIZO EL USUARIO",this.contador)
 
-    if(this.contador <= 4){
+    if(this.contador == 0){
+      this.nivel = 'Nivel Basico';
       this.mensaje ="Felicidades por empezar un nuevo estilo de vida con hábitos saludables, mucho esfuerzo para alcanzar el siguiente nivel."
     }
-    else if(this.contador <= 8){
+    else if(this.contador == 1){
+      this.nivel = 'Nivel Intermedio';
       this.mensaje ="Excelente estás a mitad de la carrera, un poco más de esfuerzo y dedicación para llegar a un nivel envidiable."
     }
-    else if(this.contador <= 12){
+    else if(this.contador == 2){
+     this.nivel = 'Nivel Avanzado';
      this.mensaje ="No estás aquí por casualidad, muchas sesiones de entreno duro has pasado, ahora enfocate en dar tu máximo, solo así llegarás al siguiente nivel."
     }
-    else if(this.contador <= 16){
+    else if(this.contador == 3){
+      this.nivel = 'Nivel Pro';
       this.mensaje ="Estás en una minoría privilegiada, que llevan el fitness cómo estilo de vida, admiración, aplausos y solo yendo al límite podrás alcanzar un nivel insuperable."
     }
 
@@ -41,7 +46,7 @@ export class MensajecapacidadPage implements OnInit {
     if(validar){
       document.getElementById("capacidad").classList.add('ocultar')
       this.ruta.navigateByUrl("tabs")
-      this.notificacion.notificacionUsuario("Gracias por realizar el test","danger")
+      this.notificacion.notificacionUsuario("Gracias por realizar el test","dark", "bottom")
     }else{
       this.notificacion.notificacionUsuarioFinalizar("Ocurrio un error, revise su conexión","primary")
     }

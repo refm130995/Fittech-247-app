@@ -26,9 +26,9 @@ import {
 })
 export class EntrenamientosPage implements OnInit {
   serie: any = {}
-  stage1 = []
-  stage2 = []
-  stage3 = []
+  stage1:any = []
+  stage2:any = []
+  stage3:any = []
 
   a: number
   b: number
@@ -135,6 +135,26 @@ export class EntrenamientosPage implements OnInit {
       }
     });
     this.stage3 = filteredExcersice;
+    
+
+    let result = 0;
+      for (let i in this.stage1) {
+        result = result + this.stage1[i].repeat;
+      }
+      this.stage1.totalRepeat = result;
+      result = 0;
+
+      for (let i in this.stage2) {
+        result = result + this.stage2[i].repeat;
+      }
+      this.stage2.totalRepeat = result;
+      result = 0;
+  
+      for (let i in this.stage3) {
+        result = result + this.stage3[i].repeat;
+      }
+      this.stage3.totalRepeat = result;
+      result = 0;
     filteredExcersice = [];
     console.log(this.stage1);
   }
@@ -155,6 +175,11 @@ export class EntrenamientosPage implements OnInit {
       component: PopinfoComponent,
       showBackdrop: false,
       event: evento,
+      componentProps: {
+        'name': nombre,
+        'repeticion': repeticion,
+        'id': id
+      }
     });
 
     console.log("ID VIEJO", id)

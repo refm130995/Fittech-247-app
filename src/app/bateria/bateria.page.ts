@@ -45,7 +45,45 @@ export class BateriaPage implements OnInit {
     this.startTimer()
 
   }
+  /////////////////////
+ /*  ngOnInit() {
+    this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
+    //Carga el nombre del ejercicio 
 
+    //Captura informacion de otra pantalla
+    this.capturar.queryParams.subscribe(params => {
+      let data = JSON.parse(params["data"]);
+    this.nombre = data.name
+    
+  });
+   //trae todos los ejercicios
+    this.ApiService.getRutine().subscribe(resp=>{
+     
+        this.buscador = resp['exercises'];
+     
+    
+  
+    //haya el ejercicio
+   this.encontrar = this.buscador.find( value =>{
+      return value.name == this.nombre
+    })
+
+    console.log(this.buscador);
+    console.log(this.nombre);
+    console.log(this.encontrar);
+    
+    // Arma la url del video
+    this.video = `http://fittech247.com/fittech/videos/${this.encontrar.cod}/${this.encontrar.url}`
+  
+ 
+    //tiempo del ejericio
+    this.timeLeft = this.ApiService.ratio
+
+    this.startTimer()
+  })
+  } */
+
+  //////////////////////
   atras(){
     this.ruta.navigateByUrl("entrenamientos")
   }
