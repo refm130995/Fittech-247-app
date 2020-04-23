@@ -26,6 +26,7 @@ export class BateriacalentamientoesperahomePage implements OnInit {
   imagen
   calentamiento
   nombre
+  mostrartitulo = false
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:NavController) { }
 
   async ngOnInit() {
@@ -64,7 +65,8 @@ export class BateriacalentamientoesperahomePage implements OnInit {
       // } 
 
       
-      if(this.timeLeft >= 1 && this.timeLeft < 10) {
+      if(this.timeLeft >= 1 && this.timeLeft < 5) {
+        this.mostrartitulo = true
           this.playSonido()
       }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiFitechService } from '../services/api-fitech.service';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-bateriarutinaesperahome',
@@ -24,29 +24,30 @@ export class BateriarutinaesperahomePage implements OnInit {
   recuperarRutina:any
   imagen
   nombre
-  constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:NavController) { }
+  mostrartitulo = false
+  constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,
+              private ruta:NavController) { 
+
+      }
 
   async ngOnInit() {
 
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
-    const token = await this.ApiService.cargarToken();
-    this.recuperarRutina = await this.ApiService.recuperarRutinaHome(token)
-    console.log(this.recuperarRutina['exercises'])
+    console.log(this.ApiService.rutina)
 
     //  parametros del id
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     this.contador = parseInt(this.dataRecibida) + 1
 
     // 
-    this.ejercipro =  this.recuperarRutina['exercises'][this.contador]
+    this.ejercipro =  this.ApiService.rutina[this.contador]
     this.nombre = this.ejercipro.name
 
     this.imagen = `http://fittech247.com/fittech/imagenes/${this.ejercipro.cod}/${this.ejercipro.id}.jpg`
     console.log(this.imagen)
 
 
-    this.timeLeft =  this.recuperarRutina['ratio_r']
-
+    this.timeLeft =  this.ApiService.rest
       this.startTimer()
 
       
@@ -59,13 +60,15 @@ export class BateriarutinaesperahomePage implements OnInit {
 
     this.tiemposegundo = setInterval(() => {
 
+
       if(this.timeLeft <= 10){
+        this.mostrartitulo = true
         console.log("activate")
         this.zero = 0
       } 
-
       
       if(this.timeLeft >= 1 && this.timeLeft < 10) {
+  
           this.playSonido()
       }
 
@@ -108,6 +111,8 @@ export class BateriarutinaesperahomePage implements OnInit {
   pauseSonido(){
    this.audio.pause()
   }
+
+  
 
 
 }
