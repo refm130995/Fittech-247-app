@@ -4,14 +4,23 @@
     <ion-slide>
       <div class="slide">
         <img src="assets/img/casa.jpg"/>
-        <h1 style="color: red;">{{nivel}}</h1>
-        <h2>Felicidades</h2>
-        <p>{{mensaje}}</p>
+        <h2 style="font-size: 3rem;">
+         <b> ¡Felicidades!</b></h2>
+        <ion-button expand="block" style="    --background: red;
+        font-size: 1rem;
+        padding: 0 2rem;
+        --border-radius: 10px;">
+        <b>  {{nivel}}</b>
+        </ion-button>
+        <p style="font-size: 1.3rem;">{{mensaje}}</p>
       </div>
     
-        <ion-card class="color-tarjeta" (click)="finalizar()" >
-          <h3>Finalizar</h3>
-        </ion-card>
+      <ion-button expand="block"  (click)="finalizar()" style="
+      font-size: 1rem;
+      padding: 0 2rem;
+      --border-radius: 10px;">
+         <b> Finalizar</b>
+        </ion-button>
 
     </ion-slide>
   </ion-slides>
