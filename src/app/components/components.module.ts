@@ -12,6 +12,7 @@ import {PopinfoComponent} from './popinfo/popinfo.component'
 import { PopremplazarComponent } from './popremplazar/popremplazar.component';
 import { PopmensajeComponent } from './popmensaje/popmensaje.component';
 import { FormsModule } from '@angular/forms';
+import { AntecedentefmliarComponent } from '../antecedentefmliar/antecedentefmliar.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HistorialComponent,
     PopinfoComponent,
     PopremplazarComponent,
-    PopmensajeComponent
+    PopmensajeComponent,
+    AntecedentefmliarComponent
   ],
   exports:[
     EdadComponent,
@@ -34,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     HistorialComponent,
     PopinfoComponent,
     PopremplazarComponent,
-    PopmensajeComponent
+    PopmensajeComponent,
+    AntecedentefmliarComponent
   ],
   imports: [
     FormsModule,

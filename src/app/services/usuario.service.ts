@@ -163,7 +163,7 @@ export class UsuarioService {
     }else{
       this.condicionPersona.ninguna = 0
     }
-
+    
   }
 
   TestSelecion(valor){

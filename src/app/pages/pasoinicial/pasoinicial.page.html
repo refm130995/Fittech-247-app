@@ -3,7 +3,7 @@
       <img src="assets/img/logo-app.png" class="logo">
   </div>
   <ion-toolbar class="ion-no-border animated fadeIn delay-1s">
-    <ion-title class="ion-text-center">Paso {{contador}} de 2</ion-title>
+    <ion-title class="ion-text-center">Paso {{contador}} de 3</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -38,9 +38,12 @@
     </ion-slide>
 
     <ion-slide *ngIf="slideshow == 3" class="animated slideInLeft delay-1s">
-            <app-historial (cambiarPantalla)="cambiar($event)"></app-historial>
+            <app-historial  (cambiarPantalla)="cambiar($event)" (siguientePantalla)="siguiente($event)"></app-historial>
     </ion-slide>
 
+    <ion-slide *ngIf="slideshow == 4" class="animated slideInLeft delay-1s">
+      <app-antecedentefmliar></app-antecedentefmliar>
+    </ion-slide>
   </ion-slides>
 </ion-content>
 
