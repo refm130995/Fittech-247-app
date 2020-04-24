@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { ApiFitechService } from '../services/api-fitech.service';
 
 @Component({
   selector: 'app-calentamiento-info',
@@ -8,14 +9,21 @@ import { NavController } from '@ionic/angular';
 })
 export class CalentamientoInfoPage implements OnInit {
 
-  constructor( private avanzar:NavController) { }
+  constructor( private avanzar:NavController , private ApiService:ApiFitechService) { }
 
   ngOnInit() {
 
   }
 
-  continuar(){
-    this.avanzar.navigateRoot(["/bateriacalentamientohome/0"])
+  async continuar(){
+    const validar = await this.ApiService.obtenerCalentamiento()
+    
+    if(validar){
+      this.avanzar.navigateRoot(["/bateriacalentamientohome/0"])
+    }else{
+      console.log("error")
+    }
+
   }
 
   saltarCalentamiento(){

@@ -31,6 +31,7 @@ export class ApiFitechService {
 
   ratio
   rest
+  calentamiento = {}
   rutina = {}
   Nuevarutina = {}
   rutinaListadoRemplazar = {}
@@ -651,15 +652,6 @@ export class ApiFitechService {
       })
 
   }
-  getRutine(){
-
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.token,
-      'Content-Type':'application/json',
-    })
-
-  return  this.http.get(`${URL}/auth/routine-home`,{headers})
-  }
 
   recuperarRutinaHome(token){
 
@@ -681,7 +673,16 @@ export class ApiFitechService {
             resolve(false)
           })
       })
+  }
 
+  getRutine(){
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+    return  this.http.get(`${URL}/auth/routine-home`,{headers})
   }
 
   verificarLugar(valor){
@@ -738,18 +739,20 @@ export class ApiFitechService {
     this.storage.clear()
   }
 
-  obtenerCalentamiento(token){
+  obtenerCalentamiento(){
 
     return new Promise( resolve => {
 
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + token,
+        'Authorization': 'Bearer ' + this.token,
         'Content-Type':'application/json',
       })
 
       this.http.get(`${URL}/auth/exercise-heating`,{headers})
           .subscribe(resp=>{
-                resolve(resp)
+              console.log(resp)
+                this.calentamiento = resp['ejercicios Calentamiento']
+                resolve(true)
           },err=>{
                 resolve(false)
           })

@@ -2,8 +2,8 @@
 <ion-content>
   <ion-grid class="grid1">
   <ion-row >
-  	<p class="ion-text-center titulo2">¡Prepárate!</p>
-    <p class="center">00:{{zero}}{{timeLeft}}</p>
+  	<p class="ion-text-center titulo2" *ngIf="mostrartitulo">¡Prepárate!</p>
+    <p class="center">{{zero}}{{timeLeft}}</p>
   	<p class="center do">Comienza tu siguiente ejercicio</p>
     <ion-col class="centerdo" size="8" style="padding: 0px;" >
      

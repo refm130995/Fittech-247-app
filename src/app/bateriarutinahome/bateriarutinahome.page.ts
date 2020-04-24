@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiFitechService } from '../services/api-fitech.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-bateriarutinahome',
@@ -27,19 +28,29 @@ export class BateriarutinahomePage implements OnInit {
   audio:any
   zero:any
   recuperarRutina:any
+  pausarApp:any
+  ReanudarAPP:any
 
-  constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService, private ruta:NavController) {
+  constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService,
+              private ruta:NavController, public platform: Platform,
+              public alertController: AlertController) {
 
-   }
+      // SE SUBCRIBE CUANDO LA RUTINA ES PAUSADA
+    this.pausarApp =  this.platform.pause.subscribe(async () => {
+         this.pauseTimer()
+      });
+      // SE SUBCRIBE CUANDO LA RUTINA SE REANUDA
+     this.ReanudarAPP =  this.platform.resume.subscribe(async () => {
+         this.alerta()
+      });
+                
+  }
 
   
 
   async ngOnInit() {
-
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
-    const token = await this.ApiService.cargarToken();
-    this.recuperarRutina = await this.ApiService.recuperarRutinaHome(token)
-    console.log(this.recuperarRutina['exercises'])
+    console.log(this.ApiService.rutina)
  
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     console.log("valor recibido del parametro", this.dataRecibida)
@@ -48,10 +59,11 @@ export class BateriarutinahomePage implements OnInit {
     this.numero = parseInt(this.dataRecibida) + 1
 
     //comprobar longitud de la serie de ejercicio
-    this.final = this.recuperarRutina['exercises'].length
+    this.final = this.ApiService.rutina
+    this.final = this.final.length
 
     //pasar a mostrar los datos
-    this.nombre =  this.recuperarRutina['exercises'][this.dataRecibida]
+    this.nombre =  this.ApiService.rutina[this.dataRecibida]
     console.log(this.nombre)
 
     // los videos
@@ -79,8 +91,6 @@ export class BateriarutinahomePage implements OnInit {
   }
 
 
-
-
   //SE OBTIENE LA DURACION DEL VIDEO
   onMetadata(e, video) {
     console.log('metadata: ', e);
@@ -89,8 +99,8 @@ export class BateriarutinahomePage implements OnInit {
 
     // this.timeLeft = parseInt(e.target.duration)
     //tiempo del ejercicio
-    this.timeLeft =  this.recuperarRutina['ratio_r']
-    // this.timeLeft = this.ApiService.ratio
+    // this.timeLeft =  this.recuperarRutina['ratio_r']
+    this.timeLeft = this.ApiService.ratio
   }
 
   // SE LANZA ALA PANTALLA CORRESPONDIENTE 
@@ -170,5 +180,43 @@ export class BateriarutinahomePage implements OnInit {
   pauseSonido(){
    this.audio.pause()
   }
+
+  // mensaje de reanudar
+  async alerta() {
+    const alert = await this.alertController.create({
+      header: '¿Deseas reanudar el video?',
+      message: 'el video comenzara desde cero de nuevo',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('no hacer nada, el usuario le dara en play al video');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            // reset al contador / matas el contador anterior / llamas uno nuevo
+            this.timeLeft = this.ApiService.ratio
+            clearInterval(this.tiemposegundo) 
+            this.zero = null
+            this.playTimer()
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  // cierra la subcripcion
+  ionViewWillLeave(){
+    console.log("cerrar la supcripcion")
+    this.ReanudarAPP.unsubscribe();
+    this.pausarApp.unsubscribe();
+  }
+  
+
 
 }

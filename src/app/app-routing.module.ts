@@ -221,8 +221,6 @@ const routes: Routes = [
     loadChildren: () => import('./estiramientos/estiramientos.module').then( m => m.EstiramientosPageModule)
   },
 
-
-
 ];
 
 @NgModule({

@@ -24,23 +24,24 @@ export class BateriacalentamientoesperahomePage implements OnInit {
   zero:any
   recuperarRutina:any
   imagen
+  calentamiento
   nombre
+  mostrartitulo = false
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:NavController) { }
 
   async ngOnInit() {
 
-    //  aca vas hacer la logica para que no se pierda la referencia de los datos
 
     //  parametros del id
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     console.log("parametro recibido", this.dataRecibida)
     this.contador = parseInt(this.dataRecibida) + 1
 
-    // 
-    // this.ejercipro =  this.recuperarRutina['exercises'][this.contador]
+    //pasar a mostrar los datos
+    this.nombre = this.ApiService.calentamiento[this.contador]
     // this.nombre = this.ejercipro.name
 
-    // this.imagen = `http://fittech247.com/fittech/imagenes/${this.ejercipro.cod}/${this.ejercipro.id}.jpg`
+    this.imagen = `http://fittech247.com/fittech/imagenes/${this.nombre.cod}/${this.nombre.id}.jpg`
     // console.log(this.imagen)
 
 
@@ -64,7 +65,8 @@ export class BateriacalentamientoesperahomePage implements OnInit {
       // } 
 
       
-      if(this.timeLeft >= 1 && this.timeLeft < 10) {
+      if(this.timeLeft >= 1 && this.timeLeft < 5) {
+        this.mostrartitulo = true
           this.playSonido()
       }
 

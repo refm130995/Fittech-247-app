@@ -37,10 +37,6 @@ export class BateriacalentamientohomePage implements OnInit {
 
   async ngOnInit() {
 
-    //  aca vas hacer la logica para que no se pierda la referencia de los datos
-    const token = await this.ApiService.cargarToken();
-    this.calentamiento = await this.ApiService.obtenerCalentamiento(token)
- 
  
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     console.log("valor recibido del parametro", this.dataRecibida)
@@ -49,11 +45,12 @@ export class BateriacalentamientohomePage implements OnInit {
     this.numero = parseInt(this.dataRecibida) + 1
 
     //comprobar longitud de la serie de ejercicio
-    this.final = this.calentamiento['ejercicios Calentamiento'].length
+    this.calentamiento = this.ApiService.calentamiento
+    this.final = this.calentamiento.length
 
 
     //pasar a mostrar los datos
-    this.nombre = this.calentamiento['ejercicios Calentamiento'][this.dataRecibida]
+    this.nombre = this.calentamiento[this.dataRecibida]
     // console.log(this.nombre)
 
     // los videos
@@ -97,8 +94,8 @@ export class BateriacalentamientohomePage implements OnInit {
 
   // SE LANZA ALA PANTALLA CORRESPONDIENTE 
   redirigir(){
-
-    if(this.numero >= this.final){
+    console.log(this.numero, "/" , this.final)
+    if(this.numero == this.final){
       this.tiempo = setTimeout(()=>{
         clearInterval(this.tiemposegundo)
         this.pauseSonido()
