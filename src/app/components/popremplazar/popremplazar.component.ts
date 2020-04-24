@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, NavController } from '@ionic/angular';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { Router } from '@angular/router';
 
@@ -10,17 +10,28 @@ import { Router } from '@angular/router';
 })
 export class PopremplazarComponent implements OnInit {
 
-  constructor(public popoverController: PopoverController,private ApiService:ApiFitechService,private ruta:Router) { }
+  constructor(public popoverController: PopoverController,private ApiService:ApiFitechService,private ruta:NavController) { }
 
   ngOnInit() {}
 
   async remplazar(){
     this.popoverController.dismiss()
 
-    const valor = await this.ApiService.cambiarListadoEjercicio()
+    // AQUI REMPLAZA EL EJERCICIO SELECIONADO / por lo momento desabilite el anterior de gym
+    // const valor = await this.ApiService.cambiarListadoEjercicio()
+
+
+
+
+    const valor = await this.ApiService.cambiarListadoEjercicioHome()
       if(valor){
-        await this.ApiService.obtenerRutina() 
-        this.ruta.navigateByUrl("entrenamientos")
+        // ANTERIOR
+        // await this.ApiService.obtenerRutina() 
+        // reset rutina
+        const validar = await this.ApiService.obtenerRutinaHome() 
+         if(validar){
+           this.ruta.navigateRoot(["/entrenamientos"])
+         }
       }else{
         console.log("error en la conexion")
       }

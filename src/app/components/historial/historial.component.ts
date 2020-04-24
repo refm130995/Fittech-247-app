@@ -47,6 +47,16 @@ export class HistorialComponent implements OnInit {
         this.datoEnfermedades.patologiaCardiaca = 0
         this.datoEnfermedades.enfermedadPulmonar = 0
         this.datoEnfermedades.hipertension = 0
+        this.datoEnfermedades.aritmias = 0
+        this.datoEnfermedades.taquicardia = 0
+        this.datoEnfermedades.insuficiencia = 0
+        this.datoEnfermedades.infartos = 0
+        this.datoEnfermedades.soplo = 0
+        this.datoEnfermedades.influenza = 0
+        this.datoEnfermedades.asma = 0
+        this.datoEnfermedades.bronquiti = 0
+        this.datoEnfermedades.hipertensionPulmonar = 0
+        this.datoEnfermedades.pulmonarcronica = 0
         this.datoEnfermedades.hipotension = 0
         this.datoEnfermedades.desvanecimiento = 0
         this.datoEnfermedades.diabete = 0

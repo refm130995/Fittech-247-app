@@ -566,6 +566,27 @@ export class ApiFitechService {
       })
   }
 
+  listadoEjercicioRemplazarHome(){
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
+       console.log("id del ejercicio selecionado", this.demostracionEjercicio.id )
+      this.http.get(`${URL}/auth/exercise-home-available/${this.IDusuario}/${this.demostracionEjercicio.id}/1`,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            this.rutinaListadoRemplazar = resp
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+      })
+  }
+
   cambiarListadoEjercicio(){
 
     return new Promise( resolve => {
@@ -578,6 +599,29 @@ export class ApiFitechService {
       //      this.http.get(`${URL}/auth/routine`,{headers})
       
       this.http.get(`${URL}/auth/update-exercise/${this.IDRutinaUsuario}/${this.demostracionEjercicio.id}/${this.idListadoRemplazar}`,{headers})
+          .subscribe(resp=>{
+            console.log(resp)
+            this.Nuevarutina = resp
+            resolve(true)
+          },err=>{
+            resolve(false)
+          })
+      })
+
+  }
+
+  cambiarListadoEjercicioHome(){
+
+    return new Promise( resolve => {
+
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type':'application/json',
+      })
+
+      //      this.http.get(`${URL}/auth/routine`,{headers})
+      
+      this.http.get(`${URL}/auth/update-exercise-home/${this.IDRutinaUsuario}/${this.demostracionEjercicio.id}/${this.idListadoRemplazar}`,{headers})
           .subscribe(resp=>{
             console.log(resp)
             this.Nuevarutina = resp

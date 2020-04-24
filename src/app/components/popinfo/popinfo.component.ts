@@ -14,9 +14,17 @@ export class PopinfoComponent implements OnInit {
   constructor(private ruta:NavController , 
               public popoverController: PopoverController,
               private ApiService:ApiFitechService,
-              public navParams: NavParams) { }
+              public navParams: NavParams) { 
+                
+              }
 
-   ngOnInit() {
+   async ngOnInit() {
+
+    // Lo que ocurrio aqui es que la referencia de IDUSUARIO se perdia y por eso no mostraba la ruta 
+   const usuario =  await this.ApiService.cargarNombreUsuario()
+   this.ApiService.IDusuario = usuario['id']
+
+
    this.evaluar = this.ApiService.verificarEntrenamiento
   }
 
@@ -40,23 +48,12 @@ export class PopinfoComponent implements OnInit {
   async remplazar(){
     this.popoverController.dismiss()
       
-    if(this.ApiService.contador >= 2 ){
-
-       const valor = await this.ApiService.listadoEjercicioRemplazar()
+       const valor = await this.ApiService.listadoEjercicioRemplazarHome()
        if(valor){
         this.ruta.navigateForward("listaejercicioremplazar")
        }else{
          console.log("error de conexion")
        }
-
-    }else{
-     const valor = await this.ApiService.cambiarEjercicio()
-       if(valor){
-        this.ruta.navigateForward("cambiarejercicio")
-       }else{
-         console.log("error de conexion")
-       }
-    }
 
   }
 

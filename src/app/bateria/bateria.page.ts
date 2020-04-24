@@ -86,6 +86,7 @@ export class BateriaPage implements OnInit {
   //////////////////////
   atras(){
     this.ruta.navigateByUrl("entrenamientos")
+    this.pauseVideo()
   }
 
   pauseVideo(){
