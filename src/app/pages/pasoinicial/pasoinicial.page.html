@@ -15,7 +15,11 @@
 
 <ion-content [fullscreen]="true">
   <ion-progress-bar value="{{progressbar}}" color="danger" class="animated slideInLeft delay-1s"></ion-progress-bar>
-
+  <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="contador == 2">
+    <ion-fab-button color='danger'>
+      <ion-icon name="arrow-down" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-slides  [ngClass]="condicionalCss ? 'ion-slides' : 'ion-noslides' "  #slide>
   <!--   <ion-slide>
       <ion-grid class="my-grid">
