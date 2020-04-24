@@ -28,6 +28,8 @@ export class PopremplazarComponent implements OnInit {
         // ANTERIOR
         // await this.ApiService.obtenerRutina() 
         // reset rutina
+        this.ApiService.rutina = []
+        console.log(this.ApiService.rutina)
         const validar = await this.ApiService.obtenerRutinaHome() 
          if(validar){
            this.ruta.navigateRoot(["/entrenamientos"])

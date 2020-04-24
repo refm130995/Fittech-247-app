@@ -41,14 +41,8 @@ export class EntrenamientosPage implements OnInit {
 
     }
 
-
-  ngOnInit() {
-    
-    this.ApiService.refrescarDatos.subscribe(() => {
-      this.serie = this.ApiService.rutina
-      console.log("la serie", this.serie)
-    })
-    
+    // logica
+  ionViewDidEnter(){
     //ratio es la duracion de cada ejercicio ratio w
     this.a = this.ApiService.rest
     //  obtener longitud de un objecto
@@ -57,7 +51,6 @@ export class EntrenamientosPage implements OnInit {
     this.resultado = (this.a * this.b)
     // conversio de segundo a minutos
     this.minutos = Math.round(this.resultado / 60)
-
 
     this.serie = this.ApiService.rutina
 
@@ -71,11 +64,11 @@ export class EntrenamientosPage implements OnInit {
     this.stage3 = this.serie.filter(function (value) {
       return value.stage === 3
     })
-
+    
     //comprobar si el stage 3 es vacia
     console.log(this.stage3)
-
-
+    
+    
     if (Object.keys(this.serie).length === 0) {
       this.ocultar = false
     } else {
@@ -92,7 +85,7 @@ export class EntrenamientosPage implements OnInit {
           repeat: 0
         }
         filteredExcersice.push(excersice)
-
+    
       } else {
         let index = filteredExcersice.findIndex(rutine => rutine.name === category.name);
         filteredExcersice[index].repeat++;
@@ -100,7 +93,7 @@ export class EntrenamientosPage implements OnInit {
     });
     this.stage1 = filteredExcersice;
     filteredExcersice = [];
-
+    
     this.stage2.forEach(category => {
       if (!filteredExcersice.find(cat => cat.name == category.name)) {
         var excersice = {
@@ -111,7 +104,7 @@ export class EntrenamientosPage implements OnInit {
           repeat: 0
         }
         filteredExcersice.push(excersice)
-
+    
       } else {
         let index = filteredExcersice.findIndex(rutine => rutine.name === category.name);
         filteredExcersice[index].repeat++;
@@ -130,7 +123,7 @@ export class EntrenamientosPage implements OnInit {
           repetitions: category.repetitions
         }
         filteredExcersice.push(excersice)
-
+    
       } else {
         let index = filteredExcersice.findIndex(rutine => rutine.name === category.name);
         filteredExcersice[index].repeat++;
@@ -138,20 +131,20 @@ export class EntrenamientosPage implements OnInit {
     });
     this.stage3 = filteredExcersice;
     
-
+    
     let result = 0;
       for (let i in this.stage1) {
         result = result + this.stage1[i].repeat;
       }
       this.stage1.totalRepeat = result;
       result = 0;
-
+    
       for (let i in this.stage2) {
         result = result + this.stage2[i].repeat;
       }
       this.stage2.totalRepeat = result;
       result = 0;
-  
+    
       for (let i in this.stage3) {
         result = result + this.stage3[i].repeat;
       }
@@ -159,6 +152,17 @@ export class EntrenamientosPage implements OnInit {
       result = 0;
     filteredExcersice = [];
     console.log(this.stage1);
+      }
+    
+    // actualizar
+   ngOnInit() {
+        
+        this.stage1 = []
+        this.stage2 = []
+        this.stage3 = []
+        console.log(this.stage1)
+        
+    
   }
 
  ucFirst(str) {
