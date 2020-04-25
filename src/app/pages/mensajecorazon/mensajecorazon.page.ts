@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class MensajecorazonPage implements OnInit {
     titulo:any
     mensaje:any
 
-  constructor(private ruta:NavController,private ApiService:ApiFitechService) { }
+  constructor(private ruta:NavController,private ApiService:ApiFitechService,public alertController: AlertController) { }
 
   ngOnInit() {
     console.log(this.ApiService.latidocorazon)
@@ -55,7 +55,51 @@ export class MensajecorazonPage implements OnInit {
   }
 
   siguiente(){
-    this.ruta.navigateRoot(['/antecedentefamiliar'])
+    if(this.ApiService.latidocorazon === 6){
+      this.ruta.navigateRoot(['/tabs/dashboard'])
+    }
+
+    if(this.ApiService.latidocorazon === 5){
+      this.ruta.navigateRoot(['/tabs/dashboard'])
+    }
+
+    if(this.ApiService.latidocorazon === 4){
+      this.ruta.navigateRoot(['/tabs/dashboard'])
+    }
+
+    if(this.ApiService.latidocorazon === 3){
+      this.ruta.navigateRoot(['/tabs/dashboard'])
+    }
+
+    if(this.ApiService.latidocorazon === 2){
+      this.ruta.navigateRoot(['/tabs/dashboard'])
+    }
+
+    if(this.ApiService.latidocorazon === 1){
+      this.ApiService.desconectarUsuario()
+      this.presentAlert()
+      this.ruta.navigateRoot(['/'])
+    }
+
+    if(this.ApiService.latidocorazon === 0){
+      this.ApiService.desconectarUsuario()
+      this.presentAlert()
+      this.ruta.navigateRoot(['/'])
+    }
   }
+
+
+    // mensaje del corazon
+
+    async presentAlert() {
+      const alert = await this.alertController.create({
+        header: 'Fittech',
+        subHeader: 'Usted no está apto para realizar actividades',
+        message: 'le hemos enviado una guia a su correo.',
+        buttons: ['OK']
+      });
+  
+      await alert.present();
+    }
 
 }

@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
-import { UsuarioService } from 'src/app/services/usuario.service';
-import { ApiFitechService } from 'src/app/services/api-fitech.service';
-import { Router } from '@angular/router';
-import { LoadingController, NavController } from '@ionic/angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { NavController, LoadingController } from '@ionic/angular';
+import { ApiFitechService } from '../services/api-fitech.service';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
-  selector: 'app-antecedentefamiliar',
-  templateUrl: './antecedentefamiliar.page.html',
-  styleUrls: ['./antecedentefamiliar.page.scss'],
+  selector: 'app-antecedentefmliar',
+  templateUrl: './antecedentefmliar.component.html',
+  styleUrls: ['./antecedentefmliar.component.scss'],
 })
-export class AntecedentefamiliarPage implements OnInit {
+export class AntecedentefmliarComponent implements OnInit {
   condicionPersona = {
     arritmia_corazon:false,
     ataque_corazon:false,
@@ -36,9 +34,9 @@ export class AntecedentefamiliarPage implements OnInit {
       !this.condicionPersona.operacion_corazon &&!this.condicionPersona.presion_corazon){
         this.habilitar = false
       }else{
-        this.usuarioservicio.condicionCorazon(this.condicionPersona)
+       this.usuarioservicio.condicionCorazon(this.condicionPersona) 
+      //  localStorage.setItem('condicionPersona', JSON.stringify(this.condicionPersona))
         this.evaluar()
-
       }
   }
 
@@ -73,15 +71,14 @@ export class AntecedentefamiliarPage implements OnInit {
 
  async evaluar(){
   //this.ruta.navigateRoot(['/relacioncadera'])
-  this.presentLoading();
-  const valido = await this.ApiService.Antecedentefamiliar(this.usuarioservicio.condicionPersona)
-  if(valido){
-    this.loadingController.dismiss()
-   /*   this.ruta.navigateRoot('tabs/dashboard') */
-     this.ruta.navigateRoot(['/registrar-info'])
-  }else{
+ /*  this.presentLoading(); */
+  /* const valido = await this.ApiService.Antecedentefamiliar(this.usuarioservicio.condicionPersona)
+  if(valido){ */
+   /*  this.loadingController.dismiss() */
+     this.ruta.navigateRoot('corazon')
+  /* }else{
     return
-  }
+  } */
   
 
 }

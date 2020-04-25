@@ -15,7 +15,7 @@ export class HistorialComponent implements OnInit {
   habilitar = true
 
   @Output() cambiarPantalla = new EventEmitter();
-
+  @Output() siguientePantalla = new EventEmitter();
   datoEnfermedades = {
     patologiaCardiaca:0,
     enfermedadPulmonar:0,
@@ -257,9 +257,9 @@ export class HistorialComponent implements OnInit {
   avanzar(){
 
     console.log(this.datoEnfermedades)
-
     this.usuarioservicio.enfermedades(this.datoEnfermedades)
-    this.ruta.navigateRoot(['/registrar-info'])
+    this.siguientePantalla.emit(1);
+   /*  this.ruta.navigateRoot(['/registrar-info']) */
   }
 
   atras(){

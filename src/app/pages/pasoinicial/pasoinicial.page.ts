@@ -14,7 +14,7 @@ export class PasoinicialPage implements OnInit {
   contadordos:number
   condicionalCss:boolean = true
   slideshow: number = 2;
-  progressbar: number = 0.5;
+  progressbar: number = 0.3;
   constructor( private navctrl: NavController) {}
 
   ngOnInit() {
@@ -47,7 +47,7 @@ export class PasoinicialPage implements OnInit {
         //condicional para el cambio de pantallas
        /*  document.getElementById("slide2").classList.add('animacion','fadeInRight') */
        this.slideshow = 2;
-       this.progressbar = 0.5;
+       this.progressbar = 0.3;
         this.slides.lockSwipes(false)
         this.slides.slideTo(1)
         //logica de la barra superior
@@ -68,7 +68,7 @@ export class PasoinicialPage implements OnInit {
         //condicional para el cambio de pantallas
        /*  document.getElementById("slide3").classList.add('animacion','fadeInRight') */
        this.slideshow = 3;
-       this.progressbar = 1;
+       this.progressbar = 0.6;
         this.slides.lockSwipes(false)
         this.slides.slideTo(2)
         //logica para barra superior
@@ -112,6 +112,11 @@ export class PasoinicialPage implements OnInit {
 
   back(event){
     this.navctrl.back();
+  }
+  siguiente(event){
+    this.contador++;
+    this.progressbar = 1;
+    this.slideshow++;
   }
  
 }

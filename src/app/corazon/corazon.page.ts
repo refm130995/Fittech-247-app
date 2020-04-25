@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, LoadingController } from '@ionic/angular';
 import { ModalCorazonInfoPage } from '../modal-corazon-info/modal-corazon-info.page';
 import { NavController } from '@ionic/angular';
 //servicios
@@ -15,7 +15,8 @@ import {  UsuarioService } from 'src/app/services/usuario.service';
 export class CorazonPage implements OnInit {
 
   constructor(public modalController: ModalController,private ruta:NavController,
-    private ApiService:ApiFitechService,private UsuarioService:UsuarioService) { }
+    private ApiService:ApiFitechService,private UsuarioService:UsuarioService,
+    public loadingController: LoadingController) { }
     habilitar = true
 
   ngOnInit() {
@@ -33,10 +34,24 @@ export class CorazonPage implements OnInit {
       const {data} = await modal.onDidDismiss()
 
       if(data.salir){
-        const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
-        if(valido){
-          this.ruta.navigateRoot(['/mensajecorazon'])
-        }
+        // LLAMAR ESPERA
+        this.presentLoading()
+        // Registro
+        const validoRegistro = await this.ApiService.Registrar(this.UsuarioService.datosPersonales)
+          if(validoRegistro){
+            // Antecedente
+            const validoAntecedente = await this.ApiService.Antecedentefamiliar(this.UsuarioService.condicionPersona)
+              if(validoAntecedente){
+              // Corazon ULTIMO PASO
+              const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
+                if(valido){
+                  // Termina espera
+                  this.loadingController.dismiss()
+                  this.ruta.navigateRoot(['/mensajecorazon'])
+                }
+              }
+          }
+
       }else{
         return
       }
@@ -52,9 +67,22 @@ export class CorazonPage implements OnInit {
        await modal.present();
       const {data} = await modal.onDidDismiss()
       if(data.salir){
-        const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
-        if(valido){
-          this.ruta.navigateRoot(['/mensajecorazon'])
+      // LLAMAR ESPERA
+      this.presentLoading()
+      // Registro
+      const validoRegistro = await this.ApiService.Registrar(this.UsuarioService.datosPersonales)
+        if(validoRegistro){
+          // Antecedente
+          const validoAntecedente = await this.ApiService.Antecedentefamiliar(this.UsuarioService.condicionPersona)
+            if(validoAntecedente){
+            // Corazon ULTIMO PASO
+            const valido = await this.ApiService.Latidos(this.UsuarioService.condicionPersona.latidos)
+              if(valido){
+                // Termina espera
+                this.loadingController.dismiss()
+                this.ruta.navigateRoot(['/mensajecorazon'])
+              }
+            }
         }
       }else{
         return
@@ -75,5 +103,15 @@ export class CorazonPage implements OnInit {
     }*/
 
   }
+
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Porfavor espere...',
+    });
+    await loading.present();
+  }
+
+
 
 }

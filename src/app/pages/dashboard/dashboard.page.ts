@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { MensajesService } from 'src/app/services/mensajes.service';
 
@@ -22,7 +22,8 @@ export class DashboardPage implements OnInit {
   constructor(public usuarioservicio:UsuarioService,
      private apiService:ApiFitechService,
      private ruta:NavController,
-     private notificacion:MensajesService) {
+     private notificacion:MensajesService,
+     public alertController: AlertController) {
    }
 
 
@@ -34,18 +35,31 @@ export class DashboardPage implements OnInit {
 
 
     this.week = await this.apiService.obtenerUsuario()
-    console.log("valor de la semana del usuario ",this.week.routine_ready_week)
+
    }
    async ngOnInit() {
  
     const valor = await this.apiService.cargarNombreUsuario()
+      console.log("corazon ", valor.heart_rate)
+
+    // SACAR DE LA APP NO ES VALIDO
+    if(valor.heart_rate === 1){
+      this.apiService.desconectarUsuario()
+      this.presentAlert()
+      this.ruta.navigateRoot(['/'])
+    }
+
+    if(valor.heart_rate === 0){
+      this.apiService.desconectarUsuario()
+      this.presentAlert()
+      this.ruta.navigateRoot(['/'])
+    }
+
+
 
 
 
     // ACA LLAMAS AL METODO DESPUES QUE SE CARGA EL TOKEN
-    
-
-   
     const comprobar = this.apiService.usuario 
     this.Bienvenido = comprobar ? this.apiService.usuario : valor['name']
     const comprobados = this.apiService.usuario 
@@ -145,6 +159,21 @@ export class DashboardPage implements OnInit {
   nutricion(){
     this.ruta.navigateForward('actividad')
   }
+
+
+
+      // mensaje del corazon
+
+    async presentAlert() {
+      const alert = await this.alertController.create({
+        header: 'Fittech',
+        subHeader: 'Usted no está apto para realizar actividades',
+        message: 'le hemos enviado una guia a su correo.',
+        buttons: ['OK']
+      });
+  
+      await alert.present();
+    }
     
 
 }

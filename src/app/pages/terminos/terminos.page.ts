@@ -28,14 +28,14 @@ export class TerminosPage implements OnInit {
 
   
   async registrar(){
-      this.presentLoading();
-      const valido = await this.ApiService.Registrar(this.usuarioService.datosPersonales)
-      if(valido){
-        this.loadingController.dismiss()
-        this.ruta.navigateRoot(['/corazon'])
-      }else{
+    /*   this.presentLoading(); */
+    /*   const valido = await this.ApiService.Registrar(this.usuarioService.datosPersonales)
+      if(valido){ */
+       /*  this.loadingController.dismiss() */
+        this.ruta.navigateRoot(['/home'])
+     /*  }else{
         console.log("fail en el Registrado")
-      }
+      } */
   }
 
 
