@@ -39,6 +39,7 @@ export class RegistrarInfoPage implements OnInit {
                }
 
   ngOnInit() {
+    this.emailLogin();
   }
 
   navegar(){
