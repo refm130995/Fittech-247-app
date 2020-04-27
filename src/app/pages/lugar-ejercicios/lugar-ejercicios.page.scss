@@ -69,8 +69,10 @@ ion-card{
  word-wrap: break-word;
 
  h2{
-  font-size: 17px!important;
-  padding: 2px!important;
+  font-size: 19px!important;
+ /*  position: relative;
+  bottom: 4px; */
+  font-weight: bold;
  }
 
 }

@@ -8,7 +8,7 @@
 
   <div class="contenedor">
 
-      <h2 class="titulo">¿Listo para comenzar?</h2>
+      <h2 class="titulo" style="font-family: 'Oswald', sans-serif; font-size:53px;">¿Listo para comenzar?</h2>
     
       <ion-grid class="my-grid  animated fadeIn delay-2s">
       <ion-row class="parent-row">
@@ -19,14 +19,20 @@
           <ion-input type="password" placeholder="Password*" name="password" [(ngModel)]="login.password"></ion-input>
         </ion-col>
         <ion-col  size="12">      
-          <ion-button style="--border-radius:5px;"  color="medium"
+          <ion-button style="margin: 0 auto;
+          width: 286px;
+          height: 59px;
+          border-radius: 10px;"  color="medium"
           (click)="acceder()" [disabled]="facebookhabilitar" >
             <ion-icon name="mail-outline" slot="start"></ion-icon>
             Acceder con Email
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
-          <ion-button style="--border-radius:5px;"  color="danger" 
+          <ion-button style="margin: 0 auto;
+          width: 286px;
+          height: 59px;
+          border-radius: 10px;"  color="danger" 
             (click)="googleLogin()" [disabled]="googlehabilitar" >
             <ion-icon src="./assets/icon/buscar.svg" slot="start"></ion-icon>
 
@@ -34,7 +40,10 @@
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
-         <ion-button style="--border-radius:5px;"  color="primary" 
+         <ion-button style="margin: 0 auto;
+          width: 286px;
+          height: 59px;
+          border-radius: 10px;"  color="primary" 
           (click)="facebookLogin()" [disabled]="facebookhabilitar">
             <ion-icon name="logo-facebook" slot="start"></ion-icon>
             Acceder con Facebook

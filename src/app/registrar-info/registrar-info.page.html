@@ -8,7 +8,7 @@
 
   <div class="contenedor">
 
-      <h2 class="titulo animated zoomIn delay-1s">Acceder</h2>
+      <h2 class="titulo animated zoomIn delay-1s" style="font-family: 'Oswald', sans-serif; font-size:53px;">Acceder</h2>
       
       <div class="letra animated fadeIn delay-2s">
         Selecciona la forma en que deseas acceder a nuestro entrenamiento personalizado.
@@ -19,29 +19,34 @@
       <ion-row class="parent-row">
         <ion-col  size="12">      
           <ion-button shape="round"  color="medium" 
-            (click)="googleLogin()" [disabled]="googlehabilitar" >
+            (click)="googleLogin()" [disabled]="googlehabilitar" style="margin: 0 auto;
+            width: 286px;
+            height: 59px;
+            border-radius: 10px;">
             <ion-icon name="logo-google" slot="start"></ion-icon>
             Acceder con Google
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
           <ion-button shape="round"  color="medium" 
-          (click)="facebookLogin()" [disabled]="facebookhabilitar" >
+          (click)="facebookLogin()" [disabled]="facebookhabilitar" style="margin: 0 auto;
+          width: 286px;
+          height: 59px;
+          border-radius: 10px;">
             <ion-icon name="logo-facebook" slot="start"></ion-icon>
             Acceder con Facebook
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
           <ion-button shape="round"  color="medium"
-          (click)="emailLogin()" [disabled]="facebookhabilitar" >
+          (click)="emailLogin()" [disabled]="facebookhabilitar" style="margin: 0 auto;
+          width: 286px;
+          height: 59px;
+          border-radius: 10px;">
             <ion-icon name="mail-outline" slot="start"></ion-icon>
             Acceder con Email
           </ion-button>
         </ion-col>
-
-
-
-
       </ion-row>
       </ion-grid>      
   </div>

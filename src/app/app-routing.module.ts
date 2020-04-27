@@ -17,6 +17,11 @@ const routes: Routes = [
     canActivate:[LoginGuard]
   },
   {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    canActivate:[LoginGuard]
+  },
+  {
     path: 'terminos',
     loadChildren: () => import('./pages/terminos/terminos.module').then( m => m.TerminosPageModule)
   },
