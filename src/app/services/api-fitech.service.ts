@@ -656,7 +656,7 @@ export class ApiFitechService {
   
       this.http.post(`${URL}/auth/home-test`,data,{headers})
           .subscribe(resp=>{
-            console.log(resp)
+            this.ActualizarexamenCapacidad()
             resolve(true)
           },err=>{
             resolve(false)

@@ -20,7 +20,8 @@ export class BateriahomePage implements OnInit {
   inittimeLeft: number = 10;
   interTime: number = 40;
   fiveSecond: number;
-
+  second:any
+  ControllerinterTime:any
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) {
 
     //codigo para videos
@@ -74,9 +75,16 @@ export class BateriahomePage implements OnInit {
     //categorizar
     this.categorizar(parseInt(this.txtVideo.nativeElement.currentTime))
 
-    //lo envias
+    // finaliza los 5 segundos
+    clearTimeout(this.second)
+    //finaliza el otro contador
+    clearTimeout(this.ControllerinterTime)
+   //finaliza el tiempo
     clearTimeout(this.tiempo)
+    //lo envias
     this.ruta.navigateByUrl(`mensajecapacidad/${this.nivel}`)
+
+    
   }
 
   initialization(){
@@ -121,18 +129,17 @@ export class BateriahomePage implements OnInit {
       }
     },1000)
     
-   let interTime =  setInterval(() => {
+    this.ControllerinterTime =  setInterval(() => {
       if(this.interTime > 0) {
         this.interTime--;
        
       } else{
         this.fiveSecond = 5;
-       let second = setInterval(() => {
+       this.second = setInterval(() => {
           if(this.fiveSecond > 0) {
             this.fiveSecond--;
         console.log( 'fiveSecond',this.fiveSecond);
           }else{
-            clearInterval(second);
             this.interTime = 40;
           }
         },1000)

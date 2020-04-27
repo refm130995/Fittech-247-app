@@ -26,21 +26,22 @@ export class DashboardPage implements OnInit {
      public alertController: AlertController) {
    }
 
-
    async ionViewDidEnter(){
     /* Este paso sere restructurado mas adelante */
     const token = await this.apiService.cargarToken()
     this.apiService.asignarToken(token)
    /* Este paso sere restructurado mas adelante */
 
-
     this.week = await this.apiService.obtenerUsuario()
 
+    //  EXAMEN CAPACIDAD
+    this.capacidad = await this.apiService.cargarExamenCapacidad()
+
    }
+
    async ngOnInit() {
- 
+
     const valor = await this.apiService.cargarNombreUsuario()
-      console.log("corazon ", valor.heart_rate)
 
     // SACAR DE LA APP NO ES VALIDO
     if(valor.heart_rate === 1){
@@ -55,10 +56,6 @@ export class DashboardPage implements OnInit {
       this.ruta.navigateRoot(['/'])
     }
 
-
-
-
-
     // ACA LLAMAS AL METODO DESPUES QUE SE CARGA EL TOKEN
     const comprobar = this.apiService.usuario 
     this.Bienvenido = comprobar ? this.apiService.usuario : valor['name']
@@ -66,43 +63,7 @@ export class DashboardPage implements OnInit {
     this.ExamenCliente = comprobados ? this.apiService.training : valor['training_place']
     
 
-    this.resistencia = await this.apiService.cargarExamenResistencia()
 
-     if( this.resistencia == null || undefined){
-      console.log("resistencia")
-     }else{
-      document.getElementById("resistencia").classList.add('ocultar')
-        this.apiService.pruebaRealizada(true)
-       console.log("se ejecuta 2")
-     }
-
-     this.fuerza = await this.apiService.cargarExamenFuerza()
-
-     if( this.fuerza == null || undefined){
-      console.log("fuerza")
-     }else{
-      document.getElementById("fuerza").classList.add('ocultar')
-      this.apiService.pruebaRealizada(true)
-       console.log("se ejecuta 2")
-     }
-
-     this.capacidad = await this.apiService.cargarExamenCapacidad()
-
-     if( this.capacidad == null || undefined){
-      console.log("capacidad")
-     }else{
-      document.getElementById("capacidad").classList.add('ocultar')
-       console.log("se ejecuta 2")
-     }
-
-
-     if(this.fuerza !== null && this.resistencia !== null){
-
-      if(document.getElementById("fuerza").classList.contains("ocultar") && document.getElementById("resistencia").classList.contains("ocultar")){
-        document.getElementById("tablaexamen").classList.add('ocultar')
-        }
-
-    }
 
     
   }
@@ -162,18 +123,18 @@ export class DashboardPage implements OnInit {
 
 
 
-      // mensaje del corazon
+  // mensaje del corazon
 
-    async presentAlert() {
-      const alert = await this.alertController.create({
-        header: 'Fittech',
-        subHeader: 'Usted no está apto para realizar actividades',
-        message: 'le hemos enviado una guia a su correo.',
-        buttons: ['OK']
-      });
-  
-      await alert.present();
-    }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Fittech',
+      subHeader: 'Usted no está apto para realizar actividades',
+      message: 'le hemos enviado una guia a su correo.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
     
 
 }

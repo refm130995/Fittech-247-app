@@ -60,9 +60,11 @@ export class BateriarutinaesperahomePage implements OnInit {
 
     this.tiemposegundo = setInterval(() => {
 
+      if(this.timeLeft === 10){
+        this.mostrartitulo = true
+      }
 
       if(this.timeLeft <= 10){
-        this.mostrartitulo = true
         console.log("activate")
         this.zero = 0
       } 

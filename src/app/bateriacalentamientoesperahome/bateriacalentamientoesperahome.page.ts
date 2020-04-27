@@ -64,9 +64,9 @@ export class BateriacalentamientoesperahomePage implements OnInit {
       //   this.zero = 0
       // } 
 
+      this.mostrartitulo = true
       
       if(this.timeLeft >= 1 && this.timeLeft < 5) {
-        this.mostrartitulo = true
           this.playSonido()
       }
 

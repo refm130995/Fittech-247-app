@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { MensajesService } from 'src/app/services/mensajes.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-mensajecapacidad',
@@ -14,7 +15,7 @@ export class MensajecapacidadPage implements OnInit {
   mensaje:string
   nivel: string;
 
-  constructor(private capturar:ActivatedRoute, private ruta:Router, private apiService:ApiFitechService, private notificacion:MensajesService) { }
+  constructor(private capturar:ActivatedRoute, private ruta:NavController, private apiService:ApiFitechService, private notificacion:MensajesService) { }
 
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
@@ -25,6 +26,12 @@ export class MensajecapacidadPage implements OnInit {
       this.nivel = 'Nivel Basico';
       this.mensaje ="Felicidades por empezar un nuevo estilo de vida con hábitos saludables, mucho esfuerzo para alcanzar el siguiente nivel."
     }
+
+    else if(this.contador == 4){
+      this.nivel = 'Nivel Principiante';
+      this.mensaje ="Sigue esforzándote y continua esta carrera con mucha disciplina en tu plan, estás a un nivel de tener grandes cambios."
+    }
+
     else if(this.contador == 1){
       this.nivel = 'Nivel Intermedio';
       this.mensaje ="Excelente estás a mitad de la carrera, un poco más de esfuerzo y dedicación para llegar a un nivel envidiable."
@@ -44,9 +51,11 @@ export class MensajecapacidadPage implements OnInit {
 
     const validar = await this.apiService.TestHome(this.contador)
     if(validar){
-      document.getElementById("capacidad").classList.add('ocultar')
-      this.ruta.navigateByUrl("tabs")
-      this.notificacion.notificacionUsuario("Gracias por realizar el test","dark", "bottom")
+      // no es la forma pero no se me actualizaba el ngIf por la parte del tab / tuve que remover desde aca
+      // igual cuando el usuario se desconecta y regresa el ngif oculta la ventana
+      document.getElementById("ocultar").remove()
+      this.ruta.navigateRoot(["/tabs/dashboard"])
+      this.notificacion.notificacionUsuario("Gracias por realizar el test","dark")
     }else{
       this.notificacion.notificacionUsuarioFinalizar("Ocurrio un error, revise su conexión","primary")
     }
