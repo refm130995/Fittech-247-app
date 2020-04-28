@@ -7,36 +7,35 @@
 <ion-content [fullscreen]="true" slot="fixed">
   <div class="animated fadeIn delay-1s">
     <div class="animated fadeInLeft contenedor" *ngIf="!info">
-      <h2 class="titulo" *ngIf="!info" style="font-family: 'Oswald', sans-serif; font-size:53px;">Enfoquémos en tus objetivos
+      <h2 class="titulo" *ngIf="!info" style=" text-align: center;
+      font-size: 25px;
+      opacity: 0.7;">Enfoquémos en tus objetivos
         <ion-icon class="ayudad" name="help-circle" (click)="mostrar(info)"></ion-icon>
       </h2>
       <ion-grid class="my-grid">
         <ion-row class="parent-row">
           <ion-col size="12">
             <ion-card class="color-tarjeta" (click)="objetivo(0)" style="margin: 0 auto !important;
-        width: 286px;
-        height: 59px;
         border-radius: 10px !important;
         position: relative;
         bottom: 4px;">
               <h2>Estar en forma</h2>
             </ion-card>
+            
           </ion-col>
           <ion-col size="12">
             <ion-card class="color-tarjeta" (click)="objetivo(1)" style="margin: 0 auto !important;
-    width: 286px;
-    height: 59px;
-    border-radius: 10px !important;
-    position: relative;
-        bottom: 4px;">
+            border-radius: 10px !important;
+            position: relative;
+            bottom: 4px;">
               <h2>Ganar musculatura</h2>
             </ion-card>
           </ion-col>
           <ion-col size="12">
             <ion-card class="color-tarjeta" (click)="objetivo(2)" style="margin: 0 auto !important;
-    width: 286px;
-    height: 59px;
-    border-radius: 10px !important;">
+            border-radius: 10px !important;
+            position: relative;
+            bottom: 4px;">
               <h2>Adelgazar</h2>
             </ion-card>
           </ion-col>
@@ -65,7 +64,7 @@
 
 
 </ion-content>
-
+<!-- 
 <ion-footer class="ion-no-border">
   <ion-toolbar>
     <div class="piepagina ion-text-center">
@@ -73,4 +72,4 @@
       <p class="animated fadeInUp delay-2s" style="font-weight: bold;" (click)="login()">INICIAR SESSIÓN</p>
     </div>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->
