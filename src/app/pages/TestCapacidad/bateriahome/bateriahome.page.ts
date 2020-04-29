@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+var lib = require('mugan86-cronometro');
 @Component({
   selector: 'app-bateriahome',
   templateUrl: './bateriahome.page.html',
@@ -22,6 +22,10 @@ export class BateriahomePage implements OnInit {
   fiveSecond: number;
   second:any
   ControllerinterTime:any
+  descontador = lib.Descontador;
+  descontador2 = lib.Descontador;
+  subsd_: any;
+  subsd: any;
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,private ruta:Router) {
 
     //codigo para videos
@@ -68,7 +72,8 @@ export class BateriahomePage implements OnInit {
 
 
   finalizar(){
-    console.log("finalizar")
+    this.subsd.unsubscribe();
+    this.subsd_.unsubscribe();
     this.txtVideo.nativeElement.pause()
     //Como obtener donde finalizo para poder categorizar
     console.log("Tiempo acabado",parseInt(this.txtVideo.nativeElement.currentTime))
@@ -104,13 +109,27 @@ export class BateriahomePage implements OnInit {
   }
 
   startTimer() {
-
+    const d = new this.descontador(40);
+ 
+    this.subsd = d.start().subscribe(data => {
+    
+     
+        if (data === 'FINISH') {
+          this.interTime = data;
+            this.subsd.unsubscribe();
+            this.contador5();
+        }else{
+          
+          this.interTime = data.substr(data.length - 2);
+          
+        }
+    });
     // if(this.timeLeft = 0){
     //   this.minuto--
     //   this.timeLeft = 60
     // }
-
-    let tiempo = setInterval(() => {
+   
+ /*    let tiempo = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
        
@@ -132,6 +151,7 @@ export class BateriahomePage implements OnInit {
     let ControllerinterTime =  setInterval(() => {
       if(this.interTime > 0) {
         this.interTime--;
+       console.log(this.interTime);
        
       } else{
         this.fiveSecond = 5;
@@ -144,11 +164,26 @@ export class BateriahomePage implements OnInit {
           }
         },1000)
       }
-    },1000)
+    },1000) */
   
+  }
+  contador5(){
+    const d = new this.descontador2(5);
+ 
+   this.subsd_ = d.start().subscribe(data => {
+      
+        if (data === 'FINISH') {
+          this.subsd_.unsubscribe();
+                     this.startTimer();
+        }else{
+          this.fiveSecond = data.substr(data.length - 2);
+        }
+    });
   }
 
   videoEnd(){
+    this.subsd.unsubscribe();
+    this.subsd_.unsubscribe();
     this.ruta.navigateByUrl(`mensajecapacidad/16`)
   }
 

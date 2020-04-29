@@ -5876,6 +5876,13 @@ ms@^2.0.0, ms@^2.1.1:
   resolved "https://registry.npm.taobao.org/ms/download/ms-2.1.2.tgz?cache=0&sync_timestamp=1559842528856&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fms%2Fdownload%2Fms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
 
+mugan86-cronometro@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/mugan86-cronometro/download/mugan86-cronometro-1.0.1.tgz#2c7dcf4671f61d2ef85732a1f4c96f6d667e26f5"
+  integrity sha1-LH3PRnH2HS74VzKh9MlvbWZ+JvU=
+  dependencies:
+    rxjs "^6.3.3"
+
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/multicast-dns-service-types/download/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
@@ -7275,7 +7282,7 @@ rxjs@6.5.4:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^6.4.0, rxjs@~6.5.1:
+rxjs@^6.3.3, rxjs@^6.4.0, rxjs@~6.5.1:
   version "6.5.5"
   resolved "https://registry.npm.taobao.org/rxjs/download/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
   integrity sha1-xciE4wlMjP7jG/J+uH5UzPyH+ew=

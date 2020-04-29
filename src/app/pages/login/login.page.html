@@ -19,14 +19,24 @@
           <ion-input type="password" placeholder="Password*" name="password" [(ngModel)]="login.password"></ion-input>
         </ion-col>
         <ion-col  size="12">      
-          <ion-button style="--border-radius:5px;"  color="medium"
+          <ion-button style="
+            width: 286px; 
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-family: 'Open Sans';
+            "  color="medium"
           (click)="acceder()" [disabled]="facebookhabilitar" >
             <ion-icon name="mail-outline" slot="start"></ion-icon>
             Acceder con Email
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
-          <ion-button style="--border-radius:5px;"  color="danger" 
+          <ion-button style="
+            width: 286px; 
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-family: 'Open Sans';
+            "  color="danger" 
             (click)="googleLogin()" [disabled]="googlehabilitar" >
             <ion-icon src="./assets/icon/buscar.svg" slot="start"></ion-icon>
 
@@ -34,7 +44,12 @@
           </ion-button>
         </ion-col>
         <ion-col  size="12">      
-         <ion-button style="--border-radius:5px;"  color="primary" 
+         <ion-button style="
+            width: 286px; 
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-family: 'Open Sans';
+            "  color="primary" 
           (click)="facebookLogin()" [disabled]="facebookhabilitar">
             <ion-icon name="logo-facebook" slot="start"></ion-icon>
             Acceder con Facebook
