@@ -33,7 +33,9 @@ width="100%" (ended)="videoEnd()">
     </div>
 
     <div class="contenedor-piepagina" *ngIf="inittimeLeft <= 0">
-       <ion-card color="danger" class="redondear" (click)="finalizar()">
+       <ion-card  style="width: 286px; border-radius: 10px;"
+            color="danger"
+           (click)="finalizar()">
         <h2>hasta aquí llegué</h2>
       </ion-card>
     </div>

@@ -1,7 +1,9 @@
 .titulo {
-  font-size: 25px;
-  font-weight: 600;
-  margin: 10px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  opacity: 0.7;
+  margin-bottom: 20px;
 }
 
 .titulopeque {

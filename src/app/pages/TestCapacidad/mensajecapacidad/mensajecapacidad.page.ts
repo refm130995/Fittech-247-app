@@ -20,6 +20,11 @@ export class MensajecapacidadPage implements OnInit {
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     this.contador = parseInt(this.dataRecibida)
+    // si llego hasta el final
+    if(this.contador == 16){
+      this.contador = 3
+    }
+    
     console.log("LO QUE HIZO EL USUARIO",this.contador)
 
     if(this.contador == 0){
@@ -44,6 +49,7 @@ export class MensajecapacidadPage implements OnInit {
       this.nivel = 'Nivel Pro';
       this.mensaje ="Estás en una minoría privilegiada, que llevan el fitness cómo estilo de vida, admiración, aplausos y solo yendo al límite podrás alcanzar un nivel insuperable."
     }
+
 
   }
 

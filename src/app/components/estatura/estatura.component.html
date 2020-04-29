@@ -1,7 +1,7 @@
 
 <app-edad (cambiarPantalla)="checkEdad($event)"></app-edad>
 <div class="animated fadeInLeft delay-1s">
-  <h2>¿Cuánto
+  <h2 class="titulo">¿Cuánto
       <ion-text color="danger">mides</ion-text>?</h2>
   <ion-item lines="none">
       <ion-input (ionInput)="valor($event)" [(ngModel)]="estatura" type="tel" value="0" inputmode="numeric" maxlength="3"></ion-input>
@@ -23,7 +23,7 @@
 
 
 <div class="animated fadeInLeft delay-1s">
-  <h2>¿Cuánto
+  <h2 class="titulo">¿Cuánto
       <ion-text color="danger">pesas</ion-text>?</h2>
   <ion-item lines="none">
       <ion-input (ionInput)="valor2($event)" [(ngModel)]="peso_" type="tel" value="0" inputmode="numeric" maxlength="3"></ion-input>

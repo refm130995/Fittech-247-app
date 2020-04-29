@@ -8,9 +8,6 @@
 
 <ion-content class="animated fadeIn delay-1s">
   
-  <h1 style="padding-left: 32px"><b>Bienvenido,  {{Bienvenido}} </b></h1>
-  <h4 style="padding-left: 32px">Has realizado # <b style="color: red;">{{week['routine_ready_week'] || 0}}</b> ejercicios esta semana </h4>
-  
   <!-- <div *ngIf="ExamenCliente === 0">
     <ion-grid id="tablaexamen">
       <ion-row >
@@ -48,6 +45,12 @@
 
   <ion-grid>
     <ion-row>
+      
+      <ion-col size="12">
+        <h1 class="ion-padding-horizontal"><b>Bienvenido,  {{Bienvenido}} </b></h1>
+        <h4 class="ion-padding-horizontal">Has realizado # <b style="color: red;">{{week['routine_ready_week'] || 0}}</b> ejercicios esta semana </h4>
+      </ion-col>
+
       <ion-col size="12">   
 
         <h4 class="ion-padding-horizontal">Tu <b>rutina</b> de hoy</h4>
