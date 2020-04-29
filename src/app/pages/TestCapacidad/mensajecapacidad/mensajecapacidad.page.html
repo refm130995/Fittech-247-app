@@ -4,27 +4,53 @@
     <ion-slide>
       <div class="slide">
         <img src="assets/img/casa.jpg" style="margin-top: 40px;  margin-bottom: 0px; padding-bottom: 0px;"/>
-        <h2 style="font-size: 3rem;">
-         <b style="font-family: 'Oswald', sans-serif; font-size:53px;"> ¡Felicidades!</b></h2>
-        <ion-button expand="block" style="    --background: red;
+        <h2 class="titulo">
+         <b> ¡Felicidades!</b></h2>
+
+         <ion-card  style="
+         width: 286px; 
+         border-radius: 10px;
+         text-transform: uppercase;
+         font-family: 'Open Sans';
+         --background: red
+         ">
+       <h2 style="color:white; margin: 10px; text-align: center;">{{nivel}}</h2> 
+      </ion-card>
+         
+        <!-- <ion-button expand="block" style="    --background: red;
         font-size: 1rem;
         margin: 0 auto;
         width: 286px;
         height: 59px;
         --border-radius: 10px;">
         <b>  {{nivel}}</b>
-        </ion-button>
+        </ion-button> -->
+
+
         <p style="font-size: 18px;">{{mensaje}}</p>
       </div>
     
-      <ion-button  color="dark" expand="block"  (click)="finalizar()" style="
+      <ion-card  style="
+      width: 286px; 
+      border-radius: 10px;
+      text-transform: uppercase;
+      font-family: 'Open Sans';
+      "
+    color="dark"
+   (click)="finalizar()">
+    <h2 style="margin: 10px; text-align: center;">Finalizar</h2> 
+   </ion-card>
+
+      <!-- <ion-button  color="dark" expand="block"  (click)="finalizar()" style="
       font-size: 1rem;
       margin: 0 auto;
+      text-transform: uppercase;
+      font-family: 'Open Sans';
       width: 286px;
       height: 59px;
       --border-radius: 10px;">
          <b> Finalizar</b>
-        </ion-button>
+        </ion-button> -->
 
     </ion-slide>
   </ion-slides>

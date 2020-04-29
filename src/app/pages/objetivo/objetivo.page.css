@@ -47,7 +47,10 @@ ion-content {
 
 .titulo {
   text-align: center;
-  font-size: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  opacity: 0.7;
+  margin-bottom: 20px;
 }
 
 .color-tarjeta {
@@ -67,7 +70,9 @@ ion-card {
 
 ion-card h2 {
   font-size: 17px !important;
-  padding: 2px !important;
+  /*    position: relative;
+    bottom: 4px; */
+  font-weight: bold;
 }
 
 ion-card:hover {

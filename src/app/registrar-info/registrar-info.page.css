@@ -23,6 +23,7 @@ ion-input {
   text-align: start;
   margin: 0 auto;
   width: 80%;
+  color: black;
   box-shadow: 3px 7px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
@@ -49,7 +50,8 @@ ion-input {
 
 .titulo {
   text-align: center;
-  font-size: 25px;
+  font-size: 28px;
+  font-weight: bold;
   opacity: 0.7;
   margin-bottom: 20px;
 }
