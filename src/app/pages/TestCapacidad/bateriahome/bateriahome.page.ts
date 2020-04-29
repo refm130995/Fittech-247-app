@@ -76,11 +76,11 @@ export class BateriahomePage implements OnInit {
     this.categorizar(parseInt(this.txtVideo.nativeElement.currentTime))
 
     // finaliza los 5 segundos
-    clearTimeout(this.second)
+/*     clearTimeout(this.second)
     //finaliza el otro contador
     clearTimeout(this.ControllerinterTime)
    //finaliza el tiempo
-    clearTimeout(this.tiempo)
+    clearTimeout(this.tiempo) */
     //lo envias
     this.ruta.navigateByUrl(`mensajecapacidad/${this.nivel}`)
 
@@ -88,7 +88,7 @@ export class BateriahomePage implements OnInit {
   }
 
   initialization(){
-    this.tiempo = setInterval(() => {
+    let tiempo = setInterval(() => {
       if(this.inittimeLeft > 0) {
         this.inittimeLeft--;
         console.log(this.inittimeLeft);
@@ -96,7 +96,7 @@ export class BateriahomePage implements OnInit {
       }
       else{
         this.zero = null
-        clearInterval(this.tiempo)
+        clearInterval(tiempo)
         this.inittimeLeft = 0
       
       }
@@ -110,7 +110,7 @@ export class BateriahomePage implements OnInit {
     //   this.timeLeft = 60
     // }
 
-    this.tiempo = setInterval(() => {
+    let tiempo = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
        
@@ -129,13 +129,13 @@ export class BateriahomePage implements OnInit {
       }
     },1000)
     
-    this.ControllerinterTime =  setInterval(() => {
+    let ControllerinterTime =  setInterval(() => {
       if(this.interTime > 0) {
         this.interTime--;
        
       } else{
         this.fiveSecond = 5;
-       this.second = setInterval(() => {
+       let second = setInterval(() => {
           if(this.fiveSecond > 0) {
             this.fiveSecond--;
         console.log( 'fiveSecond',this.fiveSecond);
