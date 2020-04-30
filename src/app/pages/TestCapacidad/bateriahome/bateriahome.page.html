@@ -25,7 +25,7 @@ width="100%" (ended)="videoEnd()">
       <!-- </div> -->
     </div>
 
-    <div class="contenedor-cuerpo" *ngIf="inittimeLeft <= 0">
+    <div class="contenedor-cuerpo" *ngIf="inittimeLeft <= 0 && interTime != 'FINISH'">
       <p class="reloj">{{interTime}}</p>
     </div>
     <div class="contenedor-cuerpo" *ngIf="inittimeLeft > 0">
