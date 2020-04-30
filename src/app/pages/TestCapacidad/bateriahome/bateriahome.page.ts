@@ -74,8 +74,7 @@ export class BateriahomePage implements OnInit {
 
 
   finalizar(){
-    this.subsd.unsubscribe();
-    this.subsd_.unsubscribe();
+
     this.txtVideo.nativeElement.pause()
     //Como obtener donde finalizo para poder categorizar
     console.log("Tiempo acabado",parseInt(this.txtVideo.nativeElement.currentTime))
@@ -90,8 +89,7 @@ export class BateriahomePage implements OnInit {
     clearTimeout(this.tiempo) */
     //lo envias
     this.ruta.navigateByUrl(`mensajecapacidad/${this.nivel}`)
-
-    
+    this.subsd.unsubscribe();
   }
 
   initialization(){
