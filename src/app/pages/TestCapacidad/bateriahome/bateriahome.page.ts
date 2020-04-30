@@ -90,7 +90,6 @@ export class BateriahomePage implements OnInit {
     //lo envias
     this.ruta.navigateByUrl(`mensajecapacidad/${this.nivel}`)
     this.subsd.unsubscribe();
-    this.subsd_.unsubscribe();
   }
 
   initialization(){
