@@ -1,27 +1,31 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <div class="cabezera">
+    <img src="assets/img/logo-app.png" class="logo">
+  </div>
+</ion-header>
 
 <ion-content>
   <ion-grid class="grid1">
   <ion-row >
-  	<p class="ion-text-center titulo2" *ngIf="mostrartitulo" style="margin-top: 0; padding-top: 0;">¡Prepárate!</p>
+  	<p class="ion-text-center titulo2" *ngIf="mostrartitulo" style="margin-top: 0; margin-bottom: 0; padding-top: 0;">¡Prepárate en!</p>
     <p class="center">{{zero}}{{timeLeft}}</p>
   	<p class="center do">Comienza tu siguiente ejercicio</p>
     <ion-col class="centerdo" size="8" style="padding: 0px;" >
-     
       <!-- https://via.placeholder.com/150 -->
       <!-- http://fittech247.com/fittech/imagenes/{{ejercipro.cod}}/{{ejercipro.id}}.jpg -->
-      <img  [src]= "imagen" *ngIf="imagen">
+      <img *ngIf="imagen" [src]= "imagen">
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col size="12">
       <!-- {{ejercipro.name}} -->
-       <p class="ion-text-center titulo"  *ngIf="nombre">{{nombre}}</p>   
+       <!-- <p class="ion-text-center titulo"  *ngIf="nombre"> {{nombre.name}}</p>    -->
     </ion-col>
   </ion-row>
   </ion-grid>
   <div class="grid2">
-    <h1 class="titulodescanso" style="margin-top: 0px !important;">Descanso</h1>
+    <h1 class="titulodescanso" style="margin-top: 0px !important;color: white;">Descanso</h1>
   </div>
 
 

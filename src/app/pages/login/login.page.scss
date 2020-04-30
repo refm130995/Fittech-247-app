@@ -52,10 +52,12 @@ ion-input{
 
 .titulo{
   text-align: center;
-  font-size: 25px;
+  font-size: 28px;
+  font-weight: bold;
   opacity: 0.7;
   margin-bottom: 20px;
 }
+
 
 
 
@@ -94,6 +96,7 @@ ion-col{
 }
 
 ion-button{
+  --border-radius:10px;
 width: 80%;
 }
 

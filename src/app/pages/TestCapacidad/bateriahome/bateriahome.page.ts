@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { Router, ActivatedRoute } from '@angular/router';
+declare var require: any
+
 var lib = require('mugan86-cronometro');
 @Component({
   selector: 'app-bateriahome',
