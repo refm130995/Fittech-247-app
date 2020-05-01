@@ -171,7 +171,7 @@ export class EntrenamientosPage implements OnInit {
   }
 
   comenzar() {
-    this.ruta.navigateForward("calentamiento")
+    this.ruta.navigateForward("calentamientodos")
   }
 
 
