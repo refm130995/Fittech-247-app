@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, NavController } from '@ionic/angular';
+import { IonSlides, NavController, IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-pasoinicial',
@@ -7,6 +7,7 @@ import { IonSlides, NavController } from '@ionic/angular';
   styleUrls: ['./pasoinicial.page.scss'],
 })
 export class PasoinicialPage implements OnInit {
+  @ViewChild(IonContent,{static:false}) content: IonContent
   @ViewChild('slide' , {static: true} ) slides: IonSlides;
   contador:number = 1
   progreso:number = 1
@@ -119,4 +120,10 @@ export class PasoinicialPage implements OnInit {
     this.slideshow++;
   }
  
+  bajar(){
+    this.content.scrollToBottom(1500)
+  }
+
+
+
 }

@@ -48,7 +48,7 @@ export class MensajecorazonPage implements OnInit {
 
     if(this.ApiService.latidocorazon === 0){
       this.titulo = "Muy mala",
-      this.mensaje = "Deberías ir al médico, tu frecuencia cardiaca es muy malo de acuerdo a tu edad y género."
+      this.mensaje = "Te recomendamos ir al médico, tu frecuencia cardíaca es muy mala de acuerdo a tu edad y género."
     }
 
 
@@ -94,8 +94,7 @@ export class MensajecorazonPage implements OnInit {
     async presentAlert() {
       const alert = await this.alertController.create({
         header: 'Fittech',
-        subHeader: 'Usted no está apto para realizar actividades',
-        message: 'le hemos enviado una guia a su correo.',
+        message: 'Lo sentimos, lo más que queremos es ayudarte, pero no estás apto para continuar según la información de salud que nos diste, te recomendamos ir al médico, y te esperamos de vuelta pronto.',
         buttons: ['OK']
       });
   

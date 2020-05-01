@@ -61,7 +61,7 @@ ion-card {
   color: white;
   padding: 0px !important;
   margin: 0px !important;
-  border-radius: 64px !important;
+  border-radius: 10px !important;
   margin-bottom: 20px !important;
   width: 88%;
   margin: 0 auto !important;
@@ -70,9 +70,7 @@ ion-card {
 
 ion-card h2 {
   font-size: 17px !important;
-  /*    position: relative;
-    bottom: 4px; */
-  font-weight: bold;
+  padding: 2px !important;
 }
 
 ion-card:hover {
@@ -95,12 +93,12 @@ ion-col {
 }
 
 .ayudad {
-  fill: black;
+  fill: #e5141a;
   font-size: 29px !important;
 }
 
 .ayudad2 {
-  color: black;
+  color: #e5141a;
   font-size: 29px !important;
   float: right;
 }
