@@ -183,7 +183,6 @@ export class BateriahomePage implements OnInit {
 
   videoEnd(){
     this.subsd.unsubscribe();
-    this.subsd_.unsubscribe();
     this.ruta.navigateByUrl(`mensajecapacidad/16`)
   }
 
