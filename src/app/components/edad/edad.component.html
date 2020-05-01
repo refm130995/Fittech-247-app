@@ -2,7 +2,10 @@
   <h2 class="titulo animated fadeInLeft delay-1s">¿En que rango esta tu edad?</h2>
   <ion-item lines="none" class="animated fadeInLeft delay-1s" >
                       <!--22-->
-    <ion-label style="font-size: 18px;">Seleccionar</ion-label>
+    <ion-label style="font-size: 18px;font-size: 18px;
+    position: relative;
+    left: 20%;
+    text-align: center;">Seleccionar</ion-label>
     <ion-select interface="action-sheet" cancel-text="salir" (ionChange)="imc($event)">
       <ion-select-option value="0">18-25</ion-select-option>
       <ion-select-option value="1">26-36</ion-select-option>
