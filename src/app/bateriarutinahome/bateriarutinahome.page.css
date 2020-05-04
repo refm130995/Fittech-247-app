@@ -27,6 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .titulo {
@@ -36,7 +37,13 @@
 }
 
 .reloj {
-  margin: 10px !important;
+  margin: 2px !important;
   font-size: 4em;
   font-weight: 800;
+}
+
+.text-reloj {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
 }

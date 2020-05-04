@@ -22,6 +22,7 @@ poster="assets/img/videogif.gif">
 
     <div class="contenedor-cuerpo">
       <p class="reloj">{{zero}}{{timeLeft}}</p>
+      <p class="text-reloj">¡De tu esfuerzo depende tu resultado,no pares!</p>
     </div>
   </div>
     
@@ -43,6 +44,20 @@ poster="assets/img/videogif.gif">
 </div> -->
 
 
+
+
+<ion-fab vertical="bottom"  horizontal="start" slot="fixed">
+  <ion-fab-button color="light" (click)="atras()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+<ion-fab vertical="bottom"  horizontal="end" slot="fixed">
+  <ion-fab-button color="light" (click)="siguiente()">
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
 
 <ion-fab vertical="bottom"  horizontal="center" slot="fixed" *ngIf="mostrar">

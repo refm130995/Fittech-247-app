@@ -30,6 +30,7 @@ export class BateriarutinahomePage implements OnInit {
   recuperarRutina:any
   pausarApp:any
   ReanudarAPP:any
+  restar:any
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService,
               private ruta:NavController, public platform: Platform,
@@ -57,6 +58,10 @@ export class BateriarutinahomePage implements OnInit {
 
     //cantidad de ejericio faltante
     this.numero = parseInt(this.dataRecibida) + 1
+
+    // restar
+    this.restar =  parseInt(this.dataRecibida) - 1
+
 
     //comprobar longitud de la serie de ejercicio
     this.final = this.ApiService.rutina
@@ -217,6 +222,14 @@ export class BateriarutinahomePage implements OnInit {
     this.pausarApp.unsubscribe();
   }
   
+  atras(){
+    console.log(this.restar)
+    // this.ruta.navigateRoot([`/bateriarutinahome/${this.dataRecibida - 1}`])
+  }
+
+  siguiente(){
+   this.ruta.navigateRoot([`/bateriarutinahome/${this.numero}`])
+  }
 
 
 }
