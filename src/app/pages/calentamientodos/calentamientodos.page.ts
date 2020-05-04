@@ -20,7 +20,7 @@ export class CalentamientodosPage implements OnInit {
 
   siguiente(){
     // ["/bateriarutinahome/0"]
-    this.avanzar.navigateRoot(["/calentamiento-info"])
+    this.avanzar.navigateForward(["/calentamiento-info"])
   }
 
 }

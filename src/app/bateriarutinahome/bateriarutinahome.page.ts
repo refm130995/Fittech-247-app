@@ -157,7 +157,7 @@ export class BateriarutinahomePage implements OnInit {
    }
    
   pauseTimer() {
-    clearInterval(this.tiemposegundo)  ;
+    clearInterval(this.tiemposegundo);
     this.mostrar = false
     this.txtVideo.nativeElement.pause()
   }

@@ -18,7 +18,7 @@ export class ObjetivoPage implements OnInit {
 
   objetivo(valor){
     this.usuarioservicio.objetivo(valor)
-    this.ruta.navigateRoot(['/lugar-ejercicios'])
+    this.ruta.navigateForward(['/lugar-ejercicios'])
   }
 
   login(){

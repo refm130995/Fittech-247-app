@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class EdadComponent implements OnInit {
   habilitar = true
+  valor: any;
   constructor( private usuarioservicio:UsuarioService) { }
   @Output() cambiarPantalla = new EventEmitter();
 
@@ -20,6 +21,7 @@ export class EdadComponent implements OnInit {
   /*   if(valor.target.value == null){
       return
     } */
+    this.valor = valor.target.value;
     if(valor.target.value){
       this.usuarioservicio.edad(valor.target.value)
       this.cambiarPantalla.emit(valor.target.value  )

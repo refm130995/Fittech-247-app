@@ -7,10 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { TerminosPageRoutingModule } from './terminos-routing.module';
 
 import { TerminosPage } from './terminos.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    ComponentsModule,
     FormsModule,
     IonicModule,
     TerminosPageRoutingModule
