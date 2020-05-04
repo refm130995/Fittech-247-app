@@ -5,10 +5,21 @@ ion-input {
   margin: 0 auto;
 }
 
-img:hover {
+.cambiarOpacidad {
   opacity: 0.2;
 }
 
 .tarjeta:hover {
   opacity: 0.7;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 25px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.ion-text-center {
+  font-weight: bold;
 }

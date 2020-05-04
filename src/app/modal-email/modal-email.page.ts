@@ -93,6 +93,12 @@ export class ModalEmailPage implements OnInit {
       return re.test(email);
   }
   
+
+  atras(){
+    this.modalController.dismiss({
+      salir:false
+    });
+  }
   
 
 

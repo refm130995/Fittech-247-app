@@ -117,8 +117,11 @@ export class RegistrarInfoPage implements OnInit {
     });
      await modal.present();
      const {data} = await modal.onDidDismiss()
-     if(data){
+     console.log("data recibida",data.salir)
+     if(data.salir){
       this.ruta.navigateRoot(['/terminos'])
+     }else{
+      this.ruta.navigateRoot(['/'])
      }
   }
 
