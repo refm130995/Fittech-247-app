@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CalentamientoInfoPageRoutingModule } from './calentamiento-info-routing.module';
-
+import { ComponentsModule } from '../components/components.module';
 import { CalentamientoInfoPage } from './calentamiento-info.page';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { CalentamientoInfoPage } from './calentamiento-info.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     CalentamientoInfoPageRoutingModule
   ],
   declarations: [CalentamientoInfoPage]

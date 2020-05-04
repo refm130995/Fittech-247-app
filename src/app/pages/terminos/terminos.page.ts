@@ -32,7 +32,7 @@ export class TerminosPage implements OnInit {
     /*   const valido = await this.ApiService.Registrar(this.usuarioService.datosPersonales)
       if(valido){ */
        /*  this.loadingController.dismiss() */
-        this.ruta.navigateRoot(['/home'])
+        this.ruta.navigateForward(['/home'])
      /*  }else{
         console.log("fail en el Registrado")
       } */

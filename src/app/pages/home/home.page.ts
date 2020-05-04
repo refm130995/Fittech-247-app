@@ -16,7 +16,7 @@ export class HomePage {
   genero(valor){
     console.log(valor)
     this.usuarioservicio.genero(valor)
-    this.ruta.navigateRoot(['/objetivo'])
+    this.ruta.navigateForward(['/objetivo'])
   }
 
   
