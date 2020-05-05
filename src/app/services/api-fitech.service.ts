@@ -74,7 +74,7 @@ export class ApiFitechService {
   ]
 
   
-
+  contadorRutina:any = 1
   rutina_week:any
   verificarEntrenamiento:any
   usuario:any
@@ -802,6 +802,15 @@ export class ApiFitechService {
           })
       })
 
+  }
+
+
+  contadorRutinaSumar(valor){
+    this.contadorRutina +=valor
+  }
+
+  contadorRutinaRestar(valor){
+    this.contadorRutina -=valor
   }
 
 

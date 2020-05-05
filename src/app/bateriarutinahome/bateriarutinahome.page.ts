@@ -31,6 +31,9 @@ export class BateriarutinahomePage implements OnInit {
   pausarApp:any
   ReanudarAPP:any
   restar:any
+  secuencia:number
+  serie:any
+  sumatorio:any
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService,
               private ruta:NavController, public platform: Platform,
@@ -47,29 +50,39 @@ export class BateriarutinahomePage implements OnInit {
                 
   }
 
-  
 
-  async ngOnInit() {
+  async ngOnInit() {  
+
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
     console.log(this.ApiService.rutina)
- 
+    
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     console.log("valor recibido del parametro", this.dataRecibida)
 
     //cantidad de ejericio faltante
     this.numero = parseInt(this.dataRecibida) + 1
 
-    // restar
-    this.restar =  parseInt(this.dataRecibida) - 1
+    // restara
+    this.restar = parseInt(this.dataRecibida) - 1
 
 
     //comprobar longitud de la serie de ejercicio
     this.final = this.ApiService.rutina
     this.final = this.final.length
-
+   
     //pasar a mostrar los datos
     this.nombre =  this.ApiService.rutina[this.dataRecibida]
     console.log(this.nombre)
+
+    // secuencia del ejercicio
+    this.secuencia = this.nombre.stage
+
+    //logica para encontrar la cantidad de ejercicio que pertenecen a dicha secuencia
+    this.serie = this.ApiService.rutina
+    this.serie = this.serie.filter( value =>  value.stage ===  this.secuencia)
+    this.serie = this.serie.length
+
+  
 
     // los videos
     this.video = `http://fittech247.com/fittech/videos/${this.nombre.cod}/${this.nombre.url}`
@@ -157,7 +170,7 @@ export class BateriarutinahomePage implements OnInit {
    }
    
   pauseTimer() {
-    clearInterval(this.tiemposegundo);
+    clearInterval(this.tiemposegundo)  ;
     this.mostrar = false
     this.txtVideo.nativeElement.pause()
   }
@@ -223,11 +236,12 @@ export class BateriarutinahomePage implements OnInit {
   }
   
   atras(){
-    console.log(this.restar)
-    // this.ruta.navigateRoot([`/bateriarutinahome/${this.dataRecibida - 1}`])
+    clearInterval(this.tiemposegundo) 
+    this.ruta.navigateRoot([`/bateriarutinahome/${this.restar}`])
   }
 
   siguiente(){
+    clearInterval(this.tiemposegundo) 
    this.ruta.navigateRoot([`/bateriarutinahome/${this.numero}`])
   }
 

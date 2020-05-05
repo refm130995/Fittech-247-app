@@ -32,7 +32,7 @@
 
 .titulo {
   padding: 5px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 800;
 }
 
@@ -42,8 +42,12 @@
   font-weight: 800;
 }
 
+.text-reloj-titulo {
+  font-weight: 700;
+  margin: 0;
+}
+
 .text-reloj {
   margin: 0;
   font-size: 1.2rem;
-  font-weight: 700;
 }
