@@ -33,7 +33,7 @@ export class BateriarutinahomePage implements OnInit {
   restar:any
   secuencia:number
   serie:any
-  sumatorio:any
+  sumatorio:number
 
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService,
               private ruta:NavController, public platform: Platform,
@@ -50,6 +50,20 @@ export class BateriarutinahomePage implements OnInit {
                 
   }
 
+  ionViewDidEnter(){
+
+    if(this.ApiService.secuencia === this.secuencia){
+         this.ApiService.contadorRutinaSumar(1)
+        this.sumatorio = this.ApiService.contadorRutina
+    }else{
+      this.ApiService.contadorRutina = 0
+      this.ApiService.contadorRutinaSumar(1)
+      this.sumatorio = this.ApiService.contadorRutina
+      this.ApiService.secuencia = this.secuencia
+    }
+
+
+  }
 
   async ngOnInit() {  
 
@@ -237,6 +251,7 @@ export class BateriarutinahomePage implements OnInit {
   
   atras(){
     clearInterval(this.tiemposegundo) 
+    this.ApiService.contadorRutinaRestar(2)
     this.ruta.navigateRoot([`/bateriarutinahome/${this.restar}`])
   }
 

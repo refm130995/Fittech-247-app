@@ -73,8 +73,8 @@ export class ApiFitechService {
     {'name': 'Lancha palanca larga en manos' , 'url': ''}
   ]
 
-  
-  contadorRutina:any = 1
+  secuencia:any = 1
+  contadorRutina:number = 0
   rutina_week:any
   verificarEntrenamiento:any
   usuario:any
