@@ -9,7 +9,8 @@
 <ion-content class="animated fadeIn delay-1s">
   <!-- BIENVENIDO ARRIBA / ALINEADO -->
     <h1 style="padding-left: 1.5rem;"><b>Bienvenido,  {{Bienvenido}} </b></h1>
-    <h4 style="padding-left: 1.5rem;">Has realizado  <b style="color: red;">{{week['routine_ready_week'] || 0}}</b> sesión de entrenamiento esta semana </h4>
+    <h4 style="padding-left: 1.5rem;" *ngIf="week.routine_ready_week == 1">Has realizado  <b style="color: red;">{{week['routine_ready_week'] || 0}}</b> sesión de entrenamiento esta semana </h4>
+    <h4 style="padding-left: 1.5rem;" *ngIf="week.routine_ready_week > 1 || week.routine_ready_week == 0">Has realizado  <b style="color: red;">{{week['routine_ready_week'] || 0}}</b> sesiones de entrenamiento esta semana </h4>
 
   <!-- EXAMEN -->
   <!-- <div *ngIf="ExamenCliente === 0">
@@ -38,7 +39,7 @@
       <ion-row>        
         <ion-col  size="12">   
           <h4 class="ion-padding-horizontal">Hacer el <b>test</b> </h4>
-          <img class="bor" src="assets/img/test-casa.png"/>
+          <img class="bor" style="    width: 394px;height: 162.73px;" src="assets/img/cadera2.png"/>
           <ion-button shape="round" color="dark" class="centered2" (click)="Capacidad()">test</ion-button> 
       </ion-col>
 

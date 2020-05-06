@@ -89,10 +89,18 @@ export class BateriacalentamientoesperahomePage implements OnInit {
 
   redirigir(){
     clearInterval(this.tiemposegundo)
-    this.ruta.navigateRoot([`/bateriacalentamientohome/${this.contador}`])
+    this.ruta.navigateForward([`/bateriacalentamientohome/${this.contador}`])
     this.pauseSonido()
   }
-
+  atras(){
+    this.ruta.navigateForward([`/bateriacalentamientohome/${this.dataRecibida}`])
+  }
+  ionViewDidLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+  }
 
    playSonido(){
   this.audio = new Audio();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { ApiFitechService } from '../services/api-fitech.service';
 import { NavController, Platform } from '@ionic/angular';
 
@@ -25,6 +25,9 @@ export class BateriarutinaesperahomePage implements OnInit {
   imagen
   nombre
   mostrartitulo = false
+  contator_: any;
+  secuence: any;
+  restar: any;
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,
               private ruta:NavController) { 
 
@@ -45,7 +48,14 @@ export class BateriarutinaesperahomePage implements OnInit {
 
     this.imagen = `http://fittech247.com/fittech/imagenes/${this.ejercipro.cod}/${this.ejercipro.id}.jpg`
     console.log(this.imagen)
-
+    this.capturar.queryParams.subscribe(params => {
+      let data = params["count"];
+      let secuence = params["secuence"];
+      let restar = params["restar"];
+      if(data) this.contator_ = data;
+      if(secuence) this.secuence = secuence;
+      if(restar) this.restar = restar;
+  });
 
     this.timeLeft =  this.ApiService.rest
       this.startTimer()
@@ -89,9 +99,23 @@ export class BateriarutinaesperahomePage implements OnInit {
 
   }
 
+  ionViewDidLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+  }
+
   redirigir(){
     clearInterval(this.tiemposegundo)
-    this.ruta.navigateRoot([`/bateriarutinahome/${this.contador}`])
+    this.contator_++;
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          count: this.contator_,
+          secuence: this.secuence
+      }
+    }
+    this.ruta.navigateRoot([`/bateriarutinahome/${this.contador}`], navigationExtras)
     this.pauseSonido()
   }
 
@@ -111,9 +135,24 @@ export class BateriarutinaesperahomePage implements OnInit {
   // }
   
   pauseSonido(){
-   this.audio.pause()
+    if (this.audio) {
+      this.audio.pause()
+    }
   }
 
+  atras(){
+    clearInterval(this.tiemposegundo) 
+    this.contador--;
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          count: this.contador,
+          secuence: this.secuence
+      }
+    }
+   
+    this.ruta.pop()
+  }
+  
   
 
 

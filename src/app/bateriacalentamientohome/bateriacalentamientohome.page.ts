@@ -107,7 +107,7 @@ export class BateriacalentamientohomePage implements OnInit {
     }else{
       clearInterval(this.tiemposegundo) 
       this.pauseSonido()
-      this.ruta.navigateRoot([`/bateriacalentamientoesperahome/${this.dataRecibida}`])
+      this.ruta.navigateForward([`/bateriacalentamientoesperahome/${this.dataRecibida}`])
       
     }
 
@@ -169,7 +169,24 @@ export class BateriacalentamientohomePage implements OnInit {
   // }
   
   pauseSonido(){
+    if(this.audio)
    this.audio.pause()
+  }
+
+  atras(){
+      if(this.dataRecibida == 0){
+        this.ruta.navigateRoot([`/calentamiento-info`])
+
+      }else{
+        this.ruta.navigateForward([`/bateriacalentamientohome/${this.dataRecibida-1}`])
+      }
+  }
+
+  ionViewDidLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
   }
 
 }

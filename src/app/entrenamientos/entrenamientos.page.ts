@@ -42,6 +42,12 @@ export class EntrenamientosPage implements OnInit {
     }
 
     // logica
+
+    calculateRepetitions(stage:number){
+      return this.serie.filter( (value) => {
+        return value.stage === stage
+      }).length
+    }
   ionViewDidEnter(){
     //ratio es la duracion de cada ejercicio ratio w
     this.a = this.ApiService.rest
@@ -136,6 +142,7 @@ export class EntrenamientosPage implements OnInit {
       for (let i in this.stage1) {
         result = result + this.stage1[i].repeat;
       }
+      console.log(result)
       this.stage1.totalRepeat = result;
       result = 0;
     

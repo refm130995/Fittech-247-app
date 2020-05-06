@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <app-back-btn></app-back-btn>
+     <!--  <app-back-btn></app-back-btn> -->
     </ion-buttons>
     <div class="cabezera">
       <img src="assets/img/logo-app.png" class="logo">
@@ -60,6 +60,16 @@ poster="assets/img/videogif.gif">
 <ion-fab vertical="bottom"  horizontal="center" slot="fixed"*ngIf="!mostrar">
   <ion-fab-button color="danger" (click)="playTimer()">
     <ion-icon name="play-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab vertical="bottom"  horizontal="end" slot="fixed">
+  <ion-fab-button color="light" (click)="redirigir()">
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab vertical="bottom"  horizontal="start" slot="fixed">
+  <ion-fab-button color="light" (click)="atras()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>
 
