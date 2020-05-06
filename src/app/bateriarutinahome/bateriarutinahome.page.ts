@@ -242,7 +242,7 @@ export class BateriarutinahomePage implements OnInit {
 
   siguiente(){
     clearInterval(this.tiemposegundo) 
-   this.ruta.navigateRoot([`/bateriarutinahome/${this.numero}`])
+   this.ruta.navigateRoot([`/bateriarutinaesperahome/${this.numero-1}`])
   }
 
 

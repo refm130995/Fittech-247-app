@@ -39,6 +39,8 @@ export class BateriacalentamientoesperahomePage implements OnInit {
 
     //pasar a mostrar los datos
     this.nombre = this.ApiService.calentamiento[this.contador]
+    console.log(this.nombre);
+    
     // this.nombre = this.ejercipro.name
 
     this.imagen = `http://fittech247.com/fittech/imagenes/${this.nombre.cod}/${this.nombre.id}.jpg`

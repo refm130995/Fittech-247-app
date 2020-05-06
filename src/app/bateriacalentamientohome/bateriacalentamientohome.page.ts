@@ -47,10 +47,12 @@ export class BateriacalentamientohomePage implements OnInit {
     //comprobar longitud de la serie de ejercicio
     this.calentamiento = this.ApiService.calentamiento
     this.final = this.calentamiento.length
+    console.log(this.calentamiento);
 
-
+    
     //pasar a mostrar los datos
     this.nombre = this.calentamiento[this.dataRecibida]
+    console.log(this.nombre);
     // console.log(this.nombre)
 
     // los videos

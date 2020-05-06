@@ -15,7 +15,7 @@ export class CalentamientodosPage implements OnInit {
   }
 
   atras(){
-    this.ruta.navigateByUrl("calentamiento")
+    this.avanzar.pop();
   }
 
   siguiente(){

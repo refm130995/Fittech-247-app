@@ -1,7 +1,12 @@
-<ion-header class="ion-no-border">
-  <div class="cabezera">
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-btn></app-back-btn>
+    </ion-buttons>
+    <div class="cabezera">
       <img src="assets/img/logo-app.png" class="logo">
-  </div>
+    </div>
+  </ion-toolbar>
 </ion-header>
 
 <!-- Logo incluido ante no estaba -->
@@ -59,5 +64,4 @@ poster="assets/img/videogif.gif">
 </ion-fab>
 
 
-<app-back-btn></app-back-btn>
 
