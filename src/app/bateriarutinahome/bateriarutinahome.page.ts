@@ -98,6 +98,9 @@ export class BateriarutinahomePage implements OnInit {
   if(this.contador == 0){
     this.contador = this.serie;
   }
+  if(this.contador > this.serie){
+    this.contador = 1;
+  }
   
   console.log('SECUENCIA', this.secuencia_);
   console.log('CONTADOR', this.contador);
