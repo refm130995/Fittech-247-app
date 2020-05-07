@@ -169,7 +169,16 @@ export class BateriarutinahomePage implements OnInit {
     if(this.audio){
       this.audio.pause();
     }
+  } 
+  
+  ngOnDestroy(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
   }
+
+
   
   //CONOMETRO
   startTimer() {
@@ -263,6 +272,10 @@ export class BateriarutinahomePage implements OnInit {
   // cierra la subcripcion
   ionViewWillLeave(){
     console.log("cerrar la supcripcion")
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
     this.ReanudarAPP.unsubscribe();
     this.pausarApp.unsubscribe();
   }
