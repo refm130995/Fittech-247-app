@@ -8,14 +8,14 @@ import { NavController } from '@ionic/angular';
   templateUrl: './bateriacalentamientohome.page.html',
   styleUrls: ['./bateriacalentamientohome.page.scss'],
 })
-export class BateriacalentamientohomePage implements OnInit {
+export class BateriacalentamientohomePage  {
 
   @ViewChild('myVideo',{static:false}) txtVideo:ElementRef
   nombre:any
   dataRecibida:any
   tiempo:any
   tiemposegundo:any
-  timeLeft: number;
+  timeLeft: number = 30;
   mostrar:boolean = true
   numero:any
   final:any
@@ -33,9 +33,48 @@ export class BateriacalentamientohomePage implements OnInit {
 
    }
 
-  
+   ionViewDidEnter(){
+     
+    this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
+    console.log("valor recibido del parametro", this.dataRecibida)
 
-  async ngOnInit() {
+    //cantidad de ejericio faltante
+    this.numero = parseInt(this.dataRecibida) + 1
+
+    //comprobar longitud de la serie de ejercicio
+    this.calentamiento = this.ApiService.calentamiento
+    this.final = this.calentamiento.length
+    console.log(this.calentamiento);
+
+    
+    //pasar a mostrar los datos
+    this.nombre = this.calentamiento[this.dataRecibida]
+    console.log(this.nombre);
+    // console.log(this.nombre)
+
+    // los videos
+    this.video = `http://fittech247.com/fittech/videos/${this.nombre.cod}/${this.nombre.url}`
+    console.log(this.video)
+    this.timeLeft = 30;
+    var b = setInterval(()=>{
+          console.log(this.txtVideo.nativeElement.readyState)
+      if(this.txtVideo.nativeElement.readyState === 4){
+          console.log(this.txtVideo.nativeElement.readyState)
+          //This block of code is triggered when the video is loaded
+
+          //your code goes here
+          this.txtVideo.nativeElement.play()
+          //cronometro
+          this.startTimer()
+          //stop checking every half second
+          clearInterval(b);
+
+      }    
+
+      },500);
+   }
+
+ /*  async ngOnInit() {
 
  
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
@@ -77,7 +116,7 @@ export class BateriacalentamientohomePage implements OnInit {
       },500);
 
 
-  }
+  } */
 
 
 
@@ -90,7 +129,7 @@ export class BateriacalentamientohomePage implements OnInit {
 
     // this.timeLeft = parseInt(e.target.duration)
     //tiempo del ejercicio
-    this.timeLeft =  30
+    //this.timeLeft =  30
     // this.timeLeft = this.ApiService.ratio
   }
 
@@ -102,13 +141,11 @@ export class BateriacalentamientohomePage implements OnInit {
         clearInterval(this.tiemposegundo)
         this.pauseSonido()
         this.ruta.navigateRoot(["/bateriacalentamientofinalizar"])
-      },1000)
-
+      }, 1000)
     }else{
       clearInterval(this.tiemposegundo) 
       this.pauseSonido()
       this.ruta.navigateForward([`/bateriacalentamientoesperahome/${this.dataRecibida}`])
-      
     }
 
   }
@@ -174,12 +211,7 @@ export class BateriacalentamientohomePage implements OnInit {
   }
 
   atras(){
-      if(this.dataRecibida == 0){
-        this.ruta.navigateRoot([`/calentamiento-info`])
-
-      }else{
-        this.ruta.navigateForward([`/bateriacalentamientohome/${this.dataRecibida-1}`])
-      }
+        this.ruta.pop();
   }
 
   ionViewDidLeave(){

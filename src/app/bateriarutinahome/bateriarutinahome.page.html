@@ -49,14 +49,14 @@ poster="assets/img/videogif.gif">
 
 
 <ion-fab vertical="bottom"  *ngIf="restar >= 0" horizontal="start" slot="fixed">
-  <ion-fab-button color="light" (click)="atras()">
+  <ion-fab-button color="light" (click)="atras()" *ngIf="btn">
     <ion-icon name="arrow-back-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>
 
 
 <ion-fab vertical="bottom" *ngIf="numero < final"  horizontal="end" slot="fixed">
-  <ion-fab-button color="light" (click)="siguiente()">
+  <ion-fab-button color="light" (click)="siguiente()" *ngIf="btn">
     <ion-icon name="arrow-forward-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>

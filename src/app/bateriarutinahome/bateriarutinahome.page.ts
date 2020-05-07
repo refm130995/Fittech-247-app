@@ -34,6 +34,7 @@ export class BateriarutinahomePage implements OnInit {
   secuencia:number
   serie:any
   sumatorio:any
+  btn:boolean = false;
   contador = 1;
   secuencia_ = 1;
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService,
@@ -172,6 +173,7 @@ export class BateriarutinahomePage implements OnInit {
   
   //CONOMETRO
   startTimer() {
+    this.btn = true;
     this.tiemposegundo = setInterval(() => {
 
       if(this.timeLeft <= 10){
@@ -267,7 +269,7 @@ export class BateriarutinahomePage implements OnInit {
   
   atras(){
     clearInterval(this.tiemposegundo) 
-    this.contador--;
+   
     let navigationExtras: NavigationExtras = {
       queryParams: {
           count: this.contador,
@@ -275,8 +277,12 @@ export class BateriarutinahomePage implements OnInit {
           restar:this.restar
       }
     }
-   
-    this.ruta.navigateRoot([`/bateriarutinahome/${this.restar}`], navigationExtras)
+    if(this.contador != 1){
+      this.contador--;
+      this.ruta.navigateForward([`/bateriarutinaesperahome/${this.restar}`], navigationExtras)
+    }else{
+      this.ruta.navigateRoot([`/calentamiento-info`])
+    }
   }
 
   siguiente(){

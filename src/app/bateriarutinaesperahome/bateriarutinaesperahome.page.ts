@@ -102,7 +102,7 @@ export class BateriarutinaesperahomePage implements OnInit {
   ionViewDidLeave(){
     clearInterval(this.tiemposegundo)
     if(this.audio){
-      this.audio.pause();
+      this.audio.pause()
     }
   }
 
@@ -117,6 +117,19 @@ export class BateriarutinaesperahomePage implements OnInit {
     }
     this.ruta.navigateRoot([`/bateriarutinahome/${this.contador}`], navigationExtras)
     this.pauseSonido()
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+  }
+  ionViewWillLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
   }
 
 
@@ -142,7 +155,9 @@ export class BateriarutinaesperahomePage implements OnInit {
 
   atras(){
     clearInterval(this.tiemposegundo) 
-    this.contador--;
+    if(this.contador != 1){
+      this.contador--;
+    }
     let navigationExtras: NavigationExtras = {
       queryParams: {
           count: this.contador,
@@ -150,7 +165,7 @@ export class BateriarutinaesperahomePage implements OnInit {
       }
     }
    
-    this.ruta.pop()
+    this.ruta.navigateForward([`/bateriarutinahome/${this.contador}`], navigationExtras)
   }
   
   

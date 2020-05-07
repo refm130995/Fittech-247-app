@@ -3,6 +3,9 @@
     margin: 0 auto;
     max-height: 150px;
   }
+  audio, canvas, progress, video {
+      height: 200px;
+  }
   
 .cabezera{
 max-height: 150px;

@@ -39,8 +39,6 @@ export class BateriacalentamientoesperahomePage implements OnInit {
 
     //pasar a mostrar los datos
     this.nombre = this.ApiService.calentamiento[this.contador]
-    console.log(this.nombre);
-    
     // this.nombre = this.ejercipro.name
 
     this.imagen = `http://fittech247.com/fittech/imagenes/${this.nombre.cod}/${this.nombre.id}.jpg`
@@ -55,7 +53,9 @@ export class BateriacalentamientoesperahomePage implements OnInit {
 
   }
 
-
+  atras(){
+    this.ruta.pop();
+  }
 
   startTimer() {
 
@@ -92,15 +92,7 @@ export class BateriacalentamientoesperahomePage implements OnInit {
     this.ruta.navigateForward([`/bateriacalentamientohome/${this.contador}`])
     this.pauseSonido()
   }
-  atras(){
-    this.ruta.navigateForward([`/bateriacalentamientohome/${this.dataRecibida}`])
-  }
-  ionViewDidLeave(){
-    clearInterval(this.tiemposegundo)
-    if(this.audio){
-      this.audio.pause();
-    }
-  }
+
 
    playSonido(){
   this.audio = new Audio();
@@ -118,6 +110,13 @@ export class BateriacalentamientoesperahomePage implements OnInit {
   
   pauseSonido(){
    this.audio.pause()
+  }
+
+  ionViewDidLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
   }
 
 }
