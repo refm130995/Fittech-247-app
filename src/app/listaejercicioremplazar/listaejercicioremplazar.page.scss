@@ -10,7 +10,10 @@ ion-thumbnail {
     width: auto !important;
     height: auto !important;
   }
-
+  .toolbar-background {
+    --background: black;
+    --color: white;
+}
 
   
   .contenedor-padre{

@@ -154,7 +154,6 @@ export class BateriarutinahomePage implements OnInit {
     }else{
       clearInterval(this.tiemposegundo) 
       this.pauseSonido();
-     /*  this.contador++; */
       let navigationExtras: NavigationExtras = {
         queryParams: {
             count: this.contador,
