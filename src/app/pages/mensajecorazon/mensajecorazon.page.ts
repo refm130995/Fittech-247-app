@@ -18,7 +18,7 @@ export class MensajecorazonPage implements OnInit {
     
     if(this.ApiService.latidocorazon === 6){
       this.titulo = "Excelente",
-      this.mensaje ="¡Felicitaciones!,tu frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."
+      this.mensaje ="¡Felicitaciones! tu frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."
     }
 
     if(this.ApiService.latidocorazon === 5){

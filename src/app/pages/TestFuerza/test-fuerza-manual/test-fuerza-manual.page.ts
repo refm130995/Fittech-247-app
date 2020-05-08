@@ -79,7 +79,7 @@ export class TestFuerzaManualPage implements OnInit {
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Porfavor espere...',
+      message: 'Por favor espere...',
     });
     await loading.present();
   }
