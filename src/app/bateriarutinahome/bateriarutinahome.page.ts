@@ -40,7 +40,6 @@ export class BateriarutinahomePage implements OnInit {
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService,
               private ruta:NavController, public platform: Platform,
               public alertController: AlertController) {
-
       // SE SUBCRIBE CUANDO LA RUTINA ES PAUSADA
     this.pausarApp =  this.platform.pause.subscribe(async () => {
          this.pauseTimer()
@@ -54,7 +53,6 @@ export class BateriarutinahomePage implements OnInit {
 
 
   async ngOnInit() {  
-
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
     console.log(this.ApiService.rutina)
     
@@ -143,7 +141,6 @@ export class BateriarutinahomePage implements OnInit {
 
   // SE LANZA ALA PANTALLA CORRESPONDIENTE 
   redirigir(){
-
     if(this.numero >= this.final){
       this.tiempo = setTimeout(()=>{
         clearInterval(this.tiemposegundo)
@@ -171,7 +168,7 @@ export class BateriarutinahomePage implements OnInit {
     if(this.audio){
       this.audio.pause();
     }
-  } 
+  }
   
   ngOnDestroy(){
     clearInterval(this.tiemposegundo)
@@ -292,7 +289,7 @@ export class BateriarutinahomePage implements OnInit {
           restar:this.restar
       }
     }
-    if(this.contador != 1){
+    if(this.contador != 1 && this.secuencia != 1){
       this.contador--;
       this.ruta.navigateForward([`/bateriarutinaesperahome/${this.restar}`], navigationExtras)
     }else{

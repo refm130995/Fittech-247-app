@@ -33,11 +33,10 @@ export class BateriarutinaesperahomePage implements OnInit {
 
       }
 
-  async ngOnInit() {
 
+  async ngOnInit() {
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
     console.log(this.ApiService.rutina)
-
     //  parametros del id
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     this.contador = parseInt(this.dataRecibida) + 1
@@ -59,9 +58,6 @@ export class BateriarutinaesperahomePage implements OnInit {
 
     this.timeLeft =  this.ApiService.rest
       this.startTimer()
-
-      
-
   }
 
 

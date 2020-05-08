@@ -14,7 +14,7 @@ export class BateriacalentamientofinalizarPage implements OnInit {
   }
 
   siguiente(){
-    this.ruta.navigateRoot(["/bateriarutinahome/0"])
+    this.ruta.navigateRoot(["/rutina-entrenamiento"])
   }
 
 }

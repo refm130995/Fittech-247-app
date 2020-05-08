@@ -17,7 +17,6 @@ export class CalentamientoInfoPage implements OnInit {
 
   async continuar(){
     const validar = await this.ApiService.obtenerCalentamiento()
-    
     if(validar){
       this.avanzar.navigateForward(["/bateriacalentamientohome/0"])
     }else{
@@ -27,7 +26,7 @@ export class CalentamientoInfoPage implements OnInit {
   }
 
   saltarCalentamiento(){
-    this.avanzar.navigateForward(["/bateriarutinahome/0"])
+    this.avanzar.navigateForward(["/rutina-entrenamiento"])
   }
 
 
