@@ -96,7 +96,6 @@ export class ApiFitechService {
   
   Registrar(persona:any){
     console.log(persona);
-    
     if(persona.password.length > 1) {
       return new Promise( resolve => {
         const data = {

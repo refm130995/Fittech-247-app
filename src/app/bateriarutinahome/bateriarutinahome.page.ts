@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiFitechService } from '../services/api-fitech.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { NavController, AlertController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 
@@ -33,12 +33,13 @@ export class BateriarutinahomePage implements OnInit {
   restar:any
   secuencia:number
   serie:any
-  sumatorio:number
-
+  sumatorio:any
+  btn:boolean = false;
+  contador = 1;
+  secuencia_ = 1;
   constructor(private capturar:ActivatedRoute, private ApiService:ApiFitechService,
               private ruta:NavController, public platform: Platform,
               public alertController: AlertController) {
-
       // SE SUBCRIBE CUANDO LA RUTINA ES PAUSADA
     this.pausarApp =  this.platform.pause.subscribe(async () => {
          this.pauseTimer()
@@ -66,19 +67,18 @@ export class BateriarutinahomePage implements OnInit {
   }
 
   async ngOnInit() {  
-
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
     console.log(this.ApiService.rutina)
     
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
-    console.log("valor recibido del parametro", this.dataRecibida)
+ 
+ 
 
     //cantidad de ejericio faltante
     this.numero = parseInt(this.dataRecibida) + 1
 
     // restara
     this.restar = parseInt(this.dataRecibida) - 1
-
 
     //comprobar longitud de la serie de ejercicio
     this.final = this.ApiService.rutina
@@ -95,9 +95,27 @@ export class BateriarutinahomePage implements OnInit {
     this.serie = this.ApiService.rutina
     this.serie = this.serie.filter( value =>  value.stage ===  this.secuencia)
     this.serie = this.serie.length
-
+    this.capturar.queryParams.subscribe(params => {
+      let data = params["count"];
+      let secuence =  params["secuence"];
+      console.log('SECUENCIA_', this.secuencia_);
+  console.log('CONTADOR_', this.contador);
+      if(data) this.contador = data;
+      if(secuence) this.secuencia_ = secuence;
+  });
+  if(this.secuencia_ < this.secuencia ){
+    this.contador = 1;
+    this.secuencia_ = this.secuencia;
+  }
+  if(this.contador == 0){
+    this.contador = this.serie;
+  }
+  if(this.contador > this.serie){
+    this.contador = 1;
+  }
   
-
+  console.log('SECUENCIA', this.secuencia_);
+  console.log('CONTADOR', this.contador);
     // los videos
     this.video = `http://fittech247.com/fittech/videos/${this.nombre.cod}/${this.nombre.url}`
     console.log(this.video)
@@ -137,7 +155,6 @@ export class BateriarutinahomePage implements OnInit {
 
   // SE LANZA ALA PANTALLA CORRESPONDIENTE 
   redirigir(){
-
     if(this.numero >= this.final){
       this.tiempo = setTimeout(()=>{
         clearInterval(this.tiemposegundo)
@@ -147,15 +164,38 @@ export class BateriarutinahomePage implements OnInit {
 
     }else{
       clearInterval(this.tiemposegundo) 
-      this.pauseSonido()
-      this.ruta.navigateRoot([`/bateriarutinaesperahome/${this.dataRecibida}`])
+      this.pauseSonido();
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+            count: this.contador,
+            secuence: this.secuencia_
+        }
+      }
+      this.ruta.navigateRoot([`/bateriarutinaesperahome/${this.dataRecibida}`], navigationExtras)
       
     }
 
   }
+
+  ionViewDidLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+  }
+  
+  ngOnDestroy(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+  }
+
+
   
   //CONOMETRO
   startTimer() {
+    this.btn = true;
     this.tiemposegundo = setInterval(() => {
 
       if(this.timeLeft <= 10){
@@ -245,19 +285,43 @@ export class BateriarutinahomePage implements OnInit {
   // cierra la subcripcion
   ionViewWillLeave(){
     console.log("cerrar la supcripcion")
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
     this.ReanudarAPP.unsubscribe();
     this.pausarApp.unsubscribe();
   }
   
   atras(){
     clearInterval(this.tiemposegundo) 
-    this.ApiService.contadorRutinaRestar(2)
-    this.ruta.navigateRoot([`/bateriarutinahome/${this.restar}`])
+   
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          count: this.contador,
+          secuence: this.secuencia_,
+          restar:this.restar
+      }
+    }
+    if(this.contador != 1 && this.secuencia != 1){
+      this.contador--;
+      this.ruta.navigateForward([`/bateriarutinaesperahome/${this.restar}`], navigationExtras)
+    }else{
+      this.ruta.navigateRoot([`/calentamiento-info`])
+    }
   }
 
   siguiente(){
     clearInterval(this.tiemposegundo) 
-   this.ruta.navigateRoot([`/bateriarutinahome/${this.numero}`])
+   
+   let navigationExtras: NavigationExtras = {
+      queryParams: {
+          count: this.contador,
+          secuence: this.secuencia_,
+          restar: this.restar
+      }
+    }
+   this.ruta.navigateForward([`/bateriarutinaesperahome/${this.numero-1}`], navigationExtras)
   }
 
 

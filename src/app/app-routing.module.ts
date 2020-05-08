@@ -219,7 +219,11 @@ const routes: Routes = [
   {
     path: 'estiramientos',
     loadChildren: () => import('./estiramientos/estiramientos.module').then( m => m.EstiramientosPageModule)
+  },  {
+    path: 'rutina-entrenamiento',
+    loadChildren: () => import('./rutina-entrenamiento/rutina-entrenamiento.module').then( m => m.RutinaEntrenamientoPageModule)
   },
+
 
 ];
 

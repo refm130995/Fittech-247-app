@@ -53,7 +53,9 @@ export class BateriacalentamientoesperahomePage implements OnInit {
 
   }
 
-
+  atras(){
+    this.ruta.pop();
+  }
 
   startTimer() {
 
@@ -87,7 +89,7 @@ export class BateriacalentamientoesperahomePage implements OnInit {
 
   redirigir(){
     clearInterval(this.tiemposegundo)
-    this.ruta.navigateRoot([`/bateriacalentamientohome/${this.contador}`])
+    this.ruta.navigateForward([`/bateriacalentamientohome/${this.contador}`])
     this.pauseSonido()
   }
 
@@ -108,6 +110,13 @@ export class BateriacalentamientoesperahomePage implements OnInit {
   
   pauseSonido(){
    this.audio.pause()
+  }
+
+  ionViewDidLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
   }
 
 }

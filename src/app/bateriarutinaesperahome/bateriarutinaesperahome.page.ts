@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { ApiFitechService } from '../services/api-fitech.service';
 import { NavController, Platform } from '@ionic/angular';
 
@@ -25,16 +25,18 @@ export class BateriarutinaesperahomePage implements OnInit {
   imagen
   nombre
   mostrartitulo = false
+  contator_: any;
+  secuence: any;
+  restar: any;
   constructor(private capturar:ActivatedRoute , private ApiService:ApiFitechService,
               private ruta:NavController) { 
 
       }
 
-  async ngOnInit() {
 
+  async ngOnInit() {
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
     console.log(this.ApiService.rutina)
-
     //  parametros del id
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     this.contador = parseInt(this.dataRecibida) + 1
@@ -45,13 +47,17 @@ export class BateriarutinaesperahomePage implements OnInit {
 
     this.imagen = `http://fittech247.com/fittech/imagenes/${this.ejercipro.cod}/${this.ejercipro.id}.jpg`
     console.log(this.imagen)
-
+    this.capturar.queryParams.subscribe(params => {
+      let data = params["count"];
+      let secuence = params["secuence"];
+      let restar = params["restar"];
+      if(data) this.contator_ = data;
+      if(secuence) this.secuence = secuence;
+      if(restar) this.restar = restar;
+  });
 
     this.timeLeft =  this.ApiService.rest
       this.startTimer()
-
-      
-
   }
 
 
@@ -89,10 +95,37 @@ export class BateriarutinaesperahomePage implements OnInit {
 
   }
 
+  ionViewDidLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause()
+    }
+  }
+
   redirigir(){
     clearInterval(this.tiemposegundo)
-    this.ruta.navigateRoot([`/bateriarutinahome/${this.contador}`])
+    this.contator_++;
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          count: this.contator_,
+          secuence: this.secuence
+      }
+    }
+    this.ruta.navigateRoot([`/bateriarutinahome/${this.contador}`], navigationExtras)
     this.pauseSonido()
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+  }
+  ionViewWillLeave(){
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
   }
 
 
@@ -111,9 +144,26 @@ export class BateriarutinaesperahomePage implements OnInit {
   // }
   
   pauseSonido(){
-   this.audio.pause()
+    if (this.audio) {
+      this.audio.pause()
+    }
   }
 
+  atras(){
+    clearInterval(this.tiemposegundo) 
+    if(this.contador != 1){
+      this.contador--;
+    }
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          count: this.contador,
+          secuence: this.secuence
+      }
+    }
+   
+    this.ruta.navigateForward([`/bateriarutinahome/${this.contador}`], navigationExtras)
+  }
+  
   
 
 

@@ -1,7 +1,12 @@
 <ion-header [translucent]="true" class="ion-no-border">
-  <div class="cabezera">
-    <img src="assets/img/logo-app.png" class="logo">
-  </div>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-btn></app-back-btn>
+    </ion-buttons>
+    <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+    </div>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" slot="fixed">
@@ -73,5 +78,4 @@
 
   </div>
 </ion-content>
-<app-back-btn></app-back-btn>
 
