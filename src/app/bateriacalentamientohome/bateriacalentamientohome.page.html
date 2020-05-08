@@ -9,69 +9,89 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- Logo incluido ante no estaba -->
 
-<video #myVideo  playsinline 
-(loadedmetadata)="onMetadata($event, video)"
-width="100%"
-loop
-poster="assets/img/videogif.gif">
-  <source [src]= "video" *ngIf="video" />
-</video>
 
-<!-- #F4F3F1 -->
+<!-- contenedor descanso -->
+<ion-content *ngIf="status == 'descanso'">
+  <ion-grid class="grid1">
+    <ion-row>
+      <p class="ion-text-center titulo2" style="margin-top: 0; margin-bottom: 0; padding-top: 0;">Comienza en</p>
+      <p class="center">0{{timeLeft}}</p>
+      <p class="center do">Tu siguiente ejercicio es: </p>
+      <p class="center do" style="color: red;">{{nombre || capitalize}} </p>
+      <ion-col class="centerdo" size="8" style="padding: 0px;">
+        <img *ngIf="imagen" [src]="imagen">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="grid2">
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button color="light" (click)="atras_()" class="animated fadeIn delay-2s">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 
-<ion-content>
 
-  <div class="contenedor">
-
-    <div class="contenedor-cuerpo">
-      <p class="reloj">{{zero}}{{timeLeft}}</p>
-    </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+      <ion-fab-button color="light" (click)="siguiente_()" class="animated fadeIn delay-2s">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <h1 class="titulodescanso" style="margin-top: 0px !important;color: red;">Descanso</h1>
   </div>
-  
-
 </ion-content>
 
-<!--
-<div class="ion-grid1" style="background-color:rgb(6, 72, 255);" >
-  <ion-row>
-    <ion-col size="12">
-      <p class="ion-text-center titulo">Test de capacidad</p>
-      <p class="ion-text-center titulo">{{nombre.name}}</p>
-       <p class="ion-text-center titulo">Ejercicio {{numero}} de {{final}}</p>
-    </ion-col>
-  </ion-row>
-</div>
-
- <div class="ion-grid2" style="background-color:rgb(255, 14, 6);" >
-  <p class="centrartiempo">00:{{timeLeft}}</p>
-</div> -->
+<!-- contenedor rutina -->
+<ng-container *ngIf="status == 'rutina'">
+  <!-- Video -->
+  <video #myVideo  playsinline 
+  muted="muted" 
+  width="100%"
+  loop
+  poster="assets/img/videogif.gif">
+    <source [src]= "video" *ngIf="video" />
+  </video>
 
 
+  <ion-content>
 
+    <div class="contenedor">
+  
+      <div class="contenedor-cuerpo">
+        <!-- <h2 class="text-reloj-titulo">SECUENCIA {{secuencia}}</h2> -->
+        <h3 class="text-reloj-titulo">SERIE {{actual+1}}/{{total}}</h3>
+        <p class="reloj">{{zero}}{{timeLeft}}</p>
+        <p class="text-reloj">¡De tu esfuerzo depende tu resultado,no pares!</p>
+      </div>
+    </div>
+      
+  </ion-content>
 
-<ion-fab vertical="bottom"  horizontal="center" slot="fixed" *ngIf="mostrar">
-  <ion-fab-button color="danger" (click)="pauseTimer()">
-    <ion-icon name="pause-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
-<ion-fab vertical="bottom"  horizontal="center" slot="fixed"*ngIf="!mostrar">
-  <ion-fab-button color="danger" (click)="playTimer()">
-    <ion-icon name="play-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-<ion-fab vertical="bottom"  horizontal="end" slot="fixed" (click)="redirigir()">
-  <ion-fab-button color="light" >
-    <ion-icon name="arrow-forward-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-<ion-fab vertical="bottom"  horizontal="start" slot="fixed"(click)="atras()">
-  <ion-fab-button color="light" >
-    <ion-icon name="arrow-back-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
-
-
+  <ion-fab vertical="bottom"   horizontal="start" slot="fixed" *ngIf="ready">
+    <ion-fab-button color="light" (click)="atras()" *ngIf="btn">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-fab vertical="bottom"   horizontal="end" slot="fixed" *ngIf="ready">
+    <ion-fab-button color="light" (click)="siguiente()" *ngIf="btn">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-fab vertical="bottom"  horizontal="center" slot="fixed" *ngIf="mostrar" >
+    <ion-fab-button color="danger" (click)="pauseTimer()">
+      <ion-icon name="pause-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-fab vertical="bottom"  horizontal="center" slot="fixed" *ngIf="!mostrar">
+    <ion-fab-button color="danger" (click)="playTimer()">
+      <ion-icon name="play-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  </ng-container>
