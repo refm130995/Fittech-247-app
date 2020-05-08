@@ -40,10 +40,13 @@ export class HistorialComponent implements OnInit {
   }
 
 
-  historialmedico(datos){
-  
-    if(datos == 'enfermedad'){
+  historialmedico(datos?){
+
+
+    if(typeof (datos) == 'string'){
       if(this.datoEnfermedades.noEnfermedad){
+        console.log('Entro');
+         this.habilitar = false 
         this.datoEnfermedades.patologiaCardiaca = 0
         this.datoEnfermedades.enfermedadPulmonar = 0
         this.datoEnfermedades.hipertension = 0
@@ -63,182 +66,186 @@ export class HistorialComponent implements OnInit {
         this.datoEnfermedades.dolorPecho = 0
         this.datoEnfermedades.fatiga = 0
         //habilitar boton
-        this.habilitar = false
 
+      }else{
+        this.habilitar = true
       }
       
-    }
-
-    if(this.datoEnfermedades.hipertension){
-      this.datoEnfermedades.hipertension = 1
-      this.datoEnfermedades.noEnfermedad = false
-        //habilitar boton
-        this.habilitar = false
-
     }else{
-      this.datoEnfermedades.hipertension = 0
+      if(this.datoEnfermedades.hipertension){
+        this.datoEnfermedades.hipertension = 1
+        this.datoEnfermedades.noEnfermedad = false
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.hipertension = 0
+      }
+  
+      if(this.datoEnfermedades.hipotension){
+        this.datoEnfermedades.hipotension = 1
+        this.datoEnfermedades.noEnfermedad = false
+                //habilitar boton
+                this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.hipotension = 0
+      }
+  
+      if(this.datoEnfermedades.desvanecimiento){
+        this.datoEnfermedades.desvanecimiento = 1
+        this.datoEnfermedades.noEnfermedad = false
+                //habilitar boton
+                this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.desvanecimiento = 0
+      }
+  
+      if(this.datoEnfermedades.diabete){
+        this.datoEnfermedades.diabete = 1
+        this.datoEnfermedades.noEnfermedad = false
+                //habilitar boton
+                this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.diabete = 0
+      }
+  
+      if(this.datoEnfermedades.dolorPecho){
+        this.datoEnfermedades.dolorPecho = 1
+        this.datoEnfermedades.noEnfermedad = false
+                //habilitar boton
+                this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.dolorPecho = 0
+      }
+  
+      if(this.datoEnfermedades.fatiga){
+        this.datoEnfermedades.fatiga = 1
+        this.datoEnfermedades.noEnfermedad = false
+                //habilitar boton
+                this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.fatiga = 0
+      }
+  
+      if(this.datoEnfermedades.asma){
+        this.datoEnfermedades.asma = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.enfermedadPulmonar = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.asma = 0
+      }
+  
+      if(this.datoEnfermedades.bronquiti){
+        this.datoEnfermedades.bronquiti = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.enfermedadPulmonar = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.bronquiti = 0
+      }
+  
+      if(this.datoEnfermedades.aritmias){
+        this.datoEnfermedades.aritmias = 1
+        this.datoEnfermedades.noEnfermedad = false
+  
+        this.datoEnfermedades.patologiaCardiaca = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.aritmias = 0
+      }
+  
+      if(this.datoEnfermedades.soplo){
+        this.datoEnfermedades.soplo = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.patologiaCardiaca = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.soplo = 0
+      }
+  
+      if(this.datoEnfermedades.influenza){
+        this.datoEnfermedades.influenza = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.enfermedadPulmonar = 1
+          //habilitar boton
+          this.habilitar = false
+      }else{
+        this.datoEnfermedades.influenza = 0
+      }
+  
+      if(this.datoEnfermedades.infartos){
+        this.datoEnfermedades.infartos = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.patologiaCardiaca = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.infartos = 0
+      }
+  
+      if(this.datoEnfermedades.insuficiencia){
+        this.datoEnfermedades.insuficiencia = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.patologiaCardiaca = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.insuficiencia = 0
+      }
+  
+      if(this.datoEnfermedades.taquicardia){
+        this.datoEnfermedades.taquicardia = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.patologiaCardiaca = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.taquicardia = 0
+      }
+  
+      if(this.datoEnfermedades.pulmonarcronica){
+        this.datoEnfermedades.pulmonarcronica = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.enfermedadPulmonar = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.pulmonarcronica = 0
+      }
+  
+      if(this.datoEnfermedades.hipertensionPulmonar){
+        this.datoEnfermedades.hipertensionPulmonar = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.enfermedadPulmonar = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.hipertensionPulmonar = 0 
+      }
     }
+    console.log(datos);
 
-    if(this.datoEnfermedades.hipotension){
-      this.datoEnfermedades.hipotension = 1
-      this.datoEnfermedades.noEnfermedad = false
-              //habilitar boton
-              this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.hipotension = 0
-    }
-
-    if(this.datoEnfermedades.desvanecimiento){
-      this.datoEnfermedades.desvanecimiento = 1
-      this.datoEnfermedades.noEnfermedad = false
-              //habilitar boton
-              this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.desvanecimiento = 0
-    }
-
-    if(this.datoEnfermedades.diabete){
-      this.datoEnfermedades.diabete = 1
-      this.datoEnfermedades.noEnfermedad = false
-              //habilitar boton
-              this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.diabete = 0
-    }
-
-    if(this.datoEnfermedades.dolorPecho){
-      this.datoEnfermedades.dolorPecho = 1
-      this.datoEnfermedades.noEnfermedad = false
-              //habilitar boton
-              this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.dolorPecho = 0
-    }
-
-    if(this.datoEnfermedades.fatiga){
-      this.datoEnfermedades.fatiga = 1
-      this.datoEnfermedades.noEnfermedad = false
-              //habilitar boton
-              this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.fatiga = 0
-    }
-
-    if(this.datoEnfermedades.asma){
-      this.datoEnfermedades.asma = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.enfermedadPulmonar = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.asma = 0
-    }
-
-    if(this.datoEnfermedades.bronquiti){
-      this.datoEnfermedades.bronquiti = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.enfermedadPulmonar = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.bronquiti = 0
-    }
-
-    if(this.datoEnfermedades.aritmias){
-      this.datoEnfermedades.aritmias = 1
-      this.datoEnfermedades.noEnfermedad = false
-
-      this.datoEnfermedades.patologiaCardiaca = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.aritmias = 0
-    }
-
-    if(this.datoEnfermedades.soplo){
-      this.datoEnfermedades.soplo = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.patologiaCardiaca = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.soplo = 0
-    }
-
-    if(this.datoEnfermedades.influenza){
-      this.datoEnfermedades.influenza = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.enfermedadPulmonar = 1
-        //habilitar boton
-        this.habilitar = false
-    }else{
-      this.datoEnfermedades.influenza = 0
-    }
-
-    if(this.datoEnfermedades.infartos){
-      this.datoEnfermedades.infartos = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.patologiaCardiaca = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.infartos = 0
-    }
-
-    if(this.datoEnfermedades.insuficiencia){
-      this.datoEnfermedades.insuficiencia = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.patologiaCardiaca = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.insuficiencia = 0
-    }
-
-    if(this.datoEnfermedades.taquicardia){
-      this.datoEnfermedades.taquicardia = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.patologiaCardiaca = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.taquicardia = 0
-    }
-
-    if(this.datoEnfermedades.pulmonarcronica){
-      this.datoEnfermedades.pulmonarcronica = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.enfermedadPulmonar = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.pulmonarcronica = 0
-    }
-
-    if(this.datoEnfermedades.hipertensionPulmonar){
-      this.datoEnfermedades.hipertensionPulmonar = 1
-      this.datoEnfermedades.noEnfermedad = false
-      this.datoEnfermedades.enfermedadPulmonar = 1
-        //habilitar boton
-        this.habilitar = false
-
-    }else{
-      this.datoEnfermedades.hipertensionPulmonar = 0
-    }
-
+    console.log(this.datoEnfermedades);
+    console.log(this.habilitar);
 }
 
    

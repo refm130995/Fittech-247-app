@@ -42,7 +42,7 @@
     </ion-slide>
 
     <ion-slide *ngIf="slideshow == 4" class="animated slideInLeft delay-1s">
-      <app-antecedentefmliar></app-antecedentefmliar>
+      <app-antecedentefmliar (cambiarPantalla)="cambiar($event)"></app-antecedentefmliar>
     </ion-slide>
   </ion-slides>
 </ion-content>

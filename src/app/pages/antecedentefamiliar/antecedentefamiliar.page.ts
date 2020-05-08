@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
@@ -11,6 +11,7 @@ import { LoadingController, NavController } from '@ionic/angular';
   styleUrls: ['./antecedentefamiliar.page.scss'],
 })
 export class AntecedentefamiliarPage implements OnInit {
+  @Output() cambiarPantalla = new EventEmitter();
   condicionPersona = {
     arritmia_corazon:false,
     ataque_corazon:false,
@@ -88,9 +89,13 @@ export class AntecedentefamiliarPage implements OnInit {
 
 async presentLoading() {
   const loading = await this.loadingController.create({
-    message: 'Porfavor espere...',
+    message: 'Por favor espere...',
   });
   await loading.present();
+}
+
+atras(){
+  this.cambiarPantalla.emit(2)
 }
 
 }

@@ -3,9 +3,9 @@
   </ion-text>?</h2>
   <ion-item lines="none" class="animated fadeInLeft delay-1s" >
                       <!--22-->
-    <ion-label style="font-size: 18px;font-size: 18px;
-    position: relative;
-    left: 20%;
+    <ion-label style="font-size: 18px;position: absolute;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;" *ngIf="!valor">Seleccionar</ion-label>
     <ion-select interface="action-sheet" cancel-text="salir" (ionChange)="imc($event)">
       <ion-select-option value="0">18-25</ion-select-option>

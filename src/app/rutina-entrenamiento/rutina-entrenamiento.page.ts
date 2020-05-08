@@ -146,10 +146,10 @@ export class RutinaEntrenamientoPage implements OnInit {
 
   atras() {
     if (this.actual < 1 && this.secuencia <= 1) {
+      clearInterval(this.tiemposegundo);
       this.navCtrl.pop();
     } else {
       clearInterval(this.tiemposegundo);
-
       this.timerDescanse();
       this.status = 'descanso';
     }
