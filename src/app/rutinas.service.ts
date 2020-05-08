@@ -25,4 +25,27 @@ export class RutinasService {
           })
       })
   }
+
+  getCalentamiento(){
+    return new Promise( async resolve => {
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + await this.storage.get('token'),
+        'Content-Type':'application/json',
+      })
+      this.http.get(`${this.URL}/auth/exercise-heating`,{headers})
+          .subscribe(res=>{
+            console.log(res);
+            resolve(res)
+          },err=>{
+            resolve(err)
+          })
+      })
+  }
+
+
+
+
+
+
+
 }

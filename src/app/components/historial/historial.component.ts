@@ -152,6 +152,8 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.bronquiti = 0
+        this.datoEnfermedades.enfermedadPulmonar = 0
+
       }
   
       if(this.datoEnfermedades.aritmias){
@@ -164,6 +166,8 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.aritmias = 0
+        this.datoEnfermedades.patologiaCardiaca = 0
+
       }
   
       if(this.datoEnfermedades.soplo){
@@ -175,6 +179,7 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.soplo = 0
+        this.datoEnfermedades.patologiaCardiaca = 0
       }
   
       if(this.datoEnfermedades.influenza){
@@ -185,6 +190,8 @@ export class HistorialComponent implements OnInit {
           this.habilitar = false
       }else{
         this.datoEnfermedades.influenza = 0
+        this.datoEnfermedades.enfermedadPulmonar = 0
+
       }
   
       if(this.datoEnfermedades.infartos){
@@ -196,6 +203,8 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.infartos = 0
+        this.datoEnfermedades.patologiaCardiaca = 0
+        
       }
   
       if(this.datoEnfermedades.insuficiencia){
@@ -207,6 +216,7 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.insuficiencia = 0
+        this.datoEnfermedades.patologiaCardiaca = 0
       }
   
       if(this.datoEnfermedades.taquicardia){
@@ -218,6 +228,7 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.taquicardia = 0
+        this.datoEnfermedades.patologiaCardiaca = 0
       }
   
       if(this.datoEnfermedades.pulmonarcronica){
@@ -229,6 +240,8 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.pulmonarcronica = 0
+        this.datoEnfermedades.enfermedadPulmonar = 0
+
       }
   
       if(this.datoEnfermedades.hipertensionPulmonar){
@@ -240,6 +253,8 @@ export class HistorialComponent implements OnInit {
   
       }else{
         this.datoEnfermedades.hipertensionPulmonar = 0 
+        this.datoEnfermedades.enfermedadPulmonar = 0
+
       }
     }
     console.log(datos);
@@ -262,10 +277,37 @@ export class HistorialComponent implements OnInit {
  
 
   avanzar(){
+    
+    if(
+      this.datoEnfermedades.aritmias === 0 && 
+      this.datoEnfermedades.asma === 0  && 
+      this.datoEnfermedades.bronquiti === 0  && 
+      this.datoEnfermedades.desvanecimiento === 0  && 
+      this.datoEnfermedades.diabete === 0  && 
+      this.datoEnfermedades.dolorPecho === 0  && 
+      this.datoEnfermedades.enfermedadPulmonar === 0  && 
+      this.datoEnfermedades.fatiga === 0  && 
+      this.datoEnfermedades.hipertension === 0  && 
+      this.datoEnfermedades.hipertensionPulmonar === 0  && 
+      this.datoEnfermedades.hipotension === 0  && 
+      this.datoEnfermedades.infartos === 0  && 
+      this.datoEnfermedades.influenza === 0  && 
+      this.datoEnfermedades.insuficiencia === 0  && 
+      this.datoEnfermedades.patologiaCardiaca === 0  && 
+      this.datoEnfermedades.pulmonarcronica === 0  && 
+      this.datoEnfermedades.soplo === 0  && 
+      this.datoEnfermedades.taquicardia === 0 ){
+      this.habilitar = true
+    }else{
+      this.usuarioservicio.enfermedades(this.datoEnfermedades)
+      this.siguientePantalla.emit(1);
+    }
 
-    console.log(this.datoEnfermedades)
-    this.usuarioservicio.enfermedades(this.datoEnfermedades)
-    this.siguientePantalla.emit(1);
+
+
+
+
+
    /*  this.ruta.navigateRoot(['/registrar-info']) */
   }
 

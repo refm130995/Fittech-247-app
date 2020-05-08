@@ -51,6 +51,20 @@ export class BateriarutinahomePage implements OnInit {
                 
   }
 
+  ionViewDidEnter(){
+
+    if(this.ApiService.secuencia === this.secuencia){
+         this.ApiService.contadorRutinaSumar(1)
+        this.sumatorio = this.ApiService.contadorRutina
+    }else{
+      this.ApiService.contadorRutina = 0
+      this.ApiService.contadorRutinaSumar(1)
+      this.sumatorio = this.ApiService.contadorRutina
+      this.ApiService.secuencia = this.secuencia
+    }
+
+
+  }
 
   async ngOnInit() {  
     //  aca vas hacer la logica para que no se pierda la referencia de los datos
