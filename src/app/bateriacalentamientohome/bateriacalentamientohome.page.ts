@@ -17,7 +17,7 @@ export class BateriacalentamientohomePage  {
   total: number;
   video: string;
   btn: boolean;
-  tiemposegundo: NodeJS.timerout;
+  tiemposegundo: NodeJS.Timeout;
   timeLeft: number;
   zero: number;
   mostrar: boolean = true;
@@ -170,33 +170,14 @@ export class BateriacalentamientohomePage  {
     }, 1000)
   }
 
+
   atras_() {
     clearInterval(this.tiemposegundo);
-    console.log(this.actual);
-    console.log(this.secuencia)
-    if (this.actual == 0 && this.secuencia > 1) {
-      this.secuencia--;
-      this.setValues();
-      this.actual = this.total - 1;
-      console.log(this.secuencia, this.actual);
-
-      clearInterval(this.tiemposegundo);
-      this.status = 'rutina';
-      this.startVideo();
-    } else {
-      if (this.actual != 0) {
-        this.actual--;
-        this.status = 'rutina';
-        this.startVideo();
-      } else if (this.secuencia > 1) {
-        this.secuencia--;
-        this.setValues();
-        this.actual = this.total - 1;
-        this.status = 'rutina';
-        this.startVideo();
-      }
-    }
+    this.status = 'rutina';
+    this.startVideo();
   }
+
+
 
   siguiente_() {
     clearInterval(this.tiemposegundo);

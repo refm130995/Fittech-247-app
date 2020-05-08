@@ -25,7 +25,7 @@ export class RutinaEntrenamientoPage implements OnInit {
   total: number;
   video: string;
   btn: boolean;
-  tiemposegundo: NodeJS.timerout;
+  tiemposegundo: NodeJS.Timeout;
   timeLeft: number;
   zero: number;
   mostrar: boolean = true;
