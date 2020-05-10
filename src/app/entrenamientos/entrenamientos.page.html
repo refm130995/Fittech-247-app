@@ -1,11 +1,15 @@
-<ion-header>
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+      <app-back-btn></app-back-btn>
     </ion-buttons>
-    <ion-title class="ion-text-center" mode="ios">Tu entrenamientos</ion-title>
+    <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+    </div>
   </ion-toolbar>
 </ion-header>
+
+<!-- cabezera -->
 
 <ion-content fullscreen>
   
@@ -17,8 +21,8 @@
   </div>
 
   <ion-list *ngIf="stage1.length > 0" style="padding-top: 0px;">
-    <p class="ion-text-center opci"><b> Secuencia 1 </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
-    <p class="ion-text-center opci"><b>Series a completar</b> <b style="color:red"> {{ calculateRepetitions(1) }} </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
+    <p class="ion-text-center opci incrementar"><b> Secuencia <span style="color:red"> 1 </span> </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
+    <p class="ion-text-left opci"><b>Series a completar</b> <b style="color:red"> {{ calculateRepetitions(1) }} </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
 
     <ion-item *ngFor="let ejercicio of stage1; trackBy: customTB">
 
@@ -39,8 +43,8 @@
   </ion-list>
 
   <ion-list *ngIf="stage2.length > 0">
-    <p class="ion-text-center opci"><b> Secuencia 2 </b><!--  <b style="color: red;"> X </b>  <b>{{stage2.totalRepeat}}</b> --></p>
-    <p class="ion-text-center opci"><b>Series a completar</b> <b style="color:red"> {{ calculateRepetitions(2) }} </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
+    <p class="ion-text-center opci incrementar"><b> Secuencia <span style="color:red"> 2 </span> </b><!--  <b style="color: red;"> X </b>  <b>{{stage2.totalRepeat}}</b> --></p>
+    <p class="ion-text-left opci"><b>Series a completar</b> <b style="color:red"> {{ calculateRepetitions(2) }} </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
 
     <ion-item *ngFor="let ejercicio of stage2; trackBy: customTB">
       <ion-thumbnail slot="start">
@@ -59,8 +63,8 @@
   </ion-list>
 
   <ion-list *ngIf="stage3.length > 0">
-    <p class="ion-text-center opci"><b> Secuencia 3 </b><!-- <b style="color: red;"> X </b>  <b>{{stage3.totalRepeat}}</b> --> </p>
-    <p class="ion-text-center opci"><b>Series a completar</b> <b style="color:red"> {{ calculateRepetitions(3) }} </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
+    <p class="ion-text-center opci incrementar"><b> Secuencia <span style="color:red"> 3 </span>   </b><!-- <b style="color: red;"> X </b>  <b>{{stage3.totalRepeat}}</b> --> </p>
+    <p class="ion-text-left opci"><b>Series a completar</b> <b style="color:red"> {{ calculateRepetitions(3) }} </b> <!-- <b style="color: #ff0000;"> X </b>  <b>{{stage1.totalRepeat}}</b> --> </p>
 
     <ion-item *ngFor="let ejercicio of stage3; trackBy: customTB">
       <ion-thumbnail slot="start">

@@ -28,7 +28,7 @@ export class MensajecapacidadPage implements OnInit {
     console.log("LO QUE HIZO EL USUARIO",this.contador)
 
     if(this.contador == 0){
-      this.nivel = 'Basico';
+      this.nivel = 'Básico';
       this.mensaje ="Felicidades por empezar un nuevo estilo de vida con hábitos saludables, mucho esfuerzo para alcanzar el siguiente nivel."
     }
 

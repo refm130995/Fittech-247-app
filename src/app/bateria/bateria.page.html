@@ -1,8 +1,13 @@
-  <!-- full screan -->
-  <div class="fullscrean"  (click)="fullscreen()"> 
-    <ion-icon name="scan-outline"></ion-icon>
-  </div>
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+    </div>
+  </ion-toolbar>
+</ion-header>
 
+<!-- cabezera -->
+  
 
 <video #myVideo  playsinline  width="100%" (ended)="videoEnd()"
   autoplay

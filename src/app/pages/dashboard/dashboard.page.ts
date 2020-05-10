@@ -128,8 +128,14 @@ export class DashboardPage implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Fittech',
+      cssClass: 'customMensaje',
       message: 'Lo sentimos, lo más que queremos es ayudarte, pero no estás apto para continuar según la información de salud que nos diste, te recomendamos ir al médico, y te esperamos de vuelta pronto.',
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'Ok',
+          cssClass: 'confirmButton'
+        }
+      ]
     });
 
     await alert.present();

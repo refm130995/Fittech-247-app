@@ -18,32 +18,38 @@ export class MensajecorazonPage implements OnInit {
     
     if(this.ApiService.latidocorazon === 6){
       this.titulo = "Excelente",
-      this.mensaje ="¡Felicitaciones! tu frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."
+      this.mensaje ="tú frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."
+      // ¡Felicitaciones!
     }
 
     if(this.ApiService.latidocorazon === 5){
       this.titulo = "Buena",
-      this.mensaje ="¡Estupendo! tu frecuencia cardiaca está entre las buenas de acuerdo a tu edad y género."
+      this.mensaje ="tú frecuencia cardiaca está entre las buenas de acuerdo a tu edad y género."
+      // ¡Estupendo! 
     }
 
     if(this.ApiService.latidocorazon === 4){
       this.titulo = "Por encima de la media",
-      this.mensaje ="¡Muy bien!, tú frecuencia cardiaca está por encima del promedio de acuerdo a tu edad y género."
+      this.mensaje ="tú frecuencia cardiaca está por encima del promedio de acuerdo a tu edad y género."
+      // ¡Muy bien!, 
     }
 
     if(this.ApiService.latidocorazon === 3){
       this.titulo = "Media",
-      this.mensaje ="¡Muy bien!, tú frecuencia cardiaca está en promedio de acuerdo a tu edad y género."
+      this.mensaje ="tú frecuencia cardiaca está en promedio de acuerdo a tu edad y género."
+      // ¡Muy bien!, 
     }
 
     if(this.ApiService.latidocorazon === 2){
       this.titulo = "Por de bajo de la media",
-      this.mensaje ="¡No hay problema!, Vamos a mejorar! tu frecuencia cardiaca está por debajo del promedio de acuerdo a tu edad y género."
+      this.mensaje ="tú frecuencia cardiaca está por debajo del promedio de acuerdo a tu edad y género."
+      // ¡No hay problema!, Vamos a mejorar! 
     }
 
     if(this.ApiService.latidocorazon === 1){
       this.titulo = "Mala",
-      this.mensaje = "Con esfuerzo todo se puede, ¡A trabajar!, tu frecuencia cardiaca es malo de acuerdo a tu edad y género."
+      this.mensaje = "tú frecuencia cardiaca es malo de acuerdo a tu edad y género."
+      // Con esfuerzo todo se puede, ¡A trabajar!, 
     }
 
     if(this.ApiService.latidocorazon === 0){
@@ -94,8 +100,14 @@ export class MensajecorazonPage implements OnInit {
     async presentAlert() {
       const alert = await this.alertController.create({
         header: 'Fittech',
+        cssClass: 'customMensaje',
         message: 'Lo sentimos, lo más que queremos es ayudarte, pero no estás apto para continuar según la información de salud que nos diste, te recomendamos ir al médico, y te esperamos de vuelta pronto.',
-        buttons: ['OK']
+        buttons: [
+          {
+            text: 'Ok',
+            cssClass: 'confirmButton'
+          }
+        ]
       });
   
       await alert.present();

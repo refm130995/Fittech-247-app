@@ -1,3 +1,32 @@
+/*logo*/
+.logo{
+  margin: 0 auto;
+  max-height: 150px;
+}
+
+.cabezera{
+  max-height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    overflow: hidden;
+}
+
+/*fin logo*/
+
+
+
+
+
+
+
+
+
+
+
+
 ion-thumbnail {
   width: 100px;
   height: 100px;
@@ -47,10 +76,21 @@ p.ion-text-center.opc {
   opacity: 0.7;
 }
 .ion-text-center.opci {
-    text-align: left !important;
+    text-align: center;
     opacity: 0.7;
     padding-left: 10px;
 }
+.ion-text-left.opci {
+  text-align: left !important;
+  opacity: 0.7;
+  padding-left: 10px;
+}
+
+.incrementar{
+  font-size: 1.2rem;
+}
+
+
 .ion-text-wrap h2 {
  /*  text-transform: capitalize; */
 }

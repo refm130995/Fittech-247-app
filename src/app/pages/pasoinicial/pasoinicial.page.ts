@@ -16,6 +16,7 @@ export class PasoinicialPage implements OnInit {
   condicionalCss:boolean = true
   slideshow: number = 2;
   progressbar: number = 0.3;
+  ocultar = true
   constructor( private navctrl: NavController) {}
 
   ngOnInit() {
@@ -122,6 +123,12 @@ export class PasoinicialPage implements OnInit {
  
   bajar(){
     this.content.scrollToBottom(1500)
+    this.ocultar = false
+  }
+
+  arriba(){
+    this.content.scrollToTop(1500)
+    this.ocultar = true
   }
 
 
