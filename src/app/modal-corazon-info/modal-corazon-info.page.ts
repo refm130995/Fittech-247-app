@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController} from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { MensajesService } from '../services/mensajes.service';
 
 @Component({
   selector: 'app-modal-corazon-info',
@@ -13,7 +14,8 @@ export class ModalCorazonInfoPage implements OnInit {
   heart_rate:number
   escapar:boolean = false
 
-  constructor(public modalController: ModalController , private usuarioservicio:UsuarioService) { }
+  constructor(public modalController: ModalController , private usuarioservicio:UsuarioService,
+              private mensajeservice:MensajesService) { }
 
   ngOnInit() {
     if(this.dato == 'cuello'){
@@ -41,9 +43,10 @@ export class ModalCorazonInfoPage implements OnInit {
         salir:true
       });
     }else{
-      return
+      this.mensajeservice.alertaInformatica('Por favor introduzca un valor valido')
     }
   }
+
 
   atras(){
     this.modalController.dismiss({

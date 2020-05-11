@@ -32,7 +32,9 @@ export class EntrenamientosPage implements OnInit {
 
   a: number
   b: number
+  c:number
   resultado: number
+  resultado2:number
   minutos: number
 
   ocultar = false
@@ -50,13 +52,19 @@ export class EntrenamientosPage implements OnInit {
     }
   ionViewDidEnter(){
     //ratio es la duracion de cada ejercicio ratio w
-    this.a = this.ApiService.rest
+    this.a = this.ApiService.ratio
+    console.log(this.a)
     //  obtener longitud de un objecto
     this.b = Object.keys(this.ApiService.rutina).length
+    console.log(this.b)
+    //  obtener el tiempo de descanso
+    this.c = this.ApiService.rest
+    console.log(this.c)
     //  total de duracion
     this.resultado = (this.a * this.b)
+    this.resultado2 =(this.c * this.b)
     // conversio de segundo a minutos
-    this.minutos = Math.round(this.resultado / 60)
+    this.minutos = Math.round( (this.resultado + this.resultado2) / 60 )
 
     this.serie = this.ApiService.rutina
 
@@ -178,7 +186,8 @@ export class EntrenamientosPage implements OnInit {
   }
 
   comenzar() {
-    this.ruta.navigateForward("calentamientodos")
+    // this.ruta.navigateForward("calentamientodos")
+    this.ruta.navigateForward("calentamiento-info")
   }
 
 

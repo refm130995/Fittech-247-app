@@ -8,26 +8,29 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-list>
-      <p class="ion-text-center"> Selecione un ejercicio que le guste  </p>
+  <ion-list style="background: var(--ion-color-dark) !important;">
+      <p class="ion-text-center" style="color: white;"> Selecione un ejercicio que le guste  </p>
 
 
-    <ion-item *ngFor="let ejercicio of serie">
+    <ion-item *ngFor="let ejercicio of serie" color="dark">
       <ion-thumbnail slot="start">
-        <img src="http://fittech247.com/fittech/imagenes/{{ejercicio.cod}}/{{ejercicio.id}}.jpg">
+        <img src="assets/img/logo-app.png">
+        <!-- <img src="http://fittech247.com/fittech/imagenes/{{ejercicio.cod}}/{{ejercicio.id}}.jpg"> -->
       </ion-thumbnail>
       <ion-label class="ion-text-wrap">
-        <h2> {{ejercicio.name}} </h2>
+        <h2 style="color: white;"> {{ejercicio.name}} </h2>
       </ion-label>
       <ion-buttons slot="end">
-        <ion-button (click)="mostrarpop($event,ejercicio.id)">
-          <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
-
-
-
-  </ion-list>
+        <ion-button style="background:#ED1F24; color: white; border-radius: 3px;" 
+        (click)="mostrarpop($event,ejercicio.id)">Cambiar</ion-button>
+    </ion-buttons>
+  </ion-item>
+  
+  
+  
+</ion-list>
 
 </ion-content>
+
+<!-- <ion-button (click)="mostrarpop($event,ejercicio.id)" color="danger">
+  <ion-icon slot="start" md="ellipsis-horizontal"></ion-icon>   </ion-button> -->

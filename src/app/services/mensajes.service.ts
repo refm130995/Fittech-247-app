@@ -14,7 +14,13 @@ export class MensajesService {
     const alert = await this.alertController.create({
       animated:true,
       message,
-      buttons: ['OK']
+      cssClass: 'customMensaje',
+      buttons: [
+        {
+          text: 'Ok',
+          cssClass: 'confirmButton'
+        }
+      ]
     });
     await alert.present();
   }

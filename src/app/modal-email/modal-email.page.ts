@@ -41,13 +41,13 @@ export class ModalEmailPage implements OnInit {
               salir:true
             });
         }else{
-          this.mensajeservice.alertaInformatica('Porfavor introduzca una contraseña mayor a 2 digitos')
+          this.mensajeservice.alertaInformatica('Por favor introduzca una contraseña mayor a 2 digitos')
         }
       }else{
-      this.mensajeservice.alertaInformatica('Porfavor introduzca el campo del correo correctamente')
+      this.mensajeservice.alertaInformatica('Por favor introduzca el campo del correo correctamente')
       }
     }else{
-      this.mensajeservice.alertaInformatica('Porfavor introduzca el campo del nombre correctamente')
+      this.mensajeservice.alertaInformatica('Por favor introduzca el campo del nombre correctamente')
       return
     }
 

@@ -1,3 +1,7 @@
+ion-content {
+  --background: var(--ion-color-dark) !important;
+}
+
 ion-thumbnail {
   width: 100px;
   height: 100px;
@@ -9,6 +13,11 @@ ion-thumbnail {
 ion-thumbnail img {
   width: auto !important;
   height: auto !important;
+}
+
+.toolbar-background {
+  --background: black;
+  --color: white;
 }
 
 .contenedor-padre {
