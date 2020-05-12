@@ -58,10 +58,6 @@
   padding: 0px;
 }
 
-.grid2 {
-  padding: 0px;
-}
-
 .logo {
   margin: 0 auto;
   max-height: 150px;
@@ -75,10 +71,6 @@
   background-color: black;
   width: 100%;
   overflow: hidden;
-}
-
-ion-content {
-  --background: black;
 }
 
 .titulodescanso {

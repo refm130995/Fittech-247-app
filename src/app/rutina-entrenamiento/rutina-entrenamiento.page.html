@@ -4,7 +4,7 @@
   </div>
 </ion-header>
 
-<ion-content *ngIf="status == 'descanso'">
+<ion-content *ngIf="status == 'descanso'" style="--background:black;">
   <ion-grid class="grid1">
     <ion-row>
       <p class="ion-text-center titulo2" style="margin-top: 0; margin-bottom: 0; padding-top: 0;">Comienza en</p>
@@ -20,7 +20,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div class="grid2">
+  <div class="grid2" >
     <ion-fab vertical="bottom" horizontal="start" slot="fixed">
       <ion-fab-button color="light" (click)="atras_()" class="animated fadeIn delay-2s">
         <ion-icon name="arrow-back-outline"></ion-icon>

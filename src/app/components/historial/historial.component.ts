@@ -274,9 +274,13 @@ export class HistorialComponent implements OnInit {
 
   
 
- 
-
   avanzar(){
+
+    if(this.datoEnfermedades.noEnfermedad){
+      this.usuarioservicio.enfermedades(this.datoEnfermedades)
+      this.siguientePantalla.emit(1);
+    }
+
     
     if(
       this.datoEnfermedades.aritmias === 0 && 
@@ -314,8 +318,6 @@ export class HistorialComponent implements OnInit {
   atras(){
     this.cambiarPantalla.emit(1)
   }
-
-
 
 
 
