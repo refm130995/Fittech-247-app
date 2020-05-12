@@ -74,7 +74,7 @@ export class BateriacalentamientohomePage  {
       }
 
       if (this.timeLeft >= 1 && this.timeLeft < 10) {
-        this.playSonido()
+        // this.playSonido()
       }
 
       if (this.timeLeft > 0) {

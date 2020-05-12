@@ -68,7 +68,7 @@ export class HistorialComponent implements OnInit {
         //habilitar boton
 
       }else{
-        this.habilitar = true
+
       }
       
     }else{
@@ -279,10 +279,7 @@ export class HistorialComponent implements OnInit {
     if(this.datoEnfermedades.noEnfermedad){
       this.usuarioservicio.enfermedades(this.datoEnfermedades)
       this.siguientePantalla.emit(1);
-    }
-
-    
-    if(
+    }else if(
       this.datoEnfermedades.aritmias === 0 && 
       this.datoEnfermedades.asma === 0  && 
       this.datoEnfermedades.bronquiti === 0  && 

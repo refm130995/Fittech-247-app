@@ -14,6 +14,7 @@
   overflow: hidden;
 }
 
+/*fin logo*/
 .titulo {
   text-align: center;
   font-size: 28px;
@@ -22,7 +23,6 @@
   margin-bottom: 20px;
 }
 
-/*fin logo*/
 ion-card {
   padding: 0px !important;
   margin: 0px !important;

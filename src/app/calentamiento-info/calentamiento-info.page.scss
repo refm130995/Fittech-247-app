@@ -1,19 +1,20 @@
 /*logo*/
 .logo{
-    margin: 0 auto;
-    max-height: 150px;
-  }
-  
-  .cabezera{
-    max-height: 150px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: black;
-      width: 100%;
-      overflow: hidden;
-  }
+  margin: 0 auto;
+  max-height: 150px;
+}
 
+.cabezera{
+  max-height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    overflow: hidden;
+}
+
+/*fin logo*/
 
 
   
@@ -25,8 +26,6 @@
     margin-bottom: 20px;
   }
   
-  /*fin logo*/
-
 
 ion-card{
     padding: 0px !important;

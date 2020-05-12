@@ -29,5 +29,8 @@ export class CalentamientoInfoPage implements OnInit {
     this.avanzar.navigateForward(["/rutina-entrenamiento"])
   }
 
+  atras(){
+    this.navCtrl.pop();
+  }
 
 }

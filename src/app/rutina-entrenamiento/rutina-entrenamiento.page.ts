@@ -8,8 +8,10 @@ import {
   RutinasService
 } from '../rutinas.service';
 import {
-  NavController
+  NavController, AlertController
 } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-rutina-entrenamiento',
@@ -36,7 +38,21 @@ export class RutinaEntrenamientoPage implements OnInit {
   final: any;
   stages: number;
   ready: boolean;
-  constructor(private service: RutinasService, private navCtrl: NavController) {}
+  pausarApp:any
+  ReanudarAPP:any
+  constructor(private service: RutinasService, private navCtrl: NavController,public platform: Platform,
+              public alertController: AlertController) {
+
+      // SE SUBCRIBE CUANDO LA RUTINA ES PAUSADA
+      this.pausarApp =  this.platform.pause.subscribe(async () => {
+        this.pauseTimer()
+     });
+     // SE SUBCRIBE CUANDO LA RUTINA SE REANUDA
+    this.ReanudarAPP =  this.platform.resume.subscribe(async () => {
+        this.alerta()
+     });
+
+  }
 
   async ngOnInit() {
     this.data = await this.service.getRutina();
@@ -79,7 +95,7 @@ export class RutinaEntrenamientoPage implements OnInit {
       }
 
       if (this.timeLeft >= 1 && this.timeLeft < 10) {
-        this.playSonido()
+        // this.playSonido()
       }
 
       if (this.timeLeft > 0) {
@@ -210,6 +226,50 @@ export class RutinaEntrenamientoPage implements OnInit {
     this.status = 'rutina';
     this.startVideo();
   }
+
+
+
+
+
+  // mensaje de reanudar
+  async alerta() {
+    const alert = await this.alertController.create({
+      header: 'La rutina fue pausada',
+
+      buttons: [{
+          text: 'Ok',
+          handler: () => {
+            // reset al contador / matas el contador anterior / llamas uno nuevo
+            console.log('no hacer nada, el usuario le dara en play al video');
+          }
+        }
+      ]
+
+    });
+
+    await alert.present();
+  }
+
+  // cierra la subcripcion
+  ionViewWillLeave(){
+    console.log("cerrar la supcripcion")
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+    this.ReanudarAPP.unsubscribe();
+    this.pausarApp.unsubscribe();
+  }
+
+
+
+
+
+
+
+
+
+
 
 
 
