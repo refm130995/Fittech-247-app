@@ -16,6 +16,7 @@ export class BateriacalentamientohomePage  {
   actual = 0;
   total: number;
   video: string;
+  video2: string;
   btn: boolean;
   tiemposegundo: NodeJS.Timeout;
   timeLeft: number;
@@ -153,7 +154,8 @@ export class BateriacalentamientohomePage  {
   }
 
   async timerDescanse() {
-    this.imagen = `http://fittech247.com/fittech/imagenes/${this.data['ejercicios Calentamiento'][this.actual].cod}/${this.data['ejercicios Calentamiento'][this.actual].id}.jpg`;
+    // this.imagen = `http://fittech247.com/fittech/imagenes/${this.data['ejercicios Calentamiento'][this.actual].cod}/${this.data['ejercicios Calentamiento'][this.actual].id}.jpg`;
+    this.video2 = `http://fittech247.com/fittech/videos/${this.data['ejercicios Calentamiento'][this.actual].cod}/${this.data['ejercicios Calentamiento'][this.actual].url}`;
     this.timeLeft = 5;
     this.tiemposegundo = setInterval(() => {
 

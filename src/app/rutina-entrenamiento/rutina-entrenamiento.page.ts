@@ -26,6 +26,7 @@ export class RutinaEntrenamientoPage implements OnInit {
   actual = 0;
   total: number;
   video: string;
+  video2: string;
   btn: boolean;
   tiemposegundo: NodeJS.Timeout;
   timeLeft: number;
@@ -70,6 +71,7 @@ export class RutinaEntrenamientoPage implements OnInit {
     this.ready = false;
     this.setValues();
     this.video = `http://fittech247.com/fittech/videos/${this.rutinas[this.actual].cod}/${this.rutinas[this.actual].url}`
+    console.log(this.video)
     this.mostrar = true;
     this.timeLeft = this.data['ratio_w'];
     var b = setInterval(() => {
@@ -172,7 +174,9 @@ export class RutinaEntrenamientoPage implements OnInit {
   }
 
   async timerDescanse() {
-    this.imagen = `http://fittech247.com/fittech/imagenes/${this.rutinas[this.actual].cod}/${this.rutinas[this.actual].id}.jpg`;
+    // this.imagen = `http://fittech247.com/fittech/imagenes/${this.rutinas[this.actual].cod}/${this.rutinas[this.actual].id}.jpg`;
+    this.video2 = `http://fittech247.com/fittech/videos/${this.rutinas[this.actual].cod}/${this.rutinas[this.actual].url}`;
+    console.log(this.video2)
     this.timeLeft = this.data['ratio_r'];
     this.zero = null;
     this.tiemposegundo = setInterval(() => {
@@ -234,13 +238,22 @@ export class RutinaEntrenamientoPage implements OnInit {
   // mensaje de reanudar
   async alerta() {
     const alert = await this.alertController.create({
-      header: 'La rutina fue pausada',
+      header: 'la Sesión ha sido pausada',
+      cssClass: 'customMensaje1',
+      buttons: [
+        {
+          text: 'Continuar',
+          role: 'cancel',
+          cssClass: 'secondary',
 
-      buttons: [{
-          text: 'Ok',
-          handler: () => {
-            // reset al contador / matas el contador anterior / llamas uno nuevo
+          handler: (blah) => {
             console.log('no hacer nada, el usuario le dara en play al video');
+          }
+        }, {
+          text: 'Finalizar',
+          handler: () => {
+            // mensaje confirmacion
+            this.confirmarSalida()
           }
         }
       ]
@@ -249,6 +262,34 @@ export class RutinaEntrenamientoPage implements OnInit {
 
     await alert.present();
   }
+  // mensaje de reanudar
+  async confirmarSalida() {
+    const alert = await this.alertController.create({
+      header: 'Si finalizas aquí no contará la sesión ¿seguro quieres finalizar?',
+      cssClass: 'customMensaje1',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('no hacer nada, el usuario le dara en play al video');
+          }
+        }, {
+          text: 'Si',
+          handler: () => {
+            clearInterval(this.tiemposegundo) 
+            this.navCtrl.navigateRoot("tabs/dashboard")
+          }
+        }
+      ]
+
+    });
+
+    await alert.present();
+  }
+
+
 
   // cierra la subcripcion
   ionViewWillLeave(){

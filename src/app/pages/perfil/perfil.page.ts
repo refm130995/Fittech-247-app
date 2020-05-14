@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
 
-  constructor( private apiService:ApiFitechService,private ruta:NavController) { }
+  constructor( private apiService:ApiFitechService,private ruta:NavController,public alertController: AlertController) { }
 
   ngOnInit() {
   }
