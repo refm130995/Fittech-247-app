@@ -10,7 +10,13 @@
 }
 
 ion-content {
-  --ion-background-color: #fcfcfc;
+  --background: none;
+  /*
+  background-image: url('/assets/img/imagen-objetivos.jpg');    
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  */
 }
 
 .logo {
@@ -35,26 +41,37 @@ ion-content {
 }
 
 .piepagina {
-  text-align: left;
-  margin-left: 30px !important;
   margin-bottom: 10%;
   font-size: 15px;
 }
 
 .titulo {
   text-align: center;
-  font-size: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+p {
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+ion-toolbar {
+  --background: black;
 }
 
 .color-tarjeta {
-  background-color: #E5141A;
+  background-color: #000000;
 }
 
 ion-card {
   color: white;
   padding: 0px !important;
   margin: 0px !important;
-  border-radius: 64px !important;
+  border-radius: 10px !important;
   margin-bottom: 20px !important;
   width: 88%;
   margin: 0 auto !important;
@@ -85,21 +102,14 @@ ion-col {
   justify-content: center !important;
 }
 
-ion-icon {
-  font-size: 23px !important;
-}
-
-ion-icon:hover {
-  opacity: 0.7;
-}
-
 .ayudad {
-  fill: #E5141A;
+  fill: #e5141a;
   font-size: 29px !important;
 }
 
 .ayudad2 {
-  color: #E5141A;
+  color: #e5141a;
   font-size: 29px !important;
-  float: right;
+  position: absolute;
+  right: 1rem;
 }

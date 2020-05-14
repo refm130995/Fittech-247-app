@@ -16,6 +16,11 @@ ion-thumbnail img {
   --color: white;
 }
 
+.imagenmodificada {
+  width: 50px;
+  height: 50px;
+}
+
 .contenedor-padre {
   overflow: hidden;
 }

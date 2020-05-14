@@ -53,12 +53,14 @@ poster="assets/img/videogif.gif">
 <ion-content>
 
   <div class="contenedor">
+    <div class="contenedor-cabezera">
+      <h2 class="text-reloj-titulo">SECUENCIA <span style="color: red;">{{secuencia}}</span></h2>
+      <h3 class="text-reloj-titulo" style="margin-top: 5px;">SERIE <span style="color: red;">{{actual+1}}/{{total}}</span></h3>
+    </div>
 
     <div class="contenedor-cuerpo">
-      <h2 class="text-reloj-titulo">SECUENCIA {{secuencia}}</h2>
-      <h3 class="text-reloj-titulo">SERIE {{actual+1}}/{{total}}</h3>
       <p class="reloj">{{zero}}{{timeLeft}}</p>
-      <p class="text-reloj">¡De tu esfuerzo depende tu resultado,no pares!</p>
+      <p class="text-reloj">¡De tu esfuerzo depende tu resultado, no pares!</p>
     </div>
   </div>
     

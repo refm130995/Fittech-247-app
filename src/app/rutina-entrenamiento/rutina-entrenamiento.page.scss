@@ -33,6 +33,20 @@ max-height: 150px;
      align-items: center;
      flex-direction: column;
   }
+
+   // contenedor cabezera
+.contenedor-cabezera{
+    width: 100%;
+    max-height: 5rem;
+    height:4rem;
+    background-color:black;
+    color: white;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+ }
  
  
  .titulo {

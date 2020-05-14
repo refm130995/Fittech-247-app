@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { NavController } from '@ionic/angular';
+import { ApiFitechService } from 'src/app/services/api-fitech.service';
 
 
 @Component({
@@ -10,23 +11,21 @@ import { NavController } from '@ionic/angular';
 })
 export class ActividadPage implements OnInit {
 
-  constructor(private usuarioservicio:UsuarioService,private ruta:NavController) { }
+  constructor(private apiService:ApiFitechService,private ruta:NavController) { }
   info: boolean;
+  actividad:any;
  
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.actividad = await this.apiService.cargaractividad()
+    console.log(this.actividad)
     this.info = false;
   }
 
   nivel(valor){
-    // this.usuarioservicio.nivel(valor)
     console.log(valor)
-    // this.ruta.navigateRoot(['/pasoinicial'])
+    this.apiService.guardaractividad(valor)
   }
 
-  atras(){
-    this.ruta.navigateRoot(['/tabs/dashboard'])
-  }
 
   mostrar(valor){
       this.info = !valor;

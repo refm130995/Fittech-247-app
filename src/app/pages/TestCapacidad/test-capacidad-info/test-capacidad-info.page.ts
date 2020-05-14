@@ -9,7 +9,7 @@ import { ApiFitechService } from 'src/app/services/api-fitech.service';
 })
 export class TestCapacidadInfoPage implements OnInit {
 
-  constructor(private ruta:NavController , private apiService:ApiFitechService) { }
+  constructor(private ruta:NavController , private apiService:ApiFitechService,private navCtrl: NavController) { }
 
   async ngOnInit() {
     const valor = await this.apiService.cargarNombreUsuario()
@@ -25,6 +25,10 @@ export class TestCapacidadInfoPage implements OnInit {
 
   goTo(url:string){
     this.ruta.navigateForward(url);
+  }
+
+  atras(){
+    this.navCtrl.pop();
   }
 
 }

@@ -240,6 +240,10 @@ export class ApiFitechService {
     await this.storage.set('examencapacidad',capacidad)
   }
 
+  async guardaractividad(actividad:string){
+    await this.storage.set('actividad',actividad)
+  }
+
   /*Actualziar storgae */
   async ActualizarexamenCapacidad(){
     await this.storage.set('examencapacidad',"activado")
@@ -272,7 +276,9 @@ export class ApiFitechService {
 
   cargarExamenCapacidad(){
     return this.storage.get('examencapacidad')
-
+  }
+  cargaractividad(){
+    return this.storage.get('actividad')
   }
 
   

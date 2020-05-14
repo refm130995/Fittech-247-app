@@ -10,14 +10,14 @@
   <ion-card *ngIf="!mostrar">
     <img src="assets/img/imagenpulso2.jpg" />
     <ion-card-header>
-      <ion-card-title>Pulso Radial</ion-card-title>
+      <ion-card-title>Pulso radial</ion-card-title>
     </ion-card-header>
     <ion-card-content class="ion-text-justify">
-      1.-Flexiona el codo con el brazo al costado y la palma de la hacia arriba.
+      1. Ubica los dedos índice y medio cerca de la base del pulgar.
       <div></div>
-      2.-La arteria radial esta situada en la cara interior de la muñeca.cerca de la base del pulgar.
+      2. Haz una leve presión con los dedos si es necesario para sentir las pulsaciones.
       <div></div>
-      3.-Colocar los dedos índices y corazón suavemente hasta sentir la arteria radial.
+      3. Cuando lo tengas dale clic en empezar y cuenta las pulsaciones durante esos 10 segundos.
     </ion-card-content>
   </ion-card>
 
@@ -33,13 +33,14 @@
   </ion-card>
 
   <div class="ion-padding">
-    Contar los latidos por 10 segundo <b>y nosotros calculáremos tus latidos
-      por minutos.</b>
+    <b>Total de pulsaciones en 10 segundos:</b>
+    <!-- Contar los latidos por 10 segundo <b>y nosotros calculáremos tus latidos
+      por minutos.</b> -->
   </div>
 
   <ion-list lines="full" class="ion-padding ion-margin-bottom">
     <ion-item>
-      <ion-label position="floating">Frecuencia cardiaca <ion-text color="danger">*</ion-text></ion-label>
+      <ion-label position="floating">Frecuencia cardíaca <ion-text color="danger">*</ion-text></ion-label>
       <ion-input  type="number" inputmode="numeric" (ionInput)="valor($event)" ></ion-input>
     </ion-item>
   </ion-list>
@@ -56,7 +57,9 @@
       margin: 0 auto;
       "
    (click)="salir()">
-    <h2>Continuar</h2> 
+    <h2>
+      <b> Continuar </b>
+    </h2> 
    </ion-card>
   </ion-col>
 

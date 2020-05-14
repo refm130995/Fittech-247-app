@@ -53,6 +53,16 @@ ion-content {
   margin-bottom: 20px;
 }
 
+p {
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+ion-toolbar {
+  --background: black;
+}
+
 .color-tarjeta {
   background-color: #000000;
 }
@@ -100,5 +110,6 @@ ion-col {
 .ayudad2 {
   color: #e5141a;
   font-size: 29px !important;
-  float: right;
+  position: absolute;
+  right: 1rem;
 }

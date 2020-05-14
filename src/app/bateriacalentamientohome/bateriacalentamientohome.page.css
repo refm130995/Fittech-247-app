@@ -20,6 +20,19 @@
   height: 100%;
 }
 
+.contenedor-cabezera {
+  width: 100%;
+  max-height: 4rem;
+  height: 3rem;
+  background-color: black;
+  color: white;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .contenedor-cuerpo {
   width: 100%;
   max-height: 70%;
@@ -50,7 +63,8 @@
 
 .text-reloj {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 .grid1 {

@@ -9,7 +9,7 @@ import { ApiFitechService } from '../services/api-fitech.service';
 })
 export class CalentamientoInfoPage implements OnInit {
 
-  constructor( private avanzar:NavController , private ApiService:ApiFitechService) { }
+  constructor( private avanzar:NavController , private ApiService:ApiFitechService,private navCtrl: NavController) { }
 
   ngOnInit() {
 

@@ -1,11 +1,18 @@
-<ion-header>
-  <ion-toolbar  >
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center" mode="ios">Test de Capacidad</ion-title>
-  </ion-toolbar>
+<ion-buttons slot="start">
+  <ion-fab vertical="center" style="margin-top:-4.75rem;"  horizontal="start" slot="fixed" class="animated fadeInUp delay-2s" >
+   <ion-fab-button style="--background:#ef4044" (click)="atras()" size="small">
+     <ion-icon name="arrow-back-outline"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+</ion-buttons>
+
+<ion-header [translucent]="true" class="ion-no-border">
+    <div class="cabezera">
+      <img src="assets/img/logo-app.png" class="logo">
+    </div>
 </ion-header>
+
+<!-- cabezera -->
 
 <ion-content>
 
@@ -13,7 +20,7 @@
     <ion-row >
       <ion-col  size="12">   
         <div  class="ion-padding-horizontal">
-          <img src="assets/img/testcapacidad1.jpeg"/>
+          <img src="assets/img/capacidad-info.jpg"/>
         </div>   
       </ion-col>
     </ion-row>
@@ -44,7 +51,9 @@
         "
       
       (click)="test()">
-      <h2 style="margin: 10px; text-align: center;"> Hacer el test</h2> 
+      <h2 style="margin: 10px; text-align: center;"> 
+        <b>Hacer el test</b>
+      </h2> 
      </ion-card>
 
 
