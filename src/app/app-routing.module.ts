@@ -223,6 +223,22 @@ const routes: Routes = [
     path: 'rutina-entrenamiento',
     loadChildren: () => import('./rutina-entrenamiento/rutina-entrenamiento.module').then( m => m.RutinaEntrenamientoPageModule)
   },
+  {
+    path: 'porcentajegrasa',
+    loadChildren: () => import('./porcentajegrasa/porcentajegrasa.module').then( m => m.PorcentajegrasaPageModule)
+  },
+  {
+    path: 'medidas',
+    loadChildren: () => import('./medidas/medidas.module').then( m => m.MedidasPageModule)
+  },
+  {
+    path: 'indicadores',
+    loadChildren: () => import('./indicadores/indicadores.module').then( m => m.IndicadoresPageModule)
+  },
+  {
+    path: 'lineanutricional',
+    loadChildren: () => import('./lineanutricional/lineanutricional.module').then( m => m.LineanutricionalPageModule)
+  },
 
 
 ];

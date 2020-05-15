@@ -21,7 +21,7 @@ export class ActividadPage implements OnInit {
   nivel(valor){
     // this.usuarioservicio.nivel(valor)
     console.log(valor)
-    // this.ruta.navigateRoot(['/pasoinicial'])
+     this.ruta.navigateRoot(['/porcentajegrasa'])
   }
 
   atras(){
