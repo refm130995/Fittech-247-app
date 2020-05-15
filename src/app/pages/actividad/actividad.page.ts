@@ -23,7 +23,8 @@ export class ActividadPage implements OnInit {
 
   nivel(valor){
     console.log(valor)
-    this.apiService.guardaractividad(valor)
+    //  this.apiService.guardaractividad(valor)
+     this.ruta.navigateRoot(['/porcentajegrasa'])
   }
 
 

@@ -30,7 +30,7 @@ export class CalentamientoInfoPage implements OnInit {
   }
 
   atras(){
-    this.navCtrl.pop();
+    this.avanzar.pop();
   }
 
 }
