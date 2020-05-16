@@ -138,7 +138,7 @@ export class BateriahomePage implements OnInit {
       console.log('Rutina', this.data);
       if(this.actual == 15){
         clearInterval(this.tiemposegundo);
-        this.navCtrl.navigateRoot('/mensajecapacidad')
+        this.navCtrl.navigateRoot('mensajecapacidad/16')
       }else if (this.actual == this.total) {
         this.secuencia++;
         this.actual = 0;
@@ -202,7 +202,11 @@ export class BateriahomePage implements OnInit {
   }
 
 
-
+  finalizar(){
+    // clearInterval(this.tiemposegundo);
+    this.pauseTimer()
+    this.navCtrl.navigateRoot(`mensajecapacidad/${this.actual}`)
+  }
 
 
 

@@ -20,32 +20,28 @@ export class MensajecapacidadPage implements OnInit {
   ngOnInit() {
     this.dataRecibida = this.capturar.snapshot.paramMap.get('id')
     this.contador = parseInt(this.dataRecibida)
-    // si llego hasta el final
-    if(this.contador == 16){
-      this.contador = 3
-    }
-    
+
     console.log("LO QUE HIZO EL USUARIO",this.contador)
 
-    if(this.contador == 0){
+    if(this.contador <= 3){
       this.nivel = 'Básico';
       this.mensaje ="Felicidades por empezar un nuevo estilo de vida con hábitos saludables, mucho esfuerzo para alcanzar el siguiente nivel."
     }
 
-    else if(this.contador == 4){
-      this.nivel = 'Principiante';
-      this.mensaje ="Sigue esforzándote y continua esta carrera con mucha disciplina en tu plan, estás a un nivel de tener grandes cambios."
-    }
+    // else if(this.contador >= 4 && this.contador <= 7){
+    //   this.nivel = 'Principiante';
+    //   this.mensaje ="Sigue esforzándote y continua esta carrera con mucha disciplina en tu plan, estás a un nivel de tener grandes cambios."
+    // }
 
-    else if(this.contador == 1){
+    else if(this.contador >= 4 && this.contador <= 7){
       this.nivel = 'Intermedio';
       this.mensaje ="Excelente estás a mitad de la carrera, un poco más de esfuerzo y dedicación para llegar a un nivel envidiable."
     }
-    else if(this.contador == 2){
+    else if(this.contador >= 8 && this.contador <= 11){
      this.nivel = 'Avanzado';
      this.mensaje ="No estás aquí por casualidad, muchas sesiones de entreno duro has pasado, ahora enfocate en dar tu máximo, solo así llegarás al siguiente nivel."
     }
-    else if(this.contador == 3){
+    else if(this.contador >= 12){
       this.nivel = 'Pro';
       this.mensaje ="Estás en una minoría privilegiada, que llevan el fitness cómo estilo de vida, admiración, aplausos y solo yendo al límite podrás alcanzar un nivel insuperable."
     }
