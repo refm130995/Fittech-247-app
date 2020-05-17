@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+ion-toolbar {
+  --background: black;
+}
+
 ion-content {
   --background: #FCFCFC;
   /*
@@ -79,11 +83,6 @@ ion-card:hover {
   box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.2);
   transition: 0.1s;
   opacity: 0.5;
-}
-
-.centrar-row {
-  display: flex;
-  justify-content: center;
 }
 
 ion-card-content {
