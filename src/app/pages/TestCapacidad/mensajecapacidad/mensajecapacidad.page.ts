@@ -50,12 +50,11 @@ export class MensajecapacidadPage implements OnInit {
   }
 
   async finalizar(){
-
     const validar = await this.apiService.TestHome(this.contador)
     if(validar){
       // no es la forma pero no se me actualizaba el ngIf por la parte del tab / tuve que remover desde aca
       // igual cuando el usuario se desconecta y regresa el ngif oculta la ventana
-      document.getElementById("ocultar").remove()
+      // document.getElementById("ocultar").remove()
       this.ruta.navigateRoot(["/tabs/dashboard"])
       this.notificacion.notificacionUsuario("Gracias por realizar el test","dark")
     }else{

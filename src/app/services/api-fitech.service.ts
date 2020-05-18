@@ -648,10 +648,9 @@ export class ApiFitechService {
 
 
   TestHome(valor:number){
-    return new Promise( resolve => {
-
+    return new Promise( async resolve => {
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.token,
+        'Authorization': 'Bearer ' + await this.storage.get('token'),
         'Content-Type':'application/json',
       })
       
