@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RutinasService } from '../rutinas.service';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-bateriacalentamientohome',
@@ -29,8 +29,19 @@ export class BateriacalentamientohomePage  {
   final: any;
   stages: number;
   ready: boolean;
-  
-  constructor(private service: RutinasService, private navCtrl: NavController) {
+  pausarApp:any;
+  ReanudarAPP:any;
+
+  constructor(private service: RutinasService, private navCtrl: NavController,public platform: Platform,
+              public alertController: AlertController) {
+    // SE SUBCRIBE CUANDO LA RUTINA ES PAUSADA
+    this.pausarApp =  this.platform.pause.subscribe(async () => {
+      this.pauseTimer()
+   });
+   // SE SUBCRIBE CUANDO LA RUTINA SE REANUDA
+  this.ReanudarAPP =  this.platform.resume.subscribe(async () => {
+      this.alerta()
+   });
 
    }
 
@@ -187,6 +198,60 @@ export class BateriacalentamientohomePage  {
     this.startVideo();
   }
 
+    // mensaje de reanudar
+    async alerta() {
+      const alert = await this.alertController.create({
+        header: 'la Sesión ha sido pausada',
+        cssClass: 'customMensaje1',
+        buttons: [
+          {
+            text: 'Continuar',
+            role: 'cancel',
+            cssClass: 'cancelButton',
+            handler: (blah) => {
+              console.log('no hacer nada, el usuario le dara en play al video');
+            }
+          }, {
+            text: 'Finalizar',
+            cssClass: 'confirmButton',
+            handler: () => {
+              // mensaje confirmacion
+              this.confirmarSalida()
+            }
+          }
+        ]
+  
+      });
+  
+      await alert.present();
+    }
+    // mensaje de reanudar
+    async confirmarSalida() {
+      const alert = await this.alertController.create({
+        header: 'Si finalizas aquí no contará la sesión ¿seguro quieres finalizar?',
+        cssClass: 'customMensaje1',
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+            cssClass: 'cancelButton',
+            handler: (blah) => {
+              console.log('no hacer nada, el usuario le dara en play al video');
+            }
+          }, {
+            text: 'Si',
+            cssClass: 'confirmButton',
+            handler: () => {
+              clearInterval(this.tiemposegundo) 
+              this.navCtrl.navigateRoot("tabs/dashboard")
+            }
+          }
+        ]
+  
+      });
+  
+      await alert.present();
+    }
   
 
   

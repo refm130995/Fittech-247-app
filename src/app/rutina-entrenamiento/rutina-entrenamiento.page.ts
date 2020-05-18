@@ -244,13 +244,13 @@ export class RutinaEntrenamientoPage implements OnInit {
         {
           text: 'Continuar',
           role: 'cancel',
-          cssClass: 'secondary',
-
+          cssClass: 'cancelButton',
           handler: (blah) => {
             console.log('no hacer nada, el usuario le dara en play al video');
           }
         }, {
           text: 'Finalizar',
+          cssClass: 'confirmButton',
           handler: () => {
             // mensaje confirmacion
             this.confirmarSalida()
@@ -271,12 +271,13 @@ export class RutinaEntrenamientoPage implements OnInit {
         {
           text: 'No',
           role: 'cancel',
-          cssClass: 'secondary',
+          cssClass: 'cancelButton',
           handler: (blah) => {
             console.log('no hacer nada, el usuario le dara en play al video');
           }
         }, {
           text: 'Si',
+          cssClass: 'confirmButton',
           handler: () => {
             clearInterval(this.tiemposegundo) 
             this.navCtrl.navigateRoot("tabs/dashboard")

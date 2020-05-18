@@ -44,7 +44,8 @@ max-height: 150px;
     padding: 0px;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    // flex-direction: column;
     overflow: hidden;
  }
  
@@ -141,6 +142,30 @@ max-height: 150px;
     -webkit-animation-fill-mode:both;
     animation-fill-mode:both
 }
+
+.ocultarElemento{
+    animation-duration: 3s;
+    animation-name: hidebutton;
+}
+
+@keyframes hidebutton {
+    0% {
+     opacity: 0;
+     transform: translateY(150px);
+    }
+
+    90% {
+        opacity: 0;
+        transform: translateY(150px);
+    }
+  
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+
 
 @-webkit-keyframes fadeInRight{
     0%{

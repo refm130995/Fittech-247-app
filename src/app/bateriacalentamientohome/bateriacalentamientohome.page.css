@@ -63,7 +63,7 @@
 
 .text-reloj {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -172,4 +172,24 @@ img {
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
+}
+
+.ocultarElemento {
+  animation-duration: 2s;
+  animation-name: hidebutton;
+}
+
+@keyframes hidebutton {
+  0% {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

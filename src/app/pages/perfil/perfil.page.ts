@@ -20,4 +20,7 @@ export class PerfilPage implements OnInit {
     this.ruta.navigateRoot(["/"])
   }
 
+
+
+
 }
