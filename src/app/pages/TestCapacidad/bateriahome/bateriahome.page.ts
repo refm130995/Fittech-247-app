@@ -168,6 +168,7 @@ export class BateriahomePage implements OnInit {
   }
 
   async timerDescanse() {
+    this.zero = null;
     // this.imagen = `http://fittech247.com/fittech/imagenes/${this.data['ejercicios Calentamiento'][this.actual].cod}/${this.data['ejercicios Calentamiento'][this.actual].id}.jpg`;
     this.video2 =  this.data[this.actual].url;
     this.timeLeft = 5;

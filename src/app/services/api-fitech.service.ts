@@ -36,41 +36,41 @@ export class ApiFitechService {
   Nuevarutina = {}
   rutinaListadoRemplazar = {}
   rutinaTestCasaHombre = [
-    {'name': 'jumping jacks' , 'url':'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'sentadillas'   , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Push up en rodillas' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4' }, 
-    {'name': 'Superman' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Skipping alto' , 'url' : 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Sentadillas con salto y brazos extendidos' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Pushups cerrados' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Plancha palanca larga' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Burpee mas Pushups y saltos' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Zancada pliometrica alternada' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Pushups mas flexion de cadera lateral' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Hollows' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Burpees avanzados rodillas al pechos' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Pistols alternados' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Pushups explosivos' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Plancha palanca larga en manos' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}
+    {'name': 'jumping jacks' , 'url':'http://fittech247.com/fittech/videos/CR/510.mp4'}, 
+    {'name': 'sentadillas'   , 'url': 'http://fittech247.com/fittech/videos/TI/465.mp4'}, 
+    {'name': 'Push up en rodillas' , 'url': 'http://fittech247.com/fittech/videos/TS/440.mp4' }, 
+    {'name': 'Superman' , 'url': 'http://fittech247.com/fittech/videos/TS/437.mp4'}, 
+    {'name': 'Skipping alto' , 'url' : 'http://fittech247.com/fittech/videos/CR/518.mp4'}, 
+    {'name': 'Sentadillas con salto y brazos extendidos' , 'url': 'http://fittech247.com/fittech/videos/TI/500.mp4'}, 
+    {'name': 'Pushups cerrados' , 'url': 'http://fittech247.com/fittech/videos/TS/443.mp4'}, 
+    {'name': 'Plancha palanca larga' , 'url': 'http://fittech247.com/fittech/videos/CO/568.mp4'}, 
+    {'name': 'Burpee mas Pushups y saltos' , 'url': 'http://fittech247.com/fittech/videos/CR/504.mp4'}, 
+    {'name': 'Zancada pliometrica alternada' , 'url': 'http://fittech247.com/fittech/videos/TI/495.mp4'}, 
+    {'name': 'Pushups mas flexion de cadera lateral' , 'url': 'http://fittech247.com/fittech/videos/TS/441.mp4'}, 
+    {'name': 'Hollows' , 'url': 'http://fittech247.com/fittech/videos/CO/540.mp4'}, 
+    {'name': 'Burpees avanzados rodillas al pechos' , 'url': 'http://fittech247.com/fittech/videos/CR/519.mp4'}, 
+    {'name': 'Pistols alternados' , 'url': 'http://fittech247.com/fittech/videos/TI/460.mp4'}, 
+    {'name': 'Pushups explosivos' , 'url': 'http://fittech247.com/fittech/videos/TS/439.mp4'}, 
+    {'name': 'Plancha palanca larga en manos' , 'url': 'http://fittech247.com/fittech/videos/CO/573.mp4'}
   ]
 
   rutinaTestCasaMujer = [
-    {'name': 'jumping jacks' , 'url':'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Sentadillas' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Push up en rodillas' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Superman' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Skipping alto'  , 'url':'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Sentadillas con salto y brazos extendidos' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Pushups con apoyo en rodillas' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Plancha palanca larga' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Burpee mas Pushups y salto' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Zancada pliometrica alternada' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Pushups cerrados' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Hollows' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Burpee avanzados rodillas al pecho' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'Pistols con apoyo alternado' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4' }, 
-    {'name': 'Pushups mas flexion de cadera lateral' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}, 
-    {'name': 'plancha palanca larga en manos' , 'url': 'http://fittech247.com/fittech/videos/TI/469.mp4'}
+    {'name': 'jumping jacks' , 'url':'http://fittech247.com/fittech/videos/CR/510.mp4'}, 
+    {'name': 'sentadillas'   , 'url': 'http://fittech247.com/fittech/videos/TI/465.mp4'}, 
+    {'name': 'Push up en rodillas' , 'url': 'http://fittech247.com/fittech/videos/TS/440.mp4' }, 
+    {'name': 'Superman' , 'url': 'http://fittech247.com/fittech/videos/TS/437.mp4'}, 
+    {'name': 'Skipping alto' , 'url' : 'http://fittech247.com/fittech/videos/CR/518.mp4'}, 
+    {'name': 'Sentadillas con salto y brazos extendidos' , 'url': 'http://fittech247.com/fittech/videos/TI/500.mp4'}, 
+    {'name': 'Pushups con apoyo en rodillas' , 'url': 'http://fittech247.com/fittech/videos/TS/440.mp4'}, 
+    {'name': 'Plancha palanca larga' , 'url': 'http://fittech247.com/fittech/videos/CO/568.mp4'}, 
+    {'name': 'Burpee mas Pushups y salto' , 'url': 'http://fittech247.com/fittech/videos/CR/504.mp4'}, 
+    {'name': 'Zancada pliometrica alternada' , 'url': 'http://fittech247.com/fittech/videos/TI/495.mp4'}, 
+    {'name': 'Pushups cerrados' , 'url': 'http://fittech247.com/fittech/videos/TS/443.mp4'}, 
+    {'name': 'Hollows' , 'url': 'http://fittech247.com/fittech/videos/CO/540.mp4'}, 
+    {'name': 'Burpees avanzados rodillas al pechos' , 'url': 'http://fittech247.com/fittech/videos/CR/519.mp4'}, 
+    {'name': 'Pistols con apoyo alternado' , 'url': 'http://fittech247.com/fittech/videos/TI/460.mp4' }, 
+    {'name': 'Pushups mas flexion de cadera lateral' , 'url': 'http://fittech247.com/fittech/videos/TS/441.mp4'}, 
+    {'name': 'Plancha palanca larga en manos' , 'url': 'http://fittech247.com/fittech/videos/CO/573.mp4'}
   ]
 
   secuencia:any = 1
