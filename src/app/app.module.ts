@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 var firebaseConfig = {
@@ -47,6 +47,8 @@ var firebaseConfig = {
     ComponentsModule,
     IonicStorageModule.forRoot(),
     AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
   ],
   providers: [

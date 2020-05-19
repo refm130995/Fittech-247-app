@@ -239,6 +239,10 @@ const routes: Routes = [
     path: 'lineanutricional',
     loadChildren: () => import('./lineanutricional/lineanutricional.module').then( m => m.LineanutricionalPageModule)
   },
+  {
+    path: 'alimentos-no-like',
+    loadChildren: () => import('./alimentos-no-like/alimentos-no-like.module').then( m => m.AlimentosNoLikePageModule)
+  },
 
 
 ];
