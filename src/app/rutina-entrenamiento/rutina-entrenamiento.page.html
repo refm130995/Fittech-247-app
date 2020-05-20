@@ -12,7 +12,7 @@
       <p class="center do">Tu siguiente ejercicio es: </p>
       <p class="center do" style="color: red;">{{nombre || capitalize}} </p>
       <ion-col class="centerdo" size="12" style="padding: 0px;">
-        <video autoplay loop width="100%"  poster="assets/img/videogif.gif">
+        <video autoplay loop width="100%" class="videoReproductor" poster="assets/img/videogif.gif">
           <source [src]= "video2" *ngIf="video2" type="video/mp4" />
         </video>
       </ion-col>
@@ -41,8 +41,7 @@
 
 <ng-container *ngIf="status == 'rutina'">
 
-<video #myVideo  playsinline 
-
+<video #myVideo  playsinline class="videoReproductor"
 width="100%"
 loop
 muted="muted" 

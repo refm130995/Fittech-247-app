@@ -11,16 +11,16 @@ export class NutricionService {
 
   constructor(private http: HttpClient, private service: ApiFitechService) { }
 
-  grease(){
-    return new Promise( (resolve, reject)  => {
+  grease(valor){
+    return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.service.cargarToken(),
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
         'Content-Type':'application/json',
       })
-
-      //      this.http.get(`${URL}/auth/routine`,{headers})
-      
-      this.http.post(`${URL}/auth/routine`,{headers})
+      const data = {
+        grease : valor
+      }      
+      this.http.post(`${URL}/auth/grease_record`,data,{headers})
           .subscribe(resp=>{
           
             resolve(true)
@@ -31,18 +31,22 @@ export class NutricionService {
 
   }
 
-  updateTypeFood(data){
-    return new Promise( (resolve, reject)  => {
+  updateTypeFood(valor){
+    return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.service.cargarToken(),
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
         'Content-Type':'application/json',
       })
+
+      const data = {
+        feeding_type : valor
+      }  
 
       //      this.http.get(`${URL}/auth/routine`,{headers})
       
       this.http.post(`${URL}/auth/update-type-food`, data, {headers})
           .subscribe(resp=>{
-          
+            console.log(resp)
             resolve(true)
           },err=>{
             reject(false)
@@ -72,16 +76,17 @@ export class NutricionService {
   }
 
   getFoods(){
-    return new Promise( (resolve, reject)  => {
+    return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.service.cargarToken(),
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
         'Content-Type':'application/json',
       })
-
+      console.log(await this.service.cargarToken())
       //      this.http.get(`${URL}/auth/routine`,{headers})
       
       this.http.post(`${URL}/auth/foods`,{headers})
           .subscribe(resp=>{
+            console.log(resp)
             resolve(true)
           },err=>{
             reject(false)

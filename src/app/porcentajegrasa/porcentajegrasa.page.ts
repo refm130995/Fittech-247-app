@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, LoadingController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
+import { NutricionService } from '../services/nutricion.service';
+import { MensajesService } from '../services/mensajes.service';
 @Component({
   selector: 'app-porcentajegrasa',
   templateUrl: './porcentajegrasa.page.html',
@@ -96,19 +98,62 @@ export class PorcentajegrasaPage implements OnInit {
       }
     }
   }
-  constructor( private ruta: NavController) { }
+  contador:number = 1;
+  grasa:number
+  validar:any
+  constructor( private ruta: NavController,
+              private service: NutricionService,
+              private utilities: MensajesService,
+              public loadingController: LoadingController) { }
 
   ngOnInit() {
   }
   siguiente(){
+    this.contador++;
     this.slides.slideNext();
   }
 
-  goTo(url:string){
-    this.ruta.navigateForward(url);
+  async goTo(url:string){
+    // esperar
+    this.presentLoading()
+    // funcion para detectar grasa
+    this.nivelGrasa()
+    // respueta del servidor
+     this.validar = await this.service.grease(this.grasa) 
+     this.loadingController.dismiss()
+    //  validacion
+       if(this.validar){
+        this.ruta.navigateForward(url);
+       }else{
+        this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
+       }
   }
 
   atras(){
+    this.contador--;
     this.slides.slidePrev();
   }
+
+  nivelGrasa(){
+    if(this.contador === 1){
+      this.grasa = 25
+    }
+    if(this.contador === 2){
+      this.grasa = 50
+    }
+    if(this.contador === 3){
+      this.grasa = 75
+    }
+    if(this.contador === 4){
+      this.grasa = 100
+    }
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Por favor espere...',
+    });
+    await loading.present();
+  }
+
 }

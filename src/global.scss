@@ -77,8 +77,13 @@
   }
 
 
-
-
+  ion-loading.custom-loading {
+   --spinner-color:red;	
+   .loading-wrapper {
+     background: transparent !important;
+     box-shadow: none !important;
+   }
+   }
 
 
 *{

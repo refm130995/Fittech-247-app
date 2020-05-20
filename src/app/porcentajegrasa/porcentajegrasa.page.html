@@ -14,7 +14,45 @@
 
 
           <ion-slides  [options]="slideOpts" #slide>
-            <ion-slide>
+              <ion-slide>
+            <img src="assets/img/testcapacidad1.jpeg"/>      
+            <ion-fab vertical="center"  horizontal="end" slot="fixed" >
+              <ion-fab-button color="dark" (click)="siguiente()" size="small">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+              </ion-slide>
+              <ion-slide>
+            <img src="assets/img/testcapacidad1.jpeg"/>
+            <ion-fab vertical="center"  horizontal="start" slot="fixed" >
+              <ion-fab-button color="dark" (click)="atras()" size="small">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+            
+            
+            <ion-fab vertical="center"  horizontal="end" slot="fixed" >
+              <ion-fab-button color="dark" (click)="siguiente()" size="small">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+              </ion-slide>
+              <ion-slide>
+            <img src="assets/img/testcapacidad1.jpeg"/>
+            <ion-fab vertical="center"  horizontal="start" slot="fixed" >
+              <ion-fab-button color="dark" (click)="atras()" size="small">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+            
+            
+            <ion-fab vertical="center"  horizontal="end" slot="fixed" >
+              <ion-fab-button color="dark" (click)="siguiente()" size="small">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+              </ion-slide>
+              <ion-slide>
               <img src="assets/img/testcapacidad1.jpeg"/>
               <ion-fab vertical="center"  horizontal="start" slot="fixed" >
                 <ion-fab-button color="dark" (click)="atras()" size="small">
@@ -22,88 +60,7 @@
                 </ion-fab-button>
               </ion-fab>
               
-              
-              <ion-fab vertical="center"  horizontal="end" slot="fixed" >
-                <ion-fab-button color="dark" (click)="siguiente()" size="small">
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-            </ion-slide>
-                <ion-slide>
-              <img src="assets/img/testcapacidad1.jpeg"/>
-              <ion-fab vertical="center"  horizontal="start" slot="fixed" >
-                <ion-fab-button color="dark" (click)="atras()" size="small">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-              
-              
-              <ion-fab vertical="center"  horizontal="end" slot="fixed" >
-                <ion-fab-button color="dark" (click)="siguiente()" size="small">
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-            </ion-slide>
-                <ion-slide>
-              <img src="assets/img/testcapacidad1.jpeg"/>
-              <ion-fab vertical="center"  horizontal="start" slot="fixed" >
-                <ion-fab-button color="dark" (click)="atras()" size="small">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-              
-              
-              <ion-fab vertical="center"  horizontal="end" slot="fixed" >
-                <ion-fab-button color="dark" (click)="siguiente()" size="small">
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-            </ion-slide>
-                <ion-slide>
-              <img src="assets/img/testcapacidad1.jpeg"/>
-              <ion-fab vertical="center"  horizontal="start" slot="fixed" >
-                <ion-fab-button color="dark" (click)="atras()" size="small">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-              
-              
-              <ion-fab vertical="center"  horizontal="end" slot="fixed" >
-                <ion-fab-button color="dark" (click)="siguiente()" size="small">
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-            </ion-slide>
-                <ion-slide>
-              <img src="assets/img/testcapacidad1.jpeg"/>
-              <ion-fab vertical="center"  horizontal="start" slot="fixed" >
-                <ion-fab-button color="dark" (click)="atras()" size="small">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-              
-              
-              <ion-fab vertical="center"  horizontal="end" slot="fixed" >
-                <ion-fab-button color="dark" (click)="siguiente()" size="small">
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-            </ion-slide>
-                <ion-slide>
-              <img src="assets/img/testcapacidad1.jpeg"/>
-              <ion-fab vertical="center"  horizontal="start" slot="fixed" >
-                <ion-fab-button color="dark" (click)="atras()" size="small">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-              
-              
-              <ion-fab vertical="center"  horizontal="end" slot="fixed" >
-                <ion-fab-button color="dark" (click)="siguiente()" size="small">
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-            </ion-slide>
+              </ion-slide>
       
           </ion-slides>
       <!--   </div>  -->  
@@ -121,9 +78,7 @@
         font-family: 'Open Sans';
         --background:#EF4044;
         color:white;
-        "
-      
-      (click)="test()">
+        ">
       <h2 style="margin: 10px; text-align: center;" (click)="goTo('/medidas')"> 
        <b> 
          SIGUIENTE </b></h2> 

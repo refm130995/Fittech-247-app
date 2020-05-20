@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { NavController, AlertController } from '@ionic/angular';
+import { NavController, AlertController, LoadingController } from '@ionic/angular';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { MensajesService } from 'src/app/services/mensajes.service';
 
@@ -23,10 +23,13 @@ export class DashboardPage implements OnInit {
      private apiService:ApiFitechService,
      private ruta:NavController,
      private notificacion:MensajesService,
-     public alertController: AlertController) {
+     public alertController: AlertController,
+     public loadingController: LoadingController) {
    }
 
    async ionViewDidEnter(){
+     // esperar
+    this.presentLoading()
     /* Este paso sere restructurado mas adelante */
     const token = await this.apiService.cargarToken()
     this.apiService.asignarToken(token)
@@ -36,6 +39,8 @@ export class DashboardPage implements OnInit {
 
     //  EXAMEN CAPACIDAD
     this.capacidad = await this.apiService.cargarExamenCapacidad()
+      // fin de cargar
+    this.loadingController.dismiss()
 
    }
 
@@ -139,6 +144,14 @@ export class DashboardPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  // cargar
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'custom-loading'
+    });
+    await loading.present();
   }
     
 

@@ -18,12 +18,14 @@ export class AlimentosNoLikePage implements OnInit {
   }
 
     async getFoods(){
-      await this.service.getFoods().then((res)=>{
-        this.alimentos = res;
-      },
-      (err)=>{
-        this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
-      })
+       const valor = await this.service.getFoods()
+         console.log(valor)
+      // await this.service.getFoods().then((res)=>{
+      //   this.alimentos = res;
+      // },
+      // (err)=>{
+      //   this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
+      // })
     }
 
 }
