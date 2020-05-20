@@ -101,8 +101,8 @@ export class BateriacalentamientohomePage  {
 
   pauseTimer() {
     clearInterval(this.tiemposegundo);
-    this.mostrar = false
     this.txtVideo.nativeElement.pause()
+    this.mostrar = false
   }
 
   playTimer() {

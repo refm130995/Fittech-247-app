@@ -14,18 +14,18 @@ export class AlimentosNoLikePage implements OnInit {
               private utilities: MensajesService) { }
 
   ngOnInit() {
-    this.getFoods();
+    this.service.getFoods()
   }
 
-    async getFoods(){
-       const valor = await this.service.getFoods()
-         console.log(valor)
-      // await this.service.getFoods().then((res)=>{
-      //   this.alimentos = res;
-      // },
-      // (err)=>{
-      //   this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
-      // })
-    }
+    // async getFoods(){
+    //    const valor = await this.service.getFoods()
+    //      console.log(valor)
+    //   await this.service.getFoods().then((res)=>{
+    //     this.alimentos = res;
+    //   },
+    //   (err)=>{
+    //     this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
+    //   })
+    // }
 
 }
