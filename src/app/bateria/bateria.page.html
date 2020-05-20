@@ -10,7 +10,7 @@
   
 
 
-<video #myVideo  playsinline  width="100%" (ended)="videoEnd()"
+<video #myVideo  playsinline  width="100%" class="videoReproductor" (ended)="videoEnd()"
 autoplay
 poster="assets/img/videogif.gif"
 (loadedmetadata)="onMetadata($event, video)"
@@ -23,8 +23,8 @@ poster="assets/img/videogif.gif"
 
   <div class="contenedor-cabezera">
     <!-- <div class="controlar-texto"> -->
-      <p class="titulo">{{nombre}}</p>
-      <p>Demostración del ejercicio</p>
+      <p class="titulo" style="color: white;">{{nombre}}</p>
+      <p style="color: white;">Demostración del ejercicio</p>
     <!-- </div> -->
   </div>
 
