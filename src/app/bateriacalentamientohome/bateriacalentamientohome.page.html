@@ -70,13 +70,13 @@
       
   </ion-content>
 
-  <ion-fab vertical="bottom"   horizontal="start" slot="fixed" *ngIf="ready">
+  <ion-fab vertical="bottom"   horizontal="start" slot="fixed" class="ocultarElemento">
     <ion-fab-button color="dark" (click)="atras()" *ngIf="btn">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   
-  <ion-fab vertical="bottom"   horizontal="end" slot="fixed" *ngIf="ready">
+  <ion-fab vertical="bottom"   horizontal="end" slot="fixed" class="ocultarElemento">
     <ion-fab-button color="dark" (click)="siguiente()" *ngIf="btn">
       <ion-icon name="arrow-forward-outline"></ion-icon>
     </ion-fab-button>
