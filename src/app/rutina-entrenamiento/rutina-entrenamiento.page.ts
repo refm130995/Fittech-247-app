@@ -83,7 +83,7 @@ export class RutinaEntrenamientoPage implements OnInit {
         clearInterval(b);
         this.startTimer();
       }
-    }, 500);
+    }, 800);
   }
 
   startTimer() {

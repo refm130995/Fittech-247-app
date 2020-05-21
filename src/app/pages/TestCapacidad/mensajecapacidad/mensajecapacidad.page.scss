@@ -3,6 +3,31 @@
     --ion-safe-area-bottom: 22px;
   }
 
+  @mixin telefono-responsivo {
+    @media (max-width:370px) {
+        @content;
+    }
+  }
+
+
+  /*logo*/
+.logo{
+  margin: 0 auto;
+  max-height: 150px;
+}
+
+.cabezera{
+max-height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  overflow: hidden;
+}
+/*fin logo*/
+
+
 ion-slides {
     height: 100%;
   }
@@ -27,7 +52,10 @@ ion-slides {
   }
 
   .swiper-slide h2 {
-    margin-top: 2.8rem;
+    margin-top: 1.5rem;
+    @include telefono-responsivo(){
+      margin-top: .5rem;
+    }
   }
 
   .swiper-slide img {
@@ -35,6 +63,11 @@ ion-slides {
     max-width: 80%;
     margin: 60px 0 40px;
     pointer-events: none;
+    margin-top: 40px;  
+    @include telefono-responsivo(){
+      margin-top: 5px;  
+    }
+    
   }
 
   b {
@@ -57,5 +90,5 @@ ion-slides {
     font-size: 28px;
     font-weight: bold;
     opacity: 0.7;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
   }

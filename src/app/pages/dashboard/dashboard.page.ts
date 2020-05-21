@@ -111,7 +111,7 @@ export class DashboardPage implements OnInit {
           }
           
           if(validar == false){
-            this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","primary")
+            this.notificacion.notificacionUsuario("Ocurrio un error, revise su conexión","danger")
           }
 
           if(validar === "examen"){
