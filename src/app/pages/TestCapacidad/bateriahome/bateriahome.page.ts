@@ -40,7 +40,7 @@ export class BateriahomePage implements OnInit {
     }
 
     if(this.ApiService.genero == 0){
-      this.data =  this.ApiService.rutinaTestCasaHombre
+      this.data =  this.ApiService.rutinaTestCasaMujer
      }
 
    }
@@ -136,7 +136,7 @@ export class BateriahomePage implements OnInit {
       console.log('Actual', this.actual);
       console.log('total', this.total);
       console.log('Rutina', this.data);
-      if(this.actual == 15){
+      if(this.actual == 16){
         clearInterval(this.tiemposegundo);
         this.navCtrl.navigateRoot('mensajecapacidad/16')
       }else if (this.actual == this.total) {

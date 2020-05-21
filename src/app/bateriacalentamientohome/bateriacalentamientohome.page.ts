@@ -64,7 +64,6 @@ export class BateriacalentamientohomePage  {
     this.mostrar = true;
     this.timeLeft = 30;
     var b = setInterval(() => {
-      console.log(this.txtVideo.nativeElement.readyState)
       if (this.txtVideo.nativeElement.readyState === 4) {
         this.txtVideo.nativeElement.play();
         this.ready = true;
@@ -72,7 +71,7 @@ export class BateriacalentamientohomePage  {
         clearInterval(b);
         this.startTimer();
       }
-    }, 500);
+    }, 1500);
   }
 
   startTimer() {
@@ -135,6 +134,7 @@ export class BateriacalentamientohomePage  {
       console.log('Rutina', this.data);
       if(this.actual == 4){
         clearInterval(this.tiemposegundo);
+        this.tiemposegundo = null
         this.navCtrl.navigateRoot('/bateriacalentamientofinalizar')
       }else if (this.actual == this.total) {
         this.secuencia++;
