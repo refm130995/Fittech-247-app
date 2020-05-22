@@ -210,7 +210,7 @@ export class BateriacalentamientohomePage  {
             role: 'cancel',
             cssClass: 'cancelButton',
             handler: (blah) => {
-              console.log('no hacer nada, el usuario le dara en play al video');
+              this.playTimer();
             }
           }, {
             text: 'Finalizar',
@@ -237,7 +237,11 @@ export class BateriacalentamientohomePage  {
             role: 'cancel',
             cssClass: 'cancelButton',
             handler: (blah) => {
-              console.log('no hacer nada, el usuario le dara en play al video');
+               if( this.status == 'descanso'){
+                 this.siguiente_()
+               }else{
+                 this.playTimer()
+               }
             }
           }, {
             text: 'Si',

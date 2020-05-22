@@ -52,7 +52,9 @@
             margin:  0 auto;"
               (click)="Capacidad()">
             <h6 style="text-align: center; margin: 6px;">
-              <b>Empieza Aqui</b> </h6>  
+              <span><b>Empieza Aqui</b> </span>
+              <span style="margin-left: 10px;"><ion-icon style="position: absolute; top: .5rem;"  name="arrow-down-outline" color="dark"></ion-icon></span>
+            </h6>  
               </ion-card>
               <img class="bor" src="assets/img/imagen-mujer-test1.png"/>
               <ion-button shape="round" color="dark" class="centered3 vibrate-1" (click)="Capacidad()">Hacer el test</ion-button> 
@@ -74,14 +76,14 @@
 
       <ion-col size="12"> 
       <hr>  
-        <h4 class="ion-padding-horizontal"><b>Tu plan nutricional</b></h4>
+        <h4 class="ion-padding-horizontal">Tu plan <b>nutricional</b></h4>
           <ion-button shape="round" color="dark" class="centered2" (click)="nutricion()">Ver plan</ion-button>
           <img  src="assets/img/comidas.png" class="ejercicio bor"/>
       </ion-col>
 
       <ion-col size="12"> 
       <hr>  
-        <h4 class="ion-padding-horizontal"><b>Progreso</b></h4>
+        <h4 class="ion-padding-horizontal">Tu <b>Progreso</b></h4>
           <ion-button shape="round" color="dark" class="centered2">Ver progreso</ion-button>
           <img  src="assets/img/graficas.png" class="ejercicio bor" />
       </ion-col>
