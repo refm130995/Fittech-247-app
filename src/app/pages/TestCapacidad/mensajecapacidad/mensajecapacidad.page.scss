@@ -63,9 +63,9 @@ ion-slides {
     max-width: 80%;
     margin: 60px 0 40px;
     pointer-events: none;
-    margin-top: 40px;  
+    margin-top: 0;  
     @include telefono-responsivo(){
-      margin-top: 5px;  
+      margin-top:0;  
     }
     
   }

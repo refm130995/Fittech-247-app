@@ -58,12 +58,12 @@ ion-card:hover {
   max-width: 80%;
   margin: 60px 0 40px;
   pointer-events: none;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 @media (max-width: 370px) {
   .swiper-slide img {
-    margin-top: 5px;
+    margin-top: 0;
   }
 }
 

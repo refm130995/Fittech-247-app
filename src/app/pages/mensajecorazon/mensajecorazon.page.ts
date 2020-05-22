@@ -15,40 +15,41 @@ export class MensajecorazonPage implements OnInit {
 
   ngOnInit() {
     console.log(this.ApiService.latidocorazon)
+
     
     if(this.ApiService.latidocorazon === 6){
       this.titulo = "¡Felicidades!",
-      this.mensaje ="tú frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."
+      this.mensaje ="Tú frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."
       // ¡Felicitaciones!
     }
 
     if(this.ApiService.latidocorazon === 5){
       this.titulo = "Buena",
-      this.mensaje ="tú frecuencia cardiaca está entre las buenas de acuerdo a tu edad y género."
+      this.mensaje ="Tú frecuencia cardiaca está entre las buenas de acuerdo a tu edad y género."
       // ¡Estupendo! 
     }
 
     if(this.ApiService.latidocorazon === 4){
       this.titulo = "Por encima de la media",
-      this.mensaje ="tú frecuencia cardiaca está por encima del promedio de acuerdo a tu edad y género."
+      this.mensaje ="Tú frecuencia cardiaca está por encima del promedio de acuerdo a tu edad y género."
       // ¡Muy bien!, 
     }
 
     if(this.ApiService.latidocorazon === 3){
       this.titulo = "Media",
-      this.mensaje ="tú frecuencia cardiaca está en promedio de acuerdo a tu edad y género."
+      this.mensaje ="Tú frecuencia cardiaca está en promedio de acuerdo a tu edad y género."
       // ¡Muy bien!, 
     }
 
     if(this.ApiService.latidocorazon === 2){
       this.titulo = "Por de bajo de la media",
-      this.mensaje ="tú frecuencia cardiaca está por debajo del promedio de acuerdo a tu edad y género."
+      this.mensaje ="Tú frecuencia cardiaca está por debajo del promedio de acuerdo a tu edad y género."
       // ¡No hay problema!, Vamos a mejorar! 
     }
 
     if(this.ApiService.latidocorazon === 1){
       this.titulo = "Mala",
-      this.mensaje = "tú frecuencia cardiaca es malo de acuerdo a tu edad y género."
+      this.mensaje = "Tú frecuencia cardiaca es malo de acuerdo a tu edad y género."
       // Con esfuerzo todo se puede, ¡A trabajar!, 
     }
 
