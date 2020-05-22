@@ -157,5 +157,10 @@ export class BateriaPage implements OnInit {
     this.timeLeft = parseInt(e.target.duration)
   }
 
+  // mayuscula
+  ucFirst(str) {
+    /*   str = str.replace(/ /g, "."); */
+         return str.substring(0, 1).toUpperCase() + str.substring(1); 
+     }
 
 }

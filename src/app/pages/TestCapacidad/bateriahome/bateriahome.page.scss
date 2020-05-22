@@ -44,8 +44,8 @@ max-height: 150px;
 // contenedor cabezera
 .contenedor-cabezera{
    width: 100%;
-   max-height: 30%;
-   height: 27%;
+   max-height: 4rem;
+   height: 4rem;
    background-color:black;
    color: white;
    padding: 0px;
@@ -54,8 +54,12 @@ max-height: 150px;
    align-items: center;
    overflow: hidden;
    p{
-       margin-top: 5px !important;
-  
+        font-size: 1.1rem; text-align: center;
+        @include telefono-responsivo(){
+            font-size: 1rem;
+            margin-left:5px;
+            margin-right: 5px;
+        }
    }
 }
 // contenedor cuerpo
