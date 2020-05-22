@@ -35,7 +35,7 @@
             text-transform: uppercase;
             font-family: 'Open Sans';
             "  color="medium"
-          (click)="acceder()" [disabled]="facebookhabilitar" >
+          (click)="acceder()" [disabled]="facebookhabilitar" class="disminuirboton">
             <ion-icon name="mail-outline" slot="start"></ion-icon>
             Acceder con Email
           </ion-button>
@@ -59,7 +59,7 @@
             text-transform: uppercase;
             font-family: 'Open Sans';
             "  color="danger" 
-            (click)="googleLogin()" [disabled]="googlehabilitar" >
+            (click)="googleLogin()" [disabled]="googlehabilitar" class="disminuirboton">
             <ion-icon src="./assets/icon/buscar.svg" slot="start"></ion-icon>
 
             Acceder con Google
@@ -84,7 +84,7 @@
             text-transform: uppercase;
             font-family: 'Open Sans';
             "  color="primary" 
-          (click)="facebookLogin()" [disabled]="facebookhabilitar">
+          (click)="facebookLogin()" [disabled]="facebookhabilitar" class="disminuirboton">
             <ion-icon name="logo-facebook" slot="start"></ion-icon>
             Acceder con Facebook
           </ion-button>

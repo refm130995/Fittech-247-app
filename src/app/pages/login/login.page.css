@@ -47,12 +47,26 @@ ion-input {
   overflow: hidden;
 }
 
+@media (max-width: 370px) {
+  .contenedor {
+    padding-top: 0 !important;
+  }
+}
+
 .titulo {
   text-align: center;
   font-size: 28px;
   font-weight: bold;
   opacity: 0.7;
   margin-bottom: 20px;
+}
+
+@media (max-width: 370px) {
+  .titulo {
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 26px;
+  }
 }
 
 ion-card {
@@ -78,14 +92,38 @@ ion-col {
   margin-bottom: 8px !important;
 }
 
+@media (max-width: 370px) {
+  ion-col {
+    margin-bottom: 0 !important;
+  }
+}
+
 .my-grid {
   height: 100% !important;
+}
+
+@media (max-width: 370px) {
+  .my-grid {
+    height: auto !important;
+  }
 }
 
 .parent-row {
   height: 100% !important;
   align-items: center !important;
   justify-content: center !important;
+}
+
+@media (max-width: 370px) {
+  .parent-row {
+    height: auto !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .disminuirboton {
+    height: 32px !important;
+  }
 }
 
 ion-button {
