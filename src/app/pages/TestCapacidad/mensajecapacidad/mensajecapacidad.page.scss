@@ -57,6 +57,12 @@ ion-slides {
       margin-top: .5rem;
     }
   }
+  .mensajepersonalizado{
+    font-size: 18px;
+    @include telefono-responsivo(){
+      font-size: 0.8125rem;
+    }
+  }
 
   .swiper-slide img {
     max-height: 50%;

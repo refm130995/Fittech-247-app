@@ -53,6 +53,16 @@ ion-card:hover {
   }
 }
 
+.mensajepersonalizado {
+  font-size: 18px;
+}
+
+@media (max-width: 370px) {
+  .mensajepersonalizado {
+    font-size: 0.8125rem;
+  }
+}
+
 .swiper-slide img {
   max-height: 50%;
   max-width: 80%;
