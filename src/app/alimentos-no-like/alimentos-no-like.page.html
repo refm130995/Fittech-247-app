@@ -11,24 +11,9 @@
   </div> 
 
       <ion-list >
-          <ion-item>
-            <ion-label class="titulopeque2">Vegetariano</ion-label>
-            <ion-toggle slot="start" name="vegetariano" [(ngModel)]="option1" (ionFocus)="show(0)"></ion-toggle>
-          </ion-item>
-  
-          <ion-item>
-            <ion-label class="titulopeque2">Pescetario</ion-label>
-            <ion-toggle slot="start" name="pescetario" [(ngModel)]="option2" (ionFocus)="show(1)"></ion-toggle>
-          </ion-item>
-  
-          <ion-item>
-            <ion-label class="titulopeque2">Vegano</ion-label>
-            <ion-toggle slot="start" name="vegano" [(ngModel)]="option3" (ionFocus)="show(2)"></ion-toggle>
-          </ion-item>
-  
-          <ion-item>
-            <ion-label class="titulopeque2">Omnivoro</ion-label>
-            <ion-toggle slot="start" name="omnivoro" [(ngModel)]="option4" (ionFocus)="show(3)"></ion-toggle>
+          <ion-item *ngFor="let item of alimentos">
+            <ion-label class="titulopeque2">{{item.name}}</ion-label>
+            <ion-toggle color="dark" slot="start" name="{{item.id}}" (ionChange)="agrupar($event.target.checked, item.id)"></ion-toggle>
           </ion-item>
         </ion-list>
  
@@ -38,7 +23,7 @@
     <ion-row >
       <ion-col  size="12">   
 
-        <!-- <ion-card  style="
+        <ion-card  style="
         width: 286px; 
         border-radius: 10px;
         text-transform: uppercase;
@@ -47,14 +32,13 @@
         color:white;
         "
       
-      (click)="updateTypeFood()" [disabled]="!formNutrition.valid || !option1 && !option2 && !option3 && !option4">
+      (click)="finalizar()">
       <h2 style="margin: 10px; text-align: center;">
         <b> SIGUIENTE</b></h2> 
-     </ion-card> -->
+     </ion-card>
 
 
-      </ion-col>
-      
+      </ion-col>     
     </ion-row>
   </ion-grid>   
 

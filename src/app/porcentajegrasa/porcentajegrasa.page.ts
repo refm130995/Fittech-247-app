@@ -3,6 +3,7 @@ import { IonSlides, LoadingController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
 import { NutricionService } from '../services/nutricion.service';
 import { MensajesService } from '../services/mensajes.service';
+import { ApiFitechService } from '../services/api-fitech.service';
 @Component({
   selector: 'app-porcentajegrasa',
   templateUrl: './porcentajegrasa.page.html',
@@ -101,12 +102,17 @@ export class PorcentajegrasaPage implements OnInit {
   contador:number = 1;
   grasa:number
   validar:any
+  genero:number
   constructor( private ruta: NavController,
               private service: NutricionService,
               private utilities: MensajesService,
+              private apiService:ApiFitechService,
               public loadingController: LoadingController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const valor = await this.apiService.cargarNombreUsuario()
+    this.genero = valor['gender']
+    console.log("genero",this.genero)
   }
   siguiente(){
     this.contador++;

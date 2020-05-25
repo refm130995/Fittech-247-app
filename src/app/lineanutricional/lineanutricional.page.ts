@@ -76,12 +76,12 @@ export class LineanutricionalPage implements OnInit {
     }
 
     async updateTypeFood(){
-      // await this.service.updateTypeFood(this.formNutrition.value).then((res)=>{
-      //   this.goTo('/alimentos-no-like')
-      // },
-      // (err)=>{
-      //   this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
-      // })
+      await this.service.updateTypeFood(this.formNutrition.value).then((res)=>{
+        this.goTo('/alimentos-no-like')
+      },
+      (err)=>{
+        this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
+      })
     }
 
 }

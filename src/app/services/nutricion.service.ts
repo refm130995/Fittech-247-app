@@ -55,18 +55,20 @@ export class NutricionService {
 
   }
 
-  foodNoDeseados(){
+  foodNoDeseados(valor){
     return new Promise( (resolve, reject)  => {
       const headers = new HttpHeaders({
         'Authorization': 'Bearer ' + this.service.cargarToken(),
         'Content-Type':'application/json',
       })
 
-      //      this.http.get(`${URL}/auth/routine`,{headers})
+      const data = {
+        valor : valor
+      }
       
-      this.http.get(`${URL}/auth/routine`,{headers})
+      this.http.post(`${URL}/auth/routine`,data,{headers})
           .subscribe(resp=>{
-          
+            console.log(resp)
             resolve(true)
           },err=>{
             reject(false)
@@ -80,11 +82,14 @@ export class NutricionService {
       const headers = new HttpHeaders({
         'Authorization': 'Bearer ' + await this.service.cargarToken(),
         'Content-Type':'application/json',
-      })  
-      this.http.post(`${URL}/auth/foods`,{headers})
+      })
+      // si no se envia un dato no  funciona la ruta
+      const data = {
+        valor : "hola"
+      }      
+      this.http.post(`http://fittech247.com/fittech/api/auth/foods`,data,{headers})
           .subscribe(resp=>{
-          
-            resolve(true)
+            resolve(resp['Alimentos'])
           },err=>{
             reject(false)
           })

@@ -15,7 +15,7 @@ export class MensajecorazonPage implements OnInit {
 
   ngOnInit() {
     console.log(this.ApiService.latidocorazon)
-
+      this.ApiService.latidocorazon = 6
     
     if(this.ApiService.latidocorazon === 6){
       this.titulo = "¡Felicidades!",

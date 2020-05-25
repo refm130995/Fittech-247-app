@@ -9,23 +9,40 @@ import { MensajesService } from '../services/mensajes.service';
 })
 export class AlimentosNoLikePage implements OnInit {
   alimentos: unknown;
+  // este tipo de Datos no permite valores duplicado / es un array de tipo set
+  grupoAlimentos = new Set()
+  //array comun
+  grupoAlimentos2:any = []
 
   constructor(private service: NutricionService,
               private utilities: MensajesService) { }
 
-  ngOnInit() {
-    this.service.getFoods()
+   ngOnInit() {
+    this.getFoods()
   }
 
-    // async getFoods(){
-    //    const valor = await this.service.getFoods()
-    //      console.log(valor)
-    //   await this.service.getFoods().then((res)=>{
-    //     this.alimentos = res;
-    //   },
-    //   (err)=>{
-    //     this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
-    //   })
-    // }
+  async getFoods(){
+    const valor = await this.service.getFoods()
+      if(valor == false ){
+      this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
+      }else{
+        this.alimentos = valor
+        console.log("valor",valor)
+      }
+  }
+
+  agrupar(status:boolean,id:any){
+    console.log(status)
+    console.log(id)
+    // logica
+     this.grupoAlimentos.add(id)
+  }
+  
+  finalizar(){
+    // destructuracion del array de set a un array normal
+    this.grupoAlimentos2 = [...this.grupoAlimentos]
+    console.log("array normal",this.grupoAlimentos2)
+    
+  }
 
 }
