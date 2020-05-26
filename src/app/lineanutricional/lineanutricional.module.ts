@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LineanutricionalPageRoutingModule } from './lineanutricional-routing.module';
 
 import { LineanutricionalPage } from './lineanutricional.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LineanutricionalPageRoutingModule
+    LineanutricionalPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [LineanutricionalPage]
 })

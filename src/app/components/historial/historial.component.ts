@@ -36,6 +36,7 @@ export class HistorialComponent implements OnInit {
     dolorPecho:0,
     fatiga:0,
     insuficiencia:0,
+    renal_insufficiency: 0,
     noEnfermedad: false
   }
 
@@ -65,6 +66,7 @@ export class HistorialComponent implements OnInit {
         this.datoEnfermedades.diabete = 0
         this.datoEnfermedades.dolorPecho = 0
         this.datoEnfermedades.fatiga = 0
+        this.datoEnfermedades.renal_insufficiency = 0
         //habilitar boton
 
       }else{
@@ -254,6 +256,18 @@ export class HistorialComponent implements OnInit {
       }else{
         this.datoEnfermedades.hipertensionPulmonar = 0 
         this.datoEnfermedades.enfermedadPulmonar = 0
+      }
+
+      if(this.datoEnfermedades.renal_insufficiency){
+        this.datoEnfermedades.renal_insufficiency = 1
+        this.datoEnfermedades.noEnfermedad = false
+        this.datoEnfermedades.renal_insufficiency = 1
+          //habilitar boton
+          this.habilitar = false
+  
+      }else{
+        this.datoEnfermedades.renal_insufficiency = 0 
+        this.datoEnfermedades.renal_insufficiency = 0
 
       }
     }
