@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiFitechService } from 'src/app/services/api-fitech.service';
 import { NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { MensajesService } from 'src/app/services/mensajes.service';
 import * as moment from 'moment';
 //google
@@ -29,12 +30,14 @@ export class LoginPage implements OnInit {
     password:null
   }
 
+
   constructor(private ApiService:ApiFitechService,
               private ruta: NavController,
               private mensajeservice:MensajesService,
               public afAuth:AngularFireAuth,
               private gplus:GooglePlus,
               public fb: Facebook,
+              public alertController: AlertController,
               private platform:Platform) { 
                 this.logeado = this.afAuth.authState
               }
@@ -101,6 +104,43 @@ export class LoginPage implements OnInit {
 
   goto(url:string){
     this.ruta.navigateForward([url])
+  }
+
+
+  async recuperar() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Por favor, introduzca su correo electrónico',
+      inputs: [
+        {
+          name: 'email',
+          type: 'text',
+          placeholder: 'email'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log("ignorar");
+          }
+        }, {
+          text: 'Ok',
+          handler: async (data) => {
+           const validar = await this.ApiService.recuperarPassword(data)
+             if(validar){
+              this.mensajeservice.alertaInformatica('Su clave fue enviada a su correo electrónico')
+             }else{
+              this.mensajeservice.alertaInformatica('El correo electrónico no existe en nuestra base de datos')
+             }
+          }
+        }
+      ]
+    });
+
+    await alert.present(); 
   }
 
 

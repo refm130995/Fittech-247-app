@@ -49,7 +49,7 @@ export class ApiFitechService {
     {'name': 'Pushups mas flexion de cadera lateral' , 'url': 'http://fittech247.com/fittech/videos/TS/441.mp4'}, 
     {'name': 'Hollows' , 'url': 'http://fittech247.com/fittech/videos/CO/540.mp4'}, 
     {'name': 'Burpees avanzados rodillas al pechos' , 'url': 'http://fittech247.com/fittech/videos/CR/519.mp4'}, 
-    {'name': 'Pistols alternados' , 'url': 'http://fittech247.com/fittech/videos/TI/460.mp4'}, 
+    {'name': 'Pistols alternados' , 'url': 'http://fittech247.com/fittech/videos/TI/579.mp4'}, 
     {'name': 'Pushups explosivos' , 'url': 'http://fittech247.com/fittech/videos/TS/439.mp4'}, 
     {'name': 'Plancha palanca larga en manos' , 'url': 'http://fittech247.com/fittech/videos/CO/573.mp4'}
   ]
@@ -68,7 +68,7 @@ export class ApiFitechService {
     {'name': 'Pushups' , 'url': 'http://fittech247.com/fittech/videos/TS/423.mp4'}, 
     {'name': 'Hollows' , 'url': 'http://fittech247.com/fittech/videos/CO/540.mp4'}, 
     {'name': 'Burpees avanzados rodillas al pechos' , 'url': 'http://fittech247.com/fittech/videos/CR/519.mp4'}, 
-    {'name': 'Pistols con apoyo alternado' , 'url': 'http://fittech247.com/fittech/videos/TI/460.mp4' }, 
+    {'name': 'Pistols alternado' , 'url': 'http://fittech247.com/fittech/videos/TI/579.mp4' }, 
     {'name': 'Pushups mas flexion de cadera lateral' , 'url': 'http://fittech247.com/fittech/videos/TS/441.mp4'}, 
     {'name': 'Plancha palanca larga en manos' , 'url': 'http://fittech247.com/fittech/videos/CO/573.mp4'}
   ]
@@ -815,6 +815,27 @@ export class ApiFitechService {
 
   contadorRutinaRestar(valor){
     this.contadorRutina -=valor
+  }
+
+
+  recuperarPassword(valor){
+    return new Promise( async (resolve, reject)  => {
+      const headers = new HttpHeaders({
+        'Content-Type':'application/json',
+      })
+      // si no se envia un dato no  funciona la ruta
+         console.log("valor enviado",valor)
+      this.http.post(`${URL}/auth/reset-password`,valor,{headers})
+          .subscribe(resp=>{
+            if(resp["message"] === "Success"){
+              resolve(true)
+            }else{
+              resolve(false)
+            }
+          },err=>{
+            reject(false)
+          })
+      })
   }
 
 
