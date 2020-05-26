@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AlimentosNoLikePageRoutingModule } from './alimentos-no-like-routing.module';
 
 import { AlimentosNoLikePage } from './alimentos-no-like.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AlimentosNoLikePageRoutingModule
+    AlimentosNoLikePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AlimentosNoLikePage]
 })

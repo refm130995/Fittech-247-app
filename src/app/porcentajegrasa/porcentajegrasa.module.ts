@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PorcentajegrasaPageRoutingModule } from './porcentajegrasa-routing.module';
 
 import { PorcentajegrasaPage } from './porcentajegrasa.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PorcentajegrasaPageRoutingModule
+    PorcentajegrasaPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PorcentajegrasaPage]
 })

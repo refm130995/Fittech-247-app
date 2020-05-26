@@ -20,6 +20,7 @@ export class AntecedentefamiliarPage implements OnInit {
     presion_corazon:false,
     diabete_corazon:false,
     muerte_prematura:false,
+    renal_insufficiency: false,
     ninguna:false
   }
   habilitar:boolean=true
@@ -60,6 +61,7 @@ export class AntecedentefamiliarPage implements OnInit {
       this.condicionPersona.presion_corazon=false;
       this.condicionPersona.diabete_corazon=false;
       this.condicionPersona.muerte_prematura=false;
+      this.condicionPersona.renal_insufficiency = false;
         if(this.condicionPersona.ninguna){
           this.habilitar = false
         }else{
