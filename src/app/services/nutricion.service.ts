@@ -54,18 +54,19 @@ export class NutricionService {
       })
 
   }
-  
+  // comida no deseada
   foodNoDeseados(valor){
-    return new Promise( (resolve, reject)  => {
+    return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.service.cargarToken(),
-        'Content-Type':'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
+        'Accept':'application/x-www-form-urlencoded',
+        'Content-Type':'application/json',
       })
 
       const data = {
         foods : valor
       }
-   
+
       this.http.post(`${URL}/auth/foods-not-like`,data,{headers})
           .subscribe(resp=>{
             console.log(resp)
