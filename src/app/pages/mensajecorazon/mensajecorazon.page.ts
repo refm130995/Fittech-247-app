@@ -15,8 +15,7 @@ export class MensajecorazonPage implements OnInit {
 
   ngOnInit() {
     console.log(this.ApiService.latidocorazon)
-      this.ApiService.latidocorazon = 6
-    
+
     if(this.ApiService.latidocorazon === 6){
       this.titulo = "¡Felicidades!",
       this.mensaje ="Tú frecuencia cardiaca está entre las mejores de acuerdo a tu edad y género."

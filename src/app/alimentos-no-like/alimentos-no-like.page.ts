@@ -13,7 +13,6 @@ export class AlimentosNoLikePage implements OnInit {
   grupoAlimentos = new Set()
   //array comun
   foods:any = []
-
   constructor(private service: NutricionService,
               private utilities: MensajesService) { }
 
