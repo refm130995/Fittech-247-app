@@ -12,7 +12,7 @@ export class AlimentosNoLikePage implements OnInit {
   // este tipo de Datos no permite valores duplicado / es un array de tipo set
   grupoAlimentos = new Set()
   //array comun
-  grupoAlimentos2:any = []
+  foods:any = []
 
   constructor(private service: NutricionService,
               private utilities: MensajesService) { }
@@ -32,17 +32,15 @@ export class AlimentosNoLikePage implements OnInit {
   }
 
   agrupar(status:boolean,id:any){
-    console.log(status)
-    console.log(id)
     // logica
      this.grupoAlimentos.add(id)
   }
   
   finalizar(){
     // destructuracion del array de set a un array normal
-    this.grupoAlimentos2 = [...this.grupoAlimentos]
-    console.log("array normal",this.grupoAlimentos2)
-    
+    this.foods = [...this.grupoAlimentos]
+    console.log("array normal",this.foods)
+    this.service.foodNoDeseados(this.foods)
   }
 
 }

@@ -18,12 +18,13 @@
 .videoReproductor {
   object-fit: cover;
   width: 100%;
-  height: 13em;
+  height: 15em;
 }
 
 @media (max-width: 375px) {
   .videoReproductor {
-    height: 9em;
+    height: auto;
+    object-fit: fill;
   }
 }
 
@@ -40,8 +41,8 @@
   color: white;
   padding: 0px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 

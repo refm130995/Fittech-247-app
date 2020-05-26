@@ -28,8 +28,15 @@ export class EstaturaComponent implements OnInit {
   ngOnInit() {
 
   }
-  
+    limpiar(){
+     this.estatura = null
+    }
+    limpiar2(){
+      this.peso_ = null
+     }
+     
     valor(numero){
+      console.log("valor",numero.target.value)
       if(this.height == 'Cm'){
         if(!isNaN(numero.target.value) && numero.target.value.length > 2){
           console.log(numero.target.value);

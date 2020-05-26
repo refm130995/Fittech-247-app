@@ -10,7 +10,7 @@ const URL  = environment.url
 export class NutricionService {
 
   constructor(private http: HttpClient, private service: ApiFitechService) { }
-
+  // nivel de grasa
   grease(valor){
     return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
@@ -30,7 +30,7 @@ export class NutricionService {
       })
 
   }
-
+  // tipo de alimento
   updateTypeFood(valor){
     return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
@@ -54,19 +54,19 @@ export class NutricionService {
       })
 
   }
-
+  
   foodNoDeseados(valor){
     return new Promise( (resolve, reject)  => {
       const headers = new HttpHeaders({
         'Authorization': 'Bearer ' + this.service.cargarToken(),
-        'Content-Type':'application/json',
+        'Content-Type':'application/x-www-form-urlencoded',
       })
 
       const data = {
-        valor : valor
+        foods : valor
       }
-      
-      this.http.post(`${URL}/auth/routine`,data,{headers})
+   
+      this.http.post(`${URL}/auth/foods-not-like`,data,{headers})
           .subscribe(resp=>{
             console.log(resp)
             resolve(true)
@@ -76,7 +76,7 @@ export class NutricionService {
       })
 
   }
-
+  // listado de alimentos
   getFoods(){
     return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
@@ -85,7 +85,7 @@ export class NutricionService {
       })
       // si no se envia un dato no  funciona la ruta
       const data = {
-        valor : "hola"
+        valor : "ignorar"
       }      
       this.http.post(`http://fittech247.com/fittech/api/auth/foods`,data,{headers})
           .subscribe(resp=>{

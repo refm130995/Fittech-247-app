@@ -193,7 +193,7 @@ export class ApiFitechService {
         this.http.post(`${URL}/auth/login`,data)
         .subscribe(resp=>{
             //this.token =  resp['access_token']
-            console.log(resp)
+            console.log(resp['access_token'])
     
 
             // ACA LOS ENVIO A GUARDAR AL STORAGE
