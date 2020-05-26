@@ -18,10 +18,10 @@
 .videoReproductor {
   object-fit: cover;
   width: 100%;
-  height: 15em;
+  height: 16em;
 }
 
-@media (max-width: 375px) {
+@media (max-height: 640px) {
   .videoReproductor {
     height: auto;
     object-fit: fill;
@@ -51,7 +51,7 @@
   text-align: center;
 }
 
-@media (max-width: 375px) {
+@media (max-height: 640px) {
   .contenedor-cabezera p {
     font-size: 1rem;
     margin-left: 5px;

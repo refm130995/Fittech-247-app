@@ -18,12 +18,13 @@
 .videoReproductor {
   object-fit: cover;
   width: 100%;
-  height: 13em;
+  height: 16em;
 }
 
-@media (max-width: 375px) {
+@media (max-height: 640px) {
   .videoReproductor {
-    height: 9em;
+    height: auto;
+    object-fit: fill;
   }
 }
 

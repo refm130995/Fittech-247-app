@@ -238,7 +238,7 @@ export class RutinaEntrenamientoPage implements OnInit {
   // mensaje de reanudar
   async alerta() {
     const alert = await this.alertController.create({
-      header: 'la Sesión ha sido pausada',
+      header: 'La sesión ha sido pausada',
       cssClass: 'customMensaje1',
       buttons: [
         {
