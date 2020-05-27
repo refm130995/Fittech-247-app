@@ -127,6 +127,22 @@
     </ion-row>
   </ion-grid>  
   <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col size="12" class="text-percent">
+       <ng-container *ngIf="contador == '1'">
+          8% a 10% PORCENTAJE GRASO
+       </ng-container>
+       <ng-container *ngIf="contador == '2'">
+        11% a 13% PORCENTAJE GRASO
+     </ng-container>
+     <ng-container *ngIf="contador == '3'">
+      17% a 24% PORCENTAJE GRASO
+   </ng-container>
+   <ng-container *ngIf="contador == '4'">
+    +40% PORCENTAJE GRASO
+ </ng-container>
+      </ion-col>
+    </ion-row>
     <ion-row >
       <ion-col  size="12">   
 

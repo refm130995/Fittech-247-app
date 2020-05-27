@@ -103,6 +103,7 @@ export class PorcentajegrasaPage implements OnInit {
   grasa:number
   validar:any
   genero:number
+  index: number;
   constructor( private ruta: NavController,
               private service: NutricionService,
               private utilities: MensajesService,
@@ -111,7 +112,7 @@ export class PorcentajegrasaPage implements OnInit {
 
   async ngOnInit() {
     const valor = await this.apiService.cargarNombreUsuario()
-    this.genero = valor['gender']
+    this.genero = valor['gender'];
     console.log("genero",this.genero)
   }
   siguiente(){
@@ -138,6 +139,11 @@ export class PorcentajegrasaPage implements OnInit {
   atras(){
     this.contador--;
     this.slides.slidePrev();
+  }
+
+  async getPercent(){
+    this.index = await this.slides.getActiveIndex();
+    return this.index ;
   }
 
   nivelGrasa(){
