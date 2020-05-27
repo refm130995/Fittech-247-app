@@ -170,9 +170,7 @@ export class BateriacalentamientohomePage  {
     this.video2 = `http://fittech247.com/fittech/videos/${this.data['ejercicios Calentamiento'][this.actual].cod}/${this.data['ejercicios Calentamiento'][this.actual].url}`;
     this.timeLeft = 5;
     this.tiemposegundo = setInterval(() => {
-
-
-      if (this.timeLeft >= 1 && this.timeLeft < 10) {
+      if (this.timeLeft >= 1) {
         this.playSonido()
       }
       if (this.timeLeft > 0) {
@@ -258,6 +256,16 @@ export class BateriacalentamientohomePage  {
       await alert.present();
     }
   
+  // cierra la subcripcion
+  ionViewWillLeave(){
+    console.log("cerrar la supcripcion")
+    clearInterval(this.tiemposegundo)
+    if(this.audio){
+      this.audio.pause();
+    }
+    this.ReanudarAPP.unsubscribe();
+    this.pausarApp.unsubscribe();
+  }
 
   
 }
