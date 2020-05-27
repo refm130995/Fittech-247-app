@@ -112,7 +112,7 @@ export class PorcentajegrasaPage implements OnInit {
 
   async ngOnInit() {
     const valor = await this.apiService.cargarNombreUsuario()
-    this.genero = valor['gender'];
+    this.genero = /* valor['gender'] */ 0;
     console.log("genero",this.genero)
   }
   siguiente(){
