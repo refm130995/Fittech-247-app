@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NutricionService } from '../services/nutricion.service';
 import { MensajesService } from '../services/mensajes.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-alimentos-no-like',
@@ -14,6 +15,7 @@ export class AlimentosNoLikePage implements OnInit {
   //array comun
   foods:any = []
   constructor(private service: NutricionService,
+              private ruta: NavController,
               private utilities: MensajesService) { }
 
    ngOnInit() {
@@ -40,6 +42,10 @@ export class AlimentosNoLikePage implements OnInit {
     this.foods = [...this.grupoAlimentos]
     console.log("array normal",this.foods)
     this.service.foodNoDeseados(this.foods)
+  }
+
+  atras(){
+    this.ruta.pop();
   }
 
 }

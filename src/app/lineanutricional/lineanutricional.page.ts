@@ -84,4 +84,7 @@ export class LineanutricionalPage implements OnInit {
       })
     }
 
+    atras(){
+      this.ruta.pop();
+    }
 }

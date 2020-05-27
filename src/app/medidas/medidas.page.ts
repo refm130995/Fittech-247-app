@@ -17,4 +17,8 @@ export class MedidasPage implements OnInit {
     this.ruta.navigateForward(url);
   }
 
+  atras(){
+    this.ruta.pop();
+  }
+
 }

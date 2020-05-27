@@ -162,4 +162,8 @@ export class PorcentajegrasaPage implements OnInit {
     await loading.present();
   }
 
+  devolver(){
+    this.ruta.pop();
+  }
+
 }

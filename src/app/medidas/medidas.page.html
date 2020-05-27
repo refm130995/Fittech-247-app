@@ -1,13 +1,15 @@
+<ion-buttons slot="start">
+  <ion-fab vertical="center" style="margin-top:-4.75rem;"  horizontal="start" slot="fixed" class="animated fadeInUp delay-2s" >
+   <ion-fab-button style="--background:#ef4044" (click)="atras()" size="small">
+     <ion-icon name="arrow-back-outline"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+</ion-buttons>
 
 <ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <app-back-btn></app-back-btn>
-    </ion-buttons>
     <div class="cabezera">
       <img src="assets/img/logo-app.png" class="logo">
     </div>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
