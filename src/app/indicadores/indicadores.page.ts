@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-indicadores',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndicadoresPage implements OnInit {
     dato:any
-  constructor() { }
+  constructor(private ruta: NavController,) { }
 
   ngOnInit() {
     this.dato = "254"
+  }
+
+  atras(){
+    this.ruta.pop();
   }
 
 }
