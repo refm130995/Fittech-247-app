@@ -219,7 +219,8 @@ const routes: Routes = [
   {
     path: 'estiramientos',
     loadChildren: () => import('./estiramientos/estiramientos.module').then( m => m.EstiramientosPageModule)
-  },  {
+  },
+  {
     path: 'rutina-entrenamiento',
     loadChildren: () => import('./rutina-entrenamiento/rutina-entrenamiento.module').then( m => m.RutinaEntrenamientoPageModule)
   },
@@ -246,6 +247,10 @@ const routes: Routes = [
   {
     path: 'bateria-alimento',
     loadChildren: () => import('./bateria-alimento/bateria-alimento.module').then( m => m.BateriaAlimentoPageModule)
+  },
+  {
+    path: 'alimentos-seleccion/:id',
+    loadChildren: () => import('./alimentos-seleccion/alimentos-seleccion.module').then( m => m.AlimentosSeleccionPageModule)
   },
 
 

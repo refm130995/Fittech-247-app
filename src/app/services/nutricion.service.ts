@@ -97,18 +97,20 @@ export class NutricionService {
       })
   }
 
-  cal_tmb(){
-    return new Promise( (resolve, reject)  => {
+  // calcular el menu del usuario
+  calculate_menu(){
+    return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.service.cargarToken(),
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
         'Content-Type':'application/json',
-      })
-
-      //      this.http.get(`${URL}/auth/routine`,{headers})
-      
-      this.http.get(`${URL}/auth/routine`,{headers})
+      })      
+      // si no se envia un dato no  funciona la ruta
+      const data = {
+        valor : "ignorar"
+      }    
+      this.http.post(`${URL}/auth/calculate_menu`,data,{headers})
           .subscribe(resp=>{
-          
+            console.log(resp)
             resolve(true)
           },err=>{
             reject(false)
@@ -117,25 +119,72 @@ export class NutricionService {
 
   }
 
-  menu(){
-    return new Promise( (resolve, reject)  => {
+  //Calculos de indicadores
+  indicadores(){
+    return new Promise( async (resolve, reject)  => {
       const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + this.service.cargarToken(),
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
         'Content-Type':'application/json',
-      })
-
-      //      this.http.get(`${URL}/auth/routine`,{headers})
-      
-      this.http.get(`${URL}/auth/routine`,{headers})
+      })      
+      // si no se envia un dato no  funciona la ruta
+      const data = {
+        valor : "ignorar"
+      }    
+      this.http.post(`${URL}/auth/indicators`,data,{headers})
           .subscribe(resp=>{
-          
-            resolve(true)
+            resolve(resp)
           },err=>{
             reject(false)
           })
       })
 
   }
+
+  // listado de nutriente necesario  para consumir del usuario / esto va en resumen
+  getResumes(){
+    return new Promise( async (resolve, reject)  => {
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
+        'Content-Type':'application/json',
+      })
+      // si no se envia un dato no  funciona la ruta
+      const data = {
+        valor : "ignorar"
+      }      
+      this.http.post(`${URL}/auth/resume-food`,data,{headers})
+          .subscribe(resp=>{
+            resolve(resp)
+          },err=>{
+            reject(false)
+          })
+      })
+  }
+
+  // TRAE EL MENU DEL USUARIO DESAYUNO,ALMUERZO,CENA PARA ESCOGER
+  menu(comida:any){
+    return new Promise( async (resolve, reject)  => {
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + await this.service.cargarToken(),
+        'Content-Type':'application/json',
+      })
+
+      // si no se envia un dato no  funciona la ruta
+      const data = {
+        type_food : comida
+      }   
+      
+      this.http.post(`${URL}/auth/menu`,data,{headers})
+          .subscribe(resp=>{
+            resolve(resp)
+          },err=>{
+            reject(false)
+          })
+      })
+
+  }
+
+
+
 
   storemenu(){
     return new Promise( (resolve, reject)  => {
@@ -156,4 +205,6 @@ export class NutricionService {
       })
 
   }
+
+
 }

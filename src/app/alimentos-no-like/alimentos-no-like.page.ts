@@ -47,7 +47,15 @@ export class AlimentosNoLikePage implements OnInit {
     const validar = await this.service.foodNoDeseados(this.foods)
     this.loadingController.dismiss()
        if(validar){
-        this.ruta.navigateForward(['/indicadores'])
+          // esperar
+          this.presentLoading2()
+         const validar2 = await this.service.calculate_menu()
+         this.loadingController.dismiss()
+           if(validar2){
+              this.ruta.navigateForward(['/indicadores'])
+           }else{
+            this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
+           }
        }else{
         this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
        }
@@ -65,6 +73,13 @@ export class AlimentosNoLikePage implements OnInit {
      async presentLoading() {
       const loading = await this.loadingController.create({
         message: 'Por favor espere...',
+      });
+      await loading.present();
+    }
+
+    async presentLoading2() {
+      const loading = await this.loadingController.create({
+        message: 'Estamos calculando su menú',
       });
       await loading.present();
     }

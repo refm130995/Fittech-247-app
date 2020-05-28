@@ -1,10 +1,3 @@
-<ion-buttons slot="start">
-  <ion-fab vertical="center" style="margin-top:-4.75rem;"  horizontal="start" slot="fixed" class="animated fadeInUp delay-2s" >
-   <ion-fab-button style="--background:#ef4044" (click)="atras()" size="small">
-     <ion-icon name="arrow-back-outline"></ion-icon>
-   </ion-fab-button>
- </ion-fab>
-</ion-buttons>
 
 <ion-header [translucent]="true" class="ion-no-border">
   <div class="cabezera">
@@ -42,7 +35,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size="6">   
+      <ion-col size="6" (click)="seleccion('Desayuno')">   
          <div class="ContenedorTarjeta">
             <div class="ContenedorTarjetaTitulo">
               Desayuno
@@ -53,7 +46,7 @@
             </div>
          </div>
       </ion-col>
-      <ion-col size="6">   
+      <ion-col size="6" (click)="seleccion('Almuerzo')">   
         <div class="ContenedorTarjeta">
            <div class="ContenedorTarjetaTitulo">
             Almuerzo
@@ -64,7 +57,7 @@
            </div>
         </div>
      </ion-col>
-     <ion-col size="6">   
+     <ion-col size="6" (click)="seleccion('Snack')">   
       <div class="ContenedorTarjeta">
          <div class="ContenedorTarjetaTitulo">
           Snack
@@ -75,7 +68,7 @@
          </div>
       </div>
      </ion-col>
-     <ion-col size="6">   
+     <ion-col size="6" (click)="seleccion('Cena')">   
       <div class="ContenedorTarjeta">
          <div class="ContenedorTarjetaTitulo">
           Cena

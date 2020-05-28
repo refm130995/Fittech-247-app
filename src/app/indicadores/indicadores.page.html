@@ -23,28 +23,28 @@
     <ion-col size="12">
       <ion-item lines="none">
          <p class="tituloindicador">IMC  =</p>
-        <ion-label class="tamanoindicador" >{{dato}}</ion-label>
+        <ion-label class="tamanoindicador" *ngIf="dato">{{dato.imc}}</ion-label>
       </ion-item>
     </ion-col>
 
     <ion-col size="12">
       <ion-item lines="none">
          <p class="tituloindicador">ICA  =</p>
-        <ion-label class="tamanoindicador">{{dato}}</ion-label>
+        <ion-label class="tamanoindicador" *ngIf="dato">{{dato.ica}}</ion-label>
       </ion-item>
     </ion-col>
 
     <ion-col size="12">
       <ion-item lines="none">
          <p class="tituloindicador">Perímetro de cintura =</p>
-        <ion-label class="tamanoindicador">{{dato}}</ion-label>
+        <ion-label class="tamanoindicador" *ngIf="dato">{{dato}}</ion-label>
       </ion-item>
     </ion-col>
 
     <ion-col size="12">
       <ion-item lines="none">
          <p class="tituloindicador">TBM  =</p>
-        <ion-label class="tamanoindicador">{{dato}}</ion-label>
+        <ion-label class="tamanoindicador" *ngIf="dato">{{dato.tmb}}</ion-label>
       </ion-item>
     </ion-col>
 
@@ -52,7 +52,7 @@
     <ion-col size="12">
       <ion-item lines="none">
          <p class="tituloindicador">Estrategia nutricional  =</p>
-        <ion-label class="tamanoindicador">{{dato}}</ion-label>
+        <ion-label class="tamanoindicador" *ngIf="dato">{{dato.Estrategia_N}}</ion-label>
       </ion-item>
     </ion-col>
 
