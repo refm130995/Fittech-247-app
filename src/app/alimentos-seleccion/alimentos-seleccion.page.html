@@ -11,6 +11,18 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <p>En construcion</p>
+    
+  <ion-item *ngFor="let alimento of alimentos">
+    <ion-label class="ion-text-wrap">
+      {{ucFirst(alimento.name)}}
+    </ion-label>
+    <ion-buttons slot="end">
+      <!-- <ion-button color="danger">+</ion-button>
+      <p>0</p>
+      <ion-button color="danger">-</ion-button> -->
+    </ion-buttons>  
+  </ion-item>
+
+
 </ion-content>
 

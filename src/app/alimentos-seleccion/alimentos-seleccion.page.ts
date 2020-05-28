@@ -10,6 +10,8 @@ import { MensajesService } from '../services/mensajes.service';
 })
 export class AlimentosSeleccionPage implements OnInit {
   dataRecibida:any
+  alimentos:any
+  datosUsuario:any
 
   constructor(private capturar:ActivatedRoute,
               private service: NutricionService,
@@ -39,8 +41,15 @@ export class AlimentosSeleccionPage implements OnInit {
       if(valor == false ){
       this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
       }else{
-        console.log("que recibo" , valor)
+        console.log(valor)
+        this.alimentos = valor['Foods']
+        this.datosUsuario = valor['Menu']
       }
   }
+
+  ucFirst(str) {
+    /*   str = str.replace(/ /g, "."); */
+         return str.substring(0, 1).toUpperCase() + str.substring(1); 
+     }
 
 }
