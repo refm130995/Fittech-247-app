@@ -22,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import {WebView} from '@ionic-native/ionic-webview/ngx';
 
 var firebaseConfig = {
   apiKey: "AIzaSyC05iYDOCHztv5ujJBlVY05SO7WURpGtc0",
@@ -58,6 +59,8 @@ var firebaseConfig = {
     Facebook,
     StatusBar,
     SplashScreen,
+    Camera,
+    WebView,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

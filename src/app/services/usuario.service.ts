@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { ApiFitechService } from './api-fitech.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +49,7 @@ export class UsuarioService {
     legextension:false
   }
 
-  constructor() { }
+  constructor(private service: ApiFitechService, private http: HttpClient) { }
 
   genero(valor){
     this.datosPersonales.genero = valor
@@ -188,6 +191,27 @@ export class UsuarioService {
     if(valor === 5){
       this.selecionTestEjercicio.legextension = true
     }
+  }
+
+  measurement_record(record){
+      return new Promise( async (resolve, reject)  => {
+        const headers = new HttpHeaders({
+          'Authorization': 'Bearer ' + await this.service.cargarToken(),
+          'Content-Type':'application/json',
+        }) 
+        
+        let data:Observable<any> = this.http.post(`${URL}/auth/measurement_record`, record, {headers});
+
+        data.subscribe(resp=>{
+          resolve(resp)
+        },err=>{
+          reject(err)
+        })
+       
+        
+        })
+  
+    
   }
   
 
