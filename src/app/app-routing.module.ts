@@ -243,6 +243,10 @@ const routes: Routes = [
     path: 'alimentos-no-like',
     loadChildren: () => import('./alimentos-no-like/alimentos-no-like.module').then( m => m.AlimentosNoLikePageModule)
   },
+  {
+    path: 'bateria-alimento',
+    loadChildren: () => import('./bateria-alimento/bateria-alimento.module').then( m => m.BateriaAlimentoPageModule)
+  },
 
 
 ];

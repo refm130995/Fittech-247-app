@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
 })
 export class IndicadoresPage implements OnInit {
     dato:any
-  constructor(private ruta: NavController,) { }
+  constructor(private ruta: NavController) { }
 
   ngOnInit() {
     this.dato = "254"
@@ -16,6 +16,10 @@ export class IndicadoresPage implements OnInit {
 
   atras(){
     this.ruta.pop();
+  }
+
+  goTo(){
+    this.ruta.navigateForward(['/bateria-alimento'])
   }
 
 }

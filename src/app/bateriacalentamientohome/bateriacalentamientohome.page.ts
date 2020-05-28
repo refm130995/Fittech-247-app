@@ -127,6 +127,8 @@ export class BateriacalentamientohomePage  {
       clearInterval(this.tiemposegundo);
       this.timerDescanse();
       this.status = 'descanso';
+      //mandar el timmer de 5segundo
+      this.timeLeft = 5;
     } else {
       this.actual++;
       console.log('Actual', this.actual);
@@ -142,10 +144,14 @@ export class BateriacalentamientohomePage  {
         this.setValues();
         clearInterval(this.tiemposegundo);
         this.timerDescanse();
+        //mandar el timmer de 5segundo
+        this.timeLeft = 5;
         this.status = 'descanso';
       } else{
         clearInterval(this.tiemposegundo);
         this.timerDescanse();
+        //mandar el timmer de 5segundo
+        this.timeLeft = 5;
         this.status = 'descanso';
       }
     }
@@ -160,15 +166,18 @@ export class BateriacalentamientohomePage  {
       clearInterval(this.tiemposegundo);
       this.actual = this.actual - 1
       this.timerDescanse();
+      //mandar el timmer de 5segundo
+      this.timeLeft = 5;
       this.status = 'descanso';
     }
   }
 
   async timerDescanse() {
+
     this.zero = null
     // this.imagen = `http://fittech247.com/fittech/imagenes/${this.data['ejercicios Calentamiento'][this.actual].cod}/${this.data['ejercicios Calentamiento'][this.actual].id}.jpg`;
     this.video2 = `http://fittech247.com/fittech/videos/${this.data['ejercicios Calentamiento'][this.actual].cod}/${this.data['ejercicios Calentamiento'][this.actual].url}`;
-    this.timeLeft = 5;
+  
     this.tiemposegundo = setInterval(() => {
       if (this.timeLeft >= 1) {
         this.playSonido()
@@ -208,7 +217,11 @@ export class BateriacalentamientohomePage  {
             role: 'cancel',
             cssClass: 'cancelButton',
             handler: (blah) => {
-              this.playTimer();
+              if( this.status == 'descanso'){
+                this.timerDescanse()
+              }else{
+                this.playTimer()
+              }
             }
           }, {
             text: 'Finalizar',
@@ -236,7 +249,7 @@ export class BateriacalentamientohomePage  {
             cssClass: 'cancelButton',
             handler: (blah) => {
                if( this.status == 'descanso'){
-                 this.siguiente_()
+                  this.siguiente_()
                }else{
                  this.playTimer()
                }
