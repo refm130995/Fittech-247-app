@@ -117,10 +117,23 @@ ion-select{
     margin-bottom: 20px;
   }
 
-  ion-item {
-    --highlight-color-focused:var(--ion-color-danger, #f1453d);
-    --color-focused:var(--ion-color-danger, #f1453d);
+  .tituloindicador{
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
   }
-  .item-has-focus ion-label.ion-color {  
-    color: var(--ion-color-danger) !important;
+
+  .tamanoindicador{
+    font-size: 20px;
   }
+
+  // ion-item {
+  //   --highlight-color-focused:var(--ion-color-danger, #f1453d);
+  //   --color-focused:var(--ion-color-danger, #f1453d);
+  // }
+  // .item-has-focus ion-label.ion-color {  
+  //   color: var(--ion-color-danger) !important;
+  // }

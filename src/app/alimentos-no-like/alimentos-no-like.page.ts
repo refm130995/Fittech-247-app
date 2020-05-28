@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NutricionService } from '../services/nutricion.service';
 import { MensajesService } from '../services/mensajes.service';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-alimentos-no-like',
@@ -16,6 +16,7 @@ export class AlimentosNoLikePage implements OnInit {
   foods:any = []
   constructor(private service: NutricionService,
               private ruta: NavController,
+              public loadingController: LoadingController,
               private utilities: MensajesService) { }
 
    ngOnInit() {
@@ -37,15 +38,35 @@ export class AlimentosNoLikePage implements OnInit {
      this.grupoAlimentos.add(id)
   }
   
-  finalizar(){
+  async finalizar(){
     // destructuracion del array de set a un array normal
     this.foods = [...this.grupoAlimentos]
     console.log("array normal",this.foods)
-    this.service.foodNoDeseados(this.foods)
+    // esperar
+    this.presentLoading()
+    const validar = await this.service.foodNoDeseados(this.foods)
+    this.loadingController.dismiss()
+       if(validar){
+        this.ruta.navigateForward(['/indicadores'])
+       }else{
+        this.utilities.notificacionUsuario('Disculpe, Ha ocurrido un error', 'danger')
+       }
   }
 
   atras(){
     this.ruta.pop();
   }
+
+  ucFirst(str) {
+    /*   str = str.replace(/ /g, "."); */
+         return str.substring(0, 1).toUpperCase() + str.substring(1); 
+     }
+
+     async presentLoading() {
+      const loading = await this.loadingController.create({
+        message: 'Por favor espere...',
+      });
+      await loading.present();
+    }
 
 }

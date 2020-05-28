@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./indicadores.page.scss'],
 })
 export class IndicadoresPage implements OnInit {
-
+    dato:any
   constructor() { }
 
   ngOnInit() {
+    this.dato = "254"
   }
 
 }

@@ -148,17 +148,33 @@ export class PorcentajegrasaPage implements OnInit {
 
   nivelGrasa(){
     if(this.contador === 1){
-      this.grasa = 25
+      this.grasa = 3
     }
     if(this.contador === 2){
-      this.grasa = 50
+      this.grasa = 9
     }
     if(this.contador === 3){
-      this.grasa = 75
+      this.grasa = 13
     }
     if(this.contador === 4){
-      this.grasa = 100
+      this.grasa = 16
     }
+    if(this.contador === 5){
+      this.grasa = 21
+    }
+    if(this.contador === 6){
+      this.grasa = 26
+    }
+    if(this.contador === 7){
+      this.grasa = 31
+    }
+    if(this.contador === 8){
+      this.grasa = 40
+    }
+    if(this.contador === 9){
+      this.grasa = 45
+    }
+
   }
 
   async presentLoading() {

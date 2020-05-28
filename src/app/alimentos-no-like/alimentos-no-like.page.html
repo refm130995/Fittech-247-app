@@ -20,7 +20,7 @@
 
       <ion-list >
           <ion-item *ngFor="let item of alimentos">
-            <ion-label class="titulopeque2">{{item.name}}</ion-label>
+            <ion-label class="titulopeque2">{{ucFirst(item.name)}}</ion-label>
             <ion-toggle color="dark" slot="start" name="{{item.id}}" (ionChange)="agrupar($event.target.checked, item.id)"></ion-toggle>
           </ion-item>
         </ion-list>
