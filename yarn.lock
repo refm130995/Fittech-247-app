@@ -1203,6 +1203,13 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
+"@ionic-native/camera@^5.26.0":
+  version "5.26.0"
+  resolved "https://registry.npm.taobao.org/@ionic-native/camera/download/@ionic-native/camera-5.26.0.tgz#af174247751f020e47f93c41ed862dd6b0f8c40d"
+  integrity sha1-rxdCR3UfAg5H+TxB7YYt1rD4xA0=
+  dependencies:
+    "@types/cordova" latest
+
 "@ionic-native/core@^5.0.0":
   version "5.23.0"
   resolved "https://registry.npm.taobao.org/@ionic-native/core/download/@ionic-native/core-5.23.0.tgz#69bb05a5491c94c1f8656246a237d4caa2e41d41"
@@ -1235,6 +1242,13 @@
   version "5.23.0"
   resolved "https://registry.npm.taobao.org/@ionic-native/google-plus/download/@ionic-native/google-plus-5.23.0.tgz#3fa5810b7eee142bd27d9b515eb8f4559a3b9ec9"
   integrity sha1-P6WBC37uFCvSfZtRXrj0VZo7nsk=
+  dependencies:
+    "@types/cordova" latest
+
+"@ionic-native/ionic-webview@^5.26.0":
+  version "5.26.0"
+  resolved "https://registry.npm.taobao.org/@ionic-native/ionic-webview/download/@ionic-native/ionic-webview-5.26.0.tgz#8494adeb81f0210907eb04dee257fde71f280c75"
+  integrity sha1-hJSt64HwIQkH6wTe4lf95x8oDHU=
   dependencies:
     "@types/cordova" latest
 
@@ -2915,6 +2929,11 @@ cordova-common@^2.2.0:
     shelljs "^0.5.3"
     underscore "^1.8.3"
     unorm "^1.3.3"
+
+cordova-plugin-camera@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.npm.taobao.org/cordova-plugin-camera/download/cordova-plugin-camera-4.1.0.tgz#6474a3e080c4662aa00fd7425705d301c693ddc0"
+  integrity sha1-ZHSj4IDEZiqgD9dCVwXTAcaT3cA=
 
 cordova-plugin-device@^2.0.2:
   version "2.0.3"
